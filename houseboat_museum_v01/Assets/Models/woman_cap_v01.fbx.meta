@@ -1,0 +1,103 @@
+- !<AssetImportMetadata/6faa05e1-f847-4f52-aafc-be270e61569a>
+  ImportedAssetIds:
+    5246aa5a2bdcc35f: !<reference> 0265fb76-f7ee-46bc-b817-6c6d06f077d1
+    7a0dd5cd69df73fa: !<reference> f482d511-85ed-4aa1-8752-9e7b6700be1c
+    Meshes/woman_cap_v01: !<reference> 104c94cd-ae97-40c9-bdb6-4b47512e278c
+    Scene: !<reference> 5e7dd398-06b1-48cc-ac77-4582ae5ad4ec
+    ba5f01f7ee792f1c: !<reference> c6a66b51-6a2d-4f10-9331-fbce86836ccb
+  ImporterName: FbxImporter
+  PrimaryAsset: !<reference> 5e7dd398-06b1-48cc-ac77-4582ae5ad4ec
+  PackageType: LegacyPackage
+  PackagePolicy: CanBeUnpacked
+  AssetDataMap:
+    Scene: !<own> 738e90a6-8064-4006-a724-bc9024b3c36e
+  DependentFiles:
+    []
+  ImporterSettings: !<FbxImporterSettings/986b0923-adbb-4cc4-a864-2fde6bf58a9f>
+    UseLegacyImporter: false
+    WithMaterials: true
+    NamingConvention: ByCategorySanitize
+    PersistentIdGenerationAlgorithm: DescriptorBased
+    AnimationCurveOptimization: true
+    CustomAnimationSamplingRate: 30.000000
+    ImportVertexColor: true
+    ImportTangentsAndBinormals: true
+    RegenerateTangentsAndBinormals: false
+    RegenerateNormalsForSkinnedMeshes: true
+    ImportBlendShapeAnimation: true
+    ImportVertexAnimation: true
+    GeneratePivots: true
+    TriangulateNURBS: true
+    UseLegacyFbxLoader: false
+  CompressionSettings: !<ComplexCompressionSettings/734cb90b-a8a6-4b42-bc3b-43e33609e51c>
+    Presets:
+      None Compression: !<SingleCompressionSettings/82508aeb-6901-4fd1-bc2d-87a2e4aaf6f0>
+        CompressorName: None
+        CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+    ExtensionMappings:
+      mesh: None Compression
+    Overrides:
+      {}
+- !<SceneObject/3316aabd-b67a-420f-a464-dc44b15b2553>
+  PrefabRemaps:
+    []
+  Name: woman_cap_v01
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: -0.012086, y: 3.593878, z: 0.306926}
+    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> b1d5fc0b-17f7-49a2-a6dc-fd967ee25143
+- !<SceneObject/40bdf112-364e-4a0e-baa9-76b959f5a142>
+  PrefabRemaps:
+    []
+  Name: woman_cap_v01
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    - !<own> 3316aabd-b67a-420f-a464-dc44b15b2553
+  Components:
+    []
+- !<ObjectPrefabAssetData/738e90a6-8064-4006-a724-bc9024b3c36e>
+  SourceRemaps:
+    - 0265fb76-f7ee-46bc-b817-6c6d06f077d1: 3316aabd-b67a-420f-a464-dc44b15b2553
+    - 5e7dd398-06b1-48cc-ac77-4582ae5ad4ec: a8e66cb4-af66-45aa-9a87-e8c85dce48a1
+    - c6a66b51-6a2d-4f10-9331-fbce86836ccb: b1d5fc0b-17f7-49a2-a6dc-fd967ee25143
+    - f482d511-85ed-4aa1-8752-9e7b6700be1c: 40bdf112-364e-4a0e-baa9-76b959f5a142
+  SourceState: !<own> a8e66cb4-af66-45aa-9a87-e8c85dce48a1
+- !<ObjectPrefab/a8e66cb4-af66-45aa-9a87-e8c85dce48a1>
+  PackagePath: ""
+  objects:
+    - !<own> 40bdf112-364e-4a0e-baa9-76b959f5a142
+  LazyLoading: false
+  RetainAssets: true
+- !<RenderMeshVisual/b1d5fc0b-17f7-49a2-a6dc-fd967ee25143>
+  PrefabRemaps:
+    []
+  Name: component_0
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    []
+  Mesh: !<reference> 104c94cd-ae97-40c9-bdb6-4b47512e278c
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}

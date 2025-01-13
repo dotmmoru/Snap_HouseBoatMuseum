@@ -1,0 +1,33 @@
+CollapsedEntities:
+  type: stringset
+  value:
+    size: 27
+    values:
+      - Materials
+      - Materials/Man Hat.mat
+      - Materials/Matte Shadow.mat
+      - Materials/Occluder.mat
+      - Materials/Woman Hat.mat
+      - Models
+      - Models/Head Mesh.facemesh
+      - Models/man_cap_v02.fbx
+      - Models/man_cap_v02.fbx/Meshes
+      - Models/man_cap_v02.fbx/Meshes/man_cap_v02
+      - Models/man_cap_v02.fbx/man_cap_v02
+      - Models/woman_cap_v01.fbx
+      - Models/woman_cap_v01.fbx/Meshes
+      - Models/woman_cap_v01.fbx/Meshes/woman_cap_v01
+      - Models/woman_cap_v01.fbx/woman_cap_v01
+      - RTs
+      - Scripts/AccessoriesController.js
+      - Shaders
+      - Shaders/matte_shadow.ss_graph
+      - Shaders/occluder.ss_graph
+      - Shaders/pbr.ss_graph
+      - Textures/hat_man_base_v01.jpg
+      - Textures/hat_man_nrm_v01.jpg
+      - Textures/hat_man_params_v01.jpg
+      - Textures/woman_cap_base_v01.png
+      - Textures/woman_cap_nrm_v01.jpg
+      - Textures/woman_cap_params_v01.jpg
+  options: 4

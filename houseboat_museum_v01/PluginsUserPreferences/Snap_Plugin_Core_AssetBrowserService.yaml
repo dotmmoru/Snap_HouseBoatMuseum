@@ -1,0 +1,10 @@
+ExternalSources:
+  type: "std::map<class Es::Uuid,class Es::Path,struct std::less<class Es::Uuid>,class std::allocator<struct std::pair<class Es::Uuid const ,class Es::Path> > >"
+  value:
+    - 0756c26f-eab0-4377-a6b7-e3fbb50df98f: "D:/Projects/WhoAR/Dutch_Clothes/textures/man_hat/out/hat_man_params_v01.jpg"
+    - 14595ed9-ea8b-4475-86e6-fb4594560784: "D:/Projects/WhoAR/Dutch_Clothes/textures/woman_hat/sbs/out/woman_cap_params_v01.jpg"
+    - 312a6c10-c47c-4655-a095-bca7f88dda7a: "D:/Projects/WhoAR/Dutch_Clothes/textures/woman_hat/sbs/out/woman_cap_nrm_v01.jpg"
+    - 5315def7-20f6-41c1-9157-fb71ae99e0f1: "D:/Projects/WhoAR/Dutch_Clothes/textures/man_hat/out/hat_man_nrm_v01.jpg"
+    - 62689fbe-2958-4976-ac43-9c411455f91a: "D:/Projects/WhoAR/Dutch_Clothes/textures/man_hat/out/hat_man_base_v01.jpg"
+    - 8dbdd3b6-d5f7-4935-ac86-12b69d4f8ea5: "D:/Downloads/woman_cap_base_v01.png"
+  options: 4

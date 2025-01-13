@@ -1,0 +1,40 @@
+- !<AssetImportMetadata/62020890-cbf9-48a9-ae7d-fb86d7cd54f2>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> 7aa31f70-1c41-4ed4-be18-e6a6f0ef68af
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> 7aa31f70-1c41-4ed4-be18-e6a6f0ef68af
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  AssetDataMap:
+    JavaScriptAsset: !<own> 6ba4f500-9888-463f-98a0-23a10a93b232
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings/3c9551d0-abe3-4ed4-815e-03d23a471039>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/6ba4f500-9888-463f-98a0-23a10a93b232>
+  SvgIcon: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 00000000-0000-0000-0000-000000000000
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    headPin0: false
+    headPin1: false
+    manCap: false
+    womanCap: false
+  ScriptTypesHidden:
+    {}
+  DefaultScriptInputs:
+    - headPin0: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      headPin1: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      manCap: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      womanCap: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
