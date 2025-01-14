@@ -1,7 +1,7 @@
 /**
  * @module Built-In
- * @version 5.3.0
- * For Snapchat Version: 13.15
+ * @version 5.4.0
+ * For Snapchat Version: 13.20
 */
 interface ComponentNameMap {
     "AnimationPlayer": AnimationPlayer;
@@ -1556,6 +1556,23 @@ declare enum BlendMode {
     Max,
     PremultipliedAlphaHardware,
     PremultipliedAlphaAuto
+}
+
+/**
+* @wearableOnly
+*/
+declare class Blob extends ScriptObject {
+    constructor()
+    
+    bytes(): any
+    
+    text(): any
+    
+    /**
+    * @readonly
+    */
+    size: number
+    
 }
 
 /**
@@ -5531,6 +5548,21 @@ declare abstract class GaussianSplattingVisual extends MaterialMeshVisual {
     protected constructor()
     
     /**
+    * Returns whether the visual is currently playing.
+    */
+    isPlaying(): boolean
+    
+    /**
+    * Pauses the visual.
+    */
+    pause(): void
+    
+    /**
+    * Plays the visual.
+    */
+    play(): void
+    
+    /**
     * The current frame of the Gaussian Splat being rendered.
     */
     activeFrame: number
@@ -5539,6 +5571,16 @@ declare abstract class GaussianSplattingVisual extends MaterialMeshVisual {
     * The asset to be rendered.
     */
     asset: GaussianSplattingAsset
+    
+    /**
+    * Whether the visual was set to automatically play.
+    */
+    autoPlay: boolean
+    
+    /**
+    * Denotes how many key frames this visual is sampled at.
+    */
+    fps: number
     
 }
 
@@ -10049,7 +10091,7 @@ declare namespace MotionController {
 
 * @wearableOnly
 */
-declare abstract class MotionControllerModule extends ScriptObject {
+declare abstract class MotionControllerModule extends Asset {
     
     protected constructor()
     
@@ -10346,6 +10388,17 @@ declare abstract class ObjectTracking3D extends Component {
     * Index of the object to track, starting at 0. Useful when tracking multiple instances of the same type of object.
     */
     objectIndex: number
+    
+    /**
+    * The data provided by the tracker on this component. 
+    
+    * @see {@link SpectaclesHandSpecificData}
+    
+    * @readonly
+    
+    * @wearableOnly
+    */
+    objectSpecificData: ObjectSpecificData
     
     /**
     * Function called when tracking is lost.
@@ -11991,6 +12044,8 @@ declare abstract class RemoteReferenceAsset extends Asset {
 * A http request which can be sent using the `RemoteServiceModule`.
 
 * @wearableOnly
+
+* @CameraKit
 */
 declare abstract class RemoteServiceHttpRequest extends ScriptObject {
     
@@ -12037,6 +12092,8 @@ declare namespace RemoteServiceHttpRequest {
     * Create a new http request.
     
     * @wearableOnly
+    
+    * @CameraKit
     */
     export function create(): RemoteServiceHttpRequest
     
@@ -12048,6 +12105,8 @@ declare namespace RemoteServiceHttpRequest {
     * The http method which should be used to send this http request.
     
     * @wearableOnly
+    
+    * @CameraKit
     */
     enum HttpRequestMethod {
         /**
@@ -12074,6 +12133,8 @@ declare namespace RemoteServiceHttpRequest {
 * The response returned by a `RemoteServiceHttpRequest` call.
 
 * @wearableOnly
+
+* @CameraKit
 */
 declare abstract class RemoteServiceHttpResponse extends ScriptObject {
     
@@ -12126,6 +12187,11 @@ declare abstract class RemoteServiceHttpResponse extends ScriptObject {
 declare abstract class RemoteServiceModule extends Asset {
     
     protected constructor()
+    
+    /**
+    * @wearableOnly
+    */
+    createWebSocket(url: string): WebSocket
     
     /**
     * This function will create a new instance of a webview with the specified options. Once it has been created onSuccess will be invoked which returns the {@link Texture} instance of the WebView for rendering which contains a reference to {@link WebPageTextureProvider} through the `Control` property. WebPageTextureProvider can be used for sending events and actions to the WebView. In the event of an error, the `onError` callback is invoked with the error message. 
@@ -12206,6 +12272,8 @@ declare abstract class RemoteServiceModule extends Asset {
     * Get a `DynamicResource` to be used with `RemoteMediaModule` from `mediaUrl`.
     
     * @wearableOnly
+    
+    * @CameraKit
     */
     makeResourceFromUrl(mediaUrl: string): DynamicResource
     
@@ -12215,8 +12283,12 @@ declare abstract class RemoteServiceModule extends Asset {
     * Perform an http request described by `RemoteServiceHttpRequest`.
     
     * @wearableOnly
+    
+    * @CameraKit
     */
     performHttpRequest(requestOptions: RemoteServiceHttpRequest, onHttpResponse: (response: RemoteServiceHttpResponse) => void): void
+    
+    subscribeApiRequest(request: RemoteApiRequest, onApiResponse: (response: RemoteApiResponse) => void): string
     
 }
 declare namespace RemoteServiceModule {
@@ -13659,6 +13731,15 @@ declare abstract class SpatialAudio extends ScriptObject {
 }
 
 /**
+* @wearableOnly
+*/
+declare abstract class SpectaclesHandSpecificData extends ObjectSpecificData {
+    
+    protected constructor()
+    
+}
+
+/**
 * Representation the signal strength over time at various frequencies present in a particular waveform. Created by applying Fast Fourier Transform (FFT) on the overlapping segments of the audio data.
 */
 declare abstract class Spectrogram extends ScriptObject {
@@ -14079,6 +14160,13 @@ declare abstract class TapEventArgs extends ScriptObject {
 declare abstract class TargetingDataArgs extends ScriptObject {
     
     protected constructor()
+    
+    /**
+    * Whether the hand intends to target. 
+    
+    * @readonly
+    */
+    handIntendsToTarget: boolean
     
     /**
     * @readonly
@@ -15248,6 +15336,12 @@ declare abstract class Texture extends Asset {
     * See also: [AnimatedTextureFileProvider](https://lensstudio.snapchat.com/api/lens-studio/Classes/Providers#AnimatedTextureFileProvider).
     */
     control: TextureProvider
+    
+}
+
+declare abstract class TextureFormat {
+    
+    protected constructor()
     
 }
 
@@ -18014,6 +18108,102 @@ declare abstract class WebPageTextureProvider extends TextureProvider {
 }
 
 /**
+* @wearableOnly
+*/
+declare abstract class WebSocket extends ScriptObject {
+    
+    protected constructor()
+    
+    addEventListener(type: string, listener: (event: WebSocketEvent) => void): void
+    
+    close(): void
+    
+    send(data: (Uint8Array|string)): void
+    
+    binaryType: string
+    
+    onclose: (event: WebSocketEvent) => void
+    
+    onerror: (event: WebSocketEvent) => void
+    
+    onmessage: (event: WebSocketEvent) => void
+    
+    onopen: (event: WebSocketEvent) => void
+    
+    /**
+    * @readonly
+    */
+    readyState: number
+    
+    /**
+    * @readonly
+    */
+    url: string
+    
+}
+
+/**
+* @wearableOnly
+*/
+declare abstract class WebSocketCloseEvent extends ScriptObject {
+    
+    protected constructor()
+    
+    /**
+    * @readonly
+    */
+    code: number
+    
+    /**
+    * @readonly
+    */
+    reason: string
+    
+    /**
+    * @readonly
+    */
+    wasClean: boolean
+    
+}
+
+/**
+* @wearableOnly
+*/
+declare abstract class WebSocketErrorEvent extends ScriptObject {
+    
+    protected constructor()
+    
+}
+
+/**
+* @wearableOnly
+*/
+declare abstract class WebSocketEvent extends ScriptObject {
+    
+    protected constructor()
+    
+}
+
+/**
+* @wearableOnly
+*/
+declare abstract class WebSocketMessageEvent extends ScriptObject {
+    
+    protected constructor()
+    
+    /**
+    * @readonly
+    */
+    data: (Blob|string)
+    
+    /**
+    * @readonly
+    */
+    type: string
+    
+}
+
+/**
 * WebViewOptions allow you to specify various aspects of the WebView that will be created. These are only used at creation time.
 
 * @see {@link RemoteServiceModule.createWebViewOptions}
@@ -18637,6 +18827,11 @@ declare namespace _palette {
     let BitmojiModule: BitmojiModule
     
     let BlendMode: BlendMode
+    
+    /**
+    * @wearableOnly
+    */
+    let Blob: Blob
     
     /**
     * Used to analyze the camera input and apply similar image artifacts to your AR objects in order to allow it to blend and match the real world better.
@@ -20307,6 +20502,8 @@ declare namespace _palette {
     * A http request which can be sent using the `RemoteServiceModule`.
     
     * @wearableOnly
+    
+    * @CameraKit
     */
     let RemoteServiceHttpRequest: RemoteServiceHttpRequest
     
@@ -20314,6 +20511,8 @@ declare namespace _palette {
     * The http method which should be used to send this http request.
     
     * @wearableOnly
+    
+    * @CameraKit
     */
     let RemoteServiceHttpRequest_HttpRequestMethod: RemoteServiceHttpRequest.HttpRequestMethod
     
@@ -20321,6 +20520,8 @@ declare namespace _palette {
     * The response returned by a `RemoteServiceHttpRequest` call.
     
     * @wearableOnly
+    
+    * @CameraKit
     */
     let RemoteServiceHttpResponse: RemoteServiceHttpResponse
     
@@ -20566,6 +20767,11 @@ declare namespace _palette {
     let SpatialAudio: SpatialAudio
     
     /**
+    * @wearableOnly
+    */
+    let SpectaclesHandSpecificData: SpectaclesHandSpecificData
+    
+    /**
     * Representation the signal strength over time at various frequencies present in a particular waveform. Created by applying Fast Fourier Transform (FFT) on the overlapping segments of the audio data.
     */
     let Spectrogram: Spectrogram
@@ -20761,6 +20967,8 @@ declare namespace _palette {
     * Represents a texture file asset.
     */
     let Texture: Texture
+    
+    let TextureFormat: TextureFormat
     
     /**
     * The base class for specialized Texture providers. Can be accessed through [Texture.control](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Texture#control-textureprovider).
@@ -21131,6 +21339,31 @@ declare namespace _palette {
     * @wearableOnly
     */
     let WebPageTextureProvider: WebPageTextureProvider
+    
+    /**
+    * @wearableOnly
+    */
+    let WebSocket: WebSocket
+    
+    /**
+    * @wearableOnly
+    */
+    let WebSocketCloseEvent: WebSocketCloseEvent
+    
+    /**
+    * @wearableOnly
+    */
+    let WebSocketErrorEvent: WebSocketErrorEvent
+    
+    /**
+    * @wearableOnly
+    */
+    let WebSocketEvent: WebSocketEvent
+    
+    /**
+    * @wearableOnly
+    */
+    let WebSocketMessageEvent: WebSocketMessageEvent
     
     /**
     * WebViewOptions allow you to specify various aspects of the WebView that will be created. These are only used at creation time.

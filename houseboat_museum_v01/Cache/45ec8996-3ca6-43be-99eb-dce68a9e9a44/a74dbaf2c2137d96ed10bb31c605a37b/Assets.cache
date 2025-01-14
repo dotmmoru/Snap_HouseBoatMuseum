@@ -5,22 +5,23 @@
     - !<ObjectPrefab/e90d242b-a574-40b3-8978-8e80bd8e712d>
       PackagePath: ""
       objects:
-        - !<own> deebe825-a0a8-42ba-bf9c-2f3b2bdda505
+        - !<own> 474c4a7e-d308-4305-9c5c-3419ae1cfad0
       LazyLoading: false
       RetainAssets: true
     - !<FileMesh/b504d09f-b9d4-407c-aa4d-d2f76ac3068b>
       PackagePath: Meshes/man_cap_v02
-      Info: !<MeshInfo/00000000-0000-0000-0000-000000000000>
+      Info: !<MeshInfo>
         Triangles: 7676
         Vertices: 4601
         Blendshapes:
           []
         Joints: 0
+        AabbSize: {x: 16.601603, y: 9.410974, z: 26.937996}
   SourceHash: a74dbaf2c2137d96ed10bb31c605a37b
   FileHash: a0b124abb896050a6961cbf7d8d116c3
   NativePackageItems:
     []
-- !<RenderMeshVisual/2b22263f-6395-4bd3-9a94-0b2aa169037d>
+- !<RenderMeshVisual/094926c9-c979-4e77-863d-3032972a8723>
   PrefabRemaps:
     []
   Name: component_0
@@ -40,7 +41,7 @@
   BlendNormals: false
   BlendShapes:
     {}
-- !<SceneObject/5b987bcc-cf7f-41b5-bdc5-fb2a461d7650>
+- !<SceneObject/3896972f-d8a7-41a8-a5d2-472b9dc17957>
   PrefabRemaps:
     []
   Name: man_cap_v02
@@ -54,8 +55,8 @@
   Children:
     []
   Components:
-    - !<own> 2b22263f-6395-4bd3-9a94-0b2aa169037d
-- !<SceneObject/deebe825-a0a8-42ba-bf9c-2f3b2bdda505>
+    - !<own> 094926c9-c979-4e77-863d-3032972a8723
+- !<SceneObject/474c4a7e-d308-4305-9c5c-3419ae1cfad0>
   PrefabRemaps:
     []
   Name: man_cap_v02
@@ -67,6 +68,6 @@
     scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
   Children:
-    - !<own> 5b987bcc-cf7f-41b5-bdc5-fb2a461d7650
+    - !<own> 3896972f-d8a7-41a8-a5d2-472b9dc17957
   Components:
     []

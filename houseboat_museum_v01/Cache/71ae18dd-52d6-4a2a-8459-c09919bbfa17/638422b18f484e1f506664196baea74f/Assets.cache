@@ -1,12 +1,12 @@
-- !<AssetCache/b25190c8-6a16-0a0e-c969-3a3b5d3689dd>
+- !<AssetCache/638422b1-8f48-4e1f-5066-64196baea74f>
   AssetFiles:
     1a2d2552-82a4-47fe-816f-8951aeec0ad4: 71ae18dd-52d6-4a2a-8459-c09919bbfa17/638422b18f484e1f506664196baea74f/Data/matte_shadow.ss_graph
   Assets:
     - !<ShaderGraphPass/1a2d2552-82a4-47fe-816f-8951aeec0ad4>
       PackagePath: ""
       DefaultDefines:
-        - NODE_27_DROPLIST_ITEM 0
         - NODE_13_DROPLIST_ITEM 0
+        - NODE_27_DROPLIST_ITEM 0
         - NODE_49_DROPLIST_ITEM 0
       DefaultProperties:
         Port_Depth_N004:
@@ -60,7 +60,7 @@
         Port_WorldTangent_N004:
           typeIdx: 4
           value: {x: 0.000000, y: 0.000000, z: 1.000000}
-      PassUiData: !<PassUiData/00000000-0000-0000-0000-000000000000>
+      PassUiData: !<PassUiData>
         ExtraDefines:
           - SC_ENABLE_RT_CASTER
         PassBindings:

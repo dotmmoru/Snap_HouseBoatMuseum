@@ -6,6 +6,7 @@
 const interactionComp = script.interactionComponent;
 let isActive = false;
 let isEnabled = false;
+let enabledCnt = 0;
 
 const delayedEvent = script.createEvent('DelayedCallbackEvent');
 delayedEvent.bind(function() {
@@ -23,12 +24,17 @@ interactionComp.onHoverEnd.add(function() {
 });
 
 function init() {
-    script.hoverEventReset.addOnHoverCallback(hoverReset);
     script.mainIconScript.enabled = true;
 }
 
 function setEnabled(curStatus) {
-    isEnabled = curStatus;
+    if (curStatus) {
+        enabledCnt++;
+    }
+    else {
+        enabledCnt--;
+    }
+    isEnabled = enabledCnt > 0;
     check();
 }
 

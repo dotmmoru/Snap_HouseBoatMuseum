@@ -6,6 +6,7 @@
     - !<own> 1c118058-e494-4fb0-9d1b-3b9804bd36ab
     - !<own> 3f85cfaf-5b18-4884-a498-ce902a96c6e7
     - !<own> 1865d532-e079-4b7e-98d4-2cd44aa3feab
+    - !<own> 4a647ab7-6d22-4195-a800-825d4defd95c
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
       []
@@ -41,11 +42,11 @@
   Near: 1.000000
   Far: 1000.000000
   Fov: 63.541019
-  ClearColor: !<CameraClearColor/00000000-0000-0000-0000-000000000000>
+  ClearColor: !<CameraClearColor>
     Mode: None
     Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
     InputTexture: !<reference> 00000000-0000-0000-0000-000000000000
-  ClearDepth: !<CameraClearDepth/00000000-0000-0000-0000-000000000000>
+  ClearDepth: !<CameraClearDepth>
     Mode: Value
     Value: 1.000000
     InputTexture: !<reference> 00000000-0000-0000-0000-000000000000
@@ -327,6 +328,21 @@
     - !<own> 6bfa7aac-5f31-4580-8f55-bbccad9e6d58
   Components:
     []
+- !<SceneObject/4a647ab7-6d22-4195-a800-825d4defd95c>
+  PrefabRemaps:
+    []
+  Name: HouseBoatMuseum API
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> bd5a892c-0292-4e9d-ae52-9fd2d84aa671
 - !<RenderMeshVisual/4b148ef9-2845-418b-b0e9-521873f0d9e4>
   PrefabRemaps:
     []
@@ -421,7 +437,7 @@
   LocalTransform:
     position: {x: -0.012086, y: 3.593878, z: 0.306926}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    scale: {x: 1.150000, y: 1.150000, z: 1.150000}
     hasSegmentScaleCompensation: false
   Children:
     []
@@ -449,6 +465,14 @@
   Name: Face Retouch
   Enabled: true
   RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    []
   FaceIndex: 1
   AutoMode: false
   AutoType: Default
@@ -581,7 +605,7 @@
   LocalTransform:
     position: {x: -0.014955, y: 15.800000, z: 2.688230}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    scale: {x: 1.150000, y: 1.150000, z: 1.150000}
     hasSegmentScaleCompensation: false
   Children:
     []
@@ -607,6 +631,22 @@
   BlendNormals: false
   BlendShapes:
     {}
+- !<ScriptComponent/bd5a892c-0292-4e9d-ae52-9fd2d84aa671>
+  PrefabRemaps:
+    []
+  Name: HouseBoatMuseum API
+  Enabled: true
+  ScriptAsset: !<reference> 49c4e6de-20ca-4ce5-abb2-a07db5bb9eb9
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      remoteServiceModule: !<reference.RemoteServiceModule> 810e08d6-4ce1-4b24-a573-c037387fa6be
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/c083d23f-9997-468b-9ab4-390c56da4d85>
   PrefabRemaps:
     []
@@ -664,6 +704,14 @@
   Name: Face Retouch
   Enabled: true
   RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    []
   FaceIndex: 0
   AutoMode: false
   AutoType: Default

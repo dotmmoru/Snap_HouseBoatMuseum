@@ -13,6 +13,8 @@
   DependentFiles:
     []
   NativePackageRoot: !<reference> 00000000-0000-0000-0000-000000000000
+  ExtraData:
+    {}
 - !<ScriptAssetData/067e8f01-ed58-4b7e-b481-826858203ff4>
   SvgIcon: ""
   Description: ""

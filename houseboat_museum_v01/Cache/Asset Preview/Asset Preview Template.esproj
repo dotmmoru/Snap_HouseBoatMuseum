@@ -1,9 +1,10 @@
 studioVersion:
   major: 5
-  minor: 3
+  minor: 4
   patch: 0
-  build: 24110708
-updateCheckpoint: 50
+  build: 24121215
+  type: Internal
+updateCheckpoint: 52
 sceneId: 1e4cae11-66fc-49fa-b479-1f6bf46388cc
 viewConfig:
   simulation:
@@ -29,6 +30,7 @@ metaInfo:
   lensClientCompatibilities:
     - Mobile
     - Web
+  platformBundlesEnabled: false
   iconHash: ""
   videoPreviewHash: ""
   fromTemplateName: Empty Project

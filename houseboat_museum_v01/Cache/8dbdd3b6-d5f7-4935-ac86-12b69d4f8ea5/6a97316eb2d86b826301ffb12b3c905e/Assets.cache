@@ -4,7 +4,7 @@
   Assets:
     - !<FileTexture/d4270266-1862-49d3-b47a-bb071998ad5c>
       PackagePath: ""
-      FileInfo: !<FileTextureInfo/00000000-0000-0000-0000-000000000000>
+      FileInfo: !<FileTextureInfo>
         Width: 2048
         Height: 2048
   SourceHash: 6a97316eb2d86b826301ffb12b3c905e

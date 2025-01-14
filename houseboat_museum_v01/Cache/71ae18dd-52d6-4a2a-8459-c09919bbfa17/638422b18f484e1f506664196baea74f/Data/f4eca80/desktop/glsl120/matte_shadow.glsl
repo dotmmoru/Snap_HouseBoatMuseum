@@ -498,6 +498,7 @@ uniform vec3 sc_LocalAabbMax;
 uniform vec3 sc_WorldAabbMin;
 uniform vec3 sc_WorldAabbMax;
 uniform vec4 sc_WindowToViewportTransform;
+uniform vec4 sc_CurrentRenderTargetDims;
 uniform float sc_ShadowDensity;
 uniform vec4 sc_ShadowColor;
 uniform float _sc_GetFramebufferColorInvalidUsageMarker;
@@ -1890,7 +1891,7 @@ vec2 clipPlanes;
 uniform vec4 sc_EnvmapDiffuseDims;
 uniform vec4 sc_EnvmapSpecularDims;
 uniform vec4 sc_ScreenTextureDims;
-uniform vec4 sc_WindowToViewportTransform;
+uniform vec4 sc_CurrentRenderTargetDims;
 uniform mat4 sc_ProjectionMatrixArray[sc_NumStereoViews];
 uniform float sc_ShadowDensity;
 uniform vec4 sc_ShadowColor;
@@ -1956,6 +1957,7 @@ uniform vec3 sc_LocalAabbMin;
 uniform vec3 sc_LocalAabbMax;
 uniform vec3 sc_WorldAabbMin;
 uniform vec3 sc_WorldAabbMax;
+uniform vec4 sc_WindowToViewportTransform;
 uniform sc_Camera_t sc_Camera;
 uniform mat4 sc_ProjectorMatrix;
 uniform float sc_DisableFrustumCullingMarker;
@@ -3157,7 +3159,7 @@ else
 {
 l9_2=sc_Time.y;
 }
-vec2 l9_3=(gl_FragCoord.xy*sc_WindowToViewportTransform.xy)+sc_WindowToViewportTransform.zw;
+vec2 l9_3=gl_FragCoord.xy*sc_CurrentRenderTargetDims.zw;
 vec2 l9_4=sc_ScreenCoordsGlobalToView(l9_3);
 ssGlobals l9_5=ssGlobals(l9_1,l9_2,0.0,varPackedTex.xy,varPackedTex.zw,l9_4);
 vec3 l9_6;

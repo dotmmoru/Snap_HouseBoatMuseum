@@ -5,22 +5,23 @@
     - !<ObjectPrefab/5e7dd398-06b1-48cc-ac77-4582ae5ad4ec>
       PackagePath: ""
       objects:
-        - !<own> f482d511-85ed-4aa1-8752-9e7b6700be1c
+        - !<own> d37a4c3c-d882-48a1-8dde-825eed23d6fc
       LazyLoading: false
       RetainAssets: true
     - !<FileMesh/104c94cd-ae97-40c9-bdb6-4b47512e278c>
       PackagePath: Meshes/woman_cap_v01
-      Info: !<MeshInfo/00000000-0000-0000-0000-000000000000>
+      Info: !<MeshInfo>
         Triangles: 3616
         Vertices: 2195
         Blendshapes:
           []
         Joints: 0
+        AabbSize: {x: 27.353321, y: 32.447929, z: 20.809036}
   SourceHash: 3fb5812d3156a7ba932a9b307131c2de
   FileHash: addd92c6cfa2c4915229c34c97cb112c
   NativePackageItems:
     []
-- !<SceneObject/0265fb76-f7ee-46bc-b817-6c6d06f077d1>
+- !<SceneObject/43c56179-a5f5-4e40-94f5-033c4560dc38>
   PrefabRemaps:
     []
   Name: woman_cap_v01
@@ -34,8 +35,23 @@
   Children:
     []
   Components:
-    - !<own> c6a66b51-6a2d-4f10-9331-fbce86836ccb
-- !<RenderMeshVisual/c6a66b51-6a2d-4f10-9331-fbce86836ccb>
+    - !<own> ff176478-f298-4407-bed7-a26ffa4c62b3
+- !<SceneObject/d37a4c3c-d882-48a1-8dde-825eed23d6fc>
+  PrefabRemaps:
+    []
+  Name: woman_cap_v01
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    - !<own> 43c56179-a5f5-4e40-94f5-033c4560dc38
+  Components:
+    []
+- !<RenderMeshVisual/ff176478-f298-4407-bed7-a26ffa4c62b3>
   PrefabRemaps:
     []
   Name: component_0
@@ -55,18 +71,3 @@
   BlendNormals: false
   BlendShapes:
     {}
-- !<SceneObject/f482d511-85ed-4aa1-8752-9e7b6700be1c>
-  PrefabRemaps:
-    []
-  Name: woman_cap_v01
-  Enabled: true
-  Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
-  Children:
-    - !<own> 0265fb76-f7ee-46bc-b817-6c6d06f077d1
-  Components:
-    []

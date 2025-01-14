@@ -1,4 +1,4 @@
-- !<AssetCache/adb446fd-3d72-898e-70b0-c05704958d45>
+- !<AssetCache/4109ad20-ec88-bc81-29ed-661fdb3c4acc>
   AssetFiles:
     64b957fd-139d-4f76-ad08-ece540551fb6: 49fcf617-80c3-41ef-a9b0-f724bcf3a073/4109ad20ec88bc8129ed661fdb3c4acc/Data/pbr.ss_graph
   Assets:
@@ -55,7 +55,7 @@
         Port_WorldTangent_N004:
           typeIdx: 4
           value: {x: 0.000000, y: 0.000000, z: 1.000000}
-      PassUiData: !<PassUiData/00000000-0000-0000-0000-000000000000>
+      PassUiData: !<PassUiData>
         ExtraDefines:
           - SC_ENABLE_RT_CASTER
           - SC_ENABLE_RT_RECEIVER

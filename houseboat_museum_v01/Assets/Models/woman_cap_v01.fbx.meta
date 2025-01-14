@@ -1,10 +1,10 @@
 - !<AssetImportMetadata/6faa05e1-f847-4f52-aafc-be270e61569a>
   ImportedAssetIds:
-    5246aa5a2bdcc35f: !<reference> 0265fb76-f7ee-46bc-b817-6c6d06f077d1
-    7a0dd5cd69df73fa: !<reference> f482d511-85ed-4aa1-8752-9e7b6700be1c
+    0da0c887e6987b6b: !<reference> ff176478-f298-4407-bed7-a26ffa4c62b3
+    66780cf3a4dcb2b8: !<reference> d37a4c3c-d882-48a1-8dde-825eed23d6fc
+    92e28cf66401e83b: !<reference> 43c56179-a5f5-4e40-94f5-033c4560dc38
     Meshes/woman_cap_v01: !<reference> 104c94cd-ae97-40c9-bdb6-4b47512e278c
     Scene: !<reference> 5e7dd398-06b1-48cc-ac77-4582ae5ad4ec
-    ba5f01f7ee792f1c: !<reference> c6a66b51-6a2d-4f10-9331-fbce86836ccb
   ImporterName: FbxImporter
   PrimaryAsset: !<reference> 5e7dd398-06b1-48cc-ac77-4582ae5ad4ec
   PackageType: LegacyPackage
@@ -38,6 +38,8 @@
       mesh: None Compression
     Overrides:
       {}
+  ExtraData:
+    {}
 - !<SceneObject/3316aabd-b67a-420f-a464-dc44b15b2553>
   PrefabRemaps:
     []
