@@ -16,7 +16,7 @@ frameRate:
   options: 4
 frontCameraMultimedia:
   type: string
-  value: PreviewResources.bundle/Video/Idle/Idle 2.mp4
+  value: PreviewResources.bundle/Video/Idle/Pair Idle Persons 2.mp4
   options: 4
 fullscreenSpectaclesSimulation:
   type: bool
@@ -36,11 +36,11 @@ mirrorHorizontally:
   options: 4
 previewSource:
   type: string
-  value: USB CAMERA
+  value: PreviewResources.bundle/Video/Idle/Pair Idle Persons 2.mp4
   options: 4
 previewType:
   type: string
-  value: Webcam
+  value: Multimedia
   options: 4
 recordInput:
   type: bool
@@ -52,7 +52,7 @@ recordTrackingData:
   options: 4
 simulatedDevice:
   type: string
-  value: iPhone 14 Pro
+  value: LG G6
   options: 4
 stereoEye:
   type: string

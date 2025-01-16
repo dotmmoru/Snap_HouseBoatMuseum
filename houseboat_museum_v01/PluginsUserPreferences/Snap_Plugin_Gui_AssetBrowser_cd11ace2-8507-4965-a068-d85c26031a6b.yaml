@@ -1,16 +1,19 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 35
+    size: 77
     values:
-      - HouseBoatMuseum API Module.js
-      - HouseBoatMuseum API.js
-      - HouseBoatMuseum.remoteServiceModule
-      - Materials/Man Cap Shadow.mat
+      - API
+      - API/HouseBoatMuseum API Module.js
+      - API/HouseBoatMuseum API.js
+      - API/HouseBoatMuseum.remoteServiceModule
+      - Connected Lens Module.connectedLensModule
+      - Image.mat
+      - Image.png
+      - Materials
       - Materials/Man Hat.mat
       - Materials/Matte Shadow.mat
       - Materials/Occluder.mat
-      - Materials/Woman Hat Shadow.mat
       - Materials/Woman Hat.mat
       - Models
       - Models/Head Mesh.facemesh
@@ -23,11 +26,21 @@ CollapsedEntities:
       - Models/woman_cap_v01.fbx/Meshes/woman_cap_v01
       - Models/woman_cap_v01.fbx/woman_cap_v01
       - RTs
+      - Scripts
       - Scripts/AccessoriesController.js
-      - Scripts/HatController.js
+      - Seering wheel
+      - Seering wheel/.hidden
+      - Seering wheel/.hidden/Stand.ss_graph
+      - Seering wheel/Materials
+      - Seering wheel/Materials/Stand.mat
+      - Seering wheel/Materials/Wheel.mat
+      - Seering wheel/Seering wheel.prefab
+      - Seering wheel/Textures
+      - Seering wheel/Textures/Stand.jpg
+      - Seering wheel/Textures/Stand_mask.jpg
+      - Seering wheel/Textures/seering wheel.jpg
+      - Seering wheel/Textures/seering-wheel_mask.jpg
       - Shaders
-      - Shaders/cap_shadow.ss_graph
-      - Shaders/hat_shadow.ss_graph
       - Shaders/matte_shadow.ss_graph
       - Shaders/occluder.ss_graph
       - Shaders/pbr.ss_graph
@@ -38,4 +51,33 @@ CollapsedEntities:
       - Textures/woman_cap_base_v01.png
       - Textures/woman_cap_nrm_v01.jpg
       - Textures/woman_cap_params_v01.jpg
+      - TweenManager
+      - TweenManager/.hidden
+      - TweenManager/.hidden/Image Unlit.ss_graph
+      - TweenManager/.hidden/TweenBoxDiffuse.ss_graph
+      - TweenManager/Tween
+      - "TweenManager/Tween/ExampleResources [REMOVE_ME]"
+      - "TweenManager/Tween/ExampleResources [REMOVE_ME]/ExampleTweenValueScript.js"
+      - "TweenManager/Tween/ExampleResources [REMOVE_ME]/Materials"
+      - "TweenManager/Tween/ExampleResources [REMOVE_ME]/Materials/Image Unlit.mat"
+      - "TweenManager/Tween/ExampleResources [REMOVE_ME]/Materials/TweenBoxDiffuse.mat"
+      - "TweenManager/Tween/ExampleResources [REMOVE_ME]/Materials/TweenBoxDiffuse_Alt.mat"
+      - "TweenManager/Tween/ExampleResources [REMOVE_ME]/Materials/TweenSphereDiffuse.mat"
+      - "TweenManager/Tween/ExampleResources [REMOVE_ME]/Meshes"
+      - "TweenManager/Tween/ExampleResources [REMOVE_ME]/Meshes/TweenBox.mesh"
+      - "TweenManager/Tween/ExampleResources [REMOVE_ME]/Meshes/TweenSphere.mesh"
+      - "TweenManager/Tween/ExampleResources [REMOVE_ME]/Textures"
+      - "TweenManager/Tween/ExampleResources [REMOVE_ME]/Textures/TweenImageTextures"
+      - "TweenManager/Tween/ExampleResources [REMOVE_ME]/Textures/TweenImageTextures/Image.png"
+      - TweenManager/Tween/Tween.js
+      - TweenManager/Tween/TweenManager.js
+      - TweenManager/Tween/TweenTypes
+      - TweenManager/Tween/TweenTypes/TweenAlpha.js
+      - TweenManager/Tween/TweenTypes/TweenChain.js
+      - TweenManager/Tween/TweenTypes/TweenColor.js
+      - TweenManager/Tween/TweenTypes/TweenScreenTransform.js
+      - TweenManager/Tween/TweenTypes/TweenTransform.js
+      - TweenManager/Tween/TweenTypes/TweenValue.js
+      - TweenManager/TweenManager.prefab
+      - flat.ss_graph
   options: 4
