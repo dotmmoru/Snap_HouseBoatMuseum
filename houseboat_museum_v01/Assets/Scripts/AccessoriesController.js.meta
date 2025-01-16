@@ -28,8 +28,12 @@
   ScriptInputsHidden:
     headPin0: false
     headPin1: false
+    headShadow0: false
+    headShadow1: false
     manCap: false
+    manShadowMat: false
     womanCap: false
+    womanShadowMat: false
   ScriptTypesHidden:
     {}
   DefaultScriptInputs:
@@ -37,6 +41,10 @@
       headPin1: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       manCap: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       womanCap: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      headShadow0: !<reference.RenderMeshVisual> 00000000-0000-0000-0000-000000000000
+      headShadow1: !<reference.RenderMeshVisual> 00000000-0000-0000-0000-000000000000
+      manShadowMat: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      womanShadowMat: !<reference.Material> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}

@@ -511,7 +511,6 @@ uniform vec3 sc_LocalAabbMax;
 uniform vec3 sc_WorldAabbMin;
 uniform vec3 sc_WorldAabbMax;
 uniform vec4 sc_WindowToViewportTransform;
-uniform vec4 sc_CurrentRenderTargetDims;
 uniform float sc_ShadowDensity;
 uniform vec4 sc_ShadowColor;
 uniform float _sc_GetFramebufferColorInvalidUsageMarker;
@@ -2033,7 +2032,7 @@ vec2 clipPlanes;
 uniform vec4 sc_EnvmapDiffuseDims;
 uniform vec4 sc_EnvmapSpecularDims;
 uniform vec4 sc_ScreenTextureDims;
-uniform vec4 sc_CurrentRenderTargetDims;
+uniform vec4 sc_WindowToViewportTransform;
 uniform mat4 sc_ProjectionMatrixArray[sc_NumStereoViews];
 uniform float sc_ShadowDensity;
 uniform vec4 sc_ShadowColor;
@@ -2105,7 +2104,6 @@ uniform vec3 sc_LocalAabbMin;
 uniform vec3 sc_LocalAabbMax;
 uniform vec3 sc_WorldAabbMin;
 uniform vec3 sc_WorldAabbMax;
-uniform vec4 sc_WindowToViewportTransform;
 uniform mat4 sc_ProjectorMatrix;
 uniform float sc_DisableFrustumCullingMarker;
 uniform vec4 sc_BoneMatrices[((sc_SkinBonesCount*3)+1)];
@@ -2585,7 +2583,7 @@ l9_0=sc_readFragData0();
 }
 #else
 {
-l9_0=sc_ScreenTextureSampleViewIndexBias(sc_ScreenCoordsGlobalToView(gl_FragCoord.xy*sc_CurrentRenderTargetDims.zw),sc_ScreenTextureGetStereoViewIndex(),0.0);
+l9_0=sc_ScreenTextureSampleViewIndexBias(sc_ScreenCoordsGlobalToView((gl_FragCoord.xy*sc_WindowToViewportTransform.xy)+sc_WindowToViewportTransform.zw),sc_ScreenTextureGetStereoViewIndex(),0.0);
 }
 #endif
 vec4 l9_1;
@@ -4264,7 +4262,7 @@ sc_writeFragData0(vec4(1.0));
 {
 #if (sc_OITDepthGatherPass)
 {
-vec2 l9_181=sc_ScreenCoordsGlobalToView(gl_FragCoord.xy*sc_CurrentRenderTargetDims.zw);
+vec2 l9_181=sc_ScreenCoordsGlobalToView((gl_FragCoord.xy*sc_WindowToViewportTransform.xy)+sc_WindowToViewportTransform.zw);
 #if (sc_OITMaxLayers4Plus1)
 {
 if ((gl_FragCoord.z-texture2D(sc_OITFrontDepthTexture,l9_181).x)<=getFrontLayerZTestEpsilon())
@@ -4294,7 +4292,7 @@ sc_writeFragData2(vec4(0.0039215689,0.0,0.0,0.0));
 {
 #if (sc_OITCompositingPass)
 {
-vec2 l9_194=sc_ScreenCoordsGlobalToView(gl_FragCoord.xy*sc_CurrentRenderTargetDims.zw);
+vec2 l9_194=sc_ScreenCoordsGlobalToView((gl_FragCoord.xy*sc_WindowToViewportTransform.xy)+sc_WindowToViewportTransform.zw);
 #if (sc_OITMaxLayers4Plus1)
 {
 if ((gl_FragCoord.z-texture2D(sc_OITFrontDepthTexture,l9_194).x)<=getFrontLayerZTestEpsilon())
@@ -4456,7 +4454,7 @@ discard;
 {
 #if (sc_OITFrontLayerPass)
 {
-if (abs(gl_FragCoord.z-texture2D(sc_OITFrontDepthTexture,sc_ScreenCoordsGlobalToView(gl_FragCoord.xy*sc_CurrentRenderTargetDims.zw)).x)>getFrontLayerZTestEpsilon())
+if (abs(gl_FragCoord.z-texture2D(sc_OITFrontDepthTexture,sc_ScreenCoordsGlobalToView((gl_FragCoord.xy*sc_WindowToViewportTransform.xy)+sc_WindowToViewportTransform.zw)).x)>getFrontLayerZTestEpsilon())
 {
 discard;
 }

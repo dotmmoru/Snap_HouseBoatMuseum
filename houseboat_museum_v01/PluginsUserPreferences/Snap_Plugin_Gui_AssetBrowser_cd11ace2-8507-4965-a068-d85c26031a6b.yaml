@@ -1,15 +1,16 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 32
+    size: 35
     values:
       - HouseBoatMuseum API Module.js
       - HouseBoatMuseum API.js
       - HouseBoatMuseum.remoteServiceModule
-      - Materials
+      - Materials/Man Cap Shadow.mat
       - Materials/Man Hat.mat
       - Materials/Matte Shadow.mat
       - Materials/Occluder.mat
+      - Materials/Woman Hat Shadow.mat
       - Materials/Woman Hat.mat
       - Models
       - Models/Head Mesh.facemesh
@@ -22,9 +23,11 @@ CollapsedEntities:
       - Models/woman_cap_v01.fbx/Meshes/woman_cap_v01
       - Models/woman_cap_v01.fbx/woman_cap_v01
       - RTs
-      - Scripts
       - Scripts/AccessoriesController.js
+      - Scripts/HatController.js
       - Shaders
+      - Shaders/cap_shadow.ss_graph
+      - Shaders/hat_shadow.ss_graph
       - Shaders/matte_shadow.ss_graph
       - Shaders/occluder.ss_graph
       - Shaders/pbr.ss_graph

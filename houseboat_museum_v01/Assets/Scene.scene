@@ -176,6 +176,21 @@
   DecayType: None
   DecayLimit: false
   DecayRange: 40.000000
+- !<SceneObject/043b6487-cdf1-4e9d-86af-2dd9dc40a1d5>
+  PrefabRemaps:
+    []
+  Name: hatMatsController
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> ccc82c5c-af53-4744-973e-1d283e61cae7
 - !<SceneObject/07362944-d5f4-4216-9af3-0b73f23e181b>
   PrefabRemaps:
     []
@@ -205,6 +220,7 @@
     hasSegmentScaleCompensation: false
   Children:
     - !<own> e4e50906-bc42-4a67-ac92-fc8b26167f8a
+    - !<own> 043b6487-cdf1-4e9d-86af-2dd9dc40a1d5
   Components:
     []
 - !<Head/1b913e23-ac64-47a4-8a36-e91d5156e40c>
@@ -270,6 +286,7 @@
     - !<own> 07362944-d5f4-4216-9af3-0b73f23e181b
     - !<own> 87db937f-5f22-4c27-81c6-e9fd8904ec43
     - !<own> 6547c341-3392-4f5f-a6bf-845923d84352
+    - !<own> 24692172-3f1d-493a-9757-c6f7373f1cfb
   Components:
     []
 - !<RenderMeshVisual/3523cfa0-5cd6-4350-ae6f-ca729ab386e3>
@@ -281,11 +298,11 @@
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
-  MeshShadowMode: Receiver
+  MeshShadowMode: None
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> bd40a9bc-836f-4bb3-abda-755240ebd92c
+    - !<reference> a354ccd7-868f-45b8-a3a8-ce4c9304e093
   Mesh: !<reference> b129c69a-07d1-4d8e-87e2-384149eba856
   Skin: !<reference> 00000000-0000-0000-0000-000000000000
   BlendShapesEnabled: true
@@ -308,6 +325,10 @@
       headPin1: !<reference.SceneObject> 6a2bba8f-4a08-4976-ab8a-df3960df89c8
       manCap: !<reference.SceneObject> 1c118058-e494-4fb0-9d1b-3b9804bd36ab
       womanCap: !<reference.SceneObject> 3f85cfaf-5b18-4884-a498-ce902a96c6e7
+      headShadow0: !<reference.SceneObject> 797db92e-43c5-4615-b6c4-32a532c8ffa7
+      headShadow1: !<reference.SceneObject> c083d23f-9997-468b-9ab4-390c56da4d85
+      manShadowMat: !<reference.Material> ac85ac44-ad28-48f1-9075-5f3847944e66
+      womanShadowMat: !<reference.Material> a354ccd7-868f-45b8-a3a8-ce4c9304e093
   ScriptTypes:
     "":
       {}
@@ -383,7 +404,7 @@
     []
   Name: component_0
   Enabled: true
-  RenderOrder: 0
+  RenderOrder: 1
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -410,7 +431,7 @@
     scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
   Children:
-    - !<own> 24692172-3f1d-493a-9757-c6f7373f1cfb
+    []
   Components:
     - !<own> f5a07710-f94e-4005-ab99-f54b2e32685b
 - !<SceneObject/6a2bba8f-4a08-4976-ab8a-df3960df89c8>
@@ -446,7 +467,7 @@
 - !<SceneObject/797db92e-43c5-4615-b6c4-32a532c8ffa7>
   PrefabRemaps:
     []
-  Name: Head Mesh
+  Name: Head Mesh 0
   Enabled: true
   Layers: 1
   LocalTransform:
@@ -585,7 +606,7 @@
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
-  MeshShadowMode: Receiver
+  MeshShadowMode: None
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
@@ -650,7 +671,7 @@
 - !<SceneObject/c083d23f-9997-468b-9ab4-390c56da4d85>
   PrefabRemaps:
     []
-  Name: Head Mesh
+  Name: Head Mesh 1
   Enabled: true
   Layers: 1
   LocalTransform:
@@ -663,12 +684,30 @@
   Components:
     - !<own> b79c6b22-efa7-4774-b4ea-d918198bc00b
     - !<own> 89cbe5e3-8179-4869-8999-994e5ae3402d
+- !<ScriptComponent/ccc82c5c-af53-4744-973e-1d283e61cae7>
+  PrefabRemaps:
+    []
+  Name: HatController
+  Enabled: true
+  ScriptAsset: !<reference> 6fd97033-ccf6-4be8-a356-99226deacaa1
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      headBinding: !<reference.SceneObject> 07362944-d5f4-4216-9af3-0b73f23e181b
+      hatMats: !<reference.Material[]>
+        - !<reference> 21e90168-2ba0-4490-8425-8bd478ac72e2
+  ScriptTypes:
+    "":
+      {}
 - !<RenderMeshVisual/d0dfd47a-4d02-4447-b239-bf0aa25494b7>
   PrefabRemaps:
     []
   Name: component_0
   Enabled: true
-  RenderOrder: 0
+  RenderOrder: 1
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -676,7 +715,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> eb6398ec-d224-4f5a-9135-b9bc16debc93
+    - !<reference> 21e90168-2ba0-4490-8425-8bd478ac72e2
   Mesh: !<reference> b504d09f-b9d4-407c-aa4d-d2f76ac3068b
   Skin: !<reference> 00000000-0000-0000-0000-000000000000
   BlendShapesEnabled: true
