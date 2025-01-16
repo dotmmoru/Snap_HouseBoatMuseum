@@ -8,9 +8,9 @@ updateCheckpoint: 52
 sceneId: 0a1ccb1a-fe88-4fbb-9883-e3af3c75fd99
 viewConfig:
   simulation:
-    device: LG G6
-    cameraFov: 48.639999
-    fullFrameAspect: 0.538900
+    device: iPhone 14 Pro
+    cameraFov: 45.709999
+    fullFrameAspect: 0.562500
     viewport: Maximized
     output: Live
     stereoOutputEye: Center

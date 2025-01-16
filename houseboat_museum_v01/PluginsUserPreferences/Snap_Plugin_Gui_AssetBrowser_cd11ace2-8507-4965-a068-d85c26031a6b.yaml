@@ -1,19 +1,28 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 77
+    size: 57
     values:
-      - API
-      - API/HouseBoatMuseum API Module.js
-      - API/HouseBoatMuseum API.js
-      - API/HouseBoatMuseum.remoteServiceModule
-      - Connected Lens Module.connectedLensModule
-      - Image.mat
-      - Image.png
-      - Materials
+      - 3D Body Tracking.bodyTracking3D
+      - Costume_Men_rig_v04.fbx
+      - Costume_Men_rig_v04.fbx/.hidden
+      - Costume_Men_rig_v04.fbx/.hidden/Costume_Men
+      - Costume_Men_rig_v04.fbx/.hidden/white
+      - Costume_Men_rig_v04.fbx/Costume_Men_rig_v04
+      - Costume_Men_rig_v04.fbx/Materials
+      - Costume_Men_rig_v04.fbx/Materials/Costume_Men
+      - Costume_Men_rig_v04.fbx/Meshes
+      - Costume_Men_rig_v04.fbx/Meshes/costume_men
+      - Full Body Mesh.bodyMesh
+      - Materials/Body Mask.mat
+      - Materials/Body Occluder.mat
+      - Materials/Man Cap Shadow.mat
       - Materials/Man Hat.mat
+      - Materials/Man Suit.mat
       - Materials/Matte Shadow.mat
       - Materials/Occluder.mat
+      - Materials/Water Splash.mat
+      - Materials/Woman Hat Shadow.mat
       - Materials/Woman Hat.mat
       - Models
       - Models/Head Mesh.facemesh
@@ -25,59 +34,30 @@ CollapsedEntities:
       - Models/woman_cap_v01.fbx/Meshes
       - Models/woman_cap_v01.fbx/Meshes/woman_cap_v01
       - Models/woman_cap_v01.fbx/woman_cap_v01
-      - RTs
+      - RTs/RT Suits Masks.renderTarget
+      - RTs/Render Target Splash Source.renderTarget
       - Scripts
       - Scripts/AccessoriesController.js
-      - Seering wheel
-      - Seering wheel/.hidden
-      - Seering wheel/.hidden/Stand.ss_graph
-      - Seering wheel/Materials
-      - Seering wheel/Materials/Stand.mat
-      - Seering wheel/Materials/Wheel.mat
-      - Seering wheel/Seering wheel.prefab
-      - Seering wheel/Textures
-      - Seering wheel/Textures/Stand.jpg
-      - Seering wheel/Textures/Stand_mask.jpg
-      - Seering wheel/Textures/seering wheel.jpg
-      - Seering wheel/Textures/seering-wheel_mask.jpg
-      - Shaders
+      - Scripts/HatController.js
+      - Scripts/splashesController.js
+      - Shaders/Water Splash.ss_graph
+      - Shaders/body mask.ss_graph
+      - Shaders/body occluder.ss_graph
+      - Shaders/cap_shadow.ss_graph
+      - Shaders/hat_shadow.ss_graph
       - Shaders/matte_shadow.ss_graph
       - Shaders/occluder.ss_graph
       - Shaders/pbr.ss_graph
-      - Textures
+      - Shaders/suits.ss_graph
+      - Textures/Screen Texture.screenTexture
+      - Textures/Segmentation Body.segmentationTexture
       - Textures/hat_man_base_v01.jpg
       - Textures/hat_man_nrm_v01.jpg
       - Textures/hat_man_params_v01.jpg
+      - Textures/main_suit_base_v01.jpg
+      - Textures/main_suit_nrm_v01.jpg
+      - Textures/main_suit_params_v01.jpg
       - Textures/woman_cap_base_v01.png
       - Textures/woman_cap_nrm_v01.jpg
       - Textures/woman_cap_params_v01.jpg
-      - TweenManager
-      - TweenManager/.hidden
-      - TweenManager/.hidden/Image Unlit.ss_graph
-      - TweenManager/.hidden/TweenBoxDiffuse.ss_graph
-      - TweenManager/Tween
-      - "TweenManager/Tween/ExampleResources [REMOVE_ME]"
-      - "TweenManager/Tween/ExampleResources [REMOVE_ME]/ExampleTweenValueScript.js"
-      - "TweenManager/Tween/ExampleResources [REMOVE_ME]/Materials"
-      - "TweenManager/Tween/ExampleResources [REMOVE_ME]/Materials/Image Unlit.mat"
-      - "TweenManager/Tween/ExampleResources [REMOVE_ME]/Materials/TweenBoxDiffuse.mat"
-      - "TweenManager/Tween/ExampleResources [REMOVE_ME]/Materials/TweenBoxDiffuse_Alt.mat"
-      - "TweenManager/Tween/ExampleResources [REMOVE_ME]/Materials/TweenSphereDiffuse.mat"
-      - "TweenManager/Tween/ExampleResources [REMOVE_ME]/Meshes"
-      - "TweenManager/Tween/ExampleResources [REMOVE_ME]/Meshes/TweenBox.mesh"
-      - "TweenManager/Tween/ExampleResources [REMOVE_ME]/Meshes/TweenSphere.mesh"
-      - "TweenManager/Tween/ExampleResources [REMOVE_ME]/Textures"
-      - "TweenManager/Tween/ExampleResources [REMOVE_ME]/Textures/TweenImageTextures"
-      - "TweenManager/Tween/ExampleResources [REMOVE_ME]/Textures/TweenImageTextures/Image.png"
-      - TweenManager/Tween/Tween.js
-      - TweenManager/Tween/TweenManager.js
-      - TweenManager/Tween/TweenTypes
-      - TweenManager/Tween/TweenTypes/TweenAlpha.js
-      - TweenManager/Tween/TweenTypes/TweenChain.js
-      - TweenManager/Tween/TweenTypes/TweenColor.js
-      - TweenManager/Tween/TweenTypes/TweenScreenTransform.js
-      - TweenManager/Tween/TweenTypes/TweenTransform.js
-      - TweenManager/Tween/TweenTypes/TweenValue.js
-      - TweenManager/TweenManager.prefab
-      - flat.ss_graph
   options: 4
