@@ -2,6 +2,7 @@ ExternalSources:
   type: "std::map<class Es::Uuid,class Es::Path,struct std::less<class Es::Uuid>,class std::allocator<struct std::pair<class Es::Uuid const ,class Es::Path> > >"
   value:
     - 0756c26f-eab0-4377-a6b7-e3fbb50df98f: "D:/Projects/WhoAR/Dutch_Clothes/textures/man_hat/out/hat_man_params_v01.jpg"
+    - 13f1e42f-6732-4117-9ba3-1d79cb1a134d: "D:/Projects/WhoAR/Dutch_Clothes/textures/back/back_v02.jpg"
     - 14595ed9-ea8b-4475-86e6-fb4594560784: "D:/Projects/WhoAR/Dutch_Clothes/textures/woman_hat/sbs/out/woman_cap_params_v01.jpg"
     - 312a6c10-c47c-4655-a095-bca7f88dda7a: "D:/Projects/WhoAR/Dutch_Clothes/textures/woman_hat/sbs/out/woman_cap_nrm_v01.jpg"
     - 47185826-db00-48c4-a669-95d601d5c9e7: "D:/Projects/WhoAR/Dutch_Clothes/textures/man_suit/out/main_suit_base_v01.jpg"
@@ -10,6 +11,5 @@ ExternalSources:
     - 8dbdd3b6-d5f7-4935-ac86-12b69d4f8ea5: "D:/Downloads/woman_cap_base_v01.png"
     - a478aa7f-7e7b-4686-9a10-3721e8174b1d: "D:/Projects/WhoAR/Dutch_Clothes/textures/man_suit/out/main_suit_nrm_v01.jpg"
     - a8f9504c-8f2c-4d81-9268-85d4181c9251: "D:/Projects/WhoAR/Dutch_Clothes/textures/man_suit/out/main_suit_params_v01.jpg"
-    - a9070664-784c-4c67-9a60-3907c5dd7614: "D:/Downloads/back_v01.jpg"
     - da8c3d02-9975-4dd8-a301-638aaaa3ff31: "D:/Projects/Fishermen_Labs/Disney_Woody/lenses/Woody_stable_traking_SNAP/Public/Scripts/HatController.js"
   options: 4

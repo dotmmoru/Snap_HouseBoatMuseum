@@ -5,6 +5,7 @@ CollapsedEntities:
     values:
       - 3D Body Tracking.bodyTracking3D
       - API
+      - Materials
       - Materials/Back.mat
       - Materials/Body Mask.mat
       - Materials/Body Occluder.mat
@@ -48,10 +49,9 @@ CollapsedEntities:
       - Shaders/occluder.ss_graph
       - Shaders/pbr.ss_graph
       - Shaders/suits.ss_graph
-      - Textures
       - Textures/Screen Texture.screenTexture
       - Textures/Segmentation Body.segmentationTexture
-      - Textures/back_v01.jpg
+      - Textures/back_v02.jpg
       - Textures/hat_man_base_v01.jpg
       - Textures/hat_man_nrm_v01.jpg
       - Textures/hat_man_params_v01.jpg

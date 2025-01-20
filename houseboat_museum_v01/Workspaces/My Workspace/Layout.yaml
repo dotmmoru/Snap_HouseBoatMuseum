@@ -34,7 +34,7 @@ dock:
               - persistentName: Snap.Plugin.Gui.Graph.Editor
                 Uuid: d5ec5382-cb41-407d-9cfd-829a9c210a1b
             type: section
-            current: 1
+            current: 0
         sizes:
           - 673
           - 623
