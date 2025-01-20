@@ -4,6 +4,12 @@
     - !<own> 32d163f4-b5fd-48bf-b7c1-79f23250caa4
 - !<PassInfo/32d163f4-b5fd-48bf-b7c1-79f23250caa4>
   CachedProperties:
+    - Port_A_N014:
+        typeIdx: 1
+        value: 0.000000
+    - Port_B_N014:
+        typeIdx: 1
+        value: 0.000000
     - Port_Bool_N007:
         typeIdx: 1
         value: 0.000000
@@ -25,6 +31,12 @@
     - Port_GSplatPointSize_N004:
         typeIdx: 1
         value: 0.000000
+    - Port_Import_N042:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_Import_N047:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
     - Port_Input0_N001:
         typeIdx: 5
         value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
@@ -39,6 +51,15 @@
         value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     - Port_Input0_N013:
         typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - Port_Input0_N015:
+        typeIdx: 5
+        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+    - Port_Input0_N016:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - Port_Input0_N017:
+        typeIdx: 5
         value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
     - Port_Input1_N001:
         typeIdx: 4
@@ -46,12 +67,18 @@
     - Port_Input1_N005:
         typeIdx: 3
         value: {x: 0.500000, y: 0.950000}
-    - Port_Input1_N008:
-        typeIdx: 1
-        value: 0.010000
     - Port_Input1_N011:
         typeIdx: 5
         value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - Port_Input1_N013:
+        typeIdx: 5
+        value: {x: 0.700000, y: 0.000000, z: 0.000000, w: 0.000000}
+    - Port_Input1_N015:
+        typeIdx: 1
+        value: 0.800000
+    - Port_Input_N005:
+        typeIdx: 1
+        value: 0.000000
     - Port_Input_N007:
         typeIdx: 5
         value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
@@ -62,6 +89,9 @@
         typeIdx: 1
         value: 0.000000
     - Port_LODValue_N001:
+        typeIdx: 1
+        value: 0.000000
+    - Port_LODValue_N006:
         typeIdx: 1
         value: 0.000000
     - Port_RangeMaxA_N002:
@@ -129,9 +159,45 @@
     []
   BlendMode: Disabled
   Properties:
-    Port_Input1_N013:
+    Port_Import_N044:
       typeIdx: 1
-      value: 0.500000
+      value: 2.000000
+    Port_Input1_N008:
+      typeIdx: 1
+      value: 0.400000
+    Port_Input1_N016:
+      typeIdx: 1
+      value: 0.800000
+    Port_Input1_N045:
+      typeIdx: 1
+      value: 0.700000
+    Port_Input2_N023:
+      typeIdx: 1
+      value: 0.840000
+    Port_Item0_N018:
+      typeIdx: 3
+      value: {x: 1.016200, y: 0.420900}
+    Port_Item1_N018:
+      typeIdx: 3
+      value: {x: 0.420900, y: 1.016200}
+    Port_Item2_N018:
+      typeIdx: 3
+      value: {x: -0.420900, y: 1.016200}
+    Port_Item3_N018:
+      typeIdx: 3
+      value: {x: -1.016200, y: 0.420900}
+    Port_Item4_N018:
+      typeIdx: 3
+      value: {x: -1.016200, y: -0.420900}
+    Port_Item5_N018:
+      typeIdx: 3
+      value: {x: -0.420900, y: -1.016200}
+    Port_Item6_N018:
+      typeIdx: 3
+      value: {x: 0.420900, y: -1.016200}
+    Port_Item7_N018:
+      typeIdx: 3
+      value: {x: 1.016200, y: -0.420900}
     PreviewEnabled:
       typeIdx: 0
       value: 0
@@ -141,12 +207,27 @@
         id: a71389b8-ef8b-4071-bfd1-e34da0d6f8a2
         sampler:
           filteringMode: Trilinear
-          wrapModeU: Repeat
-          wrapModeV: Repeat
+          wrapModeU: ClampToEdge
+          wrapModeV: ClampToEdge
           wrapModeW: Repeat
           borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
           mipmaps: false
         type: Texture2D
+    Tweak_N3:
+      typeIdx: 9
+      value:
+        id: 79d8938e-096d-41e5-a08f-2ca100c92a74
+        sampler:
+          filteringMode: Trilinear
+          wrapModeU: ClampToEdge
+          wrapModeV: ClampToEdge
+          wrapModeW: Repeat
+          borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+          mipmaps: false
+        type: Texture2D
+    Tweak_N3Size:
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     baseColor:
       typeIdx: 5
       value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}

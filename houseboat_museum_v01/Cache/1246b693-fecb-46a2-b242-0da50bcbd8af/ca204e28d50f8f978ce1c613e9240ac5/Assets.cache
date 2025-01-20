@@ -1,0 +1,13 @@
+- !<AssetCache/ca204e28-d50f-8f97-8ce1-c613e9240ac5>
+  AssetFiles:
+    f91b551b-51c8-437e-af18-1adbbd778e31: 1246b693-fecb-46a2-b242-0da50bcbd8af/ca204e28d50f8f978ce1c613e9240ac5/Data/Stand_mask.jpg
+  Assets:
+    - !<FileTexture/f91b551b-51c8-437e-af18-1adbbd778e31>
+      PackagePath: ""
+      FileInfo: !<FileTextureInfo>
+        Width: 271
+        Height: 512
+  SourceHash: ca204e28d50f8f978ce1c613e9240ac5
+  FileHash: aa57426b0abdf2b50b6ae9ea390142c1
+  NativePackageItems:
+    []

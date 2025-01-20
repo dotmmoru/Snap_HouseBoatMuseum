@@ -1,0 +1,245 @@
+- !<AssetCache/436d0028-04d9-33e5-e83d-e6c645f3d3a9>
+  AssetFiles:
+    b33cf5a2-3bec-421d-80a6-8596ea32a9a3: 6e93ea5d-0ee4-4bdf-abe6-6e47ff7ff92f/14a2e4a31e0fcbcc88b4d1e92c74f4a2/Data/Woody Hat Test.ss_graph
+  Assets:
+    - !<ShaderGraphPass/b33cf5a2-3bec-421d-80a6-8596ea32a9a3>
+      PackagePath: ""
+      DefaultDefines:
+        []
+      DefaultProperties:
+        Port_Depth_N004:
+          typeIdx: 1
+          value: 1.000000
+        Port_Emissive_N006:
+          typeIdx: 4
+          value: {x: 0.000000, y: 0.000000, z: 0.000000}
+        Port_FinalColor1_N004:
+          typeIdx: 5
+          value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+        Port_FinalColor2_N004:
+          typeIdx: 5
+          value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+        Port_FinalColor3_N004:
+          typeIdx: 5
+          value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+        Port_GSplatPointSize_N004:
+          typeIdx: 1
+          value: 0.000000
+        Port_Import_N044:
+          typeIdx: 1
+          value: 1.000000
+        Port_Input1_N007:
+          typeIdx: 1
+          value: 10.000000
+        Port_Input1_N021:
+          typeIdx: 1
+          value: 0.800000
+        Port_Input1_N022:
+          typeIdx: 1
+          value: 0.000000
+        Port_Input1_N045:
+          typeIdx: 1
+          value: 0.700000
+        Port_Input1_N049:
+          typeIdx: 1
+          value: -1.000000
+        Port_Input1_N051:
+          typeIdx: 1
+          value: 0.500000
+        Port_Input1_N052:
+          typeIdx: 1
+          value: 0.000000
+        Port_Input1_N059:
+          typeIdx: 1
+          value: 1.000000
+        Port_Input2_N022:
+          typeIdx: 1
+          value: 1.000000
+        Port_Input2_N052:
+          typeIdx: 1
+          value: 1.000000
+        Port_Input2_N105:
+          typeIdx: 1
+          value: 0.840000
+        Port_Item0_N084:
+          typeIdx: 3
+          value: {x: 1.016200, y: 0.420900}
+        Port_Item1_N084:
+          typeIdx: 3
+          value: {x: 0.420900, y: 1.016200}
+        Port_Item2_N084:
+          typeIdx: 3
+          value: {x: -0.420900, y: 1.016200}
+        Port_Item3_N084:
+          typeIdx: 3
+          value: {x: -1.016200, y: 0.420900}
+        Port_Item4_N084:
+          typeIdx: 3
+          value: {x: -1.016200, y: -0.420900}
+        Port_Item5_N084:
+          typeIdx: 3
+          value: {x: -0.420900, y: -1.016200}
+        Port_Item6_N084:
+          typeIdx: 3
+          value: {x: 0.420900, y: -1.016200}
+        Port_Item7_N084:
+          typeIdx: 3
+          value: {x: 1.016200, y: -0.420900}
+        Port_LODValue_N001:
+          typeIdx: 1
+          value: 0.000000
+        Port_LODValue_N002:
+          typeIdx: 1
+          value: 0.000000
+        Port_LODValue_N009:
+          typeIdx: 1
+          value: 0.000000
+        Port_LODValue_N012:
+          typeIdx: 1
+          value: 0.000000
+        Port_RangeMaxA_N026:
+          typeIdx: 1
+          value: 1.000000
+        Port_RangeMaxB_N026:
+          typeIdx: 1
+          value: 0.000000
+        Port_RangeMinA_N026:
+          typeIdx: 1
+          value: 0.900000
+        Port_RangeMinB_N026:
+          typeIdx: 1
+          value: 1.000000
+        Port_RayDirection_N004:
+          typeIdx: 4
+          value: {x: 0.000000, y: 1.000000, z: 0.000000}
+        Port_RayOrigin_N004:
+          typeIdx: 4
+          value: {x: 0.000000, y: 0.000000, z: 0.000000}
+        Port_SpecularAO_N006:
+          typeIdx: 4
+          value: {x: 1.000000, y: 1.000000, z: 1.000000}
+        Port_WorldNormal_N004:
+          typeIdx: 4
+          value: {x: 0.000000, y: 1.000000, z: 0.000000}
+        Port_WorldPosition_N004:
+          typeIdx: 4
+          value: {x: 0.000000, y: 0.000000, z: 0.000000}
+        Port_WorldTangent_N004:
+          typeIdx: 4
+          value: {x: 0.000000, y: 0.000000, z: 1.000000}
+      PassUiData: !<PassUiData>
+        ExtraDefines:
+          - SC_ENABLE_RT_CASTER
+          - SC_ENABLE_RT_RECEIVER
+        PassBindings:
+          - mLabel: Graph Parameters
+            mType: Invalid
+            mName: ""
+            mWidget: group_start
+            mHint: ""
+            mMin: ~
+            mMax: ~
+            mStep: ~
+            mDefaultVal: ~
+            mValues:
+              []
+          - mLabel: Base Color
+            mType: Property
+            mName: baseColor
+            mWidget: color
+            mHint: "Property: baseColor"
+            mMin: ~
+            mMax: ~
+            mStep: ~
+            mDefaultVal: 1.000000
+            mValues:
+              []
+          - mLabel: Base Texture
+            mType: Property
+            mName: baseTex
+            mWidget: texture_group
+            mHint: "Property: baseTex"
+            mMin: ~
+            mMax: ~
+            mStep: ~
+            mDefaultVal: ~
+            mValues:
+              []
+          - mLabel: Metalness
+            mType: Property
+            mName: metal
+            mWidget: slider
+            mHint: "Property: metal"
+            mMin: 0.000000
+            mMax: 1.000000
+            mStep: 0.010000
+            mDefaultVal: 1.000000
+            mValues:
+              []
+          - mLabel: Roughness
+            mType: Property
+            mName: rough
+            mWidget: slider
+            mHint: "Property: rough"
+            mMin: 0.000000
+            mMax: 1.000000
+            mStep: 0.010000
+            mDefaultVal: 1.000000
+            mValues:
+              []
+          - mLabel: Normal Texture
+            mType: Property
+            mName: normalTex
+            mWidget: texture_group
+            mHint: "Property: normalTex"
+            mMin: ~
+            mMax: ~
+            mStep: ~
+            mDefaultVal: ~
+            mValues:
+              []
+          - mLabel: Material Params
+            mType: Property
+            mName: materialParamsTex
+            mWidget: texture_group
+            mHint: "Property: materialParamsTex"
+            mMin: ~
+            mMax: ~
+            mStep: ~
+            mDefaultVal: ~
+            mValues:
+              []
+          - mLabel: ""
+            mType: GroupEnd
+            mName: ""
+            mWidget: group_end
+            mHint: ""
+            mMin: ~
+            mMax: ~
+            mStep: ~
+            mDefaultVal: ~
+            mValues:
+              []
+          - mLabel: Alpha Test Threshold
+            mType: Property
+            mName: alphaTestThreshold
+            mWidget: slider
+            mHint: |-
+              Property: alphaTestThreshold
+              
+              When the 'Alpha Test' blend mode is enabled, pixels with alpha values lower than this disappear.
+            mMin: 0.000000
+            mMax: 1.000000
+            mStep: 0.001000
+            mDefaultVal: 0.500000
+            mValues:
+              []
+      ShaderPath: 6e93ea5d-0ee4-4bdf-abe6-6e47ff7ff92f/14a2e4a31e0fcbcc88b4d1e92c74f4a2/Data/f4eca80/Woody Hat Test.glsl
+      Defines:
+        []
+      Properties:
+        {}
+  SourceHash: 14a2e4a31e0fcbcc88b4d1e92c74f4a2
+  FileHash: c16cf325452028d476c7ffa26fe54825
+  NativePackageItems:
+    []

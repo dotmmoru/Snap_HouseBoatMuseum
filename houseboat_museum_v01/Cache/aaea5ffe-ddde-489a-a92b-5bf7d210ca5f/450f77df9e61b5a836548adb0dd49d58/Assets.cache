@@ -1,0 +1,13 @@
+- !<AssetCache/450f77df-9e61-b5a8-3654-8adb0dd49d58>
+  AssetFiles:
+    1b7020d8-754c-409f-b508-d63125695b92: aaea5ffe-ddde-489a-a92b-5bf7d210ca5f/450f77df9e61b5a836548adb0dd49d58/Data/seering wheel.jpg
+  Assets:
+    - !<FileTexture/1b7020d8-754c-409f-b508-d63125695b92>
+      PackagePath: ""
+      FileInfo: !<FileTextureInfo>
+        Width: 1000
+        Height: 963
+  SourceHash: 450f77df9e61b5a836548adb0dd49d58
+  FileHash: 97d233ae4667978d7a68859adc6e2326
+  NativePackageItems:
+    []

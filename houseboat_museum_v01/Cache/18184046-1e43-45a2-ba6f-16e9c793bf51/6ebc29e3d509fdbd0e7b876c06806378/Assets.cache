@@ -1,0 +1,13 @@
+- !<AssetCache/6ebc29e3-d509-fdbd-0e7b-876c06806378>
+  AssetFiles:
+    7849b1d2-6756-4ade-b755-efa80937c975: 18184046-1e43-45a2-ba6f-16e9c793bf51/6ebc29e3d509fdbd0e7b876c06806378/Data/Stand.jpg
+  Assets:
+    - !<FileTexture/7849b1d2-6756-4ade-b755-efa80937c975>
+      PackagePath: ""
+      FileInfo: !<FileTextureInfo>
+        Width: 575
+        Height: 1087
+  SourceHash: 6ebc29e3d509fdbd0e7b876c06806378
+  FileHash: 460c5e2367e794530009c01c88a25336
+  NativePackageItems:
+    []

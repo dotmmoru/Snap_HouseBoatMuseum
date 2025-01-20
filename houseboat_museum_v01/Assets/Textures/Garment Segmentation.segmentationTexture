@@ -1,0 +1,6 @@
+- !<SegmentationTexture/79d8938e-096d-41e5-a08f-2ca100c92a74>
+  PackagePath: ""
+  SegmentationType: FullGarment
+  InvertMask: true
+  Feathering: 0.500000
+  RefineEdge: false
