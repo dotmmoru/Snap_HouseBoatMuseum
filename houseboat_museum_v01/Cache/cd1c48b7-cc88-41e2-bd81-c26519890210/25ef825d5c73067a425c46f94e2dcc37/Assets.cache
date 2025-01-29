@@ -1,6 +1,6 @@
-- !<AssetCache/a6f0f695-bd7c-89f2-8e94-e45abe1dcd2a>
+- !<AssetCache/25ef825d-5c73-067a-425c-46f94e2dcc37>
   AssetFiles:
-    098d5220-f46b-417a-b054-662955346b42: cd1c48b7-cc88-41e2-bd81-c26519890210/25ef825d5c73067a425c46f94e2dcc37/Data/Empty.ss_graph
+    098d5220-f46b-417a-b054-662955346b42: cd1c48b7-cc88-41e2-bd81-c26519890210/25ef825d5c73067a425c46f94e2dcc37/Data/body mask.ss_graph
   Assets:
     - !<ShaderGraphPass/098d5220-f46b-417a-b054-662955346b42>
       PackagePath: ""
@@ -58,7 +58,7 @@
             mDefaultVal: 0.500000
             mValues:
               []
-      ShaderPath: cd1c48b7-cc88-41e2-bd81-c26519890210/25ef825d5c73067a425c46f94e2dcc37/Data/f4eca80/Empty.glsl
+      ShaderPath: cd1c48b7-cc88-41e2-bd81-c26519890210/25ef825d5c73067a425c46f94e2dcc37/Data/f4eca80/body mask.glsl
       Defines:
         []
       Properties:

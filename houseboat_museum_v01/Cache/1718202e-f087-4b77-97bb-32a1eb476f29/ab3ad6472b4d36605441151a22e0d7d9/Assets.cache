@@ -1,6 +1,6 @@
-- !<AssetCache/7d0f85e8-962a-6836-8370-7d85bb3a3106>
+- !<AssetCache/ab3ad647-2b4d-3660-5441-151a22e0d7d9>
   AssetFiles:
-    f6efb2a5-85a9-4fcc-88db-eda7971499b5: 1718202e-f087-4b77-97bb-32a1eb476f29/ab3ad6472b4d36605441151a22e0d7d9/Data/pbr 1.ss_graph
+    f6efb2a5-85a9-4fcc-88db-eda7971499b5: 1718202e-f087-4b77-97bb-32a1eb476f29/ab3ad6472b4d36605441151a22e0d7d9/Data/suits.ss_graph
   Assets:
     - !<ShaderGraphPass/f6efb2a5-85a9-4fcc-88db-eda7971499b5>
       PackagePath: ""
@@ -188,7 +188,7 @@
             mDefaultVal: 0.500000
             mValues:
               []
-      ShaderPath: 1718202e-f087-4b77-97bb-32a1eb476f29/ab3ad6472b4d36605441151a22e0d7d9/Data/f4eca80/pbr 1.glsl
+      ShaderPath: 1718202e-f087-4b77-97bb-32a1eb476f29/ab3ad6472b4d36605441151a22e0d7d9/Data/f4eca80/suits.glsl
       Defines:
         []
       Properties:

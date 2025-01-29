@@ -2937,7 +2937,7 @@
     pinToLeft: false
     pinToTop: false
     pinToRight: false
-    pinToBottom: false
+    pinToBottom: true
     fixedWidth: false
     fixedHeight: false
     deactivatedFixedSprite: false
@@ -2951,13 +2951,13 @@
   RawMode: true
   ForceBasic: true
   Anchor:
-    left: -1.500000
-    bottom: -1.115076
-    right: 1.500000
-    top: -0.277581
+    left: -1.936991
+    bottom: -1.000000
+    right: 2.082656
+    top: 0.115369
   Offset:
     left: 0.000000
-    bottom: 0.000000
+    bottom: -156.294846
     right: 0.000000
     top: 0.000000
 - !<RenderMeshVisual/b59a94d3-b771-41ca-8721-e183bdb92b4e>
@@ -3817,7 +3817,7 @@
   Name: Image
   Enabled: true
   RenderOrder: 0
-  StretchMode: Fit
+  StretchMode: Fill
   VerticalAlignment: Bottom
   HorizontalAlignment: Center
   MeshShadowMode: None
@@ -3968,9 +3968,9 @@
     top: -1.000000
   Offset:
     left: -454.597015
-    bottom: -250.000000
+    bottom: -249.949921
     right: 445.403015
-    top: 650.000244
+    top: 649.950134
 - !<SceneObject/e1e866c4-c7dc-45c9-8a29-d3b41d6adeae>
   PrefabRemaps:
     []

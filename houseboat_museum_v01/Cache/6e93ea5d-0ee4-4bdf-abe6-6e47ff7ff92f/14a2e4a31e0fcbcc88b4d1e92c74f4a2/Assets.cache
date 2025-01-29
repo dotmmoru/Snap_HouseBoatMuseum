@@ -1,6 +1,6 @@
-- !<AssetCache/436d0028-04d9-33e5-e83d-e6c645f3d3a9>
+- !<AssetCache/14a2e4a3-1e0f-cbcc-88b4-d1e92c74f4a2>
   AssetFiles:
-    b33cf5a2-3bec-421d-80a6-8596ea32a9a3: 6e93ea5d-0ee4-4bdf-abe6-6e47ff7ff92f/14a2e4a31e0fcbcc88b4d1e92c74f4a2/Data/Woody Hat Test.ss_graph
+    b33cf5a2-3bec-421d-80a6-8596ea32a9a3: 6e93ea5d-0ee4-4bdf-abe6-6e47ff7ff92f/14a2e4a31e0fcbcc88b4d1e92c74f4a2/Data/segmented_hat.ss_graph
   Assets:
     - !<ShaderGraphPass/b33cf5a2-3bec-421d-80a6-8596ea32a9a3>
       PackagePath: ""
@@ -234,7 +234,7 @@
             mDefaultVal: 0.500000
             mValues:
               []
-      ShaderPath: 6e93ea5d-0ee4-4bdf-abe6-6e47ff7ff92f/14a2e4a31e0fcbcc88b4d1e92c74f4a2/Data/f4eca80/Woody Hat Test.glsl
+      ShaderPath: 6e93ea5d-0ee4-4bdf-abe6-6e47ff7ff92f/14a2e4a31e0fcbcc88b4d1e92c74f4a2/Data/f4eca80/segmented_hat.glsl
       Defines:
         []
       Properties:

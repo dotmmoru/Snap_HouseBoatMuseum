@@ -1,6 +1,6 @@
-- !<AssetCache/b2b1d637-258a-e53f-35fa-c47c8460aef9>
+- !<AssetCache/8e27fa6e-03bc-df23-8547-e9ec3218b409>
   AssetFiles:
-    904f020a-67ac-4e04-9529-be24a075aa48: b6d9d774-3871-4247-bd5d-7cb3e5364762/8e27fa6e03bcdf238547e9ec3218b409/Data/cap_shadow 1.ss_graph
+    904f020a-67ac-4e04-9529-be24a075aa48: b6d9d774-3871-4247-bd5d-7cb3e5364762/8e27fa6e03bcdf238547e9ec3218b409/Data/hat_shadow.ss_graph
   Assets:
     - !<ShaderGraphPass/904f020a-67ac-4e04-9529-be24a075aa48>
       PackagePath: ""
@@ -88,7 +88,7 @@
             mDefaultVal: 0.500000
             mValues:
               []
-      ShaderPath: b6d9d774-3871-4247-bd5d-7cb3e5364762/8e27fa6e03bcdf238547e9ec3218b409/Data/f4eca80/cap_shadow 1.glsl
+      ShaderPath: b6d9d774-3871-4247-bd5d-7cb3e5364762/8e27fa6e03bcdf238547e9ec3218b409/Data/f4eca80/hat_shadow.glsl
       Defines:
         []
       Properties:

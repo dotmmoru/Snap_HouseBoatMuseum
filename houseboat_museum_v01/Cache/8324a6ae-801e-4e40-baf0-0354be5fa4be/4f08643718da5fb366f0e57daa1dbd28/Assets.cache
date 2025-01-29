@@ -1,6 +1,6 @@
-- !<AssetCache/fa292f0a-d430-d186-20a7-d2b035e6380d>
+- !<AssetCache/4f086437-18da-5fb3-66f0-e57daa1dbd28>
   AssetFiles:
-    1ea6f7ab-15b7-4764-b469-bd5921587942: 8324a6ae-801e-4e40-baf0-0354be5fa4be/4f08643718da5fb366f0e57daa1dbd28/Data/occluder 1.ss_graph
+    1ea6f7ab-15b7-4764-b469-bd5921587942: 8324a6ae-801e-4e40-baf0-0354be5fa4be/4f08643718da5fb366f0e57daa1dbd28/Data/body occluder.ss_graph
   Assets:
     - !<ShaderGraphPass/1ea6f7ab-15b7-4764-b469-bd5921587942>
       PackagePath: ""
@@ -164,7 +164,7 @@
             mDefaultVal: 0.500000
             mValues:
               []
-      ShaderPath: 8324a6ae-801e-4e40-baf0-0354be5fa4be/4f08643718da5fb366f0e57daa1dbd28/Data/f4eca80/occluder 1.glsl
+      ShaderPath: 8324a6ae-801e-4e40-baf0-0354be5fa4be/4f08643718da5fb366f0e57daa1dbd28/Data/f4eca80/body occluder.glsl
       Defines:
         []
       Properties:
