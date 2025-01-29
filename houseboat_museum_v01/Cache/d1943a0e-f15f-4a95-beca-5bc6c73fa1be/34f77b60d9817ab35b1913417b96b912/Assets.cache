@@ -1,0 +1,13 @@
+- !<AssetCache/34f77b60-d981-7ab3-5b19-13417b96b912>
+  AssetFiles:
+    d82bfd4d-63c2-4a20-afad-37de8ab477fa: d1943a0e-f15f-4a95-beca-5bc6c73fa1be/34f77b60d9817ab35b1913417b96b912/Data/Costume_Female_nrm_v01.jpg
+  Assets:
+    - !<FileTexture/d82bfd4d-63c2-4a20-afad-37de8ab477fa>
+      PackagePath: ""
+      FileInfo: !<FileTextureInfo>
+        Width: 2048
+        Height: 2048
+  SourceHash: 34f77b60d9817ab35b1913417b96b912
+  FileHash: 023f59ca80a8bc71692829bb7bbb62b7
+  NativePackageItems:
+    []

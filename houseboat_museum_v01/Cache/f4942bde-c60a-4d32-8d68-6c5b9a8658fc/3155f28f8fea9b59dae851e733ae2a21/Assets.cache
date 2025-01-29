@@ -1,0 +1,13 @@
+- !<AssetCache/3155f28f-8fea-9b59-dae8-51e733ae2a21>
+  AssetFiles:
+    14e192a0-5456-4f22-b91e-a74ac99b4d39: f4942bde-c60a-4d32-8d68-6c5b9a8658fc/3155f28f8fea9b59dae851e733ae2a21/Data/canoe_02.png
+  Assets:
+    - !<FileTexture/14e192a0-5456-4f22-b91e-a74ac99b4d39>
+      PackagePath: ""
+      FileInfo: !<FileTextureInfo>
+        Width: 512
+        Height: 256
+  SourceHash: 3155f28f8fea9b59dae851e733ae2a21
+  FileHash: f5d865622c165187d003c4448439bd44
+  NativePackageItems:
+    []

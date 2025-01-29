@@ -32,8 +32,12 @@
     headShadow1: false
     manCap: false
     manShadowMat: false
+    mansuitObjs0: false
+    mansuitObjs1: false
     womanCap: false
     womanShadowMat: false
+    womansuitObjs0: false
+    womansuitObjs1: false
   ScriptTypesHidden:
     {}
   DefaultScriptInputs:
@@ -45,6 +49,14 @@
       headShadow1: !<reference.RenderMeshVisual> 00000000-0000-0000-0000-000000000000
       manShadowMat: !<reference.Material> 00000000-0000-0000-0000-000000000000
       womanShadowMat: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      mansuitObjs0: !<reference.SceneObject[]>
+        []
+      mansuitObjs1: !<reference.SceneObject[]>
+        []
+      womansuitObjs0: !<reference.SceneObject[]>
+        []
+      womansuitObjs1: !<reference.SceneObject[]>
+        []
   ScriptTypes:
     -
       {}

@@ -45,4 +45,4 @@
       parentPoint: RightLeg
     - name: RightToeBase
       parentPoint: RightFoot
-  TrackHand: true
+  TrackHand: false

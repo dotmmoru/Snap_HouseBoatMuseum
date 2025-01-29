@@ -1,0 +1,13 @@
+- !<AssetCache/79452498-6bfc-0b23-2615-f6b0086419c1>
+  AssetFiles:
+    1ad8bab9-62bc-466d-bd39-07aa7648acc7: d154d2fe-b6de-4509-8903-43d7edf4bd9d/794524986bfc0b232615f6b0086419c1/Data/body_mask_v01.jpg
+  Assets:
+    - !<FileTexture/1ad8bab9-62bc-466d-bd39-07aa7648acc7>
+      PackagePath: ""
+      FileInfo: !<FileTextureInfo>
+        Width: 1024
+        Height: 1024
+  SourceHash: 794524986bfc0b232615f6b0086419c1
+  FileHash: 973ec603e7dfeac2ae1e50d830ff1973
+  NativePackageItems:
+    []

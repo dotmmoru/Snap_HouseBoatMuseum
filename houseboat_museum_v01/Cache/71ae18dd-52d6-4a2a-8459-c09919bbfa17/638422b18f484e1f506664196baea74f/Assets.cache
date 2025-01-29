@@ -5,8 +5,8 @@
     - !<ShaderGraphPass/1a2d2552-82a4-47fe-816f-8951aeec0ad4>
       PackagePath: ""
       DefaultDefines:
-        - NODE_27_DROPLIST_ITEM 0
         - NODE_13_DROPLIST_ITEM 0
+        - NODE_27_DROPLIST_ITEM 0
         - NODE_49_DROPLIST_ITEM 0
       DefaultProperties:
         Port_Depth_N004:

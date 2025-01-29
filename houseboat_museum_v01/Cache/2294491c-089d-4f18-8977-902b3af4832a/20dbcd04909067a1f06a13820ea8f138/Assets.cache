@@ -1,0 +1,13 @@
+- !<AssetCache/20dbcd04-9090-67a1-f06a-13820ea8f138>
+  AssetFiles:
+    484abb26-dd51-49da-a842-dc9032ef5efa: 2294491c-089d-4f18-8977-902b3af4832a/20dbcd04909067a1f06a13820ea8f138/Data/Hints_Phone_Frame2.png
+  Assets:
+    - !<FileTexture/484abb26-dd51-49da-a842-dc9032ef5efa>
+      PackagePath: ""
+      FileInfo: !<FileTextureInfo>
+        Width: 213
+        Height: 400
+  SourceHash: 20dbcd04909067a1f06a13820ea8f138
+  FileHash: 877f07c96f42fbce8e97bde86bc20856
+  NativePackageItems:
+    []

@@ -1,0 +1,44 @@
+- !<AssetImportMetadata/6df854e9-c624-48b0-abc0-5a1dec7fded1>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> 9c88d83c-ba5f-4a7d-8ce5-2154e1e00f75
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> 9c88d83c-ba5f-4a7d-8ce5-2154e1e00f75
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> f346110f-d4e3-44e9-9adf-e5efe466fd93
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings/dcef2431-d720-4557-b7ee-5a698d8af142>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/f346110f-d4e3-44e9-9adf-e5efe466fd93>
+  SvgIcon: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 00000000-0000-0000-0000-000000000000
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    distanceHint: false
+    manSuitTween: false
+    suitMat: false
+    track: false
+    womanSuitTween: false
+  ScriptTypesHidden:
+    {}
+  DefaultScriptInputs:
+    - distanceHint: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      track: !<reference.ObjectTracking3D> 00000000-0000-0000-0000-000000000000
+      manSuitTween: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      womanSuitTween: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      suitMat: !<reference.Material> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}

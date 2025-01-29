@@ -11,5 +11,10 @@ ExternalSources:
     - 8dbdd3b6-d5f7-4935-ac86-12b69d4f8ea5: "D:/Downloads/woman_cap_base_v01.png"
     - a478aa7f-7e7b-4686-9a10-3721e8174b1d: "D:/Projects/WhoAR/Dutch_Clothes/textures/man_suit/out/main_suit_nrm_v01.jpg"
     - a8f9504c-8f2c-4d81-9268-85d4181c9251: "D:/Projects/WhoAR/Dutch_Clothes/textures/man_suit/out/main_suit_params_v01.jpg"
+    - a9f1b39b-d1da-47be-b726-31529a220720: "D:/Downloads/Costume_Female_base_v02.png"
+    - bb41b7ff-df4c-4940-91d6-1bac244f22b3: "D:/Projects/WhoAR/Dutch_Clothes/textures/bodyOccluder/body_mask_v02.png"
+    - bd1cf249-674f-416a-96ff-974939869847: "D:/Projects/WhoAR/Dutch_Clothes/textures/woman_suit/Costume_Female_nrm_v02.jpg"
+    - cf056c40-ea49-4dba-8e12-54d80bf7bca2: "D:/Projects/WhoAR/Dutch_Clothes/textures/woman_suit/Costume_Female_parapms_v01.jpg"
     - da8c3d02-9975-4dd8-a301-638aaaa3ff31: "D:/Projects/Fishermen_Labs/Disney_Woody/lenses/Woody_stable_traking_SNAP/Public/Scripts/HatController.js"
+    - f4942bde-c60a-4d32-8d68-6c5b9a8658fc: "D:/Downloads/canoe_02.png"
   options: 4

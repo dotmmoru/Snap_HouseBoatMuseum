@@ -8,11 +8,11 @@
   ExternalMesh: !<reference> 00000000-0000-0000-0000-000000000000
   ExternalMeshPose: TPose
   ExternalMeshMatchingMode: Proximity
-  ExternalMeshMaxDistance: 0.500000
-  ExternalMeshMaxCount: 3
+  ExternalMeshMaxDistance: 0.610000
+  ExternalMeshMaxCount: 13
   ExternalMeshTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: -90.000000, y: 0.000000, z: 0.000000}
     scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
-  ExternalMeshMapUV: Texcoord0
+  ExternalMeshMapUV: Texcoord1

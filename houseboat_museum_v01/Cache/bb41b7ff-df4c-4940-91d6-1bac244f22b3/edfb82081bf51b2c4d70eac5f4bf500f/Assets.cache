@@ -1,0 +1,13 @@
+- !<AssetCache/edfb8208-1bf5-1b2c-4d70-eac5f4bf500f>
+  AssetFiles:
+    b0b92885-2680-46b7-bbe5-91a11b8a42f2: bb41b7ff-df4c-4940-91d6-1bac244f22b3/edfb82081bf51b2c4d70eac5f4bf500f/Data/body_mask_v02.png
+  Assets:
+    - !<FileTexture/b0b92885-2680-46b7-bbe5-91a11b8a42f2>
+      PackagePath: ""
+      FileInfo: !<FileTextureInfo>
+        Width: 1024
+        Height: 1024
+  SourceHash: edfb82081bf51b2c4d70eac5f4bf500f
+  FileHash: 272d348bbd2500becf7f020838bb2038
+  NativePackageItems:
+    []
