@@ -1,0 +1,13 @@
+- !<AssetCache/89b3d41a-0ec3-d58b-41ff-2d263790298d>
+  AssetFiles:
+    72d77bba-3e71-4faa-8628-9c34142779ba: 14595ed9-ea8b-4475-86e6-fb4594560784/89b3d41a0ec3d58b41ff2d263790298d/Data/woman_cap_params_v01.jpg
+  Assets:
+    - !<FileTexture/72d77bba-3e71-4faa-8628-9c34142779ba>
+      PackagePath: ""
+      FileInfo: !<FileTextureInfo>
+        Width: 512
+        Height: 512
+  SourceHash: 89b3d41a0ec3d58b41ff2d263790298d
+  FileHash: 1b5e3184f554afc48e6055899bcc03e7
+  NativePackageItems:
+    []

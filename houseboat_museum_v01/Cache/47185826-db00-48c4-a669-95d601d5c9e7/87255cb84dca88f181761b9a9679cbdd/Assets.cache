@@ -1,0 +1,13 @@
+- !<AssetCache/87255cb8-4dca-88f1-8176-1b9a9679cbdd>
+  AssetFiles:
+    55a225cc-49ae-4c03-b1eb-9c45c8ea56c4: 47185826-db00-48c4-a669-95d601d5c9e7/87255cb84dca88f181761b9a9679cbdd/Data/main_suit_base_v01.jpg
+  Assets:
+    - !<FileTexture/55a225cc-49ae-4c03-b1eb-9c45c8ea56c4>
+      PackagePath: ""
+      FileInfo: !<FileTextureInfo>
+        Width: 1024
+        Height: 1024
+  SourceHash: 87255cb84dca88f181761b9a9679cbdd
+  FileHash: 5542ae7cef74ef72fbc06f8fe04461b8
+  NativePackageItems:
+    []

@@ -1,0 +1,13 @@
+- !<AssetCache/369e74b1-dd52-c427-bc46-3ffe6cb27c79>
+  AssetFiles:
+    62788835-0c10-42e8-8a41-65283ba4fe00: 0756c26f-eab0-4377-a6b7-e3fbb50df98f/369e74b1dd52c427bc463ffe6cb27c79/Data/hat_man_params_v01.jpg
+  Assets:
+    - !<FileTexture/62788835-0c10-42e8-8a41-65283ba4fe00>
+      PackagePath: ""
+      FileInfo: !<FileTextureInfo>
+        Width: 512
+        Height: 512
+  SourceHash: 369e74b1dd52c427bc463ffe6cb27c79
+  FileHash: 65afe4c8bfbfae15c73caf98bb31c183
+  NativePackageItems:
+    []

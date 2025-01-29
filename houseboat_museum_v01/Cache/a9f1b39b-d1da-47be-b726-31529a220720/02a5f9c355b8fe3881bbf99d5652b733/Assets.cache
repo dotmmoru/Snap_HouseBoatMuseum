@@ -1,0 +1,13 @@
+- !<AssetCache/02a5f9c3-55b8-fe38-81bb-f99d5652b733>
+  AssetFiles:
+    bf4f9216-e188-4bf5-89c6-ffd107761690: a9f1b39b-d1da-47be-b726-31529a220720/02a5f9c355b8fe3881bbf99d5652b733/Data/Costume_Female_base_v02.png
+  Assets:
+    - !<FileTexture/bf4f9216-e188-4bf5-89c6-ffd107761690>
+      PackagePath: ""
+      FileInfo: !<FileTextureInfo>
+        Width: 1024
+        Height: 1024
+  SourceHash: 02a5f9c355b8fe3881bbf99d5652b733
+  FileHash: 4e328be996a45289f28b9d70c3594209
+  NativePackageItems:
+    []

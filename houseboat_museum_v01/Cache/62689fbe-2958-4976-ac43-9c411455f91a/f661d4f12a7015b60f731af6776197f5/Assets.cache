@@ -1,0 +1,13 @@
+- !<AssetCache/f661d4f1-2a70-15b6-0f73-1af6776197f5>
+  AssetFiles:
+    eb5d3572-92f2-4fa7-b22b-6803fe0a56b0: 62689fbe-2958-4976-ac43-9c411455f91a/f661d4f12a7015b60f731af6776197f5/Data/hat_man_base_v01.jpg
+  Assets:
+    - !<FileTexture/eb5d3572-92f2-4fa7-b22b-6803fe0a56b0>
+      PackagePath: ""
+      FileInfo: !<FileTextureInfo>
+        Width: 1024
+        Height: 1024
+  SourceHash: f661d4f12a7015b60f731af6776197f5
+  FileHash: ea59951c0b0970efd7028919001c5096
+  NativePackageItems:
+    []

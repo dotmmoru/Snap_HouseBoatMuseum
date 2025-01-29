@@ -1,12 +1,11 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 87
+    size: 89
     values:
       - 3D Body Tracking.bodyTracking3D
       - API
-      - Image.mat
-      - Image.png
+      - Materials
       - Materials/Back.mat
       - Materials/Body Occluder.mat
       - Materials/Canoe.mat
@@ -23,6 +22,7 @@ CollapsedEntities:
       - Materials/Woman Hat.mat
       - Materials/Woman Suit Mask.mat
       - Materials/Woman Suit.mat
+      - Models
       - Models/Costume_Men_rig_v07.fbx
       - Models/Costume_Men_rig_v07.fbx/Costume_Men_rig_v07
       - Models/Costume_Men_rig_v07.fbx/Meshes
@@ -33,10 +33,24 @@ CollapsedEntities:
       - Models/man_cap_v02.fbx/Meshes
       - Models/man_cap_v02.fbx/Meshes/man_cap_v02
       - Models/man_cap_v02.fbx/man_cap_v02
+      - Models/suits_rig_v04.fbx
+      - Models/suits_rig_v04.fbx/.hidden
+      - Models/suits_rig_v04.fbx/.hidden/Costume_Female
+      - Models/suits_rig_v04.fbx/.hidden/white
+      - Models/suits_rig_v04.fbx/BaseLayer
+      - Models/suits_rig_v04.fbx/Materials
+      - Models/suits_rig_v04.fbx/Materials/Costume_Female
+      - Models/suits_rig_v04.fbx/Materials/Costume_Men
+      - Models/suits_rig_v04.fbx/Meshes
+      - Models/suits_rig_v04.fbx/Meshes/costume_female
+      - Models/suits_rig_v04.fbx/Meshes/costume_female_front_plane
+      - Models/suits_rig_v04.fbx/Meshes/costume_men
+      - Models/suits_rig_v04.fbx/suits_rig_v04
       - Models/woman_cap_v01.fbx
       - Models/woman_cap_v01.fbx/Meshes
       - Models/woman_cap_v01.fbx/Meshes/woman_cap_v01
       - Models/woman_cap_v01.fbx/woman_cap_v01
+      - RTs
       - RTs/RT Suits Masks.renderTarget
       - RTs/Render Target Live.renderTarget
       - RTs/Render Target Splash Source.renderTarget
@@ -55,6 +69,7 @@ CollapsedEntities:
       - Shaders/occluder.ss_graph
       - Shaders/pbr.ss_graph
       - Shaders/suits.ss_graph
+      - Textures
       - Textures/Animated/Hint_Step_Back/Hint_Step_Back.lensanim
       - Textures/Animated/Hint_Step_Back/Hint_Step_Back.lensanim/Hint_Step_Back
       - Textures/Animated/Hint_Step_Back/Hint_Step_Back.lensanim/Hint_Step_Back.png
@@ -76,18 +91,5 @@ CollapsedEntities:
       - Textures/woman_cap_base_v01.png
       - Textures/woman_cap_nrm_v01.jpg
       - Textures/woman_cap_params_v01.jpg
-      - suits_rig_v03.fbx
-      - suits_rig_v03.fbx/.hidden
-      - suits_rig_v03.fbx/.hidden/Costume_Female
-      - suits_rig_v03.fbx/.hidden/white
-      - suits_rig_v03.fbx/BaseLayer
-      - suits_rig_v03.fbx/Materials/Costume_Female
-      - suits_rig_v03.fbx/Materials/Costume_Men
-      - suits_rig_v03.fbx/Meshes
-      - suits_rig_v03.fbx/Meshes/costume_female
-      - suits_rig_v03.fbx/Meshes/costume_female_front_plane
-      - suits_rig_v03.fbx/Meshes/costume_men
-      - suits_rig_v03.fbx/Textures/Costume_Female_txtr_01_Costume_Female_base
-      - suits_rig_v03.fbx/Textures/main_suit_base_v01
-      - suits_rig_v03.fbx/suits_rig_v03
+      - VFX
   options: 4

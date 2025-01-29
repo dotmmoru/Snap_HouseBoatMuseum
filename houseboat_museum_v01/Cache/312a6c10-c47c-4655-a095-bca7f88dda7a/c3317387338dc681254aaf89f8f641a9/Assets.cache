@@ -1,0 +1,13 @@
+- !<AssetCache/c3317387-338d-c681-254a-af89f8f641a9>
+  AssetFiles:
+    e4ff6f81-f6ba-439c-af9e-5a5ff8330a34: 312a6c10-c47c-4655-a095-bca7f88dda7a/c3317387338dc681254aaf89f8f641a9/Data/woman_cap_nrm_v01.jpg
+  Assets:
+    - !<FileTexture/e4ff6f81-f6ba-439c-af9e-5a5ff8330a34>
+      PackagePath: ""
+      FileInfo: !<FileTextureInfo>
+        Width: 512
+        Height: 512
+  SourceHash: c3317387338dc681254aaf89f8f641a9
+  FileHash: 98c04f85381a1b7de4ecd74262e542d7
+  NativePackageItems:
+    []
