@@ -26,7 +26,10 @@
   CurrentVisibility: Editable
   MaxVisibility: Editable
   ScriptInputsHidden:
+    distThreshold: false
     distanceHint: false
+    head0: false
+    head1: false
     manSuitTween: false
     suitMat: false
     track: false
@@ -39,6 +42,9 @@
       manSuitTween: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       womanSuitTween: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       suitMat: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      head0: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      head1: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      distThreshold: !<float> 0.000000
   ScriptTypes:
     -
       {}

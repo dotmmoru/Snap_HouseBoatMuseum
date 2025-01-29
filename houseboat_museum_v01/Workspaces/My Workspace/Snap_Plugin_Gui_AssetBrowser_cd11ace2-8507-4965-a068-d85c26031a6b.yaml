@@ -1,11 +1,10 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 89
+    size: 88
     values:
       - 3D Body Tracking.bodyTracking3D
       - API
-      - Materials
       - Materials/Back.mat
       - Materials/Body Occluder.mat
       - Materials/Canoe.mat

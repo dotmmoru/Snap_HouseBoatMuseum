@@ -1,13 +1,45 @@
 // @input SceneObject distanceHint
 // @input Component.ObjectTracking3D track
+// @input SceneObject head0
+// @input SceneObject head1
 // @input SceneObject manSuitTween
 // @input SceneObject womanSuitTween
 // @input Asset.Material suitMat
+// @input float distThreshold
 
 var isHint = false;
 var wasStartHint = false;
 
 var isTracked = false;
+
+var isFace0 = false;
+var isFace1 = false;
+
+var onFaceFound0 = script.createEvent("FaceFoundEvent");
+onFaceFound0.faceIndex = 0;
+onFaceFound0.bind(function(){
+    isFace0 = true;
+});
+
+var onFaceLost0 = script.createEvent("FaceLostEvent");
+onFaceLost0.faceIndex = 0;
+onFaceLost0.bind(function(){
+    isFace0 = false;
+    isFace1 = false;
+});
+
+var onFaceFound1 = script.createEvent("FaceFoundEvent");
+onFaceFound1.faceIndex = 1;
+onFaceFound1.bind(function(){
+    isFace1 = true;
+});
+
+var onFaceLost1 = script.createEvent("FaceLostEvent");
+onFaceLost1.faceIndex = 1;
+onFaceLost1.bind(function(){
+    isFace1 = false;
+});
+
 
 function setCostums(status){
     var curColor = script.suitMat.mainPass.baseColor;
@@ -57,8 +89,22 @@ function Start(){
 Start();
 
 function checkTracking(){
-    if (!isTracked && (script.track.isAttachmentPointTracking("RightLeg") ||
-    script.track.isAttachmentPointTracking("LeftLeg"))){
+    var camPos = new vec3(0, 0, 40);
+    var headDist0 = script.head0.getTransform().getWorldPosition().distance(camPos);
+    var headDist1 = script.head1.getTransform().getWorldPosition().distance(camPos);
+    
+    var areFar = false;
+    if (isFace1){
+        areFar = Math.min(headDist0, headDist1) > script.distThreshold;
+    }
+    else {
+        if (isFace0){
+            areFar = headDist0 > script.distThreshold;
+        }
+    }
+    
+    if (!isTracked && isFace0 && areFar && (script.track.isAttachmentPointTracking("RightFoot") ||
+    script.track.isAttachmentPointTracking("LeftFoot"))){
         isTracked = true;
         wasStartHint = true;
         if (isHint){
@@ -70,8 +116,8 @@ function checkTracking(){
         setCostums(true);
     }
     else {
-        if (isTracked && !script.track.isAttachmentPointTracking("RightLeg") &&
-        !script.track.isAttachmentPointTracking("LeftLeg")){
+        if (isTracked && (!areFar || (!script.track.isAttachmentPointTracking("RightFoot") &&
+        !script.track.isAttachmentPointTracking("LeftFoot")))){
             isTracked = false;
             if (wasStartHint && !isHint){
                 delayedHintOut.cancel();

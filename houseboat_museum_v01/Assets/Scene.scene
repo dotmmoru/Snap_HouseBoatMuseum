@@ -3185,9 +3185,12 @@
     "":
       distanceHint: !<reference.SceneObject> 0310d249-5819-4df7-ad63-98de997386c4
       track: !<reference.ObjectTracking3D> 1d44abe4-3710-47d3-9cac-76868f4a6b94
+      head0: !<reference.SceneObject> 07362944-d5f4-4216-9af3-0b73f23e181b
+      head1: !<reference.SceneObject> 87db937f-5f22-4c27-81c6-e9fd8904ec43
       manSuitTween: !<reference.SceneObject> d0269ff5-40d3-4d64-9787-015d6adf5c1f
       womanSuitTween: !<reference.SceneObject> ed739bad-3e86-48d6-861d-047de51f4190
       suitMat: !<reference.Material> a12554c5-9f26-4f48-9752-e15482fd3b86
+      distThreshold: !<float> 90.000000
   ScriptTypes:
     "":
       {}
