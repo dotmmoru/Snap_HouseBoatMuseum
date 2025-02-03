@@ -1,10 +1,11 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 88
+    size: 91
     values:
       - 3D Body Tracking.bodyTracking3D
       - API
+      - Materials
       - Materials/Back.mat
       - Materials/Body Occluder.mat
       - Materials/Canoe.mat
@@ -53,6 +54,7 @@ CollapsedEntities:
       - RTs/RT Suits Masks.renderTarget
       - RTs/Render Target Live.renderTarget
       - RTs/Render Target Splash Source.renderTarget
+      - Scripts
       - Scripts/AccessoriesController.js
       - Scripts/DistanceController.js
       - Scripts/HatController.js
@@ -68,13 +70,14 @@ CollapsedEntities:
       - Shaders/occluder.ss_graph
       - Shaders/pbr.ss_graph
       - Shaders/suits.ss_graph
-      - Textures
+      - Textures/Animated
       - Textures/Animated/Hint_Step_Back/Hint_Step_Back.lensanim
       - Textures/Animated/Hint_Step_Back/Hint_Step_Back.lensanim/Hint_Step_Back
       - Textures/Animated/Hint_Step_Back/Hint_Step_Back.lensanim/Hint_Step_Back.png
       - Textures/Costume_Female_base_v02.png
       - Textures/Costume_Female_nrm_v02.jpg
       - Textures/Costume_Female_parapms_v01.jpg
+      - Textures/Echopark.hdr
       - Textures/Hints_Phone_Frame2.png
       - Textures/Screen Texture.screenTexture
       - Textures/Segmentation Body.segmentationTexture

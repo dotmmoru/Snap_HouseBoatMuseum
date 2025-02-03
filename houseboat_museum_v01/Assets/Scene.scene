@@ -2585,7 +2585,6 @@
     scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
   Children:
-    - !<own> fb804063-e17d-4034-8109-8510a37e1ab5
     - !<own> 924cd51f-8c14-4496-8e47-c6138cc36306
   Components:
     - !<own> e1069042-56cb-4e60-87e5-05ade9d94d37
@@ -2617,7 +2616,7 @@
     scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
   Children:
-    []
+    - !<own> fb804063-e17d-4034-8109-8510a37e1ab5
   Components:
     - !<own> c9d9aec9-287c-4212-921e-88042f99baf8
     - !<own> c868ccec-28a2-4b3f-8097-5e4f9dedc751
@@ -2951,15 +2950,83 @@
   RawMode: true
   ForceBasic: true
   Anchor:
-    left: -1.936991
+    left: -1.955759
     bottom: -1.000000
-    right: 2.082656
-    top: 0.115369
+    right: 2.063888
+    top: 0.052082
   Offset:
     left: 0.000000
-    bottom: -156.294846
+    bottom: -198.127121
     right: 0.000000
     top: 0.000000
+- !<ScriptComponent/b5719a1b-90cd-44cd-b2e0-3417fc7dd07a>
+  PrefabRemaps:
+    []
+  Name: TweenScreenTransform
+  Enabled: true
+  ScriptAsset: !<reference> 08c7fb39-0ad2-46e1-96fd-c49a5a92c970
+  ScriptInputsDefault:
+    sceneObjectReference: true
+    tweenName: true
+    playAutomatically: true
+    type: true
+    movementType: true
+    anchorsParam: true
+    offsetsParam: true
+    startScale: true
+    startAnchorsBounds: true
+    startAnchorsSize: true
+    startAnchorsCenter: true
+    startOffsetsBounds: true
+    startOffsetsSize: true
+    startOffsetsCenter: true
+    endScale: true
+    endAnchorsBounds: true
+    endAnchorsSize: true
+    endAnchorsCenter: true
+    endOffsetsBounds: true
+    endOffsetsSize: true
+    endOffsetsCenter: true
+    additive: true
+    delay: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      sceneObjectReference: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      tweenName: ""
+      playAutomatically: true
+      loopType: 2
+      type: 0
+      movementType: 0
+      anchorsParam: 0
+      offsetsParam: 0
+      startPosition: !<Vec3> {x: -10.000000, y: 0.000000, z: 0.000000}
+      startScale: !<Vec3> {x: 1.000000, y: 1.000000, z: 1.000000}
+      startRotation: !<float> -1.000000
+      startAnchorsBounds: !<Vec4> {x: -1.000000, y: 1.000000, z: -1.000000, w: 1.000000}
+      startAnchorsSize: !<Vec2> {x: 1.000000, y: 1.000000}
+      startAnchorsCenter: !<Vec2> {x: 0.000000, y: 0.000000}
+      startOffsetsBounds: !<Vec4> {x: -1.000000, y: 1.000000, z: -1.000000, w: 1.000000}
+      startOffsetsSize: !<Vec2> {x: 1.000000, y: 1.000000}
+      startOffsetsCenter: !<Vec2> {x: 0.000000, y: 0.000000}
+      endPosition: !<Vec3> {x: 10.000000, y: 0.000000, z: 0.000000}
+      endScale: !<Vec3> {x: 1.000000, y: 1.000000, z: 1.000000}
+      endRotation: !<float> 1.000000
+      endAnchorsBounds: !<Vec4> {x: -1.000000, y: 1.000000, z: -1.000000, w: 1.000000}
+      endAnchorsSize: !<Vec2> {x: 2.000000, y: 2.000000}
+      endAnchorsCenter: !<Vec2> {x: 0.000000, y: 0.000000}
+      endOffsetsBounds: !<Vec4> {x: -1.000000, y: 1.000000, z: -1.000000, w: 1.000000}
+      endOffsetsSize: !<Vec2> {x: 2.000000, y: 2.000000}
+      endOffsetsCenter: !<Vec2> {x: 0.000000, y: 0.000000}
+      additive: false
+      time: !<float> 5.000000
+      delay: !<float> 0.000000
+      easingFunction: Linear
+      easingType: InOut
+  ScriptTypes:
+    "":
+      {}
 - !<RenderMeshVisual/b59a94d3-b771-41ca-8721-e183bdb92b4e>
   PrefabRemaps:
     []
@@ -2995,6 +3062,75 @@
     - !<own> e1e866c4-c7dc-45c9-8a29-d3b41d6adeae
   Components:
     []
+- !<ScriptComponent/b684ce03-9f61-45ec-a40f-06b294020746>
+  PrefabRemaps:
+    []
+  Name: TweenScreenTransform
+  Enabled: true
+  ScriptAsset: !<reference> 08c7fb39-0ad2-46e1-96fd-c49a5a92c970
+  ScriptInputsDefault:
+    sceneObjectReference: true
+    tweenName: true
+    playAutomatically: true
+    movementType: true
+    anchorsParam: true
+    offsetsParam: true
+    startPosition: true
+    startScale: true
+    startAnchorsBounds: true
+    startAnchorsSize: true
+    startAnchorsCenter: true
+    startOffsetsBounds: true
+    startOffsetsSize: true
+    startOffsetsCenter: true
+    endPosition: true
+    endScale: true
+    endAnchorsBounds: true
+    endAnchorsSize: true
+    endAnchorsCenter: true
+    endOffsetsBounds: true
+    endOffsetsSize: true
+    endOffsetsCenter: true
+    additive: true
+    delay: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      sceneObjectReference: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      tweenName: ""
+      playAutomatically: true
+      loopType: 2
+      type: 2
+      movementType: 0
+      anchorsParam: 0
+      offsetsParam: 0
+      startPosition: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      startScale: !<Vec3> {x: 1.000000, y: 1.000000, z: 1.000000}
+      startRotation: -0.500000
+      startAnchorsBounds: !<Vec4> {x: -1.000000, y: 1.000000, z: -1.000000, w: 1.000000}
+      startAnchorsSize: !<Vec2> {x: 1.000000, y: 1.000000}
+      startAnchorsCenter: !<Vec2> {x: 0.000000, y: 0.000000}
+      startOffsetsBounds: !<Vec4> {x: -1.000000, y: 1.000000, z: -1.000000, w: 1.000000}
+      startOffsetsSize: !<Vec2> {x: 1.000000, y: 1.000000}
+      startOffsetsCenter: !<Vec2> {x: 0.000000, y: 0.000000}
+      endPosition: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      endScale: !<Vec3> {x: 1.000000, y: 1.000000, z: 1.000000}
+      endRotation: 0.500000
+      endAnchorsBounds: !<Vec4> {x: -1.000000, y: 1.000000, z: -1.000000, w: 1.000000}
+      endAnchorsSize: !<Vec2> {x: 2.000000, y: 2.000000}
+      endAnchorsCenter: !<Vec2> {x: 0.000000, y: 0.000000}
+      endOffsetsBounds: !<Vec4> {x: -1.000000, y: 1.000000, z: -1.000000, w: 1.000000}
+      endOffsetsSize: !<Vec2> {x: 2.000000, y: 2.000000}
+      endOffsetsCenter: !<Vec2> {x: 0.000000, y: 0.000000}
+      additive: false
+      time: !<float> 5.000000
+      delay: !<float> 0.000000
+      easingFunction: Back
+      easingType: InOut
+  ScriptTypes:
+    "":
+      {}
 - !<RenderMeshVisual/b79c6b22-efa7-4774-b4ea-d918198bc00b>
   PrefabRemaps:
     []
@@ -3258,13 +3394,15 @@
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    scale: {x: 1.020000, y: 1.020000, z: 1.000000}
     hasSegmentScaleCompensation: false
   Children:
     []
   Components:
     - !<own> c8c94da5-79ac-412b-b774-bfb04f5fc3d6
     - !<own> aae23286-da82-4790-bc94-004effeb964d
+    - !<own> b684ce03-9f61-45ec-a40f-06b294020746
+    - !<own> b5719a1b-90cd-44cd-b2e0-3417fc7dd07a
 - !<Canvas/c3d6dff5-4bc8-44c0-8708-cd6a47b5c0f0>
   PrefabRemaps:
     []
@@ -3442,7 +3580,7 @@
     []
   Name: Screen Transform
   Enabled: true
-  IsAdvanced: false
+  IsAdvanced: true
   Constraints:
     pinToLeft: false
     pinToTop: false
@@ -3456,10 +3594,10 @@
   Transform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    scale: {x: 1.020000, y: 1.020000, z: 1.000000}
     hasSegmentScaleCompensation: false
   RawMode: true
-  ForceBasic: true
+  ForceBasic: false
   Anchor:
     left: -1.000000
     bottom: -1.000000
@@ -3508,7 +3646,7 @@
     []
   Name: Screen Transform
   Enabled: true
-  IsAdvanced: false
+  IsAdvanced: true
   Constraints:
     pinToLeft: true
     pinToTop: false
@@ -3516,8 +3654,8 @@
     pinToBottom: true
     fixedWidth: false
     fixedHeight: false
-    deactivatedFixedSprite: false
-    deactivatedFixedPivot: false
+    deactivatedFixedSprite: true
+    deactivatedFixedPivot: true
   Pivot: {x: 0.000000, y: 0.000000}
   Transform:
     position: {x: 0.000000, y: 0.000000, z: -1.000000}
@@ -3525,17 +3663,17 @@
     scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
   RawMode: true
-  ForceBasic: true
+  ForceBasic: false
   Anchor:
-    left: -1.000000
-    bottom: -1.000000
-    right: 1.000000
-    top: -0.500000
-  Offset:
     left: 0.000000
-    bottom: -350.000000
+    bottom: -1.000000
     right: 0.000000
-    top: 0.000000
+    top: -1.000000
+  Offset:
+    left: -400.034302
+    bottom: -458.234100
+    right: 400.000000
+    top: 251.765808
 - !<RenderMeshVisual/ca2f036d-45a9-4a8e-988b-a12dafb11765>
   PrefabRemaps:
     []
@@ -3946,7 +4084,7 @@
     []
   Name: Screen Transform
   Enabled: true
-  IsAdvanced: false
+  IsAdvanced: true
   Constraints:
     pinToLeft: false
     pinToTop: false
@@ -3954,8 +4092,8 @@
     pinToBottom: true
     fixedWidth: true
     fixedHeight: true
-    deactivatedFixedSprite: false
-    deactivatedFixedPivot: false
+    deactivatedFixedSprite: true
+    deactivatedFixedPivot: true
   Pivot: {x: 0.000000, y: 0.000000}
   Transform:
     position: {x: 0.000000, y: 0.000000, z: -1.000000}
@@ -3963,17 +4101,17 @@
     scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
   RawMode: true
-  ForceBasic: true
+  ForceBasic: false
   Anchor:
     left: 0.000000
-    bottom: -1.000000
+    bottom: 0.000000
     right: 0.000000
-    top: -1.000000
+    top: 0.000000
   Offset:
-    left: -454.597015
-    bottom: -249.949921
-    right: 445.403015
-    top: 649.950134
+    left: -650.000000
+    bottom: -340.808014
+    right: 650.000000
+    top: 750.093506
 - !<SceneObject/e1e866c4-c7dc-45c9-8a29-d3b41d6adeae>
   PrefabRemaps:
     []
@@ -4464,7 +4602,7 @@
   Enabled: true
   Layers: 1048576
   LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: -1.000000}
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
     scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
