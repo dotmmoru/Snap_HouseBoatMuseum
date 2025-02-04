@@ -2324,9 +2324,45 @@
     - alpha:
         typeIdx: 1
         value: 0.000000
+    - materialParamsTexBorderColor:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - materialParamsTexDims:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - materialParamsTexTransform:
+        typeIdx: 7
+        value:
+          0: {x: 1.000000, y: 0.000000, z: 0.000000}
+          1: {x: 0.000000, y: 1.000000, z: 0.000000}
+          2: {x: 0.000000, y: 0.000000, z: 1.000000}
+    - materialParamsTexUvMinMax:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - overrideTimeDelta:
+        typeIdx: 1
+        value: 0.000000
+    - overrideTimeElapsed:
+        typeIdx: 1
+        value: 0.000000
+    - overrideTimeEnabled:
+        typeIdx: 0
+        value: 0
     - selfIllum:
         typeIdx: 1
         value: 0.000000
+    - uv2Offset:
+        typeIdx: 3
+        value: {x: 1.000000, y: 1.000000}
+    - uv2Scale:
+        typeIdx: 3
+        value: {x: 1.000000, y: 1.000000}
+    - uv3Offset:
+        typeIdx: 3
+        value: {x: 1.000000, y: 1.000000}
+    - uv3Scale:
+        typeIdx: 3
+        value: {x: 1.000000, y: 1.000000}
   DepthWrite: true
   DepthTest: true
   DepthFunction: LessEqual
@@ -2371,48 +2407,12 @@
           borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
           mipmaps: false
         type: Texture2D
-    materialParamsTexBorderColor:
-      typeIdx: 5
-      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-    materialParamsTexDims:
-      typeIdx: 5
-      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-    materialParamsTexTransform:
-      typeIdx: 7
-      value:
-        0: {x: 1.000000, y: 0.000000, z: 0.000000}
-        1: {x: 0.000000, y: 1.000000, z: 0.000000}
-        2: {x: 0.000000, y: 0.000000, z: 1.000000}
-    materialParamsTexUvMinMax:
-      typeIdx: 5
-      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     metallic:
       typeIdx: 1
       value: 0.000000
-    overrideTimeDelta:
-      typeIdx: 1
-      value: 0.000000
-    overrideTimeElapsed:
-      typeIdx: 1
-      value: 0.000000
-    overrideTimeEnabled:
-      typeIdx: 0
-      value: 0
     roughness:
       typeIdx: 1
       value: 1.000000
-    uv2Offset:
-      typeIdx: 3
-      value: {x: 1.000000, y: 1.000000}
-    uv2Scale:
-      typeIdx: 3
-      value: {x: 1.000000, y: 1.000000}
-    uv3Offset:
-      typeIdx: 3
-      value: {x: 1.000000, y: 1.000000}
-    uv3Scale:
-      typeIdx: 3
-      value: {x: 1.000000, y: 1.000000}
   Pass: !<reference> fa829a2d-2df8-4e54-9886-3a4e60f03457
 - !<SceneObject/1eb9e571-8b88-4091-9772-4c58bf11eca2>
   PrefabRemaps:
@@ -2634,9 +2634,45 @@
     - alpha:
         typeIdx: 1
         value: 0.000000
+    - materialParamsTexBorderColor:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - materialParamsTexDims:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - materialParamsTexTransform:
+        typeIdx: 7
+        value:
+          0: {x: 1.000000, y: 0.000000, z: 0.000000}
+          1: {x: 0.000000, y: 1.000000, z: 0.000000}
+          2: {x: 0.000000, y: 0.000000, z: 1.000000}
+    - materialParamsTexUvMinMax:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - overrideTimeDelta:
+        typeIdx: 1
+        value: 0.000000
+    - overrideTimeElapsed:
+        typeIdx: 1
+        value: 0.000000
+    - overrideTimeEnabled:
+        typeIdx: 0
+        value: 0
     - selfIllum:
         typeIdx: 1
         value: 0.000000
+    - uv2Offset:
+        typeIdx: 3
+        value: {x: 1.000000, y: 1.000000}
+    - uv2Scale:
+        typeIdx: 3
+        value: {x: 1.000000, y: 1.000000}
+    - uv3Offset:
+        typeIdx: 3
+        value: {x: 1.000000, y: 1.000000}
+    - uv3Scale:
+        typeIdx: 3
+        value: {x: 1.000000, y: 1.000000}
   DepthWrite: true
   DepthTest: true
   DepthFunction: LessEqual
@@ -2681,48 +2717,12 @@
           borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
           mipmaps: false
         type: Texture2D
-    materialParamsTexBorderColor:
-      typeIdx: 5
-      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-    materialParamsTexDims:
-      typeIdx: 5
-      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-    materialParamsTexTransform:
-      typeIdx: 7
-      value:
-        0: {x: 1.000000, y: 0.000000, z: 0.000000}
-        1: {x: 0.000000, y: 1.000000, z: 0.000000}
-        2: {x: 0.000000, y: 0.000000, z: 1.000000}
-    materialParamsTexUvMinMax:
-      typeIdx: 5
-      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     metallic:
       typeIdx: 1
       value: 0.000000
-    overrideTimeDelta:
-      typeIdx: 1
-      value: 0.000000
-    overrideTimeElapsed:
-      typeIdx: 1
-      value: 0.000000
-    overrideTimeEnabled:
-      typeIdx: 0
-      value: 0
     roughness:
       typeIdx: 1
       value: 1.000000
-    uv2Offset:
-      typeIdx: 3
-      value: {x: 1.000000, y: 1.000000}
-    uv2Scale:
-      typeIdx: 3
-      value: {x: 1.000000, y: 1.000000}
-    uv3Offset:
-      typeIdx: 3
-      value: {x: 1.000000, y: 1.000000}
-    uv3Scale:
-      typeIdx: 3
-      value: {x: 1.000000, y: 1.000000}
   Pass: !<reference> fa829a2d-2df8-4e54-9886-3a4e60f03457
 - !<SceneObject/9351602f-4fb7-44f0-be3e-e9739f56f855>
   PrefabRemaps:

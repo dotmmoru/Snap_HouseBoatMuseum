@@ -21,10 +21,16 @@ SmileStartedEvent.bind(function (eventData) {
     TriggerEvent()
 });
 
+script.api.trigger = function(){
+    TriggerEvent();
+}
+
 function TriggerEvent() {
     if (eventDone)
         return;
     eventDone = true;
+    
+    print('capture');
 
     delay_ResetEventDone.reset(1.0);
 

@@ -45,6 +45,8 @@
       head0: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       head1: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       distThreshold: !<float> 0.000000
+      countDown: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      delayNextCountdown: !<float> 0.000000
   ScriptTypes:
     -
       {}

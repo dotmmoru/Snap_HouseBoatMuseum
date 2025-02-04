@@ -1,10 +1,12 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 91
+    size: 95
     values:
       - 3D Body Tracking.bodyTracking3D
-      - API
+      - API/HouseBoatMuseum API.js
+      - Font
+      - Font/jellee_roman.ttf
       - Materials
       - Materials/Back.mat
       - Materials/Body Occluder.mat
@@ -56,6 +58,7 @@ CollapsedEntities:
       - RTs/Render Target Splash Source.renderTarget
       - Scripts
       - Scripts/AccessoriesController.js
+      - Scripts/CountdownController.js
       - Scripts/DistanceController.js
       - Scripts/HatController.js
       - Scripts/splashesController.js
@@ -70,6 +73,7 @@ CollapsedEntities:
       - Shaders/occluder.ss_graph
       - Shaders/pbr.ss_graph
       - Shaders/suits.ss_graph
+      - Textures
       - Textures/Animated
       - Textures/Animated/Hint_Step_Back/Hint_Step_Back.lensanim
       - Textures/Animated/Hint_Step_Back/Hint_Step_Back.lensanim/Hint_Step_Back

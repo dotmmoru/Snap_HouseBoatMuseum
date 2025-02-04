@@ -1,0 +1,62 @@
+- !<AssetImportMetadata/174d95fb-4da0-4653-b374-98da6d941b44>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> 24041da7-9bc4-42da-8486-7e7b19892624
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> 24041da7-9bc4-42da-8486-7e7b19892624
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    AssetLibraryId: 53seQVUTtjcLFk8b5RnsJC
+  AssetDataMap:
+    JavaScriptAsset: !<own> 7a01d2dd-b60d-445e-86bf-ba03ba0e49de
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings/2cfad252-1e97-4f9d-b14c-5c9e194bfd96>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/7a01d2dd-b60d-445e-86bf-ba03ba0e49de>
+  SvgIcon: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 00000000-0000-0000-0000-000000000000
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    callApiFunc: false
+    delayNextCountdown: false
+    endColor: false
+    endSize: false
+    interval: false
+    numberText: false
+    onCompleteFunction: false
+    onCompleteTrigger: false
+    playOnStart: false
+    scriptWithApi: false
+    startColor: false
+    startNumber: false
+    startSize: false
+    useBehavior: false
+  ScriptTypesHidden:
+    {}
+  DefaultScriptInputs:
+    - playOnStart: false
+      numberText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      startNumber: 3
+      startSize: 100
+      endSize: 350
+      interval: !<float> 1.000000
+      startColor: !<Vec4> {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+      endColor: !<Vec4> {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+      useBehavior: false
+      onCompleteTrigger: ON_COMPLETE
+      callApiFunc: false
+      scriptWithApi: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      onCompleteFunction: onComplete
+      delayNextCountdown: !<float> 0.000000
+  ScriptTypes:
+    -
+      {}

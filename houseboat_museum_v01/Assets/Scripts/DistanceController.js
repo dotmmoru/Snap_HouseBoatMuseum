@@ -7,10 +7,12 @@
 // @input Asset.Material suitMat
 // @input float distThreshold
 
+
 var isHint = false;
 var wasStartHint = false;
 
 var isTracked = false;
+var countDownstarted = false;
 
 var isFace0 = false;
 var isFace1 = false;
@@ -40,7 +42,6 @@ onFaceLost1.bind(function(){
     isFace1 = false;
 });
 
-
 function setCostums(status){
     var curColor = script.suitMat.mainPass.baseColor;
     
@@ -58,7 +59,12 @@ function setCostums(status){
 function hintOut(){
     if (isHint){
         global.tweenManager.stopTween(script.distanceHint, "show");
-        global.tweenManager.startTween(script.distanceHint, "hide");
+        global.tweenManager.startTween(script.distanceHint, "hide", function(){
+            if (!countDownstarted){
+                global.countdownController.startCountdown();
+                countDownstarted = true;
+            }
+        });
         isHint = false;
     }
 }
@@ -112,6 +118,12 @@ function checkTracking(){
             delayedHintIn.cancel();
             delayedHintIn.cancel();
         }
+        else {
+            if (!countDownstarted){
+                global.countdownController.startCountdown();
+                countDownstarted = true;
+            }
+        }
         
         setCostums(true);
     }
@@ -119,11 +131,6 @@ function checkTracking(){
         if (isTracked && (!areFar || (!script.track.isAttachmentPointTracking("RightFoot") &&
         !script.track.isAttachmentPointTracking("LeftFoot")))){
             isTracked = false;
-            if (wasStartHint && !isHint){
-                delayedHintOut.cancel();
-                delayedHintIn.enabled = true;
-                delayedHintIn.reset(3);
-            }
             setCostums(false);
         }
     }
