@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 95
+    size: 94
     values:
       - 3D Body Tracking.bodyTracking3D
       - API/HouseBoatMuseum API.js
@@ -56,7 +56,6 @@ CollapsedEntities:
       - RTs/RT Suits Masks.renderTarget
       - RTs/Render Target Live.renderTarget
       - RTs/Render Target Splash Source.renderTarget
-      - Scripts
       - Scripts/AccessoriesController.js
       - Scripts/CountdownController.js
       - Scripts/DistanceController.js

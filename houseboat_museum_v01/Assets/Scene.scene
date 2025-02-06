@@ -2563,6 +2563,7 @@
     "":
       splashesTween: !<reference.SceneObject> a4509e23-d48a-410e-aa73-93dce56bcbd7
       splashDuration: 0.400000
+      splashInterval: 4.500000
   ScriptTypes:
     "":
       {}

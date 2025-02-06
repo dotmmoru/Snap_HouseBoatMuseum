@@ -1,5 +1,6 @@
 // @input SceneObject splashesTween
 // @input float splashDuration
+// @input float splashInterval
 
 function ShowWaterSplash() {
 	delay_ShowWaterSplash.reset(1);
@@ -14,7 +15,7 @@ delay_ShowWaterSplash.bind(function (eventData) {
 var delay_HideWaterSplash = script.createEvent("DelayedCallbackEvent");
 delay_HideWaterSplash.bind(function (eventData) {
 	global.tweenManager.startTween(script.splashesTween, "hide");
-	delay_ShowWaterSplash.reset(3);
+	delay_ShowWaterSplash.reset(script.splashInterval);
 });
 
 ShowWaterSplash();

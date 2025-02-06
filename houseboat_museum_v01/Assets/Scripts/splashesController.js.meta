@@ -27,12 +27,14 @@
   MaxVisibility: Editable
   ScriptInputsHidden:
     splashDuration: false
+    splashInterval: false
     splashesTween: false
   ScriptTypesHidden:
     {}
   DefaultScriptInputs:
     - splashesTween: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       splashDuration: !<float> 0.000000
+      splashInterval: !<float> 0.000000
   ScriptTypes:
     -
       {}
