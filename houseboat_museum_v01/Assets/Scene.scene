@@ -2539,7 +2539,7 @@
   Enabled: true
   Layers: 16
   LocalTransform:
-    position: {x: 120.000000, y: 0.000000, z: -42.000000}
+    position: {x: 0.000000, y: 0.000000, z: -1.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
     scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
@@ -3312,7 +3312,7 @@
       callApiFunc: true
       scriptWithApi: !<reference.ScriptComponent> bd5a892c-0292-4e9d-ae52-9fd2d84aa671
       onCompleteFunction: trigger
-      delayNextCountdown: !<float> 2.000000
+      delayNextCountdown: !<float> 7.000000
   ScriptTypes:
     "":
       {}
