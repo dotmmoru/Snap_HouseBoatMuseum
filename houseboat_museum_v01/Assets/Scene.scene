@@ -3455,7 +3455,7 @@
       manSuitTween: !<reference.SceneObject> d0269ff5-40d3-4d64-9787-015d6adf5c1f
       womanSuitTween: !<reference.SceneObject> ed739bad-3e86-48d6-861d-047de51f4190
       suitMat: !<reference.Material> a12554c5-9f26-4f48-9752-e15482fd3b86
-      distThreshold: !<float> 90.000000
+      distThreshold: !<float> 40.000000
   ScriptTypes:
     "":
       {}
