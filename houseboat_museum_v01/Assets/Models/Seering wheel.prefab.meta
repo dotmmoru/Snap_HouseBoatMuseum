@@ -11,7 +11,7 @@
     ObjectPrefab: !<own> e5e3844a-fea8-476d-b3fa-6add5f357150
   DependentFiles:
     []
-  ImporterSettings: !<AssetImporterSettings/f66dfc01-f2ff-48ba-92e5-8a770f11596b>
+  ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
 - !<Image/0d4d9f75-e036-4f8c-9878-921097406745>
@@ -32,6 +32,7 @@
   FlipY: false
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+  RotationAngle: 0
 - !<ScreenTransform/0d9ff98a-0d42-4e77-a80b-f84be0ab7e3f>
   PrefabRemaps:
     []
@@ -211,6 +212,7 @@
   FlipY: false
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+  RotationAngle: 0
 - !<ObjectPrefabAssetData/e5e3844a-fea8-476d-b3fa-6add5f357150>
   SourceRemaps:
     - 3ff3ce85-ec15-48c7-b705-183e27584abf: 0d9ff98a-0d42-4e77-a80b-f84be0ab7e3f

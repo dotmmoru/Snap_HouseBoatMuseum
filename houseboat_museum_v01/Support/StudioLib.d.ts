@@ -1,7 +1,7 @@
 /**
  * @module Built-In
- * @version 5.4.0
- * For Snapchat Version: 13.20
+ * @version 5.6.0
+ * For Snapchat Version: 13.26
 */
 interface ComponentNameMap {
     "AnimationPlayer": AnimationPlayer;
@@ -231,7 +231,7 @@ declare function print(message: any): void
 /**
 * Load a JavaScript module. Used for importing another JavaScript file found in the Resources panel to be used in the current script. Similar to `require` found in CommonJS specification. You can access Lens Studio specific modules (like `RemoteServiceModule`) using the `LensStudio` prefix, such as: `require("LensStudio:RemoteServiceModule)`. 
 
-* You can use the modules name or path, meaning you can have two version of the same module in your project if needed. Both by name or by path will be relative to the script which is calling require, but by name will check the same folder as the script, then the parent folder, and so on. In addition, any require can be relative to your library folder. Take a look at the [Scripting guide](https://docs.snap.com/lens-studio/references/guides/lens-features/adding-interactivity/scripting-overview) to learn more.
+* You can use the modules name or path, meaning you can have two version of the same module in your project if needed. Both by name or by path will be relative to the script which is calling require, but by name will check the same folder as the script, then the parent folder, and so on. In addition, any require can be relative to your library folder. Take a look at the [Scripting guide](https://developers.snap.com/lens-studio/features/scripting/script-overview) to learn more.
 
 */
 declare function require(moduleName: (ScriptAsset|string)): any
@@ -239,14 +239,14 @@ declare function require(moduleName: (ScriptAsset|string)): any
 /**
 * Load an asset like a `Texture`, `Material`, or `MLAsset` directly from script. 
 
-* You can use the modules name or path. Both by name or by path will be relative to the script which is calling require, but by name will check the same folder as the script, then the parent folder, and so on. In addition, any require can be relative to your library folder. Take a look at the [Scripting guide](https://docs.snap.com/lens-studio/references/guides/lens-features/adding-interactivity/scripting-overview) to learn more.
+* You can use the modules name or path. Both by name or by path will be relative to the script which is calling require, but by name will check the same folder as the script, then the parent folder, and so on. In addition, any require can be relative to your library folder. Take a look at the [Scripting guide](https://developers.snap.com/lens-studio/essential-skills/scripting/script-overview) to learn more.
 */
 declare function requireAsset(name: string): Asset
 
 /**
 * Load a script by name or path in order to use that type to create or get a component at runtime. 
 
-* You can use the modules name or path. Both by name or by path will be relative to the script which is calling require, but by name will check the same folder as the script, then the parent folder, and so on. In addition, any require can be relative to your library folder. Take a look at the [Scripting guide](https://docs.snap.com/lens-studio/references/guides/lens-features/adding-interactivity/scripting-overview) to learn more.
+* You can use the modules name or path. Both by name or by path will be relative to the script which is calling require, but by name will check the same folder as the script, then the parent folder, and so on. In addition, any require can be relative to your library folder. Take a look at the [Scripting guide](https://developers.snap.com/lens-studio/features/scripting/script-overview) to learn more.
 */
 declare function requireType(name: string): string
 
@@ -264,29 +264,29 @@ declare namespace global {
     let launchParams: GeneralDataStore
     
     /**
-    * Returns the global [LocalizationSystem](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#LocalizationSystem), which helps convert times, dates, and other units to user friendly strings.
+    * Returns the global {@link LocalizationSystem}, which helps convert times, dates, and other units to user friendly strings.
     */
     let localizationSystem: LocalizationSystem
     
     /**
-    * Returns the global [PersistentStorageSystem](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#PersistentStorageSystem), which allows data to persist between Lens sessions.
+    * Returns the global {@link PersistentStorageSystem}, which allows data to persist between Lens sessions.
     */
     let persistentStorageSystem: PersistentStorageSystem
     
     /**
-    * Returns the global [ScriptScene](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#ScriptScene) object, which offers information and controls for the current scene.
+    * Returns the global {@link ScriptScene} object, which offers information and controls for the current scene.
     */
     let scene: ScriptScene
     
     let textInputSystem: TextInputSystem
     
     /**
-    * Returns the global [TouchDataProvider](https://lensstudio.snapchat.com/api/lens-studio/Classes/Providers#TouchDataProvider), which controls how the Lens handles touch events.
+    * Returns the global {@link TouchDataProvider}, which controls how the Lens handles touch events.
     */
     let touchSystem: TouchDataProvider
     
     /**
-    * Returns the global [UserContextSystem](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#UserContextSystem), which provides information about the user such as display name, birthday, and even current weather.
+    * Returns the global {@link UserContextSystem}, which provides information about the user such as display name, birthday, and even current weather.
     */
     let userContextSystem: UserContextSystem
     
@@ -295,7 +295,7 @@ declare namespace global {
 /**
 * An object containing the position of an object relative to a LocationAsset. 
 */
-declare abstract class Anchor extends ScriptObject {
+declare class Anchor extends ScriptObject {
     
     protected constructor()
     
@@ -316,10 +316,10 @@ declare abstract class Anchor extends ScriptObject {
 }
 
 /**
-* Controls an animated texture resource. Can be accessed from [Texture.control](https://lensstudio.snapchat.com/api/lens-studio/Classes/Assets#texture--control) on an animated texture.
-* See also: [2D Animation Guide](https://lensstudio.snapchat.com/lens-studio/references/guides/adding-content/2d/2d-animation).
+* Controls an animated texture resource. Can be accessed from {@link Asset | Texture.Control} on an animated texture.
+* See also: [2D Animation Guide](https://developers.snap.com/lens-studio/assets-pipeline/2d/2d-animation).
 */
-declare abstract class AnimatedTextureFileProvider extends TextureProvider {
+declare class AnimatedTextureFileProvider extends TextureProvider {
     
     protected constructor()
     
@@ -418,7 +418,7 @@ declare abstract class AnimatedTextureFileProvider extends TextureProvider {
 /**
 * Asset that contains multiple animation layers. Animation assets themselves do not handle playing or orchestrating animations. This is left to the animation player component to handle.
 */
-declare abstract class AnimationAsset extends Asset {
+declare class AnimationAsset extends Asset {
     
     protected constructor()
     
@@ -471,7 +471,7 @@ declare abstract class AnimationAsset extends Asset {
 /**
 * Animation Clip is what an Animation Player uses to manage playback for a specific animation. It defines that animation by referencing an Animation Asset and providing start and end points, playback speed and direction, and blending information. 
 */
-declare abstract class AnimationClip extends ScriptObject {
+declare class AnimationClip extends ScriptObject {
     
     protected constructor()
     
@@ -544,25 +544,22 @@ declare abstract class AnimationClip extends ScriptObject {
     */
     weight: number
     
-}
-declare namespace AnimationClip {
     /**
     * Creates a clip.
     */
-    export function create(clipName: string): AnimationClip
+    static create(clipName: string): AnimationClip
     
     /**
     * Creates an animation clip from an animation asset.
     */
-    export function createFromAnimation(clipName: string, animation: AnimationAsset): AnimationClip
+    static createFromAnimation(clipName: string, animation: AnimationAsset): AnimationClip
     
-
 }
 
 /**
 * A curve that contains a set of keyframes and can evaluate values at specific timestamps.
 */
-declare abstract class AnimationCurve extends ScriptObject {
+declare class AnimationCurve extends ScriptObject {
     
     protected constructor()
     
@@ -593,30 +590,27 @@ declare abstract class AnimationCurve extends ScriptObject {
     */
     keyFrameCount: number
     
-}
-declare namespace AnimationCurve {
     /**
     * Create new animation curve.
     */
-    export function create(): AnimationCurve
+    static create(): AnimationCurve
     
     /**
     * Creates curve based on CSS easing values.
     */
-    export function createEasingCurve(startValue: number, endValue: number, x1: number, y1: number, x2: number, y2: number): AnimationCurve
+    static createEasingCurve(startValue: number, endValue: number, x1: number, y1: number, x2: number, y2: number): AnimationCurve
     
     /**
     * Create new animation keyframe
     */
-    export function createKeyFrame(): AnimationKeyFrame
+    static createKeyFrame(): AnimationKeyFrame
     
-
 }
 
 /**
 * An asset that contains one or more animation curves. When evaluating multiple values, the values are selected from left to right in order. For example, for a vec3 containing x,y,z , it will correspond to track index 0, 1, 2 from left to right. 
 */
-declare abstract class AnimationCurveTrack extends AnimationTrack {
+declare class AnimationCurveTrack extends AnimationTrack {
     
     protected constructor()
     
@@ -665,7 +659,7 @@ declare abstract class AnimationCurveTrack extends AnimationTrack {
 /**
 * A keyframe with time and respective value. Could be added to Animation Curve.
 */
-declare abstract class AnimationKeyFrame extends ScriptObject {
+declare class AnimationKeyFrame extends ScriptObject {
     
     protected constructor()
     
@@ -728,7 +722,7 @@ declare enum AnimationLayerScaleMode {
 /**
 * Component that handles playing animation clips as well as binding callbacks to user defined events.
 */
-declare abstract class AnimationPlayer extends Component {
+declare class AnimationPlayer extends Component {
     
     protected constructor()
     
@@ -841,7 +835,7 @@ declare abstract class AnimationPlayer extends Component {
 /**
 * Args used for AnimationPlayer's event, which is triggered every time the animation playback passes the given time in the event.
 */
-declare abstract class AnimationPlayerOnEventArgs extends ScriptObject {
+declare class AnimationPlayerOnEventArgs extends ScriptObject {
     
     protected constructor()
     
@@ -857,7 +851,7 @@ declare abstract class AnimationPlayerOnEventArgs extends ScriptObject {
 /**
 * The event registration returned by `AnimationAsset`'s `createEvent`.
 */
-declare abstract class AnimationPropertyEventRegistration extends ScriptObject {
+declare class AnimationPropertyEventRegistration extends ScriptObject {
     
     protected constructor()
     
@@ -866,7 +860,7 @@ declare abstract class AnimationPropertyEventRegistration extends ScriptObject {
 /**
 * A layer containing different properties. Examples include position, rotation, scale or any other arbitrary properties a user would like to add and sample from.
 */
-declare abstract class AnimationPropertyLayer extends ScriptObject {
+declare class AnimationPropertyLayer extends ScriptObject {
     
     protected constructor()
     
@@ -875,7 +869,7 @@ declare abstract class AnimationPropertyLayer extends ScriptObject {
 /**
 * The base class for animation tracks.
 */
-declare abstract class AnimationTrack extends Asset {
+declare class AnimationTrack extends Asset {
     
     protected constructor()
     
@@ -884,7 +878,7 @@ declare abstract class AnimationTrack extends Asset {
 /**
 * Base class for all assets used in the engine.
 */
-declare abstract class Asset extends SerializableWithUID {
+declare class Asset extends SerializableWithUID {
     
     protected constructor()
     
@@ -896,7 +890,7 @@ declare abstract class Asset extends SerializableWithUID {
 }
 
 /**
-* Used by [Head.setAttachmentPointType()](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Head) to specify the type of attachment used with a Head binding.
+* Used by {@link Head.setAttachmentPointType} to specify the type of attachment used with a Head binding.
 */
 declare enum AttachmentPointType {
     CandideCenter,
@@ -959,10 +953,12 @@ declare namespace Audio {
 
 /**
 * Used to play audio in a Lens.
-* You can assign an [AudioTrackAsset](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#AudioTrackAsset) to play through script or through the AudioComponent's inspector in Lens Studio.
-* See the [Playing Audio](https://lensstudio.snapchat.com/guides/audio) guide for more information.
+* You can assign an {@link AudioTrackAsset} to play through script, or through the Audio Component in the Inspector panel of Lens Studio.
+
+* @see [Playing Audio](https://developers.snap.com/lens-studio/features/audio/playing-audio) guide for more information.
+
 */
-declare abstract class AudioComponent extends Component {
+declare class AudioComponent extends Component {
     
     protected constructor()
     
@@ -1060,9 +1056,9 @@ declare abstract class AudioComponent extends Component {
 }
 
 /**
-* Configures an audio effect for [AudioEffectComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#AudioEffectComponent).
+* Configures an audio effect for {@link AudioEffectComponent}.
 */
-declare abstract class AudioEffectAsset extends Asset {
+declare class AudioEffectAsset extends Asset {
     
     protected constructor()
     
@@ -1071,19 +1067,19 @@ declare abstract class AudioEffectAsset extends Asset {
 /**
 * Used to add an audio effect to a Lens.
 * When present in the scene, it will automatically apply the selected audio effect to recordings made with the Lens.
-* See the [Audio Effect](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/audio/audio-effect) guide for more information.
+* See the [Audio Effect](https://developers.snap.com/lens-studio/features/audio/audio-effect) guide for more information.
 
 */
-declare abstract class AudioEffectComponent extends Component {
+declare class AudioEffectComponent extends Component {
     
     protected constructor()
     
 }
 
 /**
-* Provider for [AudioEffectAsset](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#AudioEffectAsset).
+* Provider for {@link AudioEffectAsset}.
 */
-declare abstract class AudioEffectProvider extends Provider {
+declare class AudioEffectProvider extends Provider {
     
     protected constructor()
     
@@ -1092,7 +1088,7 @@ declare abstract class AudioEffectProvider extends Provider {
 /**
 * A component that receives input from Audio Components that have Spatial Audio enabled. Calculates their positions relative to the scene object it is attached to,and properly mixes them.
 */
-declare abstract class AudioListenerComponent extends Component {
+declare class AudioListenerComponent extends Component {
     
     protected constructor()
     
@@ -1101,7 +1097,7 @@ declare abstract class AudioListenerComponent extends Component {
 /**
 * Provider of the Audio Output Audio Track asset. 
 */
-declare abstract class AudioOutputProvider extends AudioTrackProvider {
+declare class AudioOutputProvider extends AudioTrackProvider {
     
     protected constructor()
     
@@ -1122,9 +1118,9 @@ declare abstract class AudioOutputProvider extends AudioTrackProvider {
 
 /**
 * Represents an audio file asset.
-* See also: [AudioComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#AudioComponent).
+* See also: {@link AudioComponent}.
 */
-declare abstract class AudioTrackAsset extends Asset {
+declare class AudioTrackAsset extends Asset {
     
     protected constructor()
     
@@ -1138,7 +1134,7 @@ declare abstract class AudioTrackAsset extends Asset {
 /**
 * Base class for Audio Track providers.
 */
-declare abstract class AudioTrackProvider extends Provider {
+declare class AudioTrackProvider extends Provider {
     
     protected constructor()
     
@@ -1175,10 +1171,10 @@ declare enum Axis {
 }
 
 /**
-* Settings for rendering the background on a [Text](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Text) component.
-* Accessible through the [Text](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Text) component's `backgroundSettings` property.
+* Settings for rendering the background on a {@link Text} component.
+* Accessible through the {@link Text} component's `backgroundSettings` property.
 */
-declare abstract class BackgroundSettings extends ScriptObject {
+declare class BackgroundSettings extends ScriptObject {
     
     protected constructor()
     
@@ -1207,37 +1203,34 @@ declare abstract class BackgroundSettings extends ScriptObject {
 /**
 * Handles encoding and decoding images and textures into Base64 format, commonly used to embed images in JSON or other text-based formats.
 */
-declare abstract class Base64 {
+declare class Base64 {
     
     protected constructor()
     
-}
-declare namespace Base64 {
-    export function decode(value: string): Uint8Array
+    static decode(value: string): Uint8Array
     
     /**
     * Decode a texture from Base64, asynchronously. 
     */
-    export function decodeTextureAsync(value: string, onSuccess: (decodedTexture: Texture) => void, onFailure: () => void): void
+    static decodeTextureAsync(value: string, onSuccess: (decodedTexture: Texture) => void, onFailure: () => void): void
     
-    export function encode(data: Uint8Array): string
+    static encode(data: Uint8Array): string
     
     /**
     * Encode a texture according to Base64 encoding algorithm, asynchronously.
     */
-    export function encodeTextureAsync(texture: Texture, onSuccess: (encodedTexture: string) => void, onFailure: () => void, compressionQuality: CompressionQuality, encodingType: EncodingType): void
+    static encodeTextureAsync(texture: Texture, onSuccess: (encodedTexture: string) => void, onFailure: () => void, compressionQuality: CompressionQuality, encodingType: EncodingType): void
     
-
 }
 
 /**
 * The base class for all mesh rendering components.
 * Comparable to the former class "MeshVisual", which was split into the classes:
-* [BaseMeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#BaseMeshVisual),
-* [MaterialMeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#MaterialMeshVisual),
-* and [RenderMeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#RenderMeshVisual).
+* - {@link BaseMeshVisual}
+* - {@link MaterialMeshVisual}
+* - {@link RenderMeshVisual}
 */
-declare abstract class BaseMeshVisual extends Visual {
+declare class BaseMeshVisual extends Visual {
     
     protected constructor()
     
@@ -1268,14 +1261,14 @@ declare abstract class BaseMeshVisual extends Visual {
     worldAabbMin(): vec3
     
     /**
-    * When a [ScreenTransform](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ScreenTransform) is present on this SceneObject,
+    * When a {@link ScreenTransform} is present on this SceneObject,
     * and `extentsTarget` is a child of this SceneObject, `extentsTarget` will be repositioned to match the exact
-    * area this MeshVisual is being rendered. Very useful for [Image](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Image) and [Text](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Text) components.
+    * area this MeshVisual is being rendered. Very useful for {@link Image} and {@link Text} components.
     */
     extentsTarget: ScreenTransform
     
     /**
-    * When a [ScreenTransform](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ScreenTransform) is attached to the same SceneObject, this controls how the mesh will be positioned horizontally depending on `stretchMode`.
+    * When a {@link ScreenTransform} is attached to the same SceneObject, this controls how the mesh will be positioned horizontally depending on `stretchMode`.
     */
     horizontalAlignment: HorizontalAlignment
     
@@ -1295,12 +1288,12 @@ declare abstract class BaseMeshVisual extends Visual {
     shadowDensity: number
     
     /**
-    * When a [ScreenTransform](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ScreenTransform) is attached to the same SceneObject, this controls how the mesh will be stretched relative to the ScreenTransform's boundaries.
+    * When a {@link ScreenTransform} is attached to the same SceneObject, this controls how the mesh will be stretched relative to the ScreenTransform's boundaries.
     */
     stretchMode: StretchMode
     
     /**
-    * When a [ScreenTransform](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ScreenTransform) is attached to the same SceneObject, this controls how the mesh will be positioned vertically depending on `stretchMode`.
+    * When a {@link ScreenTransform} is attached to the same SceneObject, this controls how the mesh will be positioned vertically depending on `stretchMode`.
     */
     verticalAlignment: VerticalAlignment
     
@@ -1309,7 +1302,7 @@ declare abstract class BaseMeshVisual extends Visual {
 /**
 * Base class for MultiplayerSession options. This class is not used directly - use ConnectedLensSessionOptions instead.
 */
-declare abstract class BaseMultiplayerSessionOptions extends ScriptObject {
+declare class BaseMultiplayerSessionOptions extends ScriptObject {
     
     protected constructor()
     
@@ -1380,7 +1373,7 @@ declare abstract class BaseMultiplayerSessionOptions extends ScriptObject {
 /**
 * Base class for Input and Output Placeholders used by MLComponent.
 */
-declare abstract class BasePlaceholder extends ScriptObject {
+declare class BasePlaceholder extends ScriptObject {
     
     protected constructor()
     
@@ -1409,9 +1402,9 @@ declare abstract class BasePlaceholder extends ScriptObject {
 
 /**
 * Provides basic information about a transformation.
-* See also: [DeviceTracking](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#DeviceTracking)
+* See also: {@link DeviceTracking}
 */
-declare abstract class BasicTransform extends ScriptObject {
+declare class BasicTransform extends ScriptObject {
     
     protected constructor()
     
@@ -1445,7 +1438,7 @@ declare abstract class BasicTransform extends ScriptObject {
 /**
 * File based asset.
 */
-declare abstract class BinAsset extends Asset {
+declare class BinAsset extends Asset {
     
     protected constructor()
     
@@ -1454,7 +1447,7 @@ declare abstract class BinAsset extends Asset {
 /**
 * The options used with `requestBitmoji2DResource`.
 */
-declare abstract class Bitmoji2DOptions extends ScriptObject {
+declare class Bitmoji2DOptions extends ScriptObject {
     
     protected constructor()
     
@@ -1468,20 +1461,17 @@ declare abstract class Bitmoji2DOptions extends ScriptObject {
     */
     user: SnapchatUser
     
-}
-declare namespace Bitmoji2DOptions {
     /**
     * Create the option.
     */
-    export function create(): Bitmoji2DOptions
+    static create(): Bitmoji2DOptions
     
-
 }
 
 /**
 * The `DynamicResource` of a 2D Bitmoji which can be loaded with `RemoteMediaModule`.
 */
-declare abstract class Bitmoji2DResource extends DynamicResource {
+declare class Bitmoji2DResource extends DynamicResource {
     
     protected constructor()
     
@@ -1490,7 +1480,7 @@ declare abstract class Bitmoji2DResource extends DynamicResource {
 /**
 * The options used with `requestBitmoji3DResource`
 */
-declare abstract class Bitmoji3DOptions extends ScriptObject {
+declare class Bitmoji3DOptions extends ScriptObject {
     
     protected constructor()
     
@@ -1499,20 +1489,17 @@ declare abstract class Bitmoji3DOptions extends ScriptObject {
     */
     user: SnapchatUser
     
-}
-declare namespace Bitmoji3DOptions {
     /**
     * Create the option.
     */
-    export function create(): Bitmoji3DOptions
+    static create(): Bitmoji3DOptions
     
-
 }
 
 /**
 * Provides information about the current user's 3D Bitmoji avatar to be downloaded via the RemoteMediaModule.
 */
-declare abstract class Bitmoji3DResource extends DynamicResource {
+declare class Bitmoji3DResource extends DynamicResource {
     
     protected constructor()
     
@@ -1521,7 +1508,7 @@ declare abstract class Bitmoji3DResource extends DynamicResource {
 /**
 * Provides access to getting information about the current user's Bitmoji.
 */
-declare abstract class BitmojiModule extends Asset {
+declare class BitmojiModule extends Asset {
     
     protected constructor()
     
@@ -1559,16 +1546,29 @@ declare enum BlendMode {
 }
 
 /**
+* Represents a blob, which is a file-like object of immutable, raw data. Can be read as text or binary data. Currently the binary data is only supported as `Uint8Array`.
+
 * @wearableOnly
 */
 declare class Blob extends ScriptObject {
+    /**
+    * Construct a new Blob. Currently unused.
+    */
     constructor()
     
+    /**
+    * Returns a Promise that resolves with a `Uint8Array` containing the contents of the blob as an array of bytes.
+    */
     bytes(): any
     
+    /**
+    * Returns a Promise that resolves with a string containing the contents of the blob, interpreted as UTF-8.
+    */
     text(): any
     
     /**
+    * The size of the blob's data in bytes.
+    
     * @readonly
     */
     size: number
@@ -1578,7 +1578,7 @@ declare class Blob extends ScriptObject {
 /**
 * Used to analyze the camera input and apply similar image artifacts to your AR objects in order to allow it to blend and match the real world better.
 */
-declare abstract class BlurNoiseEstimation extends Component {
+declare class BlurNoiseEstimation extends Component {
     
     protected constructor()
     
@@ -1587,7 +1587,7 @@ declare abstract class BlurNoiseEstimation extends Component {
 /**
 * Derived from ColliderComponent, attaching this to a SceneObject turns it into a dynamic rigid-body that is automatically moved by the physics simulation in response to gravity, collisions, and other forces.
 */
-declare abstract class BodyComponent extends ColliderComponent {
+declare class BodyComponent extends ColliderComponent {
     
     protected constructor()
     
@@ -1662,7 +1662,7 @@ declare abstract class BodyComponent extends ColliderComponent {
 * Provides depth values of the tracked body encoded as D24_UNORM_S8_UINT in screen resolution. Depth is normalized between 0-1, and the stencil component is ignored. The values may be remapped from normalized units (0 to 1) to negative centimeters from the camera (-near in cm to -far in cm) using the `Depth Map` mode of the `Texture 2D Sample` node in Material Editor.
 
 */
-declare abstract class BodyDepthTextureProvider extends TextureProvider {
+declare class BodyDepthTextureProvider extends TextureProvider {
     
     protected constructor()
     
@@ -1696,9 +1696,23 @@ declare abstract class BodyDepthTextureProvider extends TextureProvider {
 }
 
 /**
+* Provides segmentation confidence values encoded in the `R` channel. The texture has the {@link Colorspace#RGBA} format in screen resolution, but `G`, `B`, `A` channels should be ignored. 
+*/
+declare class BodyInstanceSegmentationTextureProvider extends TextureProvider {
+    
+    protected constructor()
+    
+    /**
+    * Which body to segment if multiple are available.
+    */
+    bodyIndex: number
+    
+}
+
+/**
 * Provides surface normal values of the tracked body encoded as RGBA (x, y, z, confidence) in `R8G8B8A8_UNORM` format in screen resolution. The XYZ values may need to be remapped from [0 -> 1] to [-1 -> 1] using the "Normal Map" mode of the `Texture 2D Sample` node in Material Editor.
 */
-declare abstract class BodyNormalsTextureProvider extends TextureProvider {
+declare class BodyNormalsTextureProvider extends TextureProvider {
     
     protected constructor()
     
@@ -1712,7 +1726,7 @@ declare abstract class BodyNormalsTextureProvider extends TextureProvider {
 /**
 * Provider for full Body Mesh render object.
 */
-declare abstract class BodyRenderObjectProvider extends RenderObjectProvider {
+declare class BodyRenderObjectProvider extends RenderObjectProvider {
     
     protected constructor()
     
@@ -1744,9 +1758,9 @@ declare abstract class BodyRenderObjectProvider extends RenderObjectProvider {
 }
 
 /**
-* Asset used to configure Body Tracking for the [ObjectTracking3D](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ObjectTracking3D) component.
+* Asset used to configure Body Tracking for the {@link ObjectTracking3D} component.
 */
-declare abstract class BodyTrackingAsset extends Object3DAsset {
+declare class BodyTrackingAsset extends Object3DAsset {
     
     protected constructor()
     
@@ -1755,275 +1769,272 @@ declare abstract class BodyTrackingAsset extends Object3DAsset {
     */
     handTrackingEnabled: boolean
     
-}
-declare namespace BodyTrackingAsset {
     /**
     * Key for Head attachment point.
     */
-    let Head: string
+    static Head: string
     
     /**
     * Key for Hips attachment point.
     */
-    let Hips: string
+    static Hips: string
     
     /**
     * Key for Left Arm attachment point.
     */
-    let LeftArm: string
+    static LeftArm: string
     
     /**
     * Key for Left Foot attachment point.
     */
-    let LeftFoot: string
+    static LeftFoot: string
     
     /**
     * Key for Left Forearm attachment point.
     */
-    let LeftForeArm: string
+    static LeftForeArm: string
     
     /**
     * Key for Left Hand attachment point.
     */
-    let LeftHand: string
+    static LeftHand: string
     
     /**
     * Key for Left Hand Index 1 attachment point.
     */
-    let LeftHandIndex1: string
+    static LeftHandIndex1: string
     
     /**
     * Key for Left Hand Index 2 attachment point.
     */
-    let LeftHandIndex2: string
+    static LeftHandIndex2: string
     
     /**
     * Key for Left Hand Index 3 attachment point.
     */
-    let LeftHandIndex3: string
+    static LeftHandIndex3: string
     
     /**
     * Key for Left Hand Middle 1 attachment point.
     */
-    let LeftHandMiddle1: string
+    static LeftHandMiddle1: string
     
     /**
     * Key for Left Hand Middle 2 attachment point.
     */
-    let LeftHandMiddle2: string
+    static LeftHandMiddle2: string
     
     /**
     * Key for Left Hand Middle 3 attachment point.
     */
-    let LeftHandMiddle3: string
+    static LeftHandMiddle3: string
     
     /**
     * Key for Left Hand Pinky 1 attachment point.
     */
-    let LeftHandPinky1: string
+    static LeftHandPinky1: string
     
     /**
     * Key for Left Hand Pinky 2 attachment point.
     */
-    let LeftHandPinky2: string
+    static LeftHandPinky2: string
     
     /**
     * Key for Left Hand Pinky 3 attachment point.
     */
-    let LeftHandPinky3: string
+    static LeftHandPinky3: string
     
     /**
     * Key for Left Hand Ring 1 attachment point.
     */
-    let LeftHandRing1: string
+    static LeftHandRing1: string
     
     /**
     * Key for Left Hand Ring 2 attachment point.
     */
-    let LeftHandRing2: string
+    static LeftHandRing2: string
     
     /**
     * Key for Left Hand Ring 3 attachment point.
     */
-    let LeftHandRing3: string
+    static LeftHandRing3: string
     
     /**
     * Key for Left Hand Thumb 1 attachment point.
     */
-    let LeftHandThumb1: string
+    static LeftHandThumb1: string
     
     /**
     * Key for Left Hand Thumb 2 attachment point.
     */
-    let LeftHandThumb2: string
+    static LeftHandThumb2: string
     
     /**
     * Key for Left Hand Thumb 3 attachment point.
     */
-    let LeftHandThumb3: string
+    static LeftHandThumb3: string
     
     /**
     * Key for Left Leg attachment point.
     */
-    let LeftLeg: string
+    static LeftLeg: string
     
     /**
     * Key for Left Shoulder attachment point.
     */
-    let LeftShoulder: string
+    static LeftShoulder: string
     
     /**
     * Key for Left Toe Base attachment point.
     */
-    let LeftToeBase: string
+    static LeftToeBase: string
     
     /**
     * Key for Upper Left Leg attachment point.
     */
-    let LeftUpLeg: string
+    static LeftUpLeg: string
     
     /**
     * Key for Neck attachment point.
     */
-    let Neck: string
+    static Neck: string
     
     /**
     * Key for Right Arm attachment point.
     */
-    let RightArm: string
+    static RightArm: string
     
     /**
     * Key for Right Foot attachment point.
     */
-    let RightFoot: string
+    static RightFoot: string
     
     /**
     * Key for Right Forearm attachment point.
     */
-    let RightForeArm: string
+    static RightForeArm: string
     
     /**
     * Key for Right Hand attachment point.
     */
-    let RightHand: string
+    static RightHand: string
     
     /**
     * Key for Right Hand Index 1 attachment point.
     */
-    let RightHandIndex1: string
+    static RightHandIndex1: string
     
     /**
     * Key for Right Hand Index 2 attachment point.
     */
-    let RightHandIndex2: string
+    static RightHandIndex2: string
     
     /**
     * Key for Right Hand Index 3 attachment point.
     */
-    let RightHandIndex3: string
+    static RightHandIndex3: string
     
     /**
     * Key for Right Hand Middle 1 attachment point.
     */
-    let RightHandMiddle1: string
+    static RightHandMiddle1: string
     
     /**
     * Key for Right Hand Middle 2 attachment point.
     */
-    let RightHandMiddle2: string
+    static RightHandMiddle2: string
     
     /**
     * Key for Right Hand Middle 3 attachment point.
     */
-    let RightHandMiddle3: string
+    static RightHandMiddle3: string
     
     /**
     * Key for Right Hand Pinky 1 attachment point.
     */
-    let RightHandPinky1: string
+    static RightHandPinky1: string
     
     /**
     * Key for Right Hand Pinky 2 attachment point.
     */
-    let RightHandPinky2: string
+    static RightHandPinky2: string
     
     /**
     * Key for Right Hand Pinky 3 attachment point.
     */
-    let RightHandPinky3: string
+    static RightHandPinky3: string
     
     /**
     * Key for Right Hand Ring 1 attachment point.
     */
-    let RightHandRing1: string
+    static RightHandRing1: string
     
     /**
     * Key for Right Hand Ring 2 attachment point.
     */
-    let RightHandRing2: string
+    static RightHandRing2: string
     
     /**
     * Key for Right Hand Ring 3 attachment point.
     */
-    let RightHandRing3: string
+    static RightHandRing3: string
     
     /**
     * Key for Right Hand Thumb 1 attachment point.
     */
-    let RightHandThumb1: string
+    static RightHandThumb1: string
     
     /**
     * Key for Right Hand Thumb 2 attachment point.
     */
-    let RightHandThumb2: string
+    static RightHandThumb2: string
     
     /**
     * Key for Right Hand Thumb 3 attachment point.
     */
-    let RightHandThumb3: string
+    static RightHandThumb3: string
     
     /**
     * Key for Right Leg attachment point.
     */
-    let RightLeg: string
+    static RightLeg: string
     
     /**
     * Key for Right Shoulder attachment point.
     */
-    let RightShoulder: string
+    static RightShoulder: string
     
     /**
     * Key for Right Toe Base attachment point.
     */
-    let RightToeBase: string
+    static RightToeBase: string
     
     /**
     * Key for Upper Right Leg attachment point.
     */
-    let RightUpLeg: string
+    static RightUpLeg: string
     
     /**
     * Key for Spine attachment point.
     */
-    let Spine: string
+    static Spine: string
     
     /**
     * Key for Spine1 attachment point.
     */
-    let Spine1: string
+    static Spine1: string
     
     /**
     * Key for Spine2 attachment point.
     */
-    let Spine2: string
+    static Spine2: string
     
-
 }
 
 /**
 * A box collision shape.
 */
-declare abstract class BoxShape extends Shape {
+declare class BoxShape extends Shape {
     
     protected constructor()
     
@@ -2037,7 +2048,7 @@ declare abstract class BoxShape extends Shape {
 /**
 * Triggered when eyebrows are lowered on the tracked face.
 */
-declare abstract class BrowsLoweredEvent extends FaceTrackingEvent {
+declare class BrowsLoweredEvent extends FaceTrackingEvent {
     
     protected constructor()
     
@@ -2046,7 +2057,7 @@ declare abstract class BrowsLoweredEvent extends FaceTrackingEvent {
 /**
 * Triggered when eyebrows are raised on the tracked face.
 */
-declare abstract class BrowsRaisedEvent extends FaceTrackingEvent {
+declare class BrowsRaisedEvent extends FaceTrackingEvent {
     
     protected constructor()
     
@@ -2055,7 +2066,7 @@ declare abstract class BrowsRaisedEvent extends FaceTrackingEvent {
 /**
 * Triggered when eyebrows are returned to normal on the tracked face.
 */
-declare abstract class BrowsReturnedToNormalEvent extends FaceTrackingEvent {
+declare class BrowsReturnedToNormalEvent extends FaceTrackingEvent {
     
     protected constructor()
     
@@ -2064,9 +2075,9 @@ declare abstract class BrowsReturnedToNormalEvent extends FaceTrackingEvent {
 /**
 * Renders the scene to a Render Target texture.
 * A Camera will only render a SceneObject if the SceneObject's render layer is enabled on the Camera.
-* For more information, see the [Camera and Layers](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/scene-set-up/camera) guide.
+* For more information, see the [Camera and Layers](https://developers.snap.com/lens-studio/lens-studio-workflow/scene-set-up/camera) guide.
 */
-declare abstract class Camera extends Component {
+declare class Camera extends Component {
     
     protected constructor()
     
@@ -2185,7 +2196,7 @@ declare abstract class Camera extends Component {
     /**
     * Toggles ray tracing for the camera. When true, ray tracing is enabled.
     */
-    rayTracing: boolean
+    rayTracing: any
     
     /**
     * Controls the set of layers this Camera will render.
@@ -2218,36 +2229,33 @@ declare abstract class Camera extends Component {
     */
     type: Camera.Type
     
-}
-declare namespace Camera {
     /**
     * Creates and returns a new Color Render Target.
     */
-    export function createColorRenderTarget(): Camera.ColorRenderTarget
+    static createColorRenderTarget(): Camera.ColorRenderTarget
     
     /**
     * Create a depth/stencil render target descriptor for the camera.
     */
-    export function createDepthStencilRenderTarget(): Camera.DepthStencilRenderTarget
+    static createDepthStencilRenderTarget(): Camera.DepthStencilRenderTarget
     
     /**
     * Return true if the device supports stencil operations and render to depth texture.
     */
-    export function depthStencilRenderTargetSupported(): boolean
+    static depthStencilRenderTargetSupported(): boolean
     
     /**
     * Returns the number of possible render target bindings to the camera.
     */
-    export function getSupportedColorRenderTargetCount(): number
+    static getSupportedColorRenderTargetCount(): number
     
-
 }
 
 declare namespace Camera {
     /**
     * The base class from which ColorRenderTarget and DepthStencilRenderTarget are derived from
     */
-    abstract class BaseRenderTarget extends ScriptObject {
+    class BaseRenderTarget extends ScriptObject {
         
         protected constructor()
         
@@ -2274,7 +2282,7 @@ declare namespace Camera {
     /**
     * Color based RenderTarget.
     */
-    abstract class ColorRenderTarget extends Camera.BaseRenderTarget {
+    class ColorRenderTarget extends Camera.BaseRenderTarget {
         
         protected constructor()
         
@@ -2351,9 +2359,9 @@ declare namespace Camera {
 
 declare namespace Camera {
     /**
-    * Used in [Camera's](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Camera) `depthBufferMode` property.
+    * Used in {@link Camera}'s `depthBufferMode` property.
     * Each mode is suited for handling objects at a certain distance range.
-    * For more information on depth modes, see the [Camera and Layers](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/scene-set-up/camera) guide.
+    * For more information on depth modes, see the [Camera and Layers](https://developers.snap.com/lens-studio/lens-studio-workflow/scene-set-up/camera) guide.
     */
     enum DepthBufferMode {
         /**
@@ -2372,7 +2380,7 @@ declare namespace Camera {
     /**
     * This class inherits from the BaseRenderTarget class. BaseRenderTarget class is not available for creation and is used like the base class for DepthStencilRenderTarget class to provide access to targetTexture, inputTexture and maskTexture properties.
     */
-    abstract class DepthStencilRenderTarget extends Camera.BaseRenderTarget {
+    class DepthStencilRenderTarget extends Camera.BaseRenderTarget {
         
         protected constructor()
         
@@ -2402,7 +2410,7 @@ declare namespace Camera {
 
 declare namespace Camera {
     /**
-    * Used in [Camera's](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Camera) `devicePropertyUsage` property.
+    * Used in {@link Camera}'s `devicePropertyUsage` property.
     * Specifies which camera properties should be overridden by device properties.
     */
     enum DeviceProperty {
@@ -2428,7 +2436,7 @@ declare namespace Camera {
 
 declare namespace Camera {
     /**
-    * Returned from [Camera's](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Camera) `type` property.
+    * Returned from {@link Camera}'s `type` property.
     */
     enum Type {
         /**
@@ -2446,7 +2454,7 @@ declare namespace Camera {
 /**
 * Triggered when the device's back facing camera becomes active.
 */
-declare abstract class CameraBackEvent extends SceneEvent {
+declare class CameraBackEvent extends SceneEvent {
     
     protected constructor()
     
@@ -2461,7 +2469,7 @@ declare abstract class CameraBackEvent extends SceneEvent {
 
 * @wearableOnly
 */
-declare abstract class CameraFrame extends ScriptObject {
+declare class CameraFrame extends ScriptObject {
     
     protected constructor()
     
@@ -2477,7 +2485,7 @@ declare abstract class CameraFrame extends ScriptObject {
 /**
 * Triggered when the device's front facing camera becomes active.
 */
-declare abstract class CameraFrontEvent extends SceneEvent {
+declare class CameraFrontEvent extends SceneEvent {
     
     protected constructor()
     
@@ -2492,7 +2500,7 @@ declare abstract class CameraFrontEvent extends SceneEvent {
 
 * @wearableOnly
 */
-declare abstract class CameraModule extends Asset {
+declare class CameraModule extends Asset {
     
     protected constructor()
     
@@ -2501,8 +2509,6 @@ declare abstract class CameraModule extends Asset {
     */
     requestCamera(request: CameraModule.CameraRequest): Texture
     
-}
-declare namespace CameraModule {
     /**
     * Creates a camera request object.
     
@@ -2512,9 +2518,8 @@ declare namespace CameraModule {
     
     * @wearableOnly
     */
-    export function createCameraRequest(): CameraModule.CameraRequest
+    static createCameraRequest(): CameraModule.CameraRequest
     
-
 }
 
 declare namespace CameraModule {
@@ -2554,7 +2559,7 @@ declare namespace CameraModule {
     
     * @wearableOnly
     */
-    abstract class CameraRequest extends ScriptObject {
+    class CameraRequest extends ScriptObject {
         
         protected constructor()
         
@@ -2572,7 +2577,7 @@ declare namespace CameraModule {
 
 }
 
-declare abstract class CameraTextureProvider extends TextureProvider {
+declare class CameraTextureProvider extends TextureProvider {
     
     protected constructor()
     
@@ -2594,7 +2599,7 @@ declare abstract class CameraTextureProvider extends TextureProvider {
 /**
 * A 2D canvas anchored in 3D space that acts as the root of the ScreenTransform hierarchy. ScreenTransform SceneObjects can be placed on the Canvas, and the Canvas can be sized and placed anywhere in 3D space. It is like a painter’s canvas for ScreenTransforms.
 */
-declare abstract class Canvas extends Component {
+declare class Canvas extends Component {
     
     protected constructor()
     
@@ -2689,7 +2694,7 @@ declare enum CapitilizationOverride {
 /**
 * A capsule collision shape. Also known as a capped cylinder.
 */
-declare abstract class CapsuleShape extends Shape {
+declare class CapsuleShape extends Shape {
     
     protected constructor()
     
@@ -2735,7 +2740,7 @@ declare enum ClearColorOption {
 /**
 * Clears depth in the drawing order.
 */
-declare abstract class ClearDepth extends Visual {
+declare class ClearDepth extends Visual {
     
     protected constructor()
     
@@ -2744,7 +2749,7 @@ declare abstract class ClearDepth extends Visual {
 /**
 * Handles the mesh data of cloth and prepares it for cloth simulation. Also controls all the parameters of the cloth simulator and colliders.
 */
-declare abstract class ClothVisual extends MaterialMeshVisual {
+declare class ClothVisual extends MaterialMeshVisual {
     
     protected constructor()
     
@@ -2919,7 +2924,7 @@ declare abstract class ClothVisual extends MaterialMeshVisual {
     repulsionStiffness: number
     
     /**
-    * Returns the modified simulated mesh which can be used in another [RenderMeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#RenderMeshVisual) if the same simulated mesh is needed. Useful when creating effects that might require the same mesh to be rendered twice, such as with a mirror effect. Prevents the need to run a simulation twice. 
+    * Returns the modified simulated mesh which can be used in another {@link RenderMeshVisual} if the same simulated mesh is needed. Useful when creating effects that might require the same mesh to be rendered twice, such as with a mirror effect. Prevents the need to run a simulation twice. 
     
     
     * @readonly
@@ -2941,14 +2946,11 @@ declare abstract class ClothVisual extends MaterialMeshVisual {
     */
     updateNormalsEnabled: boolean
     
-}
-declare namespace ClothVisual {
     /**
     * Creates a new instance of vertex simulation settings.
     */
-    export function createVertexSettings(): VertexSimulationSettings
+    static createVertexSettings(): VertexSimulationSettings
     
-
 }
 
 declare namespace ClothVisual {
@@ -2965,7 +2967,7 @@ declare namespace ClothVisual {
 /**
 * Options associated with the listValues method call.
 */
-declare abstract class CloudStorageListOptions extends ScriptObject {
+declare class CloudStorageListOptions extends ScriptObject {
     
     protected constructor()
     
@@ -2979,20 +2981,17 @@ declare abstract class CloudStorageListOptions extends ScriptObject {
     */
     scope: StorageScope
     
-}
-declare namespace CloudStorageListOptions {
     /**
     * Creates the listValues options object for Cloud Storage
     */
-    export function create(): CloudStorageListOptions
+    static create(): CloudStorageListOptions
     
-
 }
 
 /**
 * Provides access to Cloud Storage.
 */
-declare abstract class CloudStorageModule extends Asset {
+declare class CloudStorageModule extends Asset {
     
     protected constructor()
     
@@ -3007,30 +3006,27 @@ declare abstract class CloudStorageModule extends Asset {
 * Used to configure `Cloud Storage Module` with various options. Note: if `session` scoped storage is required, this option must be provided.
 
 */
-declare abstract class CloudStorageOptions extends ScriptObject {
+declare class CloudStorageOptions extends ScriptObject {
     
     protected constructor()
     
     /**
-    * If session scoped storage is required, set this property with the session object from [Connected Lenses Module](https://lensstudio.snapchat.com/api/classes/ConnectedLensModule).
+    * If session scoped storage is required, set this property with the session object from {@link ConnectedLensModule}.
     
     */
     session: MultiplayerSession
     
-}
-declare namespace CloudStorageOptions {
     /**
     * Create options for use with Cloud Storage.
     */
-    export function create(): CloudStorageOptions
+    static create(): CloudStorageOptions
     
-
 }
 
 /**
 * Options associated with the getValue/deleteValue methods for Cloud Storage.
 */
-declare abstract class CloudStorageReadOptions extends ScriptObject {
+declare class CloudStorageReadOptions extends ScriptObject {
     
     protected constructor()
     
@@ -3039,20 +3035,17 @@ declare abstract class CloudStorageReadOptions extends ScriptObject {
     */
     scope: StorageScope
     
-}
-declare namespace CloudStorageReadOptions {
     /**
     * Options associated with the getValue/deleteValue methods for Cloud Storage.
     */
-    export function create(): CloudStorageReadOptions
+    static create(): CloudStorageReadOptions
     
-
 }
 
 /**
 * Options associated with the setValue method for Cloud Storage.
 */
-declare abstract class CloudStorageWriteOptions extends ScriptObject {
+declare class CloudStorageWriteOptions extends ScriptObject {
     
     protected constructor()
     
@@ -3061,20 +3054,17 @@ declare abstract class CloudStorageWriteOptions extends ScriptObject {
     */
     scope: StorageScope
     
-}
-declare namespace CloudStorageWriteOptions {
     /**
     * Creates the setValue options object for Cloud Storage.
     */
-    export function create(): CloudStorageWriteOptions
+    static create(): CloudStorageWriteOptions
     
-
 }
 
 /**
 * An instance of Cloud Storage that can store data in a multiplayer experience.
 */
-declare abstract class CloudStore extends ScriptObject {
+declare class CloudStore extends ScriptObject {
     
     protected constructor()
     
@@ -3101,9 +3091,9 @@ declare abstract class CloudStore extends ScriptObject {
 }
 
 /**
-* Collider used by the [Hair Visual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#HairVisual) for its simulation.
+* Collider used by the {@link HairVisual} for its simulation.
 */
-declare abstract class ColliderComponent extends Component {
+declare class ColliderComponent extends Component {
     
     protected constructor()
     
@@ -3229,7 +3219,7 @@ declare abstract class ColliderComponent extends Component {
 /**
 * A state generated for ColliderComponent collision events.
 */
-declare abstract class Collision extends ScriptObject {
+declare class Collision extends ScriptObject {
     
     protected constructor()
     
@@ -3264,9 +3254,9 @@ declare abstract class Collision extends ScriptObject {
 }
 
 /**
-* Args used for [ColliderComponent.onCollisionEnter](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ColliderComponent), which is triggered when a collision begins.
+* Args used for {@link ColliderComponent.onCollisionEnter}, which is triggered when a collision begins.
 */
-declare abstract class CollisionEnterEventArgs extends ScriptObject {
+declare class CollisionEnterEventArgs extends ScriptObject {
     
     protected constructor()
     
@@ -3280,9 +3270,9 @@ declare abstract class CollisionEnterEventArgs extends ScriptObject {
 }
 
 /**
-* Args used for [ColliderComponent.onCollisionExit](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ColliderComponent), which is triggered when a collision ends.
+* Args used for {@link ColliderComponent.onCollisionExit}, which is triggered when a collision ends.
 */
-declare abstract class CollisionExitEventArgs extends ScriptObject {
+declare class CollisionExitEventArgs extends ScriptObject {
     
     protected constructor()
     
@@ -3295,16 +3285,16 @@ declare abstract class CollisionExitEventArgs extends ScriptObject {
     
 }
 
-declare abstract class CollisionMesh extends Asset {
+declare class CollisionMesh extends Asset {
     
     protected constructor()
     
 }
 
 /**
-* Args used for [ColliderComponent.onCollisionStay](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ColliderComponent), which is triggered every frame while a collision continues.
+* Args used for {@link ColliderComponent.onCollisionStay}, which is triggered every frame while a collision continues.
 */
-declare abstract class CollisionStayEventArgs extends ScriptObject {
+declare class CollisionStayEventArgs extends ScriptObject {
     
     protected constructor()
     
@@ -3320,7 +3310,7 @@ declare abstract class CollisionStayEventArgs extends ScriptObject {
 /**
 * Not usable from JS. Accessed via the Colocated Landmarks 2D Mesh resource. Contains the 2D keypoints when creating a Colocated map. Expanded by the material provided with template.
 */
-declare abstract class ColocatedLandmarks2DRenderObjectProvider extends ColocatedLandmarksRenderObjectProviderBase {
+declare class ColocatedLandmarks2DRenderObjectProvider extends ColocatedLandmarksRenderObjectProviderBase {
     
     protected constructor()
     
@@ -3329,13 +3319,13 @@ declare abstract class ColocatedLandmarks2DRenderObjectProvider extends Colocate
 /**
 * Not usable from JS. Accessed via the Colocated Landmarks 3D Mesh resource. Contains the 3D landmarks when creating a Colocated map. Expanded by the material provided with template.
 */
-declare abstract class ColocatedLandmarks3DRenderObjectProvider extends ColocatedLandmarksRenderObjectProviderBase {
+declare class ColocatedLandmarks3DRenderObjectProvider extends ColocatedLandmarksRenderObjectProviderBase {
     
     protected constructor()
     
 }
 
-declare abstract class ColocatedLandmarksRenderObjectProviderBase extends RenderObjectProvider {
+declare class ColocatedLandmarksRenderObjectProviderBase extends RenderObjectProvider {
     
     protected constructor()
     
@@ -3344,7 +3334,7 @@ declare abstract class ColocatedLandmarksRenderObjectProviderBase extends Render
 /**
 * Creates Colocated Connected Lenses experiences by enabling the creation and tracking of a shared space which can be used to place several users in the same coordinate frame. This shared space will be made available and can be tracked by any friend you invite to join your session via Snapcode. Users are expected to be located in the same room when using the colocated feature. This component needs to be attached to the camera. 
 */
-declare abstract class ColocatedTrackingComponent extends Component {
+declare class ColocatedTrackingComponent extends Component {
     
     protected constructor()
     
@@ -3460,9 +3450,9 @@ declare enum Colorspace {
 }
 
 /**
-* The base class for all components.  Components are attached to [SceneObjects](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#SceneObject).
+* The base class for all components.  Components are attached to {@link SceneObject}.
 */
-declare abstract class Component extends SerializableWithUID {
+declare class Component extends SerializableWithUID {
     
     protected constructor()
     
@@ -3524,7 +3514,7 @@ declare enum CompressionQuality {
 /**
 * A cone collision shape.
 */
-declare abstract class ConeShape extends Shape {
+declare class ConeShape extends Shape {
     
     protected constructor()
     
@@ -3548,7 +3538,7 @@ declare abstract class ConeShape extends Shape {
 /**
 * Event fired when the "Launch connected lens" button was pressed. Wait for this event to be triggered before creating a session, as having this event gaurantees the user has accepted the necessary disclosures to use a connected lens experience.
 */
-declare abstract class ConnectedLensEnteredEvent extends SceneEvent {
+declare class ConnectedLensEnteredEvent extends SceneEvent {
     
     protected constructor()
     
@@ -3557,7 +3547,7 @@ declare abstract class ConnectedLensEnteredEvent extends SceneEvent {
 /**
 * Connected Lenses Module allows use of networked Lens communication capabilities (real-time communication, co-located session creation and joining, and shared persistent storage). It's recommended to only use one ConnectedLensModule per Lens.
 */
-declare abstract class ConnectedLensModule extends Asset {
+declare class ConnectedLensModule extends Asset {
     
     protected constructor()
     
@@ -3577,7 +3567,7 @@ declare namespace ConnectedLensModule {
     /**
     * Information that is bootstrapped to the user who just connected to the session.
     */
-    abstract class ConnectionInfo extends ScriptObject {
+    class ConnectionInfo extends ScriptObject {
         
         protected constructor()
         
@@ -3622,7 +3612,7 @@ declare namespace ConnectedLensModule {
     /**
     * Information about the host update.
     */
-    abstract class HostUpdateInfo extends ScriptObject {
+    class HostUpdateInfo extends ScriptObject {
         
         protected constructor()
         
@@ -3648,7 +3638,7 @@ declare namespace ConnectedLensModule {
     /**
     * Provides extra context about a RealtimeStore's creation.
     */
-    abstract class RealtimeStoreCreationInfo extends ScriptObject {
+    class RealtimeStoreCreationInfo extends ScriptObject {
         
         protected constructor()
         
@@ -3703,7 +3693,7 @@ declare namespace ConnectedLensModule {
     /**
     * Gives information about the Realtime Store delete operation. 
     */
-    abstract class RealtimeStoreDeleteInfo extends ScriptObject {
+    class RealtimeStoreDeleteInfo extends ScriptObject {
         
         protected constructor()
         
@@ -3729,7 +3719,7 @@ declare namespace ConnectedLensModule {
     /**
     * Provides information about a key being removed from a RealtimeStore.
     */
-    abstract class RealtimeStoreKeyRemovalInfo extends ScriptObject {
+    class RealtimeStoreKeyRemovalInfo extends ScriptObject {
         
         protected constructor()
         
@@ -3769,7 +3759,7 @@ declare namespace ConnectedLensModule {
     /**
     * Provides information about a RealtimeStore's ownership being updated.
     */
-    abstract class RealtimeStoreOwnershipUpdateInfo extends ScriptObject {
+    class RealtimeStoreOwnershipUpdateInfo extends ScriptObject {
         
         protected constructor()
         
@@ -3788,7 +3778,7 @@ declare namespace ConnectedLensModule {
     /**
     * Gives information about the Realtime Store update operation.
     */
-    abstract class RealtimeStoreUpdateInfo extends ScriptObject {
+    class RealtimeStoreUpdateInfo extends ScriptObject {
         
         protected constructor()
         
@@ -3812,7 +3802,7 @@ declare namespace ConnectedLensModule {
 
 declare namespace ConnectedLensModule {
     /**
-    * Used by ConnectedLensesModule to specify the session share type.
+    * Used by ConnectedLensModule to specify the session share type.
     */
     enum SessionShareType {
         /**
@@ -3831,7 +3821,7 @@ declare namespace ConnectedLensModule {
     /**
     * Provides information about a user in a Connected Lens session.
     */
-    abstract class UserInfo extends ScriptObject {
+    class UserInfo extends ScriptObject {
         
         protected constructor()
         
@@ -3868,7 +3858,7 @@ declare namespace ConnectedLensModule {
 /**
 * Settings for configuring a Connected Lens session.
 */
-declare abstract class ConnectedLensSessionOptions extends DirectMultiplayerSessionOptions {
+declare class ConnectedLensSessionOptions extends DirectMultiplayerSessionOptions {
     
     protected constructor()
     
@@ -3882,14 +3872,11 @@ declare abstract class ConnectedLensSessionOptions extends DirectMultiplayerSess
     */
     onSessionCreated: (session: MultiplayerSession, sessionCreationType: ConnectedLensSessionOptions.SessionCreationType) => void
     
-}
-declare namespace ConnectedLensSessionOptions {
     /**
     * Create a new ConnectedLensesOptions object.
     */
-    export function create(): ConnectedLensSessionOptions
+    static create(): ConnectedLensSessionOptions
     
-
 }
 
 declare namespace ConnectedLensSessionOptions {
@@ -3916,7 +3903,7 @@ declare namespace ConnectedLensSessionOptions {
 /**
 * Constraints body motion in configurable ways, for simulating physical objects such as joints and hinges.
 */
-declare abstract class Constraint extends ScriptObject {
+declare class Constraint extends ScriptObject {
     
     protected constructor()
     
@@ -3932,7 +3919,7 @@ declare abstract class Constraint extends ScriptObject {
 /**
 * Used to apply a constraint to an object.
 */
-declare abstract class ConstraintComponent extends Component {
+declare class ConstraintComponent extends Component {
     
     protected constructor()
     
@@ -3959,9 +3946,14 @@ declare abstract class ConstraintComponent extends Component {
 }
 
 /**
-* Contact point between two colliding objects.  See also: [ColliderComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ColliderComponent), [CollisionEnterEventArgs](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#CollisionEnterEventArgs), [CollisionExitEventArgs](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#CollisionExitEventArgs), [CollisionStayEventArgs](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#CollisionStayEventArgs).
+* Contact point between two colliding objects.  
+
+* @see {@link ColliderComponent}
+* @see {@link CollisionEnterEventArgs}
+* @see {@link CollisionExitEventArgs}
+
 */
-declare abstract class Contact extends ScriptObject {
+declare class Contact extends ScriptObject {
     
     protected constructor()
     
@@ -3998,7 +3990,7 @@ declare abstract class Contact extends ScriptObject {
 /**
 * Base class for Texture Providers that crop an input texture.
 */
-declare abstract class CropTextureProvider extends TextureProvider {
+declare class CropTextureProvider extends TextureProvider {
     
     protected constructor()
     
@@ -4010,7 +4002,7 @@ declare abstract class CropTextureProvider extends TextureProvider {
 }
 
 /**
-* Used with [Pass's](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#Pass) `cullMode` property.
+* Used with {@link Pass}'s `cullMode` property.
 * Determines which faces of a surface are culled (not rendered).
 */
 declare enum CullMode {
@@ -4031,7 +4023,7 @@ declare enum CullMode {
 /**
 * A cylinder collision shape.
 */
-declare abstract class CylinderShape extends Shape {
+declare class CylinderShape extends Shape {
     
     protected constructor()
     
@@ -4052,7 +4044,7 @@ declare abstract class CylinderShape extends Shape {
     
 }
 
-declare abstract class DeformingCollisionMesh extends CollisionMesh {
+declare class DeformingCollisionMesh extends CollisionMesh {
     
     protected constructor()
     
@@ -4061,7 +4053,7 @@ declare abstract class DeformingCollisionMesh extends CollisionMesh {
 /**
 * Creates a buffer for the audio data.
 */
-declare abstract class Delay extends ScriptObject {
+declare class Delay extends ScriptObject {
     
     protected constructor()
     
@@ -4082,7 +4074,7 @@ declare abstract class Delay extends ScriptObject {
 /**
 * Builder class for the Delay.
 */
-declare abstract class DelayBuilder extends ScriptObject {
+declare class DelayBuilder extends ScriptObject {
     
     protected constructor()
     
@@ -4106,7 +4098,7 @@ declare abstract class DelayBuilder extends ScriptObject {
 /**
 * An event that gets triggered after a delay.
 */
-declare abstract class DelayedCallbackEvent extends SceneEvent {
+declare class DelayedCallbackEvent extends SceneEvent {
     
     protected constructor()
     
@@ -4135,7 +4127,7 @@ declare abstract class DelayedCallbackEvent extends SceneEvent {
 /**
 * Local estimate of the derivative of the input data along the selected axis. Outputs the derivative of the input features along the window.
 */
-declare abstract class Delta extends ScriptObject {
+declare class Delta extends ScriptObject {
     
     protected constructor()
     
@@ -4156,7 +4148,7 @@ declare abstract class Delta extends ScriptObject {
 /**
 * Builder class for Delta.
 */
-declare abstract class DeltaBuilder extends ScriptObject {
+declare class DeltaBuilder extends ScriptObject {
     
     protected constructor()
     
@@ -4197,10 +4189,9 @@ declare enum DepthClearOption {
 
 /**
 * Writes video feed depth information to the depth buffer, which automatically sets up depth occlusion for 3D visuals.
-* Only works in some cases, such as in Lenses for Spectacles 3.
-* See the [Lenses for Spectacles guide](https://lensstudio.snapchat.com/lens-studio/references/guides/distributing/spectacles/spectacles-3/lenses-for-spectacles-3) for more information.
+* Only works in some cases where depth information is supplied by the device.
 */
-declare abstract class DepthSetter extends PostEffectVisual {
+declare class DepthSetter extends PostEffectVisual {
     
     protected constructor()
     
@@ -4209,7 +4200,7 @@ declare abstract class DepthSetter extends PostEffectVisual {
 /**
 * Access to a Depth Stencil Render Target that can output depth and stencil values from a Camera in Depth24/Stencil8 format.
 */
-declare abstract class DepthStencilRenderTargetProvider extends TextureProvider {
+declare class DepthStencilRenderTargetProvider extends TextureProvider {
     
     protected constructor()
     
@@ -4251,12 +4242,10 @@ declare abstract class DepthStencilRenderTargetProvider extends TextureProvider 
 }
 
 /**
-* Provides depth information of the video feed that the Lens is being applied to when available, such as in Lenses for Spectacles 3.
+* Provides depth information of the video feed that the Lens is being applied to when available.
 * Can be accessed from `mainPass.baseTex.control` of a Spectacles Depth material.
-
-* See the [Lenses for Spectacles guide](https://lensstudio.snapchat.com/lens-studio/references/guides/distributing/spectacles/spectacles-2021/lenses-for-spectacles) for more information.
 */
-declare abstract class DepthTextureProvider extends TextureProvider {
+declare class DepthTextureProvider extends TextureProvider {
     
     protected constructor()
     
@@ -4272,7 +4261,7 @@ declare abstract class DepthTextureProvider extends TextureProvider {
 /**
 * Provides information about the device's camera.
 */
-declare abstract class DeviceCamera extends ScriptObject {
+declare class DeviceCamera extends ScriptObject {
     
     protected constructor()
     
@@ -4341,7 +4330,7 @@ declare abstract class DeviceCamera extends ScriptObject {
 /**
 * Provides information about the device running the Lens. Accessible through `global.deviceInfoSystem`.
 */
-declare abstract class DeviceInfoSystem extends ScriptObject {
+declare class DeviceInfoSystem extends ScriptObject {
     
     protected constructor()
     
@@ -4353,7 +4342,7 @@ declare abstract class DeviceInfoSystem extends ScriptObject {
     getOS(): OS
     
     /**
-    * Provides the tracking camera's [DeviceCamera](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#DeviceCamera).
+    * Provides the tracking camera's {@link DeviceCamera}.
     */
     getTrackingCamera(): DeviceCamera
     
@@ -4387,6 +4376,11 @@ declare abstract class DeviceInfoSystem extends ScriptObject {
     isSpectacles(): boolean
     
     /**
+    * Accepts a callback which indicates whether the current device is capable of providing both front and rear camera texture simultaneously.
+    */
+    supportsDualCamera(callback: (supportsDualCamera: boolean) => void): void
+    
+    /**
     * Specifies the device pixel ratio. Can be used to set rendering at the real screen resolution.
     
     * @readonly
@@ -4397,9 +4391,9 @@ declare abstract class DeviceInfoSystem extends ScriptObject {
 
 /**
 * Used to track a landmarker in the camera. Moves the SceneObject's transform to match the detected landmarker scene.
-* See the [Landmarker guide](https://lensstudio.snapchat.com/templates/landmarker) for more information.
+* See the [Landmarker guide](https://developers.snap.com/lens-studio/features/location-ar/guide) for more information.
 */
-declare abstract class DeviceLocationTrackingComponent extends Component {
+declare class DeviceLocationTrackingComponent extends Component {
     
     protected constructor()
     
@@ -4455,18 +4449,18 @@ declare abstract class DeviceLocationTrackingComponent extends Component {
 * If using "Surface" tracking mode, adding this to a SceneObject enables surface tracking for the scene, and moves the
 * object to a position and rotation that matches the physical camera's pose in the world. Surface tracking can also be enhanced
 * with native AR by enabling the "Use Native AR" option in the Inspector panel, or through script by setting the
-* component's [`surfaceOptions.enhanceWithNativeAR`](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#SurfaceOptions) property.
+* component's {@link SurfaceOptions.enhanceWithNativeAR} property.
 
 * If using "Rotation" tracking mode, adding this to a SceneObject will apply the device's real world rotation to the object.
 
 * If using "World" tracking mode, adding this to a SceneObject enables native AR tracking for the scene, and moves the
 * object to a position and rotation that matches the physical camera's pose in the world.
 
-* See the [Tracking Modes](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/tracking/world/tracking-modes) guide for more information.
+* See the [Tracking Modes](https://developers.snap.com/lens-studio/features/ar-tracking/world/tracking-modes) guide for more information.
 
 **Note:** This component was named "WorldTracking" in previous versions of Lens Studio.
 */
-declare abstract class DeviceTracking extends Component {
+declare class DeviceTracking extends Component {
     
     protected constructor()
     
@@ -4486,18 +4480,12 @@ declare abstract class DeviceTracking extends Component {
     getActualDeviceTrackingMode(): DeviceTrackingMode
     
     /**
-    * Returns an array of BasicTransform objects describing each point that the camera travels through.
-    * Each item in the array matches the camera's basic transform in the corresponding frame of the video feed that the Lens is applied to.
-    * Only available in some cases, such as in Lenses for Spectacles 3. When not available, it will return an empty array.
-    * See the [Lenses for Spectacles guide](https://lensstudio.snapchat.com/lens-studio/references/guides/distributing/spectacles/spectacles-2021/lenses-for-spectacles) for more information.
+    * This capability is no longer available.
     */
     getDevicePath(): BasicTransform[]
     
     /**
-    * Returns the current frame index of the video feed that the Lens is being applied to.
-    * This can be used as an index to access the current BasicTransform in `getDevicePath()`.
-    * Only available in some cases, such as in Lenses for Spectacles 3. When not available, it will return -1.
-    * See the [Lenses for Spectacles guide](https://lensstudio.snapchat.com/lens-studio/references/guides/distributing/spectacles/spectacles-2021/lenses-for-spectacles) for more information.
+    * This capability is no longer available.
     */
     getDevicePathIndex(): number
     
@@ -4578,7 +4566,7 @@ declare abstract class DeviceTracking extends Component {
 }
 
 /**
-* Tracking modes used by the [DeviceTracking](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#DeviceTracking) component to specify what type of tracking to use.
+* Tracking modes used by the {@link DeviceTracking} component to specify what type of tracking to use.
 */
 declare enum DeviceTrackingMode {
     /**
@@ -4598,7 +4586,7 @@ declare enum DeviceTrackingMode {
 /**
 * The module that provides `DeviceTracking` component.
 */
-declare abstract class DeviceTrackingModule extends Asset {
+declare class DeviceTrackingModule extends Asset {
     
     protected constructor()
     
@@ -4608,7 +4596,7 @@ declare namespace Dialog {
     /**
     * Provides answer information in response to `DialogModule.askQuestions()`.
     */
-    abstract class Answer extends ScriptObject {
+    class Answer extends ScriptObject {
         
         protected constructor()
         
@@ -4637,7 +4625,7 @@ declare namespace Dialog {
 
 }
 
-declare abstract class DialogModule extends Asset {
+declare class DialogModule extends Asset {
     
     protected constructor()
     
@@ -4649,9 +4637,9 @@ declare abstract class DialogModule extends Asset {
 }
 
 /**
-* An Audio Component effect that simulates sound attenuation based on the orientation of the transform relative to the [AudioListenerComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#AudioListenerComponent). 
+* An Audio Component effect that simulates sound attenuation based on the orientation of the transform relative to the {@link AudioListenerComponent}. 
 */
-declare abstract class DirectivityEffect extends ScriptObject {
+declare class DirectivityEffect extends ScriptObject {
     
     protected constructor()
     
@@ -4672,16 +4660,16 @@ declare abstract class DirectivityEffect extends ScriptObject {
     
 }
 
-declare abstract class DirectMultiplayerSessionOptions extends BaseMultiplayerSessionOptions {
+declare class DirectMultiplayerSessionOptions extends BaseMultiplayerSessionOptions {
     
     protected constructor()
     
 }
 
 /**
-* An audio effect that simulates sound attenuation based on the distance between the Audio and the [AudioListenerComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#AudioListenerComponent). 
+* An audio effect that simulates sound attenuation based on the distance between the Audio and the {@link AudioListenerComponent}. 
 */
-declare abstract class DistanceEffect extends ScriptObject {
+declare class DistanceEffect extends ScriptObject {
     
     protected constructor()
     
@@ -4707,11 +4695,37 @@ declare abstract class DistanceEffect extends ScriptObject {
     
 }
 
+declare class DomainInfo {
+    
+    protected constructor()
+    
+    /**
+    * @readonly
+    */
+    assetType: string
+    
+    /**
+    * @readonly
+    */
+    description: string
+    
+    /**
+    * @readonly
+    */
+    name: string
+    
+    /**
+    * @readonly
+    */
+    states: StateInfo[]
+    
+}
+
 /**
-* Used in [Text's](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Text) `dropShadowSettings` property.
+* Used in {@link Text}'s `dropShadowSettings` property.
 * Configures how dropshadow will appear on a Text component.
 */
-declare abstract class DropshadowSettings extends ScriptObject {
+declare class DropshadowSettings extends ScriptObject {
     
     protected constructor()
     
@@ -4735,7 +4749,7 @@ declare abstract class DropshadowSettings extends ScriptObject {
 /**
 * A resource that is resolved at runtime.
 */
-declare abstract class DynamicResource extends ScriptObject {
+declare class DynamicResource extends ScriptObject {
     
     protected constructor()
     
@@ -4755,7 +4769,7 @@ declare enum EncodingType {
     Jpg
 }
 
-declare abstract class EventRegistration extends ScriptObject {
+declare class EventRegistration extends ScriptObject {
     
     protected constructor()
     
@@ -4765,274 +4779,366 @@ declare abstract class EventRegistration extends ScriptObject {
 * Expression names used with `FaceRenderObjectProvider.getExpressionWeightByName()`
 * and returned by `FaceRenderObjectProvider.getExpressionNames()`.
 */
-declare abstract class Expressions {
+declare class Expressions {
     
     protected constructor()
     
-}
-declare namespace Expressions {
     /**
     * Left eyebrow downward movement
     */
-    let BrowsDownLeft: string
+    static BrowsDownLeft: string
     
     /**
     * Right eyebrow downward movement
     */
-    let BrowsDownRight: string
+    static BrowsDownRight: string
     
     /**
     * Between eyebrows upward movement
     */
-    let BrowsUpCenter: string
+    static BrowsUpCenter: string
     
     /**
     * Left eyebrow upward movement
     */
-    let BrowsUpLeft: string
+    static BrowsUpLeft: string
     
     /**
     * Right eyebrow upward movement
     */
-    let BrowsUpRight: string
+    static BrowsUpRight: string
     
     /**
     * Left cheek and below left eye upward movement
     */
-    let CheekSquintLeft: string
+    static CheekSquintLeft: string
     
     /**
     * Right cheek and below right eye upward movement
     */
-    let CheekSquintRight: string
+    static CheekSquintRight: string
     
     /**
     * Left eyelids closing
     */
-    let EyeBlinkLeft: string
+    static EyeBlinkLeft: string
     
     /**
     * Right eyelids closing
     */
-    let EyeBlinkRight: string
+    static EyeBlinkRight: string
     
     /**
     * Left eyelids downward look
     */
-    let EyeDownLeft: string
+    static EyeDownLeft: string
     
     /**
     * Right eyelids downward look
     */
-    let EyeDownRight: string
+    static EyeDownRight: string
     
     /**
     * Left eyelids looking towards center
     */
-    let EyeInLeft: string
+    static EyeInLeft: string
     
     /**
     * Right eyelids looking towards center
     */
-    let EyeInRight: string
+    static EyeInRight: string
     
     /**
     * Left eyelids opening
     */
-    let EyeOpenLeft: string
+    static EyeOpenLeft: string
     
     /**
     * Right eyelids opening
     */
-    let EyeOpenRight: string
+    static EyeOpenRight: string
     
     /**
     * Left eyelids looking away from center
     */
-    let EyeOutLeft: string
+    static EyeOutLeft: string
     
     /**
     * Right eyelids looking away from center
     */
-    let EyeOutRight: string
+    static EyeOutRight: string
     
     /**
     * Left eye squinting
     */
-    let EyeSquintLeft: string
+    static EyeSquintLeft: string
     
     /**
     * Right eye squinting
     */
-    let EyeSquintRight: string
+    static EyeSquintRight: string
     
     /**
     * Left eyelids upward look
     */
-    let EyeUpLeft: string
+    static EyeUpLeft: string
     
     /**
     * Right eyelids upward look
     */
-    let EyeUpRight: string
+    static EyeUpRight: string
     
     /**
     * Jaw forward movement
     */
-    let JawForward: string
+    static JawForward: string
     
     /**
     * Jaw leftward movement
     */
-    let JawLeft: string
+    static JawLeft: string
     
     /**
     * Jaw opening
     */
-    let JawOpen: string
+    static JawOpen: string
     
     /**
     * Jaw rightward movement
     */
-    let JawRight: string
+    static JawRight: string
     
     /**
     * Lips forming open circular shape together
     */
-    let LipsFunnel: string
+    static LipsFunnel: string
     
     /**
     * Lips compressing together while closed
     */
-    let LipsPucker: string
+    static LipsPucker: string
     
     /**
     * Lower lip moving towards and behind upper lip
     */
-    let LowerLipClose: string
+    static LowerLipClose: string
     
     /**
     * Left lower lip downward movement
     */
-    let LowerLipDownLeft: string
+    static LowerLipDownLeft: string
     
     /**
     * Right lower lip downward movement
     */
-    let LowerLipDownRight: string
+    static LowerLipDownRight: string
     
     /**
     * Lower lip upward movement
     */
-    let LowerLipRaise: string
+    static LowerLipRaise: string
     
     /**
     * Lips moving together
     */
-    let MouthClose: string
+    static MouthClose: string
     
     /**
     * Left mouth corner back and leftward movement
     */
-    let MouthDimpleLeft: string
+    static MouthDimpleLeft: string
     
     /**
     * Right mouth corner back and rightward movement
     */
-    let MouthDimpleRight: string
+    static MouthDimpleRight: string
     
     /**
     * Left mouth corner downward movement
     */
-    let MouthFrownLeft: string
+    static MouthFrownLeft: string
     
     /**
     * Right mouth corner downward movement
     */
-    let MouthFrownRight: string
+    static MouthFrownRight: string
     
     /**
     * Both lips leftward movement
     */
-    let MouthLeft: string
+    static MouthLeft: string
     
     /**
     * Both lips rightward movement
     */
-    let MouthRight: string
+    static MouthRight: string
     
     /**
     * Left mouth corner upward movement
     */
-    let MouthSmileLeft: string
+    static MouthSmileLeft: string
     
     /**
     * Right mouth corner upward movement
     */
-    let MouthSmileRight: string
+    static MouthSmileRight: string
     
     /**
     * Left side of mouth leftward movement
     */
-    let MouthStretchLeft: string
+    static MouthStretchLeft: string
     
     /**
     * Right side of mouth rightward movement
     */
-    let MouthStretchRight: string
+    static MouthStretchRight: string
     
     /**
     * Left side of mouth upward movement
     */
-    let MouthUpLeft: string
+    static MouthUpLeft: string
     
     /**
     * Right side of mouth upward movement
     */
-    let MouthUpRight: string
+    static MouthUpRight: string
     
     /**
     * Both cheeks puffing outward movement
     */
-    let Puff: string
+    static Puff: string
     
     /**
     * Left nostril raising
     */
-    let SneerLeft: string
+    static SneerLeft: string
     
     /**
     * Right nostril raising
     */
-    let SneerRight: string
+    static SneerRight: string
     
     /**
     * Upper lip moving towards and behind lower lip
     */
-    let UpperLipClose: string
+    static UpperLipClose: string
     
     /**
     * Upper lip upward movement
     */
-    let UpperLipRaise: string
+    static UpperLipRaise: string
     
     /**
     * Left upper lip upward movement
     */
-    let UpperLipUpLeft: string
+    static UpperLipUpLeft: string
     
     /**
     * Right upper lip upward movement
     */
-    let UpperLipUpRight: string
+    static UpperLipUpRight: string
     
+}
 
+/**
+* Information about an external music track. Accessible through {@link ExternalMusicModule#getExternalMusicInfo | ExternalMusicModule.getExternalMusicInfo()}.
+*/
+declare class ExternalMusicInfo extends ScriptObject {
+    
+    protected constructor()
+    
+    /**
+    * Returns true if this object represents the same music track as the passed in object.
+    
+    */
+    isSameTrack(other: ExternalMusicInfo): boolean
+    
+}
+
+/**
+* Provides an interface to the `ExternalMusic` feature, and opts the Lens into using the feature when present in the scene.
+
+* When this module is present in a scene, an unbundled and licensed AudioTrack asset must be present in the scene as well. This means the Lens developer should:
+
+* 1. Import a licensed music track from the Asset Library
+* 2. On the imported audio asset, make sure `Bundled` is disabled
+* 3. Reference the audio asset somewhere in the scene (for example, `@input audioAsset: AudioTrackAsset`)
+
+* When this module is present in a Lens, the client running the Lens (either Snapchat or Lens Studio) will automatically fetch and auto-play the licensed music track included in the Lens. 
+
+* This provides the benefits of:
+* - The music file is not included in the lens, leading to smaller lens size
+* - Special features like {@link LyricsTracker | Lyrics} may be available to the Lens, depending on the audio track
+* - On Snapchat, a user can use the built-in music tool to adjust the music the Lens is using, and the Lens can react to that change
+
+* This also adds the following limitations, some of which are due to the inclusion of Licensed Audio Tracks:
+* - The Lens cannot control or affect music playback, since it's controlled externally by the user.
+* - The Lens must contain a single, unbundled Licensed Audio track. The Lens is not able to play it or any other audio through local methods, such as AudioComponent.
+* - If device location is not available, or the track is not available in the user’s country, the sound in the Lens will be muted. The user will have an ability to remove or replace unavailable tracks.
+* - The final audio will be mixed directly into the Lens.
+*/
+declare class ExternalMusicModule extends Asset {
+    
+    protected constructor()
+    
+    /**
+    * Returns the {@link ExternalMusicInfo} object for the current external music track. This can be used to compare two audio tracks during the Lens runtime.
+    
+    */
+    getExternalMusicInfo(): ExternalMusicInfo
+    
+    /**
+    * Returns the {@link LyricsTracker} for the current external music track.
+    
+    */
+    getLyricsTracker(): LyricsTracker
+    
+    /**
+    * Returns true if an external music track is set.
+    
+    
+    * @readonly
+    */
+    isTrackSet: boolean
+    
+    /**
+    * Event that triggers when the external music track changes.
+    
+    
+    * @readonly
+    */
+    onTrackChanged: event1<ExternalMusicInfo, void>
+    
+    /**
+    * Event that fires when an external music track is removed.
+    
+    
+    * @readonly
+    */
+    onTrackRemoved: event0<void>
+    
+    /**
+    * Event that fires when an external music track starts playing.
+    
+    
+    * @readonly
+    */
+    onTrackStarted: event1<ExternalMusicInfo, void>
+    
+    /**
+    * Event that fires when an external music track stops playing.
+    
+    
+    * @readonly
+    */
+    onTrackStopped: event0<void>
+    
 }
 
 /**
 * Applies an eye color effect to a face.
 */
-declare abstract class EyeColorVisual extends MaterialMeshVisual {
+declare class EyeColorVisual extends MaterialMeshVisual {
     
     protected constructor()
     
@@ -5046,9 +5152,9 @@ declare abstract class EyeColorVisual extends MaterialMeshVisual {
 /**
 * Texture Provider giving a cropped region of the input texture, calculated based on face position.
 * Can be accessed using `Texture.control` on a FaceCropTexture asset.
-* For more information, see the [Crop Textures](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/machine-learning/ml-component/crop-textures#crop-textures) guide.
+* For more information, see the [Crop Textures](https://developers.snap.com/lens-studio/features/snap-ml/ml-component/crop-textures) guide.
 */
-declare abstract class FaceCropTextureProvider extends CropTextureProvider {
+declare class FaceCropTextureProvider extends CropTextureProvider {
     
     protected constructor()
     
@@ -5072,14 +5178,14 @@ declare abstract class FaceCropTextureProvider extends CropTextureProvider {
 /**
 * Triggered when a new face is detected and starts being tracked.
 */
-declare abstract class FaceFoundEvent extends FaceTrackingEvent {
+declare class FaceFoundEvent extends FaceTrackingEvent {
     
     protected constructor()
     
 }
 
 /**
-* Used with [FaceInsetVisual.faceRegion](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#FaceInsetVisual) for setting the face region to draw.
+* Used with {@link FaceInsetVisual.faceRegion} for setting the face region to draw.
 */
 declare enum FaceInsetRegion {
     /**
@@ -5107,7 +5213,7 @@ declare enum FaceInsetRegion {
 /**
 * Draws a section of a tracked face.
 */
-declare abstract class FaceInsetVisual extends MaterialMeshVisual {
+declare class FaceInsetVisual extends MaterialMeshVisual {
     
     protected constructor()
     
@@ -5163,16 +5269,16 @@ declare abstract class FaceInsetVisual extends MaterialMeshVisual {
 /**
 * Triggered when a face can no longer be tracked.  For example, if a face gets blocked from the camera's view, or gets too far away.
 */
-declare abstract class FaceLostEvent extends FaceTrackingEvent {
+declare class FaceLostEvent extends FaceTrackingEvent {
     
     protected constructor()
     
 }
 
 /**
-* Applies a face mask effect. See the [Face Mask Guide](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/tracking/face/face-effects/face-mask) for more information.
+* Applies a face mask effect. See the [Face Mask Guide](https://developers.snap.com/lens-studio/features/ar-tracking/face/face-mask) for more information.
 */
-declare abstract class FaceMaskVisual extends MaterialMeshVisual {
+declare class FaceMaskVisual extends MaterialMeshVisual {
     
     protected constructor()
     
@@ -5211,7 +5317,7 @@ declare abstract class FaceMaskVisual extends MaterialMeshVisual {
 /**
 * Mesh provider for a Face Mesh. Accessible through the `control` property on a Face Mesh `RenderMesh`.
 */
-declare abstract class FaceRenderObjectProvider extends RenderObjectProvider {
+declare class FaceRenderObjectProvider extends RenderObjectProvider {
     
     protected constructor()
     
@@ -5221,7 +5327,7 @@ declare abstract class FaceRenderObjectProvider extends RenderObjectProvider {
     getExpressionNames(): string[]
     
     /**
-    * Returns the weight of the expression with the passed in name. See [Expressions](https://lensstudio.snapchat.com/api/lens-studio/Classes/OtherClasses#Expressions) for valid expression names.
+    * Returns the weight of the expression with the passed in name. See {@link Expressions} for valid expression names.
     */
     getExpressionWeightByName(expressionName: string): number
     
@@ -5270,9 +5376,9 @@ declare abstract class FaceRenderObjectProvider extends RenderObjectProvider {
 /**
 * Applies a face stretch effect.
 * Face stretch features can be added to a FaceStretchVisual through the Inspector panel in Lens Studio.
-* See the [Face Stretch Guide](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/tracking/face/face-effects/face-stretch) for more information.
+* See the [Face Stretch Guide](https://developers.snap.com/lens-studio/features/ar-tracking/face/face-stretch) for more information.
 */
-declare abstract class FaceStretchVisual extends BaseMeshVisual {
+declare class FaceStretchVisual extends BaseMeshVisual {
     
     protected constructor()
     
@@ -5296,10 +5402,10 @@ declare abstract class FaceStretchVisual extends BaseMeshVisual {
 
 /**
 * TextureProvider for face textures.
-* See the [Face Texture Guide](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/tracking/face/face-effects/face-texture) for more information.
-* Can be accessed using [Texture.control](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Texture#control-textureprovider) on a face texture asset.
+* See the [Face Texture Guide](https://developers.snap.com/lens-studio/features/ar-tracking/face/face-texture) for more information.
+* Can be accessed using {@link Texture | Texture.control} on a face texture asset.
 */
-declare abstract class FaceTextureProvider extends TextureProvider {
+declare class FaceTextureProvider extends TextureProvider {
     
     protected constructor()
     
@@ -5326,7 +5432,7 @@ declare abstract class FaceTextureProvider extends TextureProvider {
 /**
 * This is the base class for all face tracking events. This event won't actually get triggered itself, so use one of the child classes instead.
 */
-declare abstract class FaceTrackingEvent extends SceneEvent {
+declare class FaceTrackingEvent extends SceneEvent {
     
     protected constructor()
     
@@ -5340,7 +5446,7 @@ declare abstract class FaceTrackingEvent extends SceneEvent {
 /**
 * Provider for file based Audio Tracks.
 */
-declare abstract class FileAudioTrackProvider extends AudioTrackProvider {
+declare class FileAudioTrackProvider extends AudioTrackProvider {
     
     protected constructor()
     
@@ -5376,7 +5482,7 @@ declare abstract class FileAudioTrackProvider extends AudioTrackProvider {
 /**
 * A file track provider of the Licensed Sounds from Asset LIbrary.
 */
-declare abstract class FileLicensedSoundProvider extends AudioTrackProvider {
+declare class FileLicensedSoundProvider extends AudioTrackProvider {
     
     protected constructor()
     
@@ -5405,18 +5511,21 @@ declare abstract class FileLicensedSoundProvider extends AudioTrackProvider {
 }
 
 /**
-* A [TextureProvider](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#TextureProvider) for textures originating from files.
+* A {@link TextureProvider} for textures originating from files.
 */
-declare abstract class FileTextureProvider extends TextureProvider {
+declare class FileTextureProvider extends TextureProvider {
     
     protected constructor()
     
 }
 
 /**
-* Intersection filter settings. Unifies settings for world probes and collider overlap tests.   See also: [ColliderComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ColliderComponent), [Physics](https://lensstudio.snapchat.com/api/lens-studio/Classes/OtherClasses#Physics).
+* Intersection filter settings. Unifies settings for world probes and collider overlap tests. 
+
+* @see {@link ColliderComponent}
+* @see {@link Physics}
 */
-declare abstract class Filter extends ScriptObject {
+declare class Filter extends ScriptObject {
     
     protected constructor()
     
@@ -5463,16 +5572,18 @@ declare enum FilteringMode {
     Trilinear
 }
 
-declare abstract class FixedCollisionMesh extends CollisionMesh {
+declare class FixedCollisionMesh extends CollisionMesh {
     
     protected constructor()
     
 }
 
 /**
-* Fully constrain rotation and translation.  See also: [ConstraintComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ConstraintComponent).
+* Fully constrain rotation and translation.  
+
+* @see {@link ConstraintComponent}.
 */
-declare abstract class FixedConstraint extends Constraint {
+declare class FixedConstraint extends Constraint {
     
     protected constructor()
     
@@ -5481,7 +5592,7 @@ declare abstract class FixedConstraint extends Constraint {
 /**
 * Arguments used with the `InteractionComponent.onFocusEnd` event.
 */
-declare abstract class FocusEndEventArgs extends ScriptObject {
+declare class FocusEndEventArgs extends ScriptObject {
     
     protected constructor()
     
@@ -5490,7 +5601,7 @@ declare abstract class FocusEndEventArgs extends ScriptObject {
 /**
 * Arguments used with the `InteractionComponent.onFocusStart` event.
 */
-declare abstract class FocusStartEventArgs extends ScriptObject {
+declare class FocusStartEventArgs extends ScriptObject {
     
     protected constructor()
     
@@ -5498,10 +5609,10 @@ declare abstract class FocusStartEventArgs extends ScriptObject {
 
 /**
 * A font asset used for rendering text.
-* Used by [Text](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Text).
-* For more information, see the [Text guide](https://lensstudio.snapchat.com/lens-studio/references/guides/adding-content/text/2d-text).
+* Used by {@link Text}.
+* For more information, see the [Text guide](https://developers.snap.com/lens-studio/features/text/2d-text).
 */
-declare abstract class Font extends Asset {
+declare class Font extends Asset {
     
     protected constructor()
     
@@ -5529,7 +5640,7 @@ declare enum FrustumCullMode {
 /**
 * Asset that contains Gaussian Splats. Used with `GaussianSplattingVisual`.
 */
-declare abstract class GaussianSplattingAsset extends Asset {
+declare class GaussianSplattingAsset extends Asset {
     
     protected constructor()
     
@@ -5543,7 +5654,7 @@ declare abstract class GaussianSplattingAsset extends Asset {
 /**
 * Renders Gaussian Splats.
 */
-declare abstract class GaussianSplattingVisual extends MaterialMeshVisual {
+declare class GaussianSplattingVisual extends MaterialMeshVisual {
     
     protected constructor()
     
@@ -5586,10 +5697,10 @@ declare abstract class GaussianSplattingVisual extends MaterialMeshVisual {
 
 /**
 * Class for storing and retrieving data based on keys.
-* Used by [PersistentStorageSystem](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#PersistentStorageSystem).
-* For more information, see the [Persistent Storage guide](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/adding-interactivity/persistent-storage).
+* Used by {@link PersistentStorageSystem}.
+* For more information, see the [Persistent Storage guide](https://developers.snap.com/lens-studio/features/persistent-cloud-storage/persistent-storage).
 */
-declare abstract class GeneralDataStore extends ScriptObject {
+declare class GeneralDataStore extends ScriptObject {
     
     protected constructor()
     
@@ -5891,36 +6002,30 @@ declare abstract class GeneralDataStore extends ScriptObject {
     */
     onStoreFull: () => void
     
-}
-declare namespace GeneralDataStore {
     /**
     * Creates a General Data Store.
     */
-    export function create(): GeneralDataStore
+    static create(): GeneralDataStore
     
-
 }
 
 /**
 * Namespace for location functionality.
 */
-declare abstract class GeoLocation {
+declare class GeoLocation {
     
     protected constructor()
     
-}
-declare namespace GeoLocation {
     /**
     * Creates a new `LocationService`.
     */
-    export function createLocationService(): LocationService
+    static createLocationService(): LocationService
     
     /**
     * Calculates heading based on north aligned device orientation.
     */
-    export function getNorthAlignedHeading(northAlignedOrientation: quat): number
+    static getNorthAlignedHeading(northAlignedOrientation: quat): number
     
-
 }
 
 /**
@@ -5948,7 +6053,7 @@ declare enum GeoLocationAccuracy {
 /**
 * The location of the device.
 */
-declare abstract class GeoPosition extends ScriptObject {
+declare class GeoPosition extends ScriptObject {
     
     protected constructor()
     
@@ -5986,14 +6091,11 @@ declare abstract class GeoPosition extends ScriptObject {
     */
     verticalAccuracy: number
     
-}
-declare namespace GeoPosition {
     /**
     * Create a new GeoPosition. 
     */
-    export function create(): GeoPosition
+    static create(): GeoPosition
     
-
 }
 
 /**
@@ -6001,39 +6103,39 @@ declare namespace GeoPosition {
 
 * @wearableOnly
 */
-declare abstract class GestureModule extends Asset {
+declare class GestureModule extends Asset {
     
     protected constructor()
     
     /**
     * Triggered when the left index finger from one hand touches the palm on the opposite hand. Currently, only the palm tap to the left hand is supported.
     */
-    getPalmTapDownEvent(handType: GestureModule.HandType): any
+    getPalmTapDownEvent(handType: GestureModule.HandType): event1<PalmTapDownArgs, void>
     
     /**
     * Triggered when the left index finger from one hand lifts from the palm on the opposite hand after touching. Currently, only the palm tap to the left hand is supported.
     */
-    getPalmTapUpEvent(handType: GestureModule.HandType): any
+    getPalmTapUpEvent(handType: GestureModule.HandType): event1<PalmTapUpArgs, void>
     
     /**
     * Triggered when the thumb and index fingers of the hand in view are pinched together.
     */
-    getPinchDownEvent(handType: GestureModule.HandType): any
+    getPinchDownEvent(handType: GestureModule.HandType): event1<PinchDownArgs, void>
     
     /**
     * Get the strength of a pinch between the thumb and index fingers of the hand in view.
     */
-    getPinchStrengthEvent(handType: GestureModule.HandType): any
+    getPinchStrengthEvent(handType: GestureModule.HandType): event1<PinchStrengthArgs, void>
     
     /**
     * Triggered when the thumb and index fingers of the hand in view are separated after being pinched together.
     */
-    getPinchUpEvent(handType: GestureModule.HandType): any
+    getPinchUpEvent(handType: GestureModule.HandType): event1<PinchUpArgs, void>
     
     /**
     * Triggered when the user has an intent to target a digital content in space.
     */
-    getTargetingDataEvent(handType: GestureModule.HandType): any
+    getTargetingDataEvent(handType: GestureModule.HandType): event1<TargetingDataArgs, void>
     
 }
 
@@ -6059,7 +6161,7 @@ declare namespace GestureModule {
 /**
 * Represents a GLTF 3D Model.
 */
-declare abstract class GltfAsset extends Asset {
+declare class GltfAsset extends Asset {
     
     protected constructor()
     
@@ -6082,9 +6184,9 @@ declare abstract class GltfAsset extends Asset {
 
 /**
 * Settings for importing a glTF Asset.
-* Use this with [GltfAsset](https://lensstudio.snapchat.com/api/classes/GltfAsset) component's `tryInstantiateWithSetting` method.
+* Use this with {@link GltfAsset} component's `tryInstantiateWithSetting` method.
 */
-declare abstract class GltfSettings extends ScriptObject {
+declare class GltfSettings extends ScriptObject {
     
     protected constructor()
     
@@ -6103,17 +6205,14 @@ declare abstract class GltfSettings extends ScriptObject {
     */
     storeTriangleOrder: boolean
     
-}
-declare namespace GltfSettings {
-    export function create(): GltfSettings
+    static create(): GltfSettings
     
-
 }
 
 /**
-* Hair asset converted from an FBX containing splines to be used with [Hair Visual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#HairVisual).
+* Hair asset converted from an FBX containing splines to be used with {@link HairVisual}.
 */
-declare abstract class HairDataAsset extends Asset {
+declare class HairDataAsset extends Asset {
     
     protected constructor()
     
@@ -6122,7 +6221,7 @@ declare abstract class HairDataAsset extends Asset {
 /**
 * Component that renders hair simulation.
 */
-declare abstract class HairVisual extends BaseMeshVisual {
+declare class HairVisual extends BaseMeshVisual {
     
     protected constructor()
     
@@ -6292,16 +6391,16 @@ declare abstract class HairVisual extends BaseMeshVisual {
 * Provides additional data for the tracked hand. You can figure out whether the tracked hand is the left hand by accessing the *isLeft* property [true/false], as well as the probability of this data through the  *isLeftProbability*  property [0-1].
 
 */
-declare abstract class HandSpecificData extends ObjectSpecificData {
+declare class HandSpecificData extends ObjectSpecificData {
     
     protected constructor()
     
 }
 
 /**
-*     
+* Asset used to configure Body Tracking for the {@link ObjectTracking3D} component.
 */
-declare abstract class HandTracking3DAsset extends Object3DAsset {
+declare class HandTracking3DAsset extends Object3DAsset {
     
     protected constructor()
     
@@ -6311,7 +6410,7 @@ declare abstract class HandTracking3DAsset extends Object3DAsset {
 * Triggers haptic feedback on the device. (iOS Devices only)
 
 */
-declare abstract class HapticFeedbackSystem extends ScriptObject {
+declare class HapticFeedbackSystem extends ScriptObject {
     
     protected constructor()
     
@@ -6338,9 +6437,9 @@ declare enum HapticFeedbackType {
 
 /**
 * Binds the SceneObject to a tracked face.
-* See the [Head Attached 3D Objects Guide](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/tracking/face/face-effects/head-attached-3d-objects) for more information.
+* See the [Head Attached 3D Objects Guide](https://developers.snap.com/lens-studio/features/ar-tracking/face/head-attached-3d-objects) for more information.
 */
-declare abstract class Head extends Component {
+declare class Head extends Component {
     
     protected constructor()
     
@@ -6482,9 +6581,9 @@ declare class Headers extends ScriptObject {
 }
 
 /**
-* Constraints translation and a single axis of rotation.  See also: [ConstraintComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ConstraintComponent).
+* Constraints translation and a single axis of rotation.  See also: {@link ConstraintComponent}.
 */
-declare abstract class HingeConstraint extends Constraint {
+declare class HingeConstraint extends Constraint {
     
     protected constructor()
     
@@ -6503,7 +6602,7 @@ declare abstract class HingeConstraint extends Constraint {
 /**
 * Settings that describe how the position of the object should be limited in respect to the applied forces.
 */
-declare abstract class HingeLimitSettings {
+declare class HingeLimitSettings {
     
     protected constructor()
     
@@ -6537,7 +6636,7 @@ declare abstract class HingeLimitSettings {
 /**
 * Settings describing the independent force (motor) applied to the constraint. Motor within a hinge constraint is used to create controlled, powered movement along the hinge's axis, allowing objects to rotate automatically or maintain a particular speed or position.
 */
-declare abstract class HingeMotorSettings {
+declare class HingeMotorSettings {
     
     protected constructor()
     
@@ -6579,11 +6678,13 @@ declare enum HingeMotorType {
 
 /**
 * Used to show and hide hints to the user.
-* For more information and useful helper scripts, see the [Scripting Hints Guide](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/adding-interactivity/additional-examples/scripting-hints).
+* For more information and useful helper scripts, see the [Scripting Hints Guide](https://developers.snap.com/lens-studio/essential-skills/adding-interactivity/additional-examples/scripting-hints).
+
+* Tip: If you only need to show one hint on Lens start up, you can [configure your project](https://developers.snap.com/lens-studio/publishing/configuring/lens-hints) to display the hint without scripting it.
 
 * <table cellspacing=0 cellpadding=0><thead><tr><th>Hint ID</th><th>Hint Message</th></tr></thead><tbody><tr><td>&#8220;lens_hint_blow_a_kiss&#8221;</td><td>&#8220;Blow A Kiss&#8221;</td></tr><tr><td>&#8220;lens_hint_come_closer&#8221;</td><td>&#8220;Come Closer&#8221;</td></tr><tr><td>&#8220;lens_hint_do_not_smile&#8221;</td><td>&#8220;Do Not Smile&#8221;</td></tr><tr><td>&#8220;lens_hint_do_not_try_with_a_friend&#8221;</td><td>&#8220;Do Not Try With A Friend&#8221;</td></tr><tr><td>&#8220;lens_hint_find_face&#8221;</td><td>&#8220;Find Face&#8221;</td></tr><tr><td>&#8220;lens_hint_keep_raising_your_eyebrows&#8221;</td><td>&#8220;Keep Raising Your Eyebrows&#8221;</td></tr><tr><td>&#8220;lens_hint_kiss&#8221;</td><td>&#8220;Kiss&#8221;</td></tr><tr><td>&#8220;lens_hint_kiss_again&#8221;</td><td>&#8220;Kiss Again&#8221;</td></tr><tr><td>&#8220;lens_hint_look_around&#8221;</td><td>&#8220;Look Around&#8221;</td></tr><tr><td>&#8220;lens_hint_look_down&#8221;</td><td>&#8220;Look Down&#8221;</td></tr><tr><td>&#8220;lens_hint_look_left&#8221;</td><td>&#8220;Look Left&#8221;</td></tr><tr><td>&#8220;lens_hint_look_right&#8221;</td><td>&#8220;Look Right&#8221;</td></tr><tr><td>&#8220;lens_hint_look_up&#8221;</td><td>&#8220;Look Up&#8221;</td></tr><tr><td>&#8220;lens_hint_make_some_noise&#8221;</td><td>&#8220;Make Some Noise!&#8221;</td></tr><tr><td>&#8220;lens_hint_nod_your_head&#8221;</td><td>&#8220;Nod Your Head&#8221;</td></tr><tr><td>&#8220;lens_hint_now_kiss&#8221;</td><td>&#8220;Now Kiss&#8221;</td></tr><tr><td>&#8220;lens_hint_now_open_your_mouth&#8221;</td><td>&#8220;Now Open Your Mouth&#8221;</td></tr><tr><td>&#8220;lens_hint_now_raise_your_eyebrows&#8221;</td><td>&#8220;Now Raise Your Eyebrows&#8221;</td></tr><tr><td>&#8220;lens_hint_now_smile&#8221;</td><td>&#8220;Now Smile&#8221;</td></tr><tr><td>&#8220;lens_hint_open_your_mouth&#8221;</td><td>&#8220;Open Your Mouth&#8221;</td></tr><tr><td>&#8220;lens_hint_open_your_mouth_again&#8221;</td><td>&#8220;Open Your Mouth Again&#8221;</td></tr><tr><td>&#8220;lens_hint_raise_eyebrows_or_open_mouth&#8221;</td><td>&#8220;Raise Your Eyebrows / Or / Open Your Mouth&#8221;</td></tr><tr><td>&#8220;lens_hint_raise_your_eyebrows&#8221;</td><td>&#8220;Raise Your Eyebrows&#8221;</td></tr><tr><td>&#8220;lens_hint_raise_your_eyebrows_again&#8221;</td><td>&#8220;Raise Your Eyebrows Again&#8221;</td></tr><tr><td>&#8220;lens_hint_smile&#8221;</td><td>&#8220;Smile&#8221;</td></tr><tr><td>&#8220;lens_hint_smile_again&#8221;</td><td>&#8220;Smile Again&#8221;</td></tr><tr><td>&#8220;lens_hint_swap_camera&#8221;</td><td>&#8220;Swap Camera&#8221;</td></tr><tr><td>&#8220;lens_hint_tap&#8221;</td><td>&#8220;Tap!&#8221;</td></tr><tr><td>&#8220;lens_hint_tap_a_surface&#8221;</td><td>&#8220;Tap A Surface&#8221;</td></tr><tr><td>&#8220;lens_hint_tap_ground&#8221;</td><td>&#8220;Tap The Ground&#8221;</td></tr><tr><td>&#8220;lens_hint_tap_ground_to_place&#8221;</td><td>&#8220;Tap Ground To Place&#8221;</td></tr><tr><td>&#8220;lens_hint_tap_surface_to_place&#8221;</td><td>&#8220;Tap Surface To Place&#8221;</td></tr><tr><td>&#8220;lens_hint_try_friend&#8221;</td><td>&#8220;Try It With A Friend&#8221;</td></tr><tr><td>&#8220;lens_hint_try_rear_camera&#8221;</td><td>&#8220;Try It With Your Rear Camera&#8221;</td></tr><tr><td>&#8220;lens_hint_turn_around&#8221;</td><td>&#8220;Turn Around&#8221;</td></tr><tr><td>&#8220;lens_hint_walk_through_the_door&#8221;</td><td>&#8220;Walk Through The Door&#8221;</td></tr></tbody></table>
 */
-declare abstract class HintsComponent extends Component {
+declare class HintsComponent extends Component {
     
     protected constructor()
     
@@ -6604,7 +6705,7 @@ declare abstract class HintsComponent extends Component {
 
 * @wearableOnly
 */
-declare abstract class HitTestSession extends ScriptObject {
+declare class HitTestSession extends ScriptObject {
     
     protected constructor()
     
@@ -6635,7 +6736,7 @@ declare abstract class HitTestSession extends ScriptObject {
 
 * @wearableOnly
 */
-declare abstract class HitTestSessionOptions extends ScriptObject {
+declare class HitTestSessionOptions extends ScriptObject {
     
     protected constructor()
     
@@ -6645,21 +6746,18 @@ declare abstract class HitTestSessionOptions extends ScriptObject {
     */
     filter: boolean
     
-}
-declare namespace HitTestSessionOptions {
     /**
     * Create a new HitTestSessionOptions object.
     
     * @wearableOnly
     */
-    export function create(): HitTestSessionOptions
+    static create(): HitTestSessionOptions
     
-
 }
 
 /**
-* Used by the `horizontalAlignment` property in [MeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#MeshVisual).
-* When a [ScreenTransform](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ScreenTransform) is attached to the same SceneObject, this determines how the mesh will be positioned horizontally.
+* Used by the `horizontalAlignment` property in {@link MeshVisual}.
+* When a {@link ScreenTransform} is attached to the same SceneObject, this determines how the mesh will be positioned horizontally.
 */
 declare enum HorizontalAlignment {
     /**
@@ -6678,7 +6776,7 @@ declare enum HorizontalAlignment {
 
 /**
 * Options for wrapping text horizontally.
-* Used by [Text component's](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Text) `horizontalOverflow` property.
+* Used by {@link Text}'s component's `horizontalOverflow` property.
 */
 declare enum HorizontalOverflow {
     /**
@@ -6706,7 +6804,7 @@ declare enum HorizontalOverflow {
 /**
 * Triggered when a mouse hover event occurs. Only triggered in the `Preview` panel of Lens studio. Useful when working with Spectacles, where you can simulate the use of your hand to hover over an object. Does not get triggered on mobile.
 */
-declare abstract class HoverEvent extends SceneObjectEvent {
+declare class HoverEvent extends SceneObjectEvent {
     
     protected constructor()
     
@@ -6720,7 +6818,7 @@ declare abstract class HoverEvent extends SceneObjectEvent {
 /**
 * The base class for parameter objects passed into event callbacks.
 */
-declare abstract class IEventParameters extends ScriptObject {
+declare class IEventParameters extends ScriptObject {
     
     protected constructor()
     
@@ -6728,11 +6826,11 @@ declare abstract class IEventParameters extends ScriptObject {
 
 /**
 * A 2D visual used for drawing texture assets.
-* Commonly used with [ScreenTransform](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ScreenTransform) for drawing images on the screen.
+* Commonly used with {@link ScreenTransform} for drawing images on the screen.
 
-* See the [Image guide](https://lensstudio.snapchat.com/lens-studio/references/guides/adding-content/2d/image) for more information.
+* See the [Image guide](https://developers.snap.com/lens-studio/assets-pipeline/2d/image) for more information.
 */
-declare abstract class Image extends MaterialMeshVisual {
+declare class Image extends MaterialMeshVisual {
     
     protected constructor()
     
@@ -6752,12 +6850,14 @@ declare abstract class Image extends MaterialMeshVisual {
     */
     pivot: vec2
     
+    rotationAngle: number
+    
 }
 
 /**
 * Builds InputPlaceHolders for MLComponent.
 */
-declare abstract class InputBuilder extends ScriptObject {
+declare class InputBuilder extends ScriptObject {
     
     protected constructor()
     
@@ -6795,9 +6895,9 @@ declare abstract class InputBuilder extends ScriptObject {
 
 /**
 * Controls input data for a neural network used by an MLComponent.
-* For more information, see the [MLComponent Scripting](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/machine-learning/ml-component/scripting-ml-component) guide.
+* For more information, see the [MLComponent Scripting](https://developers.snap.com/lens-studio/features/snap-ml/ml-component/scripting-ml-component) guide.
 */
-declare abstract class InputPlaceholder extends BasePlaceholder {
+declare class InputPlaceholder extends BasePlaceholder {
     
     protected constructor()
     
@@ -6828,7 +6928,7 @@ declare abstract class InputPlaceholder extends BasePlaceholder {
 * "TouchTypePan"
 * "TouchTypeSwipe"
 */
-declare abstract class InteractionComponent extends Component {
+declare class InteractionComponent extends Component {
     
     protected constructor()
     
@@ -6949,7 +7049,7 @@ declare abstract class InteractionComponent extends Component {
 /**
 * Triggered when the tracked face ends a kiss.
 */
-declare abstract class KissFinishedEvent extends FaceTrackingEvent {
+declare class KissFinishedEvent extends FaceTrackingEvent {
     
     protected constructor()
     
@@ -6958,17 +7058,17 @@ declare abstract class KissFinishedEvent extends FaceTrackingEvent {
 /**
 * Triggered when the tracked face starts a kiss.
 */
-declare abstract class KissStartedEvent extends FaceTrackingEvent {
+declare class KissStartedEvent extends FaceTrackingEvent {
     
     protected constructor()
     
 }
 
 /**
-* This event is triggered at the end of every frame, after normal [UpdateEvents](https://lensstudio.snapchat.com/api/lens-studio/Classes/Events#UpdateEvent) trigger
+* This event is triggered at the end of every frame, after normal {@link UpdateEvent} trigger
 * but before rendering occurs.
 */
-declare abstract class LateUpdateEvent extends SceneEvent {
+declare class LateUpdateEvent extends SceneEvent {
     
     protected constructor()
     
@@ -6982,9 +7082,11 @@ declare abstract class LateUpdateEvent extends SceneEvent {
 /**
 * Used to describe a set of layers that an object belongs to or interacts with.
 
-* See [SceneObject's](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#SceneObject) `layer` property, [Camera's](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Camera) `renderLayer` property, and [LightSource's](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#LightSource) `renderLayer` property.
+* @see {@link SceneObject} `layer` property
+* @see {@link Camera} `renderLayer` property
+* @see {@link LightSource} `renderLayer` property.
 */
-declare abstract class LayerSet {
+declare class LayerSet {
     
     protected constructor()
     
@@ -7020,25 +7122,22 @@ declare abstract class LayerSet {
     
     numbers: number[]
     
-}
-declare namespace LayerSet {
     /**
     * Returns a new LayerSet based on the passed in number.
     */
-    export function fromNumber(layerId: number): LayerSet
+    static fromNumber(layerId: number): LayerSet
     
     /**
     * Creates a new LayerSet that is guaranteed to be empty and not intersect existing layers. This bypasses the normal 32 layer limit in Studio, allowing for around 65,000 unique layers.
     */
-    export function makeUnique(): LayerSet
+    static makeUnique(): LayerSet
     
-
 }
 
 /**
 * A leaderboard which can contain scores and information about participating users. Accessible through the `LeaderboardModule` asset. 
 */
-declare abstract class Leaderboard extends ScriptObject {
+declare class Leaderboard extends ScriptObject {
     
     protected constructor()
     
@@ -7080,7 +7179,7 @@ declare namespace Leaderboard {
     /**
     * The options for the leaderboard to be made.
     */
-    abstract class CreateOptions extends ScriptObject {
+    class CreateOptions extends ScriptObject {
         
         protected constructor()
         
@@ -7099,17 +7198,11 @@ declare namespace Leaderboard {
         */
         ttlSeconds: number
         
-    }
-
-}
-declare namespace Leaderboard {
-    namespace CreateOptions {
         /**
         * Create the option.
         */
-        export function create(): Leaderboard.CreateOptions
+        static create(): Leaderboard.CreateOptions
         
-    
     }
 
 }
@@ -7135,7 +7228,7 @@ declare namespace Leaderboard {
     /**
     * Describes the context for the leaderboard to be requested.
     */
-    abstract class RetrievalOptions extends ScriptObject {
+    class RetrievalOptions extends ScriptObject {
         
         protected constructor()
         
@@ -7150,17 +7243,11 @@ declare namespace Leaderboard {
         */
         usersType: Leaderboard.UsersType
         
-    }
-
-}
-declare namespace Leaderboard {
-    namespace RetrievalOptions {
         /**
         * Creates the option.
         */
-        export function create(): Leaderboard.RetrievalOptions
+        static create(): Leaderboard.RetrievalOptions
         
-    
     }
 
 }
@@ -7169,7 +7256,7 @@ declare namespace Leaderboard {
     /**
     * Information for a user who submitted a score to the leaderboard.
     */
-    abstract class UserRecord extends ScriptObject {
+    class UserRecord extends ScriptObject {
         
         protected constructor()
         
@@ -7225,7 +7312,7 @@ declare namespace Leaderboard {
 /**
 * A module which provides the `Leaderboard` api.
 */
-declare abstract class LeaderboardModule extends Asset {
+declare class LeaderboardModule extends Asset {
     
     protected constructor()
     
@@ -7237,9 +7324,9 @@ declare abstract class LeaderboardModule extends Asset {
 }
 
 /**
-* Collider asset generated from a mesh to be used with the [Hair Visual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#HairVisual) as part of the hair simulation.
+* Collider asset generated from a mesh to be used with the {@link HairVisual} as part of the hair simulation.
 */
-declare abstract class LevelsetColliderAsset extends BinAsset {
+declare class LevelsetColliderAsset extends BinAsset {
     
     protected constructor()
     
@@ -7248,7 +7335,7 @@ declare abstract class LevelsetColliderAsset extends BinAsset {
 /**
 * A levelset collision shape. A levelset is an asset that is generated to approximate a mesh.
 */
-declare abstract class LevelsetShape extends Shape {
+declare class LevelsetShape extends Shape {
     
     protected constructor()
     
@@ -7259,11 +7346,17 @@ declare abstract class LevelsetShape extends Shape {
     
 }
 
+declare class LicensedAudioTrackAsset extends AudioTrackAsset {
+    
+    protected constructor()
+    
+}
+
 /**
 * Acts as a source of light in the scene.
-* See the [Light and Shadows](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/graphics/light-and-shadow) guide for more information about lighting.
+* See the [Light and Shadows](https://developers.snap.com/lens-studio/features/graphics/light-and-shadow) guide for more information about lighting.
 */
-declare abstract class LightSource extends Component {
+declare class LightSource extends Component {
     
     protected constructor()
     
@@ -7357,7 +7450,7 @@ declare abstract class LightSource extends Component {
 /**
 * Applies a liquify effect to anything rendered behind it.
 */
-declare abstract class LiquifyVisual extends BaseMeshVisual {
+declare class LiquifyVisual extends BaseMeshVisual {
     
     protected constructor()
     
@@ -7382,7 +7475,7 @@ declare enum LoadStatus {
 /**
 * Asset used with the Localizations system to support custom localization strings.
 */
-declare abstract class LocalizationsAsset extends Asset {
+declare class LocalizationsAsset extends Asset {
     
     protected constructor()
     
@@ -7394,7 +7487,7 @@ declare abstract class LocalizationsAsset extends Asset {
 * Note that formatted or localized strings may appear differently to users depending on their region.
 * The example results given here are representative of a user in the United States, but may appear differently for users in other regions.
 */
-declare abstract class LocalizationSystem extends ScriptObject {
+declare class LocalizationSystem extends ScriptObject {
     
     protected constructor()
     
@@ -7485,7 +7578,7 @@ declare abstract class LocalizationSystem extends ScriptObject {
     getTimeFormatted(date: Date): string
     
     /**
-    * The method takes a [localization key](https://lensstudio.snapchat.com/lens-studio/references/guides/adding-content/text/localization) and returns the localized string according to device language. Useful for localizing strings before formatting them and assigning them to Text.
+    * The method takes a [localization key](https://developers.snap.com/lens-studio/features/text/localization) and returns the localized string according to device language. Useful for localizing strings before formatting them and assigning them to Text.
     
     * @exposesUserData
     */
@@ -7501,10 +7594,10 @@ declare abstract class LocalizationSystem extends ScriptObject {
 }
 
 /**
-* A component which modifies the [Transform](https://lensstudio.snapchat.com/api/classes/Transform) of the object it is on to a position in the real world, based on a `LocationAsset` and a `position`.
+* A component which modifies the {@link Transform} of the object it is on to a position in the real world, based on a `LocationAsset` and a `position`.
 
 */
-declare abstract class LocatedAtComponent extends Component {
+declare class LocatedAtComponent extends Component {
     
     protected constructor()
     
@@ -7559,25 +7652,22 @@ declare abstract class LocatedAtComponent extends Component {
     */
     proximityStatus: LocationProximityStatus
     
-}
-declare namespace LocatedAtComponent {
     /**
     * Creates an option object for the `LocatedAtComponent`.
     */
-    export function createMappingOptions(): MappingOptions
+    static createMappingOptions(): MappingOptions
     
     /**
     * Creates a mapping session.
     */
-    export function createMappingSession(options: MappingOptions): MappingSession
+    static createMappingSession(options: MappingOptions): MappingSession
     
-
 }
 
 /**
-* Provides a frame of reference in which to localize objects to the real world. Use with [LocatedAtComponent](https://lensstudio.snapchat.com/api/classes/LocatedAtComponent).
+* Provides a frame of reference in which to localize objects to the real world. Use with {@link LocatedAtComponent}.
 */
-declare abstract class LocationAsset extends Asset {
+declare class LocationAsset extends Asset {
     
     protected constructor()
     
@@ -7591,35 +7681,32 @@ declare abstract class LocationAsset extends Asset {
     */
     getProxyId(): string | undefined
     
-}
-declare namespace LocationAsset {
     /**
     * Gets the origin position of the `LocationAsset`.
     */
-    export function getAROrigin(): LocationAsset
+    static getAROrigin(): LocationAsset
     
     /**
-    * Get an [Anchor](https://lensstudio.snapchat.com/api/classes/anchor) based on the given GPS coordinate.
+    * Get an {@link Anchor} based on the given GPS coordinate.
     */
-    export function getGeoAnchoredPosition(longitude: number, latitude: number): Anchor
+    static getGeoAnchoredPosition(longitude: number, latitude: number): Anchor
     
     /**
     * Gets nearby LocationAsset tiles, where each argument represents the x,y,z position relative to the current LocationAsset.
     */
-    export function getNearby(xOffset: number, yOffset: number, zoomOffset: number): LocationAsset
+    static getNearby(xOffset: number, yOffset: number, zoomOffset: number): LocationAsset
     
     /**
     * Get a Proxy LocationAsset with the proxyId embedded in the locationId. proxyId must not be null, must start with an alpha char, and consist only of alphanumerics or ".".
     */
-    export function getProxy(proxyId: string): LocationAsset
+    static getProxy(proxyId: string): LocationAsset
     
-
 }
 
 /**
 * Provides access to location cloud storage depending upon the LocationCloudStorageOptions.
 */
-declare abstract class LocationCloudStorageModule extends Asset {
+declare class LocationCloudStorageModule extends Asset {
     
     protected constructor()
     
@@ -7650,7 +7737,7 @@ declare abstract class LocationCloudStorageModule extends Asset {
 /**
 * Used to configure LocationCloudStorage module with various options. 
 */
-declare abstract class LocationCloudStorageOptions extends ScriptObject {
+declare class LocationCloudStorageOptions extends ScriptObject {
     
     protected constructor()
     
@@ -7679,20 +7766,17 @@ declare abstract class LocationCloudStorageOptions extends ScriptObject {
     */
     onError: event3<LocationAsset, string, string, void>
     
-}
-declare namespace LocationCloudStorageOptions {
     /**
     * Create options to provide to LocationCloudStorageModule  
     */
-    export function create(): LocationCloudStorageOptions
+    static create(): LocationCloudStorageOptions
     
-
 }
 
 /**
 * Instance of location cloud store which has a similar interface as cloud store.
 */
-declare abstract class LocationCloudStore extends ScriptObject {
+declare class LocationCloudStore extends ScriptObject {
     
     protected constructor()
     
@@ -7719,8 +7803,9 @@ declare abstract class LocationCloudStore extends ScriptObject {
 }
 
 /**
-* Used by [DeviceLocationTrackingComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#DeviceLocationTrackingComponent) to indicate the user's distance from the landmarker location.
-* See the [Landmarker guide](https://lensstudio.snapchat.com/templates/landmarker) for more information.
+* Used by {@link DeviceLocationTrackingComponent} to indicate the user's distance from the landmarker location.
+* See the [Landmarker guide](https://developers.snap.com/lens-studio/features/location-ar/guide) for more information.
+
 */
 declare enum LocationProximityStatus {
     /**
@@ -7740,7 +7825,7 @@ declare enum LocationProximityStatus {
 /**
 * Provides access to a location's Mesh--such as when working with City Scale AR. Usually used in conjunction with `LocationTextureProvider`.
 */
-declare abstract class LocationRenderObjectProvider extends RenderObjectProvider {
+declare class LocationRenderObjectProvider extends RenderObjectProvider {
     
     protected constructor()
     
@@ -7759,14 +7844,11 @@ declare abstract class LocationRenderObjectProvider extends RenderObjectProvider
     */
     onLocationDataDownloaded: event0<void>
     
-}
-declare namespace LocationRenderObjectProvider {
     /**
     * Creates the location mesh.
     */
-    export function create(): RenderMesh
+    static create(): RenderMesh
     
-
 }
 
 /**
@@ -7775,7 +7857,7 @@ declare namespace LocationRenderObjectProvider {
 * Spectacles: Users should be logged in and paired with Snapchat account and also location permission should be enabled. Users are expected to be connected to the internet to make use of aided information for indoor locations and challenging scenarios.
 
 */
-declare abstract class LocationService extends ScriptObject {
+declare class LocationService extends ScriptObject {
     
     protected constructor()
     
@@ -7811,7 +7893,7 @@ declare abstract class LocationService extends ScriptObject {
 /**
 * Provides access to a location's texture--such as when working with City Scale AR.
 */
-declare abstract class LocationTextureProvider extends TextureProvider {
+declare class LocationTextureProvider extends TextureProvider {
     
     protected constructor()
     
@@ -7820,20 +7902,17 @@ declare abstract class LocationTextureProvider extends TextureProvider {
     */
     location: LocationAsset
     
-}
-declare namespace LocationTextureProvider {
     /**
     * Create location texture.
     */
-    export function create(): Texture
+    static create(): Texture
     
-
 }
 
 /**
 * Every frame, LookAtComponent rotates its SceneObject to face towards a target SceneObject.
 */
-declare abstract class LookAtComponent extends Component {
+declare class LookAtComponent extends Component {
     
     protected constructor()
     
@@ -7868,7 +7947,7 @@ declare abstract class LookAtComponent extends Component {
 
 declare namespace LookAtComponent {
     /**
-    * The "aim" and "up" vectors used with [LookAtComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#LookAtComponent) when determining rotation.
+    * The "aim" and "up" vectors used with {@link LookAtComponent} when determining rotation.
     * LookAtComponent will try to point the `Aim` axis of the SceneObject towards the target,
     * while keeping the `Up` axis of the SceneObject pointing towards `worldUpVector`.
     */
@@ -7992,7 +8071,7 @@ declare namespace LookAtComponent {
 
 declare namespace LookAtComponent {
     /**
-    * Used with [LookAtComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#LookAtComponent) to set the "up" vector when determining rotation.
+    * Used with {@link LookAtComponent} to set the "up" vector when determining rotation.
     */
     enum WorldUpVector {
         /**
@@ -8036,71 +8115,329 @@ declare namespace LookAtComponent {
 }
 
 /**
-* Namespace for Machine Learning related classes and methods.
-* For more information, see the [Machine Learning Overview](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/machine-learning/ml-overview).
+* Represents the full set of Lyrics data for tracked music. Can be accessed through {@link LyricsTracker#fullLyrics | LyricsTracker.fullLyrics} when lyrics are available.
+
 */
-declare abstract class MachineLearning {
+declare class Lyrics extends ScriptObject {
     
     protected constructor()
     
+    /**
+    * Duration (in seconds) of the tracked music.
+    
+    
+    * @readonly
+    */
+    clipDuration: number
+    
+    /**
+    * Lyrics represented as a list of {@link LyricsLine} objects in the order they appear in the tracked music.
+    
+    
+    * @readonly
+    */
+    lines: LyricsLine[]
+    
+    /**
+    * {@link LyricsType | Type} of the lyrics data available. Describes the granularity of timing data available for the lyrics.
+    
+    
+    * @readonly
+    */
+    type: LyricsType
+    
 }
-declare namespace MachineLearning {
+
+/**
+* Represents a single line of Lyrics.
+
+*/
+declare class LyricsLine extends ScriptObject {
+    
+    protected constructor()
+    
+    /**
+    * The full line of lyrics represented as a single string.
+    
+    
+    * @readonly
+    */
+    fullLineText: string
+    
+    /**
+    * Offset (in seconds) that this line begins relative to the start of the tracked music. Note that this value can be negative, since music tracks can start halfway through a line being sung. This value is useful to compare with {@link LyricsTracker#playbackPosition | LyricsTracker.playbackPosition}.
+    
+    
+    * @readonly
+    */
+    offset: number
+    
+    /**
+    * Offset (in seconds) that this line ends relative to the start of the tracked music. This value is useful to compare with {@link LyricsTracker#playbackPosition | LyricsTracker.playbackPosition}.
+    
+    
+    * @readonly
+    */
+    offsetEnd: number
+    
+    /**
+    * Lyrics for this line represented as a list of {@link LyricsSync} objects in the order they appear. 
+    
+    * Note that for {@link LyricsType#LineSync | LineSync} lyrics data, only one {@link LyricsSync} object will be present in the list, representing the entire line.
+    
+    
+    * @readonly
+    */
+    syncs: LyricsSync[]
+    
+}
+
+/**
+* Represents a single sync/word of a {@link LyricsLine}.
+
+*/
+declare class LyricsSync extends ScriptObject {
+    
+    protected constructor()
+    
+    /**
+    * Duration (in seconds) of this sync. Equivalent to {@link LyricsSync#offsetEnd | offsetEnd} - {@link LyricsSync#offset | offset}.
+    
+    
+    * @readonly
+    */
+    duration: number
+    
+    /**
+    * Offset (in seconds) that this sync begins, relative to the start of the {@link LyricsLine} this sync is part of. Add this offset to the {@link LyricsLine#offset | LyricsLine.offset} to convert it to playback time, which can be compared to {@link LyricsTracker#playbackPosition | LyricsTracker.playbackPosition}.
+    
+    
+    * @readonly
+    */
+    offset: number
+    
+    /**
+    * Offset (in seconds) that this sync ends, relative to the start of the {@link LyricsLine} this sync is part of. Add this offset to the {@link LyricsLine#offset | LyricsLine.offset} to convert it to playback time, which can be compared to {@link LyricsTracker#playbackPosition | LyricsTracker.playbackPosition}.
+    
+    
+    * @readonly
+    */
+    offsetEnd: number
+    
+    /**
+    * The text value of this sync. Depending on the {@link LyricsType} of the lyrics data, this may be a single word, whitespace, or an entire line of text.
+    
+    * @readonly
+    */
+    text: string
+    
+}
+
+/**
+* Provides information about lyrics data for a currently playing track. Can be accessed through {@link ExternalMusicModule#getLyricsTracker | getLyricsTracker()} on {@link ExternalMusicModule}.
+
+* Note that lyrics data may not be available immediately when this class is accessed. Subscribe to {@link LyricsTracker#onLyricsAvailable | onLyricsAvailable} to be notified when lyrics data becomes available.
+
+* Also note that some music tracks may not support lyrics. In this case, {@link LyricsTracker#onLyricsAvailable | onLyricsAvailable} will not be triggered.
+
+
+*/
+declare class LyricsTracker extends ScriptObject {
+    
+    protected constructor()
+    
+    /**
+    * The current {@link LyricsLine} for the tracked music. Returns `null` if no line is currently playing, or lyrics are not available.
+    
+    
+    * @readonly
+    */
+    currentLine: LyricsLine
+    
+    /**
+    * The full {@link Lyrics} for the tracked music. Useful for pre-processing the lyrics of a track ahead of time.
+    
+    
+    * @readonly
+    */
+    fullLyrics: Lyrics
+    
+    /**
+    * Returns true if the tracked audio is playing. 
+    
+    
+    * @readonly
+    */
+    isPlaying: boolean
+    
+    /**
+    * The next {@link LyricsLine} for the tracked music. Returns `null` if no next line is present, or lyrics data is not available.
+    
+    
+    * @readonly
+    */
+    nextLine: LyricsLine
+    
+    /**
+    * Event that triggers when a {@link LyricsLine} has ended.
+    
+    
+    * @readonly
+    */
+    onLineEnd: event1<LyricsLine, void>
+    
+    /**
+    * Event that triggers when a {@link LyricsLine} has started. Note that if playback begins partway through a line, this event will immediately fire.
+    
+    
+    * @readonly
+    */
+    onLineStart: event1<LyricsLine, void>
+    
+    /**
+    * Event that triggers when lyrics data becomes available for the tracked music. Note that when lyrics are not available for the selected music track, this event will never trigger.
+    
+    
+    * @readonly
+    */
+    onLyricsAvailable: event0<void>
+    
+    /**
+    * Event that fires when lyrics data is cleared. This usually indicates that the tracked music has either been removed or changed. It's good practice to clear any lyrics visuals when this event fires.
+    
+    
+    * @readonly
+    */
+    onLyricsCleared: event0<void>
+    
+    /**
+    * Event that triggers when playback has been reset on the tracked music. It's good practice to clear any lyrics visuals when this event fires.
+    
+    
+    * @readonly
+    */
+    onPlaybackReset: event0<void>
+    
+    /**
+    * Event that triggers when playback has started on the tracked music.
+    
+    
+    * @readonly
+    */
+    onPlaybackStarted: event1<ExternalMusicInfo, void>
+    
+    /**
+    * Event that triggers when a {@link LyricsSync} has ended.
+    
+    
+    * @readonly
+    */
+    onWordEnd: event1<LyricsSync, void>
+    
+    /**
+    * Event that triggers when a {@link LyricsSync} has started. Note that if playback begins partway through a LyricsSync, this event will immediately fire.
+    
+    
+    * @readonly
+    */
+    onWordStart: event1<LyricsSync, void>
+    
+    /**
+    * Current playback position (in seconds) of the tracked music. 
+    
+    * This can be used to compare playback position to the {@link LyricsLine#offset | offset} and {@link LyricsLine#offsetEnd | offsetEnd} properties on {@link LyricsLine} objects. It can also be used with offsets on {@link LyricsSync} objects, after adjusting their offsets by the `offset` of the {@link LyricsLine} they belong to.
+    
+    
+    * @readonly
+    */
+    playbackPosition: number
+    
+}
+
+/**
+* Types of granularity for lyric data. Accessible through {@link Lyrics#type | Lyrics.type}.
+*/
+declare enum LyricsType {
+    /**
+    * Type is not set. 
+    
+    */
+    Unset,
+    /**
+    * Lyrics data is available for each word and space between words. Each {@link LyricsLine}'s {@link LyricsLine#syncs | syncs} list will contain a {@link LyricsSync} object for each word and space between words in the line. This means that timing data is available for each word in the tracked music.
+    
+    */
+    RichSync,
+    /**
+    * Lyrics data is only available for entire lines at a time. Each {@link LyricsLine}'s {@link LyricsLine#syncs | syncs} list will contain a single {@link LyricsSync} object, with its {@link LyricsSync#text | text} property containing the entire line. This means that timing data is only available for entire lines of the song, and is not available for each individual word.
+    
+    */
+    LineSync
+}
+
+/**
+* Namespace for Machine Learning related classes and methods.
+* For more information, see the [Machine Learning Overview](https://developers.snap.com/lens-studio/features/snap-ml/ml-overview).
+*/
+declare class MachineLearning {
+    
+    protected constructor()
+    
     /**
     * Creates a new DelayBuilder object.
     */
-    export function createDelayBuilder(): DelayBuilder
+    static createDelayBuilder(): DelayBuilder
     
     /**
     * Creates a new DeltaBuilder object.
     */
-    export function createDeltaBuilder(): DeltaBuilder
+    static createDeltaBuilder(): DeltaBuilder
     
     /**
     * Creates a new InputBuilder object.
     */
-    export function createInputBuilder(): InputBuilder
+    static createInputBuilder(): InputBuilder
     
     /**
     * Creates a new MFCCBuilder object.
     */
-    export function createMFCCBuilder(): MFCCBuilder
+    static createMFCCBuilder(): MFCCBuilder
     
     /**
     * Creates a new MelSpectrogramBuilder object.
     */
-    export function createMelSpectrogramBuilder(): MelSpectrogramBuilder
+    static createMelSpectrogramBuilder(): MelSpectrogramBuilder
     
-    export function createNoiseReductionBuilder(): NoiseReductionBuilder
+    static createNoiseReductionBuilder(): NoiseReductionBuilder
     
     /**
     * Creates a new OutputBuilder object.
     */
-    export function createOutputBuilder(): OutputBuilder
+    static createOutputBuilder(): OutputBuilder
     
-    export function createPitchShifterBuilder(): PitchShifterBuilder
+    static createPitchShifterBuilder(): PitchShifterBuilder
     
     /**
     * Creates SamplerBuilder.
     */
-    export function createSamplerBuilder(): SamplerBuilder
+    static createSamplerBuilder(): SamplerBuilder
     
     /**
     * Creates a new SpectrogramBuilder object.
     */
-    export function createSpectrogramBuilder(): SpectrogramBuilder
+    static createSpectrogramBuilder(): SpectrogramBuilder
     
     /**
     * Creates a new TransformerBuilder object.
     */
-    export function createTransformerBuilder(): TransformerBuilder
+    static createTransformerBuilder(): TransformerBuilder
     
-
 }
 
 declare namespace MachineLearning {
     /**
     * Timing options for when MLComponent should start or stop running. Used with `MLComponent.runScheduled()`.
-    * For more information, see the [MLComponent Scripting](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/machine-learning/ml-component/scripting-ml-component) guide.
+    * For more information, see the [MLComponent Scripting](https://developers.snap.com/lens-studio/features/snap-ml/ml-component/scripting-ml-component) guide.
     */
     enum FrameTiming {
         /**
@@ -8151,7 +8488,7 @@ declare namespace MachineLearning {
 declare namespace MachineLearning {
     /**
     * Describes the current state of the MLComponent model.
-    * For more information, see the [MLComponent Scripting](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/machine-learning/ml-component/scripting-ml-component) guide.
+    * For more information, see the [MLComponent Scripting](https://developers.snap.com/lens-studio/features/snap-ml/ml-component/scripting-ml-component) guide.
     */
     enum ModelState {
         /**
@@ -8192,9 +8529,9 @@ declare namespace MachineLearning {
 }
 
 /**
-* Handles input information from user touch input via the [TouchComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#TouchComponent) to control Scale, Rotation, and Translation of objects.
+* Handles input information from user touch input via the {@link InteractionComponent} to control Scale, Rotation, and Translation of objects.
 */
-declare abstract class ManipulateComponent extends Component {
+declare class ManipulateComponent extends Component {
     
     protected constructor()
     
@@ -8212,7 +8549,7 @@ declare abstract class ManipulateComponent extends Component {
     * Checks for an intersection point between the manipulation plane and a line extending
     * from the camera through the specified screen space point. The screen point is passed in as (x, y) with both values
     * ranging from ([0-1], [0-1]), (0,0) being left-top and (1,1) being right-bottom. The result is returned as a
-    * [ManipulateFrameIntersectResult](https://lensstudio.snapchat.com/api/lens-studio/Classes/OtherClasses#ManipulateFrameIntersectResult) object.
+    * {@link ManipulateFrameIntersectResult} object.
     */
     intersectManipulateFrame(screenSpacePoint: vec2): ManipulateFrameIntersectResult
     
@@ -8289,7 +8626,7 @@ declare abstract class ManipulateComponent extends Component {
 /**
 * This event is triggered when manipulation on the object ends.
 */
-declare abstract class ManipulateEndEvent extends SceneObjectEvent {
+declare class ManipulateEndEvent extends SceneObjectEvent {
     
     protected constructor()
     
@@ -8298,16 +8635,16 @@ declare abstract class ManipulateEndEvent extends SceneObjectEvent {
 /**
 * Arguments used with the `ManipulateComponent.onManipulateEnd` event.
 */
-declare abstract class ManipulateEndEventArgs extends ScriptObject {
+declare class ManipulateEndEventArgs extends ScriptObject {
     
     protected constructor()
     
 }
 
 /**
-* Result object returned from [ManipulateComponent.intersectManipulateFrame()](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ManipulateComponent).
+* Result object returned from {@link ManipulateComponent.intersectManipulateFrame}.
 */
-declare abstract class ManipulateFrameIntersectResult {
+declare class ManipulateFrameIntersectResult {
     
     protected constructor()
     
@@ -8326,7 +8663,7 @@ declare abstract class ManipulateFrameIntersectResult {
 /**
 * This event is triggered when manipulation on the object begins.
 */
-declare abstract class ManipulateStartEvent extends SceneObjectEvent {
+declare class ManipulateStartEvent extends SceneObjectEvent {
     
     protected constructor()
     
@@ -8335,14 +8672,14 @@ declare abstract class ManipulateStartEvent extends SceneObjectEvent {
 /**
 * Arguments used with the `ManipulateComponent.onManipulateStart` event.
 */
-declare abstract class ManipulateStartEventArgs extends ScriptObject {
+declare class ManipulateStartEventArgs extends ScriptObject {
     
     protected constructor()
     
 }
 
 /**
-* Enum values specifying each type of manipulation. See [ManipulateComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ManipulateComponent).
+* Enum values specifying each type of manipulation. See {@link ManipulateComponent}.
 */
 declare enum ManipulateType {
     /**
@@ -8362,7 +8699,7 @@ declare enum ManipulateType {
 /**
 * Module for providing Map utils. 
 */
-declare abstract class MapModule extends Asset {
+declare class MapModule extends Asset {
     
     protected constructor()
     
@@ -8381,7 +8718,7 @@ declare abstract class MapModule extends Asset {
 /**
 * Used with `MappingSession` to describe the session to be created.
 */
-declare abstract class MappingOptions extends ScriptObject {
+declare class MappingOptions extends ScriptObject {
     
     protected constructor()
     
@@ -8405,7 +8742,7 @@ declare abstract class MappingOptions extends ScriptObject {
 /**
 * Used with the `LocatedAtComponent` to map the current physical location.
 */
-declare abstract class MappingSession extends ScriptObject {
+declare class MappingSession extends ScriptObject {
     
     protected constructor()
     
@@ -8501,7 +8838,7 @@ declare namespace MappingSession {
 /**
 * A texture of the map at the given location of a `LocationAsset`.
 */
-declare abstract class MapTextureProvider extends TextureProvider {
+declare class MapTextureProvider extends TextureProvider {
     
     protected constructor()
     
@@ -8527,10 +8864,10 @@ declare abstract class MapTextureProvider extends TextureProvider {
 }
 
 /**
-* Defines a marker to use for Marker Tracking with [MarkerTrackingComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#MarkerTrackingComponent).
-* For more information, see the [Marker Tracking](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/tracking/world/marker-tracking) guide.
+* Defines a marker to use for Marker Tracking with {@link MarkerTrackingComponent}.
+* For more information, see the [Marker Tracking](https://developers.snap.com/lens-studio/features/ar-tracking/world/marker-tracking) guide.
 */
-declare abstract class MarkerAsset extends Asset {
+declare class MarkerAsset extends Asset {
     
     protected constructor()
     
@@ -8541,7 +8878,7 @@ declare abstract class MarkerAsset extends Asset {
     
     /**
     * The height of the marker asset in real-life centimeters. Used to provide accurate transformation.
-    * A [MarkerTrackingComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#MarkerTrackingComponent) using this MarkerAsset will be scaled so that
+    * A {@link MarkerTrackingComponent} using this MarkerAsset will be scaled so that
     * one unit in the SceneObject's local space is equal to one centimeter in real life.
     */
     height: number
@@ -8550,9 +8887,9 @@ declare abstract class MarkerAsset extends Asset {
 
 /**
 * Base class for marker providers.
-* For more information, see the [Marker Tracking](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/tracking/world/marker-tracking) guide.
+* For more information, see the [Marker Tracking](https://developers.snap.com/lens-studio/features/ar-tracking/world/marker-tracking) guide.
 */
-declare abstract class MarkerProvider extends Provider {
+declare class MarkerProvider extends Provider {
     
     protected constructor()
     
@@ -8560,9 +8897,9 @@ declare abstract class MarkerProvider extends Provider {
 
 /**
 * Used to track images in the camera. Moves the containing object's transform to match the detected image.
-* For more information, see the [Marker Tracking](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/tracking/world/marker-tracking) guide.
+* For more information, see the [Marker Tracking](https://developers.snap.com/lens-studio/features/ar-tracking/world/marker-tracking) guide.
 */
-declare abstract class MarkerTrackingComponent extends Component {
+declare class MarkerTrackingComponent extends Component {
     
     protected constructor()
     
@@ -8572,7 +8909,7 @@ declare abstract class MarkerTrackingComponent extends Component {
     isTracking(): boolean
     
     /**
-    * If true, child objects of this Component's [SceneObject](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#SceneObject) will be disabled when the marker image is not being tracked.
+    * If true, child objects of this Component's {@link SceneObject} will be disabled when the marker image is not being tracked.
     */
     autoEnableWhenTracking: boolean
     
@@ -8596,7 +8933,7 @@ declare abstract class MarkerTrackingComponent extends Component {
 /**
 * Clips visuals and Interaction Component events within a tree hierarchy. Any Visual or Interaction Components will be clipped user defined 2D bounds. These 2D bounds are defined by a Screen Transform. Useful for clipping some screen transforms--for example a scroll view. 
 */
-declare abstract class MaskingComponent extends BaseMeshVisual {
+declare class MaskingComponent extends BaseMeshVisual {
     
     protected constructor()
     
@@ -8681,19 +9018,16 @@ declare class mat2 {
     */
     description: string
     
-}
-declare namespace mat2 {
     /**
     * Returns the identity matrix.
     */
-    export function identity(): mat2
+    static identity(): mat2
     
     /**
     * Returns a matrix with all zero values.
     */
-    export function zero(): mat2
+    static zero(): mat2
     
-
 }
 
 /**
@@ -8775,24 +9109,21 @@ declare class mat3 {
     */
     description: string
     
-}
-declare namespace mat3 {
     /**
     * Returns the identity matrix.
     */
-    export function identity(): mat3
+    static identity(): mat3
     
     /**
     * Returns a matrix representing the specified rotation.
     */
-    export function makeFromRotation(arg1: quat): mat3
+    static makeFromRotation(arg1: quat): mat3
     
     /**
     * Returns a matrix with all zero values.
     */
-    export function zero(): mat3
+    static zero(): mat3
     
-
 }
 
 /**
@@ -8899,107 +9230,104 @@ declare class mat4 {
     */
     description: string
     
-}
-declare namespace mat4 {
     /**
     * Returns the two matrices multiplied component-wise.
     */
-    export function compMult(arg1: mat4, arg2: mat4): mat4
+    static compMult(arg1: mat4, arg2: mat4): mat4
     
     /**
     * Returns a new matrix with translation `translation`, rotation `rotation`, and scale `scale`.
     */
-    export function compose(translation: vec3, rotation: quat, scale: vec3): mat4
+    static compose(translation: vec3, rotation: quat, scale: vec3): mat4
     
     /**
     * Create a 4x4 matrix from four column vectors.
     */
-    export function fromColumns(column0: vec4, column1: vec4, column2: vec4, column3: vec4): mat4
+    static fromColumns(column0: vec4, column1: vec4, column2: vec4, column3: vec4): mat4
     
     /**
     * Returns a new matrix with the specified euler angles (in radians).
     */
-    export function fromEulerAngles(euler: vec3): mat4
+    static fromEulerAngles(euler: vec3): mat4
     
     /**
     * Returns a new matrix with x euler angle `xAngle` (in radians).
     */
-    export function fromEulerX(xAngle: number): mat4
+    static fromEulerX(xAngle: number): mat4
     
     /**
     * Returns a new matrix with y euler angle `yAngle` (in radians).
     */
-    export function fromEulerY(yAngle: number): mat4
+    static fromEulerY(yAngle: number): mat4
     
     /**
     * Returns a new matrix with z euler angle `zAngle` (in radians).
     */
-    export function fromEulerZ(zAngle: number): mat4
+    static fromEulerZ(zAngle: number): mat4
     
     /**
     * Returns a new matrix with rotation `rotation`.
     */
-    export function fromRotation(rotation: quat): mat4
+    static fromRotation(rotation: quat): mat4
     
     /**
     * Create a 4x4 matrix from four row vectors.
     */
-    export function fromRows(row0: vec4, row1: vec4, row2: vec4, row3: vec4): mat4
+    static fromRows(row0: vec4, row1: vec4, row2: vec4, row3: vec4): mat4
     
     /**
     * Returns a new matrix with scale `scale`.
     */
-    export function fromScale(scale: vec3): mat4
+    static fromScale(scale: vec3): mat4
     
     /**
     * Returns a new matrix with the translation `translation`.
     */
-    export function fromTranslation(translation: vec3): mat4
+    static fromTranslation(translation: vec3): mat4
     
     /**
     * Returns the identity matrix.
     */
-    export function identity(): mat4
+    static identity(): mat4
     
     /**
     * Returns a new matrix generated using the provided arguments.
     */
-    export function lookAt(eye: vec3, center: vec3, up: vec3): mat4
+    static lookAt(eye: vec3, center: vec3, up: vec3): mat4
     
     /**
     * Returns a new matrix using the provided vectors.
     */
-    export function makeBasis(x: vec3, y: vec3, z: vec3): mat4
+    static makeBasis(x: vec3, y: vec3, z: vec3): mat4
     
     /**
     * Returns a new matrix generated using the provided arguments.
     */
-    export function orthographic(left: number, right: number, bottom: number, top: number, zNear: number, zFar: number): mat4
+    static orthographic(left: number, right: number, bottom: number, top: number, zNear: number, zFar: number): mat4
     
     /**
     * Returns the outer product of the two matrices.
     */
-    export function outerProduct(arg1: vec4, arg2: vec4): mat4
+    static outerProduct(arg1: vec4, arg2: vec4): mat4
     
     /**
     * Returns a new matrix generated using the provided arguments.
     */
-    export function perspective(fovY: number, aspect: number, zNear: number, zFar: number): mat4
+    static perspective(fovY: number, aspect: number, zNear: number, zFar: number): mat4
     
     /**
     * Returns a matrix with all zero values.
     */
-    export function zero(): mat4
+    static zero(): mat4
     
-
 }
 
 /**
 * An asset that describes how visual objects should appear.
-* Each Material is a collection of [Passes](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#Pass) which define the actual rendering passes.
-* Materials are used by [MeshVisuals](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#MeshVisual) for drawing meshes in the scene.
+* Each Material is a collection of {@link Pass} which define the actual rendering passes.
+* Materials are used by {@link MeshVisual} for drawing meshes in the scene.
 */
-declare abstract class Material extends Asset {
+declare class Material extends Asset {
     
     protected constructor()
     
@@ -9009,12 +9337,12 @@ declare abstract class Material extends Asset {
     clone(): Material
     
     /**
-    * Returns the [Pass](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#Pass) of the Material at index `index`.
+    * Returns the {@link Pass} of the Material at index `index`.
     */
     getPass(index: number): Pass
     
     /**
-    * Returns the number of [Passes](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#Pass) for the Material.
+    * Returns the number of {@link Pass} for the Material.
     */
     getPassCount(): number
     
@@ -9026,13 +9354,14 @@ declare abstract class Material extends Asset {
 }
 
 /**
-* Base class for all MeshVisual components using [Materials](https://lensstudio.snapchat.com/api/lens-studio/Classes/Assets#Material) to render.
+* Base class for all MeshVisual components using {@link Material} to render.
 * Comparable to the former class "MeshVisual", which was split into the classes:
-* [BaseMeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#BaseMeshVisual),
-* [MaterialMeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Assets#MaterialMeshVisual),
-* and [RenderMeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#RenderMeshVisual).
+
+* - {@link BaseMeshVisual},
+* - {@link MaterialMeshVisual},
+* - and {@link RenderMeshVisual}.
 */
-declare abstract class MaterialMeshVisual extends BaseMeshVisual {
+declare class MaterialMeshVisual extends BaseMeshVisual {
     
     protected constructor()
     
@@ -9076,49 +9405,46 @@ declare abstract class MaterialMeshVisual extends BaseMeshVisual {
 /**
 * Provides useful math utility functions.
 */
-declare abstract class MathUtils {
+declare class MathUtils {
     
     protected constructor()
     
-}
-declare namespace MathUtils {
     /**
     * Clamp floating-point value `v` in the range `[lo, hi]` (inclusive).
     */
-    export function clamp(v: number, lo: number, hi: number): number
+    static clamp(v: number, lo: number, hi: number): number
     
     /**
     * Linearly interpolate from floating-point `a` to `b`, based on fraction `t` (where t=0.0 returns a, and t=1.0 returns b). This is equivalent to the vec2 and vec3 lerp() functions, but operates on scalar floating-point values.
     */
-    export function lerp(a: number, b: number, time: number): number
+    static lerp(a: number, b: number, time: number): number
     
     /**
     * Generate a random floating-point value in the range `[lo, hi)`. Note, the range is inclusive at the lower end, and exclusive at the upper.
     */
-    export function randomRange(lo: number, hi: number): number
+    static randomRange(lo: number, hi: number): number
     
     /**
     * Map floating-point `v` from range [inMin, inMax] to [outMin, outMax].
     */
-    export function remap(v: number, inMin: number, inMax: number, outMin: number, outMax: number): number
+    static remap(v: number, inMin: number, inMax: number, outMin: number, outMax: number): number
     
     /**
     * Constant mapping degrees to radians. This equals pi/180.
     */
-    let DegToRad: number
+    static DegToRad: number
     
     /**
     * Constant mapping radians to degrees. This equals 180/pi.
     */
-    let RadToDeg: number
+    static RadToDeg: number
     
-
 }
 
 /**
 * Settings for the physical substance, such as friction and bounciness, of a collider. If unset, uses the default matter from the world settings.
 */
-declare abstract class Matter extends Asset {
+declare class Matter extends Asset {
     
     protected constructor()
     
@@ -9159,7 +9485,7 @@ declare abstract class Matter extends Asset {
 /**
 * Base class for Texture Providers based on selectable media.
 */
-declare abstract class MediaPickerTextureProvider extends TextureProvider {
+declare class MediaPickerTextureProvider extends TextureProvider {
     
     protected constructor()
     
@@ -9239,7 +9565,7 @@ declare abstract class MediaPickerTextureProvider extends TextureProvider {
 /**
 * Computes a mel scale spectrogram - a spectrogram where the frequencies are converted to the mel scale.
 */
-declare abstract class MelSpectrogram extends ScriptObject {
+declare class MelSpectrogram extends ScriptObject {
     
     protected constructor()
     
@@ -9253,7 +9579,7 @@ declare abstract class MelSpectrogram extends ScriptObject {
 /**
 * A builder class for MelSpectrogram.
 */
-declare abstract class MelSpectrogramBuilder extends ScriptObject {
+declare class MelSpectrogramBuilder extends ScriptObject {
     
     protected constructor()
     
@@ -9310,18 +9636,18 @@ declare class MeshBuilder {
     
     * __name__ - Attribute name
     * __components__ - Size of the attribute (how many float values it uses)
-    * __normalized__ (optional) - Optional property declaring that the attribute should be normalized
     
     * ```js
     * var builder = new MeshBuilder([
     *     // vertex position (x,y,z)
     *     { name: "position", components: 3 },
     *     // normal vector (x,y,z)
-    *     { name: "normal", components: 3, normalized: true },
+    *     { name: "normal", components: 3 },
     *     // texture UV (u,v)
     *     { name: "texture0", components: 2 },
     * ]);
     * ```
+    
     */
     constructor(layout: any[])
     
@@ -9395,14 +9721,11 @@ declare class MeshBuilder {
     */
     topology: MeshTopology
     
-}
-declare namespace MeshBuilder {
     /**
     * Create a MeshBuilder from a RenderMesh.
     */
-    export function createFromMesh(mesh: RenderMesh): MeshBuilder
+    static createFromMesh(mesh: RenderMesh): MeshBuilder
     
-
 }
 
 /**
@@ -9420,7 +9743,7 @@ declare enum MeshClassificationFormat {
 }
 
 /**
-* Possible index data types used by [MeshBuilder](https://lensstudio.snapchat.com/api/lens-studio/Classes/OtherClasses#MeshBuilder). `MeshIndexType.UInt16` is the value normally used.
+* Possible index data types used by {@link MeshBuilder}. `MeshIndexType.UInt16` is the value normally used.
 */
 declare enum MeshIndexType {
     /**
@@ -9433,7 +9756,7 @@ declare enum MeshIndexType {
     UInt16
 }
 
-declare abstract class MeshRenderObjectProvider extends RenderObjectProvider {
+declare class MeshRenderObjectProvider extends RenderObjectProvider {
     
     protected constructor()
     
@@ -9448,7 +9771,7 @@ declare enum MeshShadowMode {
 /**
 * Allows meshes to be used as collision shapes, for ColliderComponent and BodyComponent.
 */
-declare abstract class MeshShape extends Shape {
+declare class MeshShape extends Shape {
     
     protected constructor()
     
@@ -9479,7 +9802,7 @@ declare abstract class MeshShape extends Shape {
 }
 
 /**
-* Mesh topology types used by [MeshBuilder](https://lensstudio.snapchat.com/api/lens-studio/Classes/OtherClasses#MeshBuilder).
+* Mesh topology types used by {@link MeshBuilder}.
 */
 declare enum MeshTopology {
     /**
@@ -9510,18 +9833,18 @@ declare enum MeshTopology {
 
 /**
 * This class has been DEPRECATED starting in Lens Studio 2.3.
-* The `Component.MeshVisual` typename is now an alias for [BaseMeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#BaseMeshVisual).
-* When upgrading a project to Lens Studio 2.3 or higher, any instances of the MeshVisual component will be upgraded to [RenderMeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#RenderMeshVisual).
+* The `Component.MeshVisual` typename is now an alias for {@link BaseMeshVisual}.
+* When upgrading a project to Lens Studio 2.3 or higher, any instances of the MeshVisual component will be upgraded to {@link RenderMeshVisual}.
 
 * This class was split into the following three classes, to better distinguish the behaviors of child classes.
 
-* [BaseMeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#BaseMeshVisual): Base class for all visual classes using meshes to render
+* {@link BaseMeshVisual}: Base class for all visual classes using meshes to render
 
-* [MaterialMeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Assets#MaterialMeshVisual): Child class of BaseMeshVisual, gives access to the [Materials](https://lensstudio.snapchat.com/api/lens-studio/Classes/Assets#Material) used to render
+* {@link MaterialMeshVisual}: Child class of BaseMeshVisual, gives access to the {@link Material} used to render
 
-* [RenderMeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#RenderMeshVisual): Child class of MaterialMeshVisual, gives access to the [RenderMesh](https://lensstudio.snapchat.com/api/lens-studio/Classes/Assets#RenderMesh) used to render
+* {@link RenderMeshVisual}: Child class of MaterialMeshVisual, gives access to the {@link RenderMesh} used to render
 */
-declare abstract class MeshVisual extends Component {
+declare class MeshVisual extends Component {
     
     protected constructor()
     
@@ -9530,7 +9853,7 @@ declare abstract class MeshVisual extends Component {
 /**
 * Mel-frequency cepstral coefficients.
 */
-declare abstract class MFCC extends ScriptObject {
+declare class MFCC extends ScriptObject {
     
     protected constructor()
     
@@ -9551,7 +9874,7 @@ declare abstract class MFCC extends ScriptObject {
 /**
 * Builder class for the MFCC (Mel Frequency Cepstral Co-efficients).
 */
-declare abstract class MFCCBuilder extends ScriptObject {
+declare class MFCCBuilder extends ScriptObject {
     
     protected constructor()
     
@@ -9610,7 +9933,7 @@ declare abstract class MFCCBuilder extends ScriptObject {
 /**
 * The Audio Track Provider of the audio from microphone.
 */
-declare abstract class MicrophoneAudioProvider extends AudioTrackProvider {
+declare class MicrophoneAudioProvider extends AudioTrackProvider {
     
     protected constructor()
     
@@ -9636,7 +9959,7 @@ declare abstract class MicrophoneAudioProvider extends AudioTrackProvider {
 /**
 * Binary ML model supplied by the user.
 */
-declare abstract class MLAsset extends BinAsset {
+declare class MLAsset extends BinAsset {
     
     protected constructor()
     
@@ -9651,9 +9974,9 @@ declare abstract class MLAsset extends BinAsset {
 /**
 * Transforms inputs (Textures or Float32Array) into outputs (Textures or Float32Array) using a neural network.
 * The neural network is represented by an MLAsset, which is set as the `model` property.
-* For more information, see the [MLComponent Overview](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/machine-learning/ml-component/ml-component-overview).
+* For more information, see the [MLComponent Overview](https://developers.snap.com/lens-studio/features/snap-ml/ml-component/ml-component-overview).
 */
-declare abstract class MLComponent extends Component {
+declare class MLComponent extends Component {
     
     protected constructor()
     
@@ -9774,7 +10097,7 @@ declare abstract class MLComponent extends Component {
 
 * @wearableOnly
 */
-declare abstract class MotionController extends ScriptObject {
+declare class MotionController extends ScriptObject {
     
     protected constructor()
     
@@ -9927,7 +10250,7 @@ declare namespace MotionController {
     
     * @wearableOnly
     */
-    abstract class HapticRequest extends ScriptObject {
+    class HapticRequest extends ScriptObject {
         
         protected constructor()
         
@@ -9941,19 +10264,13 @@ declare namespace MotionController {
         */
         hapticFeedback: MotionController.HapticFeedback
         
-    }
-
-}
-declare namespace MotionController {
-    namespace HapticRequest {
         /**
         * Create an instance of the Haptic Request.
         
         * @wearableOnly
         */
-        export function create(): MotionController.HapticRequest
+        static create(): MotionController.HapticRequest
         
-    
     }
 
 }
@@ -9965,7 +10282,7 @@ declare namespace MotionController {
     
     * @wearableOnly
     */
-    abstract class MotionControllerOptions extends ScriptObject {
+    class MotionControllerOptions extends ScriptObject {
         
         protected constructor()
         
@@ -10013,23 +10330,17 @@ declare namespace MotionController {
     /**
     * Settings for configuring a motion controller.
     */
-    abstract class Options {
+    class Options {
         
         protected constructor()
         
-    }
-
-}
-declare namespace MotionController {
-    namespace Options {
         /**
         * Create a new options object.
         
         * @wearableOnly
         */
-        export function create(): MotionController.MotionControllerOptions
+        static create(): MotionController.MotionControllerOptions
         
-    
     }
 
 }
@@ -10091,7 +10402,7 @@ declare namespace MotionController {
 
 * @wearableOnly
 */
-declare abstract class MotionControllerModule extends Asset {
+declare class MotionControllerModule extends Asset {
     
     protected constructor()
     
@@ -10106,7 +10417,7 @@ declare abstract class MotionControllerModule extends Asset {
 /**
 * Triggered when the tracked face's mouth closes.
 */
-declare abstract class MouthClosedEvent extends FaceTrackingEvent {
+declare class MouthClosedEvent extends FaceTrackingEvent {
     
     protected constructor()
     
@@ -10115,7 +10426,7 @@ declare abstract class MouthClosedEvent extends FaceTrackingEvent {
 /**
 * Triggered when the tracked face's mouth opens.
 */
-declare abstract class MouthOpenedEvent extends FaceTrackingEvent {
+declare class MouthOpenedEvent extends FaceTrackingEvent {
     
     protected constructor()
     
@@ -10124,7 +10435,7 @@ declare abstract class MouthOpenedEvent extends FaceTrackingEvent {
 /**
 * An instance of a Connected Lens session among a group of participants who were successfully invited into the experience. 
 */
-declare abstract class MultiplayerSession extends ScriptObject {
+declare class MultiplayerSession extends ScriptObject {
     
     protected constructor()
     
@@ -10201,7 +10512,7 @@ declare abstract class MultiplayerSession extends ScriptObject {
 }
 
 /**
-* Tracking type used by the [Device Tracking](https://lensstudio.snapchat.com/api/classes/devicetracking) component to specify what type of plane to detect. 
+* Tracking type used by the {@link DeviceTracking} component to specify what type of plane to detect. 
 */
 declare enum NativePlaneTrackingType {
     /**
@@ -10222,7 +10533,7 @@ declare enum NativePlaneTrackingType {
     Both
 }
 
-declare abstract class NoiseReduction extends ScriptObject {
+declare class NoiseReduction extends ScriptObject {
     
     protected constructor()
     
@@ -10237,7 +10548,7 @@ declare abstract class NoiseReduction extends ScriptObject {
     
 }
 
-declare abstract class NoiseReductionBuilder extends ScriptObject {
+declare class NoiseReductionBuilder extends ScriptObject {
     
     protected constructor()
     
@@ -10248,9 +10559,9 @@ declare abstract class NoiseReductionBuilder extends ScriptObject {
 }
 
 /**
-* Base class for configuring object tracking in the [ObjectTracking3D](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ObjectTracking3D) component.
+* Base class for configuring object tracking in the {@link ObjectTracking3D} component.
 */
-declare abstract class Object3DAsset extends Asset {
+declare class Object3DAsset extends Asset {
     
     protected constructor()
     
@@ -10259,9 +10570,9 @@ declare abstract class Object3DAsset extends Asset {
 /**
 * A reusable object hierarchy stored as a resource.
 * Can be instantiated through script or brought into the scene through Lens Studio.
-* For more information, see the [Prefabs](https://lensstudio.snapchat.com/lens-studio/references/guides/general/prefabs) guide.
+* For more information, see the [Prefabs](https://developers.snap.com/lens-studio/lens-studio-workflow/prefabs) guide.
 */
-declare abstract class ObjectPrefab extends Asset {
+declare class ObjectPrefab extends Asset {
     
     protected constructor()
     
@@ -10281,18 +10592,18 @@ declare abstract class ObjectPrefab extends Asset {
 /**
 * Provides additional data for the tracked object. For example, with hand tracking, you can figure out whether the tracked hand is the left hand by accessing the `isLeft` property [true/false], as well as the probability of this data through the `isLeftProbability` property [0-1]. 
 */
-declare abstract class ObjectSpecificData extends ScriptObject {
+declare class ObjectSpecificData extends ScriptObject {
     
     protected constructor()
     
 }
 
 /**
-* Used to track objects in the camera. Moves the local [ScreenTransform](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ScreenTransform) to match the detected image.
+* Used to track objects in the camera. Moves the local {@link ScreenTransform} to match the detected image.
 
-* See the [Object Tracking guide](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/tracking/world/object-tracking) and the [Hand Gestures Guide](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/tracking/body/hand-gestures) for more information.
+* See the [Object Tracking guide](https://developers.snap.com/lens-studio/features/ar-tracking/world/object-tracking) and the [Hand Gestures Guide](https://developers.snap.com/lens-studio/features/ar-tracking/hand/hand-gestures) for more information.
 */
-declare abstract class ObjectTracking extends Component {
+declare class ObjectTracking extends Component {
     
     protected constructor()
     
@@ -10312,7 +10623,7 @@ declare abstract class ObjectTracking extends Component {
     registerDescriptorStart(descriptor: string, callback: (descriptor: string) => void): void
     
     /**
-    * If true, child objects of this Component's [SceneObject](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#SceneObject) will be disabled when the object is not being tracked.
+    * If true, child objects of this Component's {@link SceneObject} will be disabled when the object is not being tracked.
     */
     autoEnableWhenTracking: boolean
     
@@ -10343,7 +10654,7 @@ declare abstract class ObjectTracking extends Component {
 /**
 * Component used for tracking objects in 3D space.
 */
-declare abstract class ObjectTracking3D extends Component {
+declare class ObjectTracking3D extends Component {
     
     protected constructor()
     
@@ -10429,7 +10740,7 @@ declare abstract class ObjectTracking3D extends Component {
 
 declare namespace ObjectTracking3D {
     /**
-    * Strategies for updating attached objects. Used by the [ObjectTracking3D](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ObjectTracking3D) component.
+    * Strategies for updating attached objects. Used by the {@link ObjectTracking3D} component.
     */
     enum TrackingMode {
         /**
@@ -10448,7 +10759,7 @@ declare namespace ObjectTracking3D {
 
 }
 
-declare abstract class ObjectTrackingMaskedTextureProvider extends CropTextureProvider {
+declare class ObjectTrackingMaskedTextureProvider extends CropTextureProvider {
     
     protected constructor()
     
@@ -10456,7 +10767,7 @@ declare abstract class ObjectTrackingMaskedTextureProvider extends CropTexturePr
     
 }
 
-declare abstract class ObjectTrackingNormalsTextureProvider extends ObjectTrackingMaskedTextureProvider {
+declare class ObjectTrackingNormalsTextureProvider extends ObjectTrackingMaskedTextureProvider {
     
     protected constructor()
     
@@ -10465,7 +10776,7 @@ declare abstract class ObjectTrackingNormalsTextureProvider extends ObjectTracki
 /**
 * Controls a segmentation texture and its placement using information provided by Object tracking.
 */
-declare abstract class ObjectTrackingTextureProvider extends ObjectTrackingMaskedTextureProvider {
+declare class ObjectTrackingTextureProvider extends ObjectTrackingMaskedTextureProvider {
     
     protected constructor()
     
@@ -10474,7 +10785,7 @@ declare abstract class ObjectTrackingTextureProvider extends ObjectTrackingMaske
 /**
 * Triggered when the Lens starts, earlier than all OnStart events. Also fires immediately on a newly instantiated or copied object.
 */
-declare abstract class OnAwakeEvent extends SceneEvent {
+declare class OnAwakeEvent extends SceneEvent {
     
     protected constructor()
     
@@ -10483,7 +10794,7 @@ declare abstract class OnAwakeEvent extends SceneEvent {
 /**
 * Triggered when the associated ScriptComponent is destroyed while the lens is running.
 */
-declare abstract class OnDestroyEvent extends SceneEvent {
+declare class OnDestroyEvent extends SceneEvent {
     
     protected constructor()
     
@@ -10493,7 +10804,7 @@ declare abstract class OnDestroyEvent extends SceneEvent {
 * Triggered when the `ScriptComponent` this event is bound to is disabled.
 
 */
-declare abstract class OnDisableEvent extends SceneEvent {
+declare class OnDisableEvent extends SceneEvent {
     
     protected constructor()
     
@@ -10503,7 +10814,7 @@ declare abstract class OnDisableEvent extends SceneEvent {
 * Triggered when the `ScriptComponent` this event is bound to is enabled.
 
 */
-declare abstract class OnEnableEvent extends SceneEvent {
+declare class OnEnableEvent extends SceneEvent {
     
     protected constructor()
     
@@ -10512,7 +10823,7 @@ declare abstract class OnEnableEvent extends SceneEvent {
 /**
 * Triggered when the Lens starts, after all OnAwakeEvents have triggered. Also triggers later on newly instantiated or copied objects.
 */
-declare abstract class OnStartEvent extends SceneEvent {
+declare class OnStartEvent extends SceneEvent {
     
     protected constructor()
     
@@ -10541,10 +10852,10 @@ declare enum OS {
 }
 
 /**
-* Used in [Text's](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Text) `outlineSettings` property.
+* Used in {@link Text}'s `outlineSettings` property.
 * Configures how text outlining will appear on a Text component.
 */
-declare abstract class OutlineSettings extends ScriptObject {
+declare class OutlineSettings extends ScriptObject {
     
     protected constructor()
     
@@ -10568,7 +10879,7 @@ declare abstract class OutlineSettings extends ScriptObject {
 /**
 * Builds OutputPlaceholders for MLComponent.
 */
-declare abstract class OutputBuilder extends ScriptObject {
+declare class OutputBuilder extends ScriptObject {
     
     protected constructor()
     
@@ -10596,9 +10907,9 @@ declare abstract class OutputBuilder extends ScriptObject {
 
 /**
 * Provides output data from the neural network used by an MLComponent.
-* For more information, see the [MLComponent Scripting](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/machine-learning/ml-component/scripting-ml-component) guide.
+* For more information, see the [MLComponent Scripting](https://developers.snap.com/lens-studio/features/snap-ml/ml-component/scripting-ml-component) guide.
 */
-declare abstract class OutputPlaceholder extends BasePlaceholder {
+declare class OutputPlaceholder extends BasePlaceholder {
     
     protected constructor()
     
@@ -10626,9 +10937,14 @@ declare abstract class OutputPlaceholder extends BasePlaceholder {
 }
 
 /**
-* Exposes state generated for ColliderComponent overlap events.  See also: [ColliderComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ColliderComponent), [OverlapEnterEventArgs](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#OverlapEnterEventArgs), [OverlapExitEventArgs](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#OverlapExitEventArgs), [OverlapStayEventArgs](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#OverlapStayEventArgs).
+* Exposes state generated for ColliderComponent overlap events. 
+
+* @see {@link ColliderComponent}
+* @see {@link OverlapEnterEventArgs}
+* @see {@link OverlapExitEventArgs}
+* @see {@link OverlapStayEventArgs}
 */
-declare abstract class Overlap extends ScriptObject {
+declare class Overlap extends ScriptObject {
     
     protected constructor()
     
@@ -10649,9 +10965,9 @@ declare abstract class Overlap extends ScriptObject {
 }
 
 /**
-* Args used for [ColliderComponent.onOverlapEnter](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ColliderComponent), which is triggered when the collider begins overlapping another object. Typically used for volume triggers.
+* Args used for {@link ColliderComponent.onOverlapEnter}, which is triggered when the collider begins overlapping another object. Typically used for volume triggers.
 */
-declare abstract class OverlapEnterEventArgs extends ScriptObject {
+declare class OverlapEnterEventArgs extends ScriptObject {
     
     protected constructor()
     
@@ -10679,9 +10995,9 @@ declare abstract class OverlapEnterEventArgs extends ScriptObject {
 }
 
 /**
-* Args used for [ColliderComponent.onOverlapEnd](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ColliderComponent), which is triggered when the collider stops overlapping another object. Typically used for volume triggers.
+* Args used for {@link ColliderComponent.onOverlapExit}, which is triggered when the collider stops overlapping another object. Typically used for volume triggers.
 */
-declare abstract class OverlapExitEventArgs extends ScriptObject {
+declare class OverlapExitEventArgs extends ScriptObject {
     
     protected constructor()
     
@@ -10709,9 +11025,9 @@ declare abstract class OverlapExitEventArgs extends ScriptObject {
 }
 
 /**
-* Args used for [ColliderComponent.onOverlapStay](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ColliderComponent), which is triggered every frame while the collider continues overlapping another object. Typically used for volume triggers.
+* Args used for {@link ColliderComponent.onOverlapStay}, which is triggered every frame while the collider continues overlapping another object. Typically used for volume triggers.
 */
-declare abstract class OverlapStayEventArgs extends ScriptObject {
+declare class OverlapStayEventArgs extends ScriptObject {
     
     protected constructor()
     
@@ -10743,7 +11059,7 @@ declare abstract class OverlapStayEventArgs extends ScriptObject {
 
 * @wearableOnly
 */
-declare abstract class PalmTapDownArgs extends ScriptObject {
+declare class PalmTapDownArgs extends ScriptObject {
     
     protected constructor()
     
@@ -10761,7 +11077,7 @@ declare abstract class PalmTapDownArgs extends ScriptObject {
 
 * @wearableOnly
 */
-declare abstract class PalmTapUpArgs extends ScriptObject {
+declare class PalmTapUpArgs extends ScriptObject {
     
     protected constructor()
     
@@ -10779,7 +11095,7 @@ declare abstract class PalmTapUpArgs extends ScriptObject {
 * Any properties on a Pass's shader will automatically become properties on that Pass.
 * For example, if the shader defines a variable named `baseColor`, a script would be able to access that property as `material.mainPass.baseColor`.
 */
-declare abstract class Pass extends ScriptObject {
+declare class Pass extends ScriptObject {
     
     protected constructor()
     
@@ -10897,9 +11213,9 @@ declare abstract class Pass extends ScriptObject {
 }
 
 /**
-* Similar to [Pass](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#Pass), except used by [VFX Assets](https://lensstudio.snapchat.com/api/lens-studio/Classes/Assets#VFXAsset).
+* Similar to {@link Pass}, except used by {@link VFXAsset}.
 */
-declare abstract class PassWrapper extends ScriptObject {
+declare class PassWrapper extends ScriptObject {
     
     protected constructor()
     
@@ -10949,7 +11265,7 @@ declare abstract class PassWrapper extends ScriptObject {
     polygonOffset: vec2
     
     /**
-    * A proxy class that provides the access to the properties of the passes under the hood of [VFX Asset](https://lensstudio.snapchat.com/api/lens-studio/Classes/Assets#VFXAsset/). PassWrapper.samplers property which is tied to the Pass.samplers one. For example:  
+    * A proxy class that provides the access to the properties of the passes under the hood of {@link VFXAsset}. PassWrapper.samplers property which is tied to the Pass.samplers one. For example:  
     * ```js
     * pass.samplers.texture_name.Fitering = FilteringMode.Nearest
     * ```
@@ -10968,7 +11284,7 @@ declare abstract class PassWrapper extends ScriptObject {
 /**
 * Allows for retrieval of a collection of Pass objects used by VFXAsset
 */
-declare abstract class PassWrappers extends ScriptObject {
+declare class PassWrappers extends ScriptObject {
     
     protected constructor()
     
@@ -10986,9 +11302,9 @@ declare abstract class PassWrappers extends ScriptObject {
 * In other words, data can be saved on device and loaded back in the next time the Lens is opened.
 * Can be accessed with `global.persistentStorageSystem`.
 
-* See the [Persistent Storage guide](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/adding-interactivity/persistent-storage) for more information.
+* See the [Persistent Storage guide](https://developers.snap.com/lens-studio/features/persistent-cloud-storage/persistent-storage) for more information.
 */
-declare abstract class PersistentStorageSystem extends ScriptObject {
+declare class PersistentStorageSystem extends ScriptObject {
     
     protected constructor()
     
@@ -11002,68 +11318,59 @@ declare abstract class PersistentStorageSystem extends ScriptObject {
 /**
 * Namespace containing physics classes and static physics methods.
 */
-declare abstract class Physics {
+declare class Physics {
     
     protected constructor()
     
-}
-declare namespace Physics {
     /**
     * Create an intersection probe that spans all worlds.
     */
-    export function createGlobalProbe(): Probe
+    static createGlobalProbe(): Probe
     
     /**
     * Create an intersection probe for the implicit root world.
     */
-    export function createRootProbe(): Probe
+    static createRootProbe(): Probe
     
     /**
     * Get settings that apply to the implicit root world.
     */
-    export function getRootWorldSettings(): Physics.WorldSettingsAsset
+    static getRootWorldSettings(): Physics.WorldSettingsAsset
     
-
 }
 
 declare namespace Physics {
     /**
-    * Namespace containing static helper methods for [Constraints](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#Constraint).
+    * Namespace containing static helper methods for {@link Constraint}.
     */
-    abstract class Constraint {
+    class Constraint {
         
         protected constructor()
         
-    }
-
-}
-declare namespace Physics {
-    namespace Constraint {
         /**
         * Create a constraint of the given type, with default settings.
         */
-        export function create(type: Physics.ConstraintType): Constraint
+        static create(type: Physics.ConstraintType): Constraint
         
-    
     }
 
 }
 
 declare namespace Physics {
     /**
-    * Constraint type used by a [Constraint](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#Contraint).   See also: [Physics.Constraint.create()](https://lensstudio.snapchat.com/api/lens-studio/Classes/OtherClasses#PhysicsConstraint), [ConstraintComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ConstraintComponent).
+    * Constraint type used by a {@link Constraint}.   See also: {@link Constraint}, {@link ConstraintComponent}.
     */
     enum ConstraintType {
         /**
-        * Constrains colliders to fixed rotation and position. See [FixedConstraint](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#FixedConstraint).
+        * Constrains colliders to fixed rotation and position. See {@link FixedConstraint}.
         */
         Fixed,
         /**
-        * Constrains colliders to rotate around a point. See [PointConstraint](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#PointConstraint).
+        * Constrains colliders to rotate around a point. See {@link PointConstraint}.
         */
         Point,
         /**
-        * Constrains colliders to rotate around a single axis. See [HingeConstraint](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#HingeConstraint).
+        * Constrains colliders to rotate around a single axis. See {@link HingeConstraint}.
         */
         Hinge
     }
@@ -11074,28 +11381,22 @@ declare namespace Physics {
     /**
     * Script interface for applying collision filtering to colliders and ray/shape-casts.
     */
-    abstract class Filter {
+    class Filter {
         
         protected constructor()
         
-    }
-
-}
-declare namespace Physics {
-    namespace Filter {
         /**
         * Create an instance with default settings.
         */
-        export function create(): Filter
+        static create(): Filter
         
-    
     }
 
 }
 
 declare namespace Physics {
     /**
-    * Type of force to use when applying force or torque to a [BodyComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#BodyComponent).
+    * Type of force to use when applying force or torque to a {@link BodyComponent}.
     */
     enum ForceMode {
         /**
@@ -11122,9 +11423,9 @@ declare namespace Physics {
 
 declare namespace Physics {
     /**
-    * Stores reusable settings uniform for a world (such as gravity magnitude and direction). See also: [WorldComponent.worldSettings](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#WorldComponent).
+    * Stores reusable settings uniform for a world (such as gravity magnitude and direction). See also: {@link WorldComponent.worldSettings}.
     */
-    abstract class WorldSettingsAsset extends Asset {
+    class WorldSettingsAsset extends Asset {
         
         protected constructor()
         
@@ -11184,17 +11485,11 @@ declare namespace Physics {
         */
         slowDownTime: number
         
-    }
-
-}
-declare namespace Physics {
-    namespace WorldSettingsAsset {
         /**
         * Create an instance with default settings.
         */
-        export function create(): Physics.WorldSettingsAsset
+        static create(): Physics.WorldSettingsAsset
         
-    
     }
 
 }
@@ -11204,7 +11499,7 @@ declare namespace Physics {
 
 * @wearableOnly
 */
-declare abstract class PinchDownArgs extends ScriptObject {
+declare class PinchDownArgs extends ScriptObject {
     
     protected constructor()
     
@@ -11222,7 +11517,7 @@ declare abstract class PinchDownArgs extends ScriptObject {
 
 * @wearableOnly
 */
-declare abstract class PinchStrengthArgs extends ScriptObject {
+declare class PinchStrengthArgs extends ScriptObject {
     
     protected constructor()
     
@@ -11240,7 +11535,7 @@ declare abstract class PinchStrengthArgs extends ScriptObject {
 
 * @wearableOnly
 */
-declare abstract class PinchUpArgs extends ScriptObject {
+declare class PinchUpArgs extends ScriptObject {
     
     protected constructor()
     
@@ -11255,9 +11550,9 @@ declare abstract class PinchUpArgs extends ScriptObject {
 
 /**
 * Attaches the SceneObject to the mesh surface of a different SceneObject.
-* See the [Pin To Mesh](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/scene-set-up/3d/pin-to-mesh#adding-a-pin-to-mesh-component) guide for more information.
+* See the [Pin To Mesh](https://developers.snap.com/lens-studio/lens-studio-workflow/scene-set-up/3d/pin-to-mesh#adding-a-pin-to-mesh-component) guide for more information.
 */
-declare abstract class PinToMeshComponent extends Component {
+declare class PinToMeshComponent extends Component {
     
     protected constructor()
     
@@ -11305,7 +11600,7 @@ declare abstract class PinToMeshComponent extends Component {
 
 declare namespace PinToMeshComponent {
     /**
-    * Used with [PinToMeshComponent.orientation](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#PinToMeshComponent).
+    * Used with {@link PinToMeshComponent.orientation}.
     */
     enum Orientation {
         /**
@@ -11321,7 +11616,7 @@ declare namespace PinToMeshComponent {
 
 }
 
-declare abstract class PitchShifter extends ScriptObject {
+declare class PitchShifter extends ScriptObject {
     
     protected constructor()
     
@@ -11336,7 +11631,7 @@ declare abstract class PitchShifter extends ScriptObject {
     
 }
 
-declare abstract class PitchShifterBuilder extends ScriptObject {
+declare class PitchShifterBuilder extends ScriptObject {
     
     protected constructor()
     
@@ -11368,7 +11663,7 @@ declare enum PlaybackMode {
 * Represents 3D locations of stationary features in the environment. The resulting cloud of points provides a sparse description of the 3D environment.
 
 */
-declare abstract class PointCloud extends ScriptObject {
+declare class PointCloud extends ScriptObject {
     
     protected constructor()
     
@@ -11398,9 +11693,9 @@ declare abstract class PointCloud extends ScriptObject {
 }
 
 /**
-* A type of constraint that only allows rotation.  See also: [ConstraintComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ConstraintComponent).
+* A type of constraint that only allows rotation.  See also: {@link ConstraintComponent}.
 */
-declare abstract class PointConstraint extends Constraint {
+declare class PointConstraint extends Constraint {
     
     protected constructor()
     
@@ -11409,7 +11704,7 @@ declare abstract class PointConstraint extends Constraint {
 /**
 * An Audio Component effect that allows the Lens to simulate sound based on the direction of the Audio Listener relative to the Audio Component.
 */
-declare abstract class PositionEffect extends ScriptObject {
+declare class PositionEffect extends ScriptObject {
     
     protected constructor()
     
@@ -11422,18 +11717,21 @@ declare abstract class PositionEffect extends ScriptObject {
 
 /**
 * Uses an input color lookup table image to adjust the coloring of the Lens.
-* See the [Color Correction Post Effect guide](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/graphics/materials/post-effects#color-correction) for more information.
+* See the [Color Correction Post Effect guide](https://developers.snap.com/lens-studio/features/graphics/materials/post-effects#color-correction) for more information.
 */
-declare abstract class PostEffectVisual extends MaterialMeshVisual {
+declare class PostEffectVisual extends MaterialMeshVisual {
     
     protected constructor()
     
 }
 
 /**
-* Performs collision tests (such as ray casts) in one or more world. See [Physics.createGlobalProbe()](https://lensstudio.snapchat.com/api/lens-studio/Classes/OtherClasses#Physics), [Physics.createRootProbe()](https://lensstudio.snapchat.com/api/lens-studio/Classes/OtherClasses#Physics), [WorldComponent.createProbe()](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#WorldComponent).
+* Performs collision tests (such as ray casts) in one or more world. 
+* @see {@link Physics.createGlobalProbe}
+* @see {@link Physics.createRootProbe}
+* @see {@link WorldComponent.createProbe}
 */
-declare abstract class Probe extends ScriptObject {
+declare class Probe extends ScriptObject {
     
     protected constructor()
     
@@ -11482,7 +11780,7 @@ declare abstract class Probe extends ScriptObject {
 /**
 * RenderObjectProvider for mesh objects generated procedurally.
 */
-declare abstract class ProceduralMeshRenderObjectProvider extends MeshRenderObjectProvider {
+declare class ProceduralMeshRenderObjectProvider extends MeshRenderObjectProvider {
     
     protected constructor()
     
@@ -11491,7 +11789,7 @@ declare abstract class ProceduralMeshRenderObjectProvider extends MeshRenderObje
 /**
 * Provides a texture that can be written to or read from. Can be accessed using Texture.control on a Procedural Texture.
 */
-declare abstract class ProceduralTextureProvider extends TextureProvider {
+declare class ProceduralTextureProvider extends TextureProvider {
     
     protected constructor()
     
@@ -11507,34 +11805,31 @@ declare abstract class ProceduralTextureProvider extends TextureProvider {
     */
     setPixels(x: number, y: number, width: number, height: number, data: Uint8Array): void
     
-}
-declare namespace ProceduralTextureProvider {
     /**
     * Creates a new, blank Texture Provider using the passed in dimensions and Colorspace. The ProceduralTextureProvider can be accessed through the control property on the returned texture.
     */
-    export function create(width: number, height: number, colorspace: Colorspace): Texture
+    static create(width: number, height: number, colorspace: Colorspace): Texture
     
     /**
     * Creates a new Procedural Texture based on the passed in texture. The ProceduralTextureProvider can be accessed through the control property on the returned texture.
     */
-    export function createFromTexture(texture: Texture): Texture
+    static createFromTexture(texture: Texture): Texture
     
-
 }
 
-declare abstract class ProcessedLocationModule extends Asset {
+declare class ProcessedLocationModule extends Asset {
     
     protected constructor()
     
 }
 
-declare abstract class Properties extends ScriptObject {
+declare class Properties extends ScriptObject {
     
     protected constructor()
     
 }
 
-declare abstract class PropertyOnEventArgs extends ScriptObject {
+declare class PropertyOnEventArgs extends ScriptObject {
     
     protected constructor()
     
@@ -11543,7 +11838,7 @@ declare abstract class PropertyOnEventArgs extends ScriptObject {
 /**
 * Base class for all resource providers.
 */
-declare abstract class Provider extends ScriptObject {
+declare class Provider extends ScriptObject {
     
     protected constructor()
     
@@ -11630,71 +11925,68 @@ declare class quat {
     */
     z: number
     
-}
-declare namespace quat {
     /**
     * Returns a new quat with angle `angle` and axis `axis`.
     */
-    export function angleAxis(angle: number, axis: vec3): quat
+    static angleAxis(angle: number, axis: vec3): quat
     
     /**
     * Returns the angle between `a` and `b`.
     */
-    export function angleBetween(a: quat, b: quat): number
+    static angleBetween(a: quat, b: quat): number
     
     /**
     * Returns a new quat using the euler angles `x`, `y`, `z` (in radians).
     */
-    export function fromEulerAngles(x: number, y: number, z: number): quat
+    static fromEulerAngles(x: number, y: number, z: number): quat
     
     /**
     * Returns a new quat using the euler angle `eulerVec` (in radians).
     */
-    export function fromEulerVec(eulerVec: vec3): quat
+    static fromEulerVec(eulerVec: vec3): quat
     
     /**
     * Creates a quaternion from a matrix.
     */
-    export function fromRotationMat(rotationMat: mat3): quat
+    static fromRotationMat(rotationMat: mat3): quat
     
     /**
     * Returns a new quat linearly interpolated between `a` and `b`.
     */
-    export function lerp(a: quat, b: quat, t: number): quat
+    static lerp(a: quat, b: quat, t: number): quat
     
     /**
     * Returns a new quat with a forward vector `forward` and up vector `up`.
     */
-    export function lookAt(forward: vec3, up: vec3): quat
+    static lookAt(forward: vec3, up: vec3): quat
     
     /**
     * Returns the identity quaternion.
     */
-    export function quatIdentity(): quat
+    static quatIdentity(): quat
     
     /**
     * Returns a rotation quat between direction vectors `from` and `to`.
     */
-    export function rotationFromTo(from: vec3, to: vec3): quat
+    static rotationFromTo(from: vec3, to: vec3): quat
     
     /**
     * Returns a new quat spherically linearly interpolated between `a` and `b`.
     */
-    export function slerp(a: quat, b: quat, t: number): quat
+    static slerp(a: quat, b: quat, t: number): quat
     
-
 }
 
-declare abstract class RawLocationModule extends Asset {
+declare class RawLocationModule extends Asset {
     
     protected constructor()
     
 }
 
 /**
-* Hit results of a ray-cast provided to script. See [Probe](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#Probe).
+* Hit results of a ray-cast provided to script. See {@link Probe}.
 */
-declare abstract class RayCastHit extends ScriptObject {
+declare class RayCastHit extends ScriptObject {
     
     protected constructor()
     
@@ -11750,7 +12042,7 @@ declare abstract class RayCastHit extends ScriptObject {
 /**
 * The options for the realtime store.
 */
-declare abstract class RealtimeStoreCreateOptions extends ScriptObject {
+declare class RealtimeStoreCreateOptions extends ScriptObject {
     
     protected constructor()
     
@@ -11777,15 +12069,12 @@ declare abstract class RealtimeStoreCreateOptions extends ScriptObject {
     */
     storeId: string
     
-}
-declare namespace RealtimeStoreCreateOptions {
     /**
     * Creates the realtime store options object.
     
     */
-    export function create(): RealtimeStoreCreateOptions
+    static create(): RealtimeStoreCreateOptions
     
-
 }
 
 declare namespace RealtimeStoreCreateOptions {
@@ -11832,11 +12121,11 @@ declare namespace RealtimeStoreCreateOptions {
 
 /**
 * An axis aligned rectangle.
-* Used by `anchors` and `offsets` in [ScreenTransform](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ScreenTransform) to represent screen boundaries.
+* Used by `anchors` and `offsets` in {@link ScreenTransform} to represent screen boundaries.
 * Rect can only store finite numbers in the range Number.MIN_VALUE to Number.MAX_VALUE.
 
 */
-declare abstract class Rect extends ScriptObject {
+declare class Rect extends ScriptObject {
     
     protected constructor()
     
@@ -11885,21 +12174,18 @@ declare abstract class Rect extends ScriptObject {
     */
     top: number
     
-}
-declare namespace Rect {
     /**
     * Creates a new Rect with the given properties.
     */
-    export function create(left: number, right: number, bottom: number, top: number): Rect
+    static create(left: number, right: number, bottom: number, top: number): Rect
     
-
 }
 
 /**
 * Applies ScreenTransform positioning to match the cropped region of a texture.
-* For more information, see the [Crop Textures](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/machine-learning/ml-component/crop-textures) guide.
+* For more information, see the [Crop Textures](https://developers.snap.com/lens-studio/features/snap-ml/ml-component/crop-textures) guide.
 */
-declare abstract class RectangleSetter extends Component {
+declare class RectangleSetter extends Component {
     
     protected constructor()
     
@@ -11913,9 +12199,9 @@ declare abstract class RectangleSetter extends Component {
 /**
 * Texture Provider providing a cropped region of the input texture. The region is specified by the cropRect in local space and rotation.
 * Can be accessed using Texture.control on a RectCropTexture asset, such as a Screen Crop Texture.
-* For more information, see the [Crop Textures](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/machine-learning/ml-component/crop-textures) guide.
+* For more information, see the [Crop Textures](https://developers.snap.com/lens-studio/features/snap-ml/ml-component/crop-textures) guide.
 */
-declare abstract class RectCropTextureProvider extends CropTextureProvider {
+declare class RectCropTextureProvider extends CropTextureProvider {
     
     protected constructor()
     
@@ -11931,7 +12217,7 @@ declare abstract class RectCropTextureProvider extends CropTextureProvider {
     
 }
 
-declare abstract class RemoteApiRequest extends ScriptObject {
+declare class RemoteApiRequest extends ScriptObject {
     
     protected constructor()
     
@@ -11941,14 +12227,11 @@ declare abstract class RemoteApiRequest extends ScriptObject {
     
     parameters: object
     
-}
-declare namespace RemoteApiRequest {
-    export function create(): RemoteApiRequest
+    static create(): RemoteApiRequest
     
-
 }
 
-declare abstract class RemoteApiResponse extends ScriptObject {
+declare class RemoteApiResponse extends ScriptObject {
     
     protected constructor()
     
@@ -11999,28 +12282,28 @@ declare abstract class RemoteApiResponse extends ScriptObject {
 /**
 * Provides access to a remote media.
 */
-declare abstract class RemoteMediaModule extends Asset {
+declare class RemoteMediaModule extends Asset {
     
     protected constructor()
     
     /**
-    * Downloads the remote image resource from the [`DynamicResource`](https://lensstudio.snapchat.com/api/classes/dynamicresource) object and loads the resource as [AudioTrackAsset](https://lensstudio.snapchat.com/api/classes/AudioTrackAsset).
+    * Downloads the remote image resource from the {@link DynamicResource} object and loads the resource as {@link AudioTrackAsset}.
     */
     loadResourceAsAudioTrackAsset(resource: DynamicResource, onSuccess: (glTFAsset: AudioTrackAsset) => void, onFailure: (errorMessage: string) => void): void
     
     /**
-    * Downloads a remote 3D GLTF file given a [`DynamicResource`](https://lensstudio.snapchat.com/api/classes/dynamicresource).
+    * Downloads a remote 3D GLTF file given a {@link DynamicResource}.
     
     */
     loadResourceAsGltfAsset(resource: DynamicResource, onSuccess: (glTFAsset: GltfAsset) => void, onFailure: (errorMessage: string) => void): void
     
     /**
-    * Downloads the remote image resource from the [`DynamicResource`](https://lensstudio.snapchat.com/api/classes/dynamicresource) object and loads the resource as an [Image](https://lensstudio.snapchat.com/api/classes/Image) Texture.
+    * Downloads the remote image resource from the {@link DynamicResource} object and loads the resource as an {@link Image} Texture.
     */
     loadResourceAsImageTexture(resource: DynamicResource, onSuccess: (texture: Texture) => void, onFailure: (errorMessage: string) => void): void
     
     /**
-    * Downloads the remote image resource from the [`DynamicResource`](https://lensstudio.snapchat.com/api/classes/dynamicresource) object and loads the resource as a [VideoTextureProvider](https://lensstudio.snapchat.com/api/classes/VideoTextureProvider).
+    * Downloads the remote image resource from the {@link DynamicResource} object and loads the resource as a {@link VideoTextureProvider}.
     */
     loadResourceAsVideoTexture(resource: DynamicResource, onSuccess: (texture: Texture) => void, onFailure: (errorMessage: string) => void): void
     
@@ -12029,7 +12312,7 @@ declare abstract class RemoteMediaModule extends Asset {
 /**
 * Provides a reference to a remote asset (i.e. assets outside of the Lens size limit) that can be downloaded at runtime using script.
 */
-declare abstract class RemoteReferenceAsset extends Asset {
+declare class RemoteReferenceAsset extends Asset {
     
     protected constructor()
     
@@ -12047,7 +12330,7 @@ declare abstract class RemoteReferenceAsset extends Asset {
 
 * @CameraKit
 */
-declare abstract class RemoteServiceHttpRequest extends ScriptObject {
+declare class RemoteServiceHttpRequest extends ScriptObject {
     
     protected constructor()
     
@@ -12086,8 +12369,6 @@ declare abstract class RemoteServiceHttpRequest extends ScriptObject {
     */
     url: string
     
-}
-declare namespace RemoteServiceHttpRequest {
     /**
     * Create a new http request.
     
@@ -12095,9 +12376,8 @@ declare namespace RemoteServiceHttpRequest {
     
     * @CameraKit
     */
-    export function create(): RemoteServiceHttpRequest
+    static create(): RemoteServiceHttpRequest
     
-
 }
 
 declare namespace RemoteServiceHttpRequest {
@@ -12136,7 +12416,7 @@ declare namespace RemoteServiceHttpRequest {
 
 * @CameraKit
 */
-declare abstract class RemoteServiceHttpResponse extends ScriptObject {
+declare class RemoteServiceHttpResponse extends ScriptObject {
     
     protected constructor()
     
@@ -12184,11 +12464,70 @@ declare abstract class RemoteServiceHttpResponse extends ScriptObject {
 * Provides access to the remote services. For Spectacles, this module process access to the open internet.
 
 */
-declare abstract class RemoteServiceModule extends Asset {
+declare class RemoteServiceModule extends Asset {
     
     protected constructor()
     
     /**
+    * The createWebSocket() method initiates a WebSocket connection with the given `wss` URL and returns a {@link WebSocket} object that can be used to send and receive messages from the server. 
+    
+    * Syntax
+    * ```
+    * createWebSocket(url)
+    * ```
+    
+    * `url` Defines the `wss` URL to which to establish the WebSocket connection.
+    
+    * Example
+    
+    * ```
+    * //@input Asset.RemoteServiceModule remoteServiceModule
+    * var remoteServiceModule = script.remoteServiceModule;
+    
+    * // Create WebSocket connection.
+    * let socket = script.remoteServiceModule.createWebSocket("wss://<some-url>");
+    * socket.binaryType = "blob";
+    
+    * // Listen for the open event
+    * socket.onopen = (event) => {
+    *     // Socket has opened, send a message back to the server
+    *     socket.send("Message 1");
+    
+    *     // Try sending a binary message
+    *     // (the bytes below spell 'Message 2')
+    *     const message = [77, 101, 115, 115, 97, 103, 101, 32, 50];
+    *     const bytes = new Uint8Array(message);
+    *     socket.send(bytes);
+    * };
+    
+    * // Listen for messages
+    * socket.onmessage = async (event) => {
+    *     if (event.data instanceof Blob) {
+    *         // Binary frame, can be retrieved as either Uint8Array or string
+    *         let bytes = await event.data.bytes();
+    *         let text = await event.data.text();
+    
+    *         print("Received binary message, printing as text: " + text);
+    *     } else {
+    *         // Text frame
+    *         let text = event.data;
+    *         print("Received text message: " + text);
+    *     }
+    * });
+    
+    * socket.onclose = (event) => {
+    *     if (event.wasClean) {
+    *         print("Socket closed cleanly");
+    *     } else {
+    *         print("Socket closed with error, code: " + event.code);
+    *     }
+    * };
+    
+    * socket.onerror = (event) => {
+    *     print("Socket error");
+    * };
+    * ```
+    
     * @wearableOnly
     */
     createWebSocket(url: string): WebSocket
@@ -12290,8 +12629,6 @@ declare abstract class RemoteServiceModule extends Asset {
     
     subscribeApiRequest(request: RemoteApiRequest, onApiResponse: (response: RemoteApiResponse) => void): string
     
-}
-declare namespace RemoteServiceModule {
     /**
     * This function creates a WebViewOptions instance that allows you to configure your webview. 
     
@@ -12305,16 +12642,15 @@ declare namespace RemoteServiceModule {
     
     * @wearableOnly
     */
-    export function createWebViewOptions(resolution: vec2): WebViewOptions
+    static createWebViewOptions(resolution: vec2): WebViewOptions
     
-
 }
 
 /**
 * Represents a mesh asset.
-* See also: [RenderMeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#RenderMeshVisual).
+* See also: {@link RenderMeshVisual}.
 */
-declare abstract class RenderMesh extends Asset {
+declare class RenderMesh extends Asset {
     
     protected constructor()
     
@@ -12354,7 +12690,7 @@ declare abstract class RenderMesh extends Asset {
     
     /**
     * The RenderObjectProvider for this RenderMesh, which can provide more controls depending on the mesh type.
-    * See also: [FaceRenderObjectProvider](https://lensstudio.snapchat.com/api/lens-studio/Classes/Providers#FaceRenderObjectProvider)
+    * See also: {@link FaceRenderObjectProvider}
     */
     control: RenderObjectProvider
     
@@ -12375,13 +12711,13 @@ declare abstract class RenderMesh extends Asset {
 }
 
 /**
-* Renders a [RenderMesh](https://lensstudio.snapchat.com/api/lens-studio/Classes/Assets#RenderMesh) asset in the scene.
+* Renders a {@link RenderMesh} asset in the scene.
 * Comparable to the former class "MeshVisual", which was split into the classes:
-* [BaseMeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#BaseMeshVisual),
-* [MaterialMeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Assets#MaterialMeshVisual),
-* and [RenderMeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#RenderMeshVisual).
+* {@link BaseMeshVisual},
+* {@link MaterialMeshVisual},
+* and {@link RenderMeshVisual}.
 */
-declare abstract class RenderMeshVisual extends MaterialMeshVisual {
+declare class RenderMeshVisual extends MaterialMeshVisual {
     
     protected constructor()
     
@@ -12411,7 +12747,7 @@ declare abstract class RenderMeshVisual extends MaterialMeshVisual {
     setBlendShapeWeight(name: string, weight: number): void
     
     /**
-    * Sets the [Skin](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Skin) to use for rendering this mesh.
+    * Sets the {@link Skin} to use for rendering this mesh.
     */
     setSkin(value: Skin): void
     
@@ -12436,7 +12772,7 @@ declare abstract class RenderMeshVisual extends MaterialMeshVisual {
     emitter: boolean
     
     /**
-    * The [RenderMesh](https://lensstudio.snapchat.com/api/lens-studio/Classes/Assets#RenderMesh) asset to render.
+    * The {@link RenderMesh} asset to render.
     */
     mesh: RenderMesh
     
@@ -12450,7 +12786,7 @@ declare abstract class RenderMeshVisual extends MaterialMeshVisual {
 /**
 * Provider for RenderMesh data.
 */
-declare abstract class RenderObjectProvider extends Provider {
+declare class RenderObjectProvider extends Provider {
     
     protected constructor()
     
@@ -12458,10 +12794,10 @@ declare abstract class RenderObjectProvider extends Provider {
 
 /**
 * Controls a camera texture resource.
-* Can be accessed through [Texture.control](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Texture#control-textureprovider) on a Camera texture.
-* For more information, see the [Camera and Layers](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/scene-set-up/camera) guide.
+* Can be accessed through {@link Texture.control} on a Camera texture.
+* For more information, see the [Camera and Layers](https://developers.snap.com/lens-studio/lens-studio-workflow/scene-set-up/camera) guide.
 */
-declare abstract class RenderTargetProvider extends TextureProvider {
+declare class RenderTargetProvider extends TextureProvider {
     
     protected constructor()
     
@@ -12609,7 +12945,7 @@ declare class Request extends ScriptObject {
 
 * @wearableOnly
 */
-declare abstract class Response extends ScriptObject {
+declare class Response extends ScriptObject {
     
     protected constructor()
     
@@ -12674,9 +13010,9 @@ declare abstract class Response extends ScriptObject {
 
 /**
 * Visual effect used to add subtle retouching effects to detected faces (soft skin, teeth whitening, etc.).
-* To learn more, visit the [Retouch Guide](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/tracking/face/face-effects/face-retouch).
+* To learn more, visit the [Retouch Guide](https://developers.snap.com/lens-studio/features/ar-tracking/face/face-retouch).
 */
-declare abstract class RetouchVisual extends MaterialMeshVisual {
+declare class RetouchVisual extends MaterialMeshVisual {
     
     protected constructor()
     
@@ -12729,7 +13065,18 @@ declare abstract class RetouchVisual extends MaterialMeshVisual {
     
 }
 
-declare abstract class RotatedRect extends ScriptObject {
+/**
+* Texture Provider giving the camera texture that is the opposite of {@link CameraTextureProvider}. The provider will have {@link LoadStatus.Loading} until the camera feed is available. On some devices it will never be available. Use {@link DeviceInfoSystem#supportsDualCamera} to check the current device.
+
+* For example, if the `CameraTextureProvider` is providing the rear camera feed, `ReverseCameraTextureProvider` would provide the front camera feed. 
+*/
+declare class ReverseCameraTextureProvider extends TextureProvider {
+    
+    protected constructor()
+    
+}
+
+declare class RotatedRect extends ScriptObject {
     
     protected constructor()
     
@@ -12753,20 +13100,17 @@ declare abstract class RotatedRect extends ScriptObject {
     */
     size: vec2
     
-}
-declare namespace RotatedRect {
     /**
     * Creates a RotatedRect object.
     */
-    export function create(center: vec2, size: vec2, angle: number): RotatedRect
+    static create(center: vec2, size: vec2, angle: number): RotatedRect
     
-
 }
 
 /**
-* Used with [DeviceTracking.rotationOptions](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#DeviceTracking) to change settings for Rotation tracking mode.
+* Used with {@link DeviceTracking#rotationOptions} to change settings for Rotation tracking mode.
 */
-declare abstract class RotationOptions extends ScriptObject {
+declare class RotationOptions extends ScriptObject {
     
     protected constructor()
     
@@ -12777,7 +13121,7 @@ declare abstract class RotationOptions extends ScriptObject {
     
 }
 
-declare abstract class Sampler extends ScriptObject {
+declare class Sampler extends ScriptObject {
     
     protected constructor()
     
@@ -12786,7 +13130,7 @@ declare abstract class Sampler extends ScriptObject {
 /**
 * Class for building Sampler.
 */
-declare abstract class SamplerBuilder extends ScriptObject {
+declare class SamplerBuilder extends ScriptObject {
     
     protected constructor()
     
@@ -12835,7 +13179,7 @@ declare abstract class SamplerBuilder extends ScriptObject {
 /**
 * An accessor for Pass.samplers when using PassWrappers
 */
-declare abstract class SamplerWrapper extends ScriptObject {
+declare class SamplerWrapper extends ScriptObject {
     
     protected constructor()
     
@@ -12871,7 +13215,15 @@ declare abstract class SamplerWrapper extends ScriptObject {
     
 }
 
-declare abstract class SamplerWrappers extends ScriptObject {
+/**
+* A proxy class that provides the access to the properties of the sampler under the hood of the passes contained in the {@link Material} asset and {@link VFXAsset} via either VFXAsset's `PassWrapper.samplers` or Material's `Pass.samplers`. Each property returns a corresponding {@link SamplerWrapper}.
+
+* This class uses dynamic properties, meaning that its properties depend on the referenced material or vfx asset and thus not shown below. 
+
+* In the example below, the material that is referenced in the material asset contains the `baseTex` property, which this class then provides access to. 
+
+*/
+declare class SamplerWrappers extends ScriptObject {
     
     protected constructor()
     
@@ -12882,7 +13234,7 @@ declare abstract class SamplerWrappers extends ScriptObject {
 
 * @exposesUserData
 */
-declare abstract class ScanModule extends Asset {
+declare class ScanModule extends Asset {
     
     protected constructor()
     
@@ -12902,44 +13254,34 @@ declare namespace ScanModule {
     /**
     * Contexts used in `ScanModule.scan()`.
     */
-    abstract class Contexts {
+    class Contexts {
         
         protected constructor()
         
-    }
-
-}
-declare namespace ScanModule {
-    namespace Contexts {
         /**
         * Category containing cars.
         */
-        let Cars: string
-        
-        /**
-        * Category containing dogs.
-        */
-        let Dogs: string
+        static Cars: string
         
         /**
         * Category containing objects.
         */
-        let Objects: string
+        static Objects: string
         
         /**
         * Category containing places.
         */
-        let Places: string
+        static Places: string
         
-    
     }
 
 }
 
 /**
-* The base class for scenewide events.  SceneEvents can be created using [ScriptComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ScriptComponent)'s [createEvent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#scriptcomponent--createEvent) method.
+* The base class for scenewide events.  SceneEvents can be created using {@link ScriptComponent}'s {@link ScriptComponent#createEvent} method.
+
 */
-declare abstract class SceneEvent extends IEventParameters {
+declare class SceneEvent extends IEventParameters {
     
     protected constructor()
     
@@ -12961,10 +13303,10 @@ declare abstract class SceneEvent extends IEventParameters {
 }
 
 /**
-* An object in the scene hierarchy, containing a [Transform](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#Transform) and possibly [Components](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components).
+* An object in the scene hierarchy, containing a {@link Transform} and possibly {@link Component}.
 * A script can access the SceneObject holding it through the method `script.getSceneObject()`.
 */
-declare abstract class SceneObject extends SerializableWithUID {
+declare class SceneObject extends SerializableWithUID {
     
     protected constructor()
     
@@ -13064,7 +13406,7 @@ declare abstract class SceneObject extends SerializableWithUID {
     
     /**
     * Gets or sets the LayerSet of layers this SceneObject belongs to.
-    * This is used to determine which [Cameras](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Camera) will render the SceneObject.
+    * This is used to determine which {@link Camera} will render the SceneObject.
     */
     layer: LayerSet
     
@@ -13092,7 +13434,7 @@ declare abstract class SceneObject extends SerializableWithUID {
 /**
 * Base class for all object-based Event types in Lens Studio (ManipulateStartEvent, TapEvent, etc.).
 */
-declare abstract class SceneObjectEvent extends SceneEvent {
+declare class SceneObjectEvent extends SceneEvent {
     
     protected constructor()
     
@@ -13104,22 +13446,22 @@ declare abstract class SceneObjectEvent extends SceneEvent {
 }
 
 /**
-* Overrides the settings on a local [ScreenTransform](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ScreenTransform) to fit a screen region on the device.
-* See the [Screen Transform guide](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/scene-set-up/2d/screen-transform-overview) for more information.
+* Overrides the settings on a local {@link ScreenTransform} to fit a screen region on the device.
+* See the [Screen Transform guide](https://developers.snap.com/lens-studio/lens-studio-workflow/scene-set-up/2d/screen-transform-overview) for more information.
 */
-declare abstract class ScreenRegionComponent extends Component {
+declare class ScreenRegionComponent extends Component {
     
     protected constructor()
     
     /**
-    * The region of the screen the local [ScreenTransform](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ScreenTransform) will be fit to.
+    * The region of the screen the local {@link ScreenTransform} will be fit to.
     */
     region: ScreenRegionType
     
 }
 
 /**
-* Types of screen regions that can be used with [ScreenRegionComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ScreenRegionComponent).
+* Types of screen regions that can be used with {@link ScreenRegionComponent}.
 */
 declare enum ScreenRegionType {
     /**
@@ -13147,18 +13489,18 @@ declare enum ScreenRegionType {
 /**
 * Texture providing the current Render Target being rendered.
 */
-declare abstract class ScreenTextureProvider extends TextureProvider {
+declare class ScreenTextureProvider extends TextureProvider {
     
     protected constructor()
     
 }
 
 /**
-* Used for positioning objects in 2d screen space. It overrides the regular [Transform](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#Transform) component on the SceneObject it's attached to.
+* Used for positioning objects in 2d screen space. It overrides the regular {@link Transform} component on the SceneObject it's attached to.
 
-* See the [Screen Transform guide](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/scene-set-up/2d/screen-transform-overview) for more information.
+* See the [Screen Transform guide](https://developers.snap.com/lens-studio/lens-studio-workflow/scene-set-up/2d/screen-transform-overview) for more information.
 */
-declare abstract class ScreenTransform extends Component {
+declare class ScreenTransform extends Component {
     
     protected constructor()
     
@@ -13184,7 +13526,7 @@ declare abstract class ScreenTransform extends Component {
     
     /**
     * Returns true if this ScreenTransform is in a valid screen hierarchy, which is required for anchoring to work.
-    * To be in a valid screen hierarchy there must be a [Camera](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Camera) component upward in the parent hierarchy, and every
+    * To be in a valid screen hierarchy there must be a {@link Camera} component upward in the parent hierarchy, and every
     * object between the Camera and this one must also have a ScreenTransform.
     */
     isInScreenHierarchy(): boolean
@@ -13243,7 +13585,7 @@ declare abstract class ScreenTransform extends Component {
     
     /**
     * This rect is applied after `anchors` to determine the final boundaries of the ScreenTransform.
-    * It adds an offset in world units (based on the parent [Camera's](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Camera) `size` property) to each edge of the ScreenTransform's boundaries.
+    * It adds an offset in world units (based on the parent {@link Camera}'s to each edge of the ScreenTransform's boundaries.
     
     * For example, a value of `0` for any side will have no effect on boundaries.
     
@@ -13276,7 +13618,7 @@ declare abstract class ScreenTransform extends Component {
 /**
 * Represents a JavaScript script which can be used to add logic in your Lens.
 */
-declare abstract class ScriptAsset extends Asset {
+declare class ScriptAsset extends Asset {
     
     protected constructor()
     
@@ -13284,9 +13626,9 @@ declare abstract class ScriptAsset extends Asset {
 
 /**
 * Binds scripts to Events and executes them when triggered. Any script can access the ScriptComponent executing them through the variable `script`.
-* See also: [Scripting Overview](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/adding-interactivity/scripting-overview#script-components), [Script Events Guide](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/adding-interactivity/script-events#introduction).
+* See also: [Scripting Overview](https://developers.snap.com/lens-studio/essential-skills/scripting/script-overview), [Script Events Guide](https://developers.snap.com/lens-studio/features/scripting/script-events).
 */
-declare abstract class ScriptComponent extends Component {
+declare class ScriptComponent extends Component {
     
     protected constructor()
     
@@ -13307,7 +13649,7 @@ declare abstract class ScriptComponent extends Component {
 /**
 * Base class for objects representing Script data.
 */
-declare abstract class ScriptObject {
+declare class ScriptObject {
     
     protected constructor()
     
@@ -13331,7 +13673,7 @@ declare abstract class ScriptObject {
 /**
 * Represents the Lens scene. Accessible through `global.scene`.
 */
-declare abstract class ScriptScene extends ScriptObject {
+declare class ScriptScene extends ScriptObject {
     
     protected constructor()
     
@@ -13341,12 +13683,12 @@ declare abstract class ScriptScene extends ScriptObject {
     createDepthStencilRenderTargetTexture(): Texture
     
     /**
-    * Creates a new Render Target texture with a [RenderTargetProvider](https://lensstudio.snapchat.com/api/lens-studio/Classes/Providers#RenderTargetProvider) as its `control` property.
+    * Creates a new Render Target texture with a {@link RenderTargetProvider} as its `control` property.
     */
     createRenderTargetTexture(): Texture
     
     /**
-    * Adds a new [SceneObject](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#SceneObject) named `name` to the scene.
+    * Adds a new {@link SceneObject} named `name` to the scene.
     */
     createSceneObject(name: string): SceneObject
     
@@ -13362,12 +13704,12 @@ declare abstract class ScriptScene extends ScriptObject {
     getCameraType(): string
     
     /**
-    * Returns the root [SceneObject](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#SceneObject) at index `index` in the current scene.
+    * Returns the root {@link SceneObject} at index `index` in the current scene.
     */
     getRootObject(index: number): SceneObject
     
     /**
-    * Returns the number of [SceneObjects](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#SceneObject) in the current scene.
+    * Returns the number of {@link SceneObject} in the current scene.
     */
     getRootObjectsCount(): number
     
@@ -13389,7 +13731,7 @@ declare abstract class ScriptScene extends ScriptObject {
     isRayTracingSupported: boolean
     
     /**
-    * Similar to `liveTarget`, but this RenderTarget will not have predictive motion adjustments applied to it (only applicable on supported devices). [Learn more](https://docs.snap.com/spectacles/guides/lens-studio-integration/creating-lenses/#overlay-target)
+    * Similar to `liveTarget`, but this RenderTarget will not have predictive motion adjustments applied to it (only applicable on supported devices). [Learn more](https://developers.snap.com/lens-studio/lens-studio-workflow/scene-set-up/camera#overlay-target)
     */
     liveOverlayTarget: Texture
     
@@ -13401,9 +13743,9 @@ declare abstract class ScriptScene extends ScriptObject {
 }
 
 /**
-* Segmentation model used for [SegmentationTextureProvider](https://lensstudio.snapchat.com/api/lens-studio/Classes/Providers#SegmentationTextureProvider).
+* Segmentation model used for {@link SegmentationTextureProvider}.
 */
-declare abstract class SegmentationModel extends BinAsset {
+declare class SegmentationModel extends BinAsset {
     
     protected constructor()
     
@@ -13411,10 +13753,10 @@ declare abstract class SegmentationModel extends BinAsset {
 
 /**
 * Controls a segmentation texture resource.
-* Can be accessed through [Texture.control](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Texture#control-textureprovider) on a Segmentation texture.
-* For more information, see the [Segmentation](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/segmentation/fullscreen-segmentation) guide.
+* Can be accessed through {@link Texture.control} on a Segmentation texture.
+* For more information, see the [Segmentation](https://developers.snap.com/lens-studio/features/ar-tracking/body/segmentation/fullscreen-segmentation) guide.
 */
-declare abstract class SegmentationTextureProvider extends TextureProvider {
+declare class SegmentationTextureProvider extends TextureProvider {
     
     protected constructor()
     
@@ -13430,7 +13772,7 @@ declare abstract class SegmentationTextureProvider extends TextureProvider {
 /**
 * Arguments used with the `InteractionComponent.onSelectEnd` event.
 */
-declare abstract class SelectEndEventArgs extends ScriptObject {
+declare class SelectEndEventArgs extends ScriptObject {
     
     protected constructor()
     
@@ -13439,7 +13781,7 @@ declare abstract class SelectEndEventArgs extends ScriptObject {
 /**
 * Arguments used with the `InteractionComponent.onSelectStart` event.
 */
-declare abstract class SelectStartEventArgs extends ScriptObject {
+declare class SelectStartEventArgs extends ScriptObject {
     
     protected constructor()
     
@@ -13448,7 +13790,7 @@ declare abstract class SelectStartEventArgs extends ScriptObject {
 /**
 * Low-level data class.
 */
-declare abstract class SerializableWithUID extends ScriptObject {
+declare class SerializableWithUID extends ScriptObject {
     
     protected constructor()
     
@@ -13462,54 +13804,74 @@ declare abstract class SerializableWithUID extends ScriptObject {
 /**
 * Base type for collision shapes.
 */
-declare abstract class Shape extends ScriptObject {
+declare class Shape extends ScriptObject {
     
     protected constructor()
     
-}
-declare namespace Shape {
     /**
     * Create a BoxShape with default settings.
     */
-    export function createBoxShape(): BoxShape
+    static createBoxShape(): BoxShape
     
     /**
     * Create a CapsuleShape with default settings.
     */
-    export function createCapsuleShape(): CapsuleShape
+    static createCapsuleShape(): CapsuleShape
     
     /**
     * Create a ConeShape with default settings.
     */
-    export function createConeShape(): ConeShape
+    static createConeShape(): ConeShape
     
     /**
     * Create a CylinderShape with default settings.
     */
-    export function createCylinderShape(): CylinderShape
+    static createCylinderShape(): CylinderShape
     
     /**
     * Create a LevelsetShape with default settings.
     */
-    export function createLevelsetShape(): LevelsetShape
+    static createLevelsetShape(): LevelsetShape
     
     /**
     * Creates a new MeshShape.
     */
-    export function createMeshShape(): MeshShape
+    static createMeshShape(): MeshShape
     
     /**
     * Create a SphereShape with default settings.
     */
-    export function createSphereShape(): SphereShape
+    static createSphereShape(): SphereShape
     
+}
 
+declare class ShoppingModule extends Asset {
+    
+    protected constructor()
+    
+    loadingStarted(): any
+    
+    /**
+    * @readonly
+    */
+    domains: DomainInfo[]
+    
+    /**
+    * @readonly
+    */
+    onError: event2<number, string, void>
+    
+    /**
+    * @readonly
+    */
+    onProductStateUpdate: event1<string, void>
+    
 }
 
 /**
-* Represents skinning data for rigged meshes. See also: [MeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#MeshVisual).
+* Represents skinning data for rigged meshes. See also: {@link MeshVisual}.
 */
-declare abstract class Skin extends Component {
+declare class Skin extends Component {
     
     protected constructor()
     
@@ -13538,7 +13900,7 @@ declare abstract class Skin extends Component {
 /**
 * Triggered when a smile ends on the tracked face.
 */
-declare abstract class SmileFinishedEvent extends FaceTrackingEvent {
+declare class SmileFinishedEvent extends FaceTrackingEvent {
     
     protected constructor()
     
@@ -13547,7 +13909,7 @@ declare abstract class SmileFinishedEvent extends FaceTrackingEvent {
 /**
 * Triggered when a smile begins on the tracked face.
 */
-declare abstract class SmileStartedEvent extends FaceTrackingEvent {
+declare class SmileStartedEvent extends FaceTrackingEvent {
     
     protected constructor()
     
@@ -13556,7 +13918,7 @@ declare abstract class SmileStartedEvent extends FaceTrackingEvent {
 /**
 * Details about friendship between the active user and another user.
 */
-declare abstract class SnapchatFriendUserInfo {
+declare class SnapchatFriendUserInfo {
     
     protected constructor()
     
@@ -13579,7 +13941,7 @@ declare abstract class SnapchatFriendUserInfo {
 /**
 * Represents a Snapchat user in order to pass to other APIs or to retrieve certain details about the user like display name. 
 */
-declare abstract class SnapchatUser extends ScriptObject {
+declare class SnapchatUser extends ScriptObject {
     
     protected constructor()
     
@@ -13630,7 +13992,7 @@ declare abstract class SnapchatUser extends ScriptObject {
 /**
 * Set the bone on the skin.
 */
-declare abstract class SnapchatUserBirthday {
+declare class SnapchatUserBirthday {
     
     protected constructor()
     
@@ -13652,9 +14014,9 @@ declare abstract class SnapchatUserBirthday {
 
 /**
 * Provides a marker for tracking Snapcodes.
-* For more information, see the [Marker Tracking](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/tracking/world/marker-tracking) guide.
+* For more information, see the [Marker Tracking](https://developers.snap.com/lens-studio/features/ar-tracking/world/marker-tracking) guide.
 */
-declare abstract class SnapcodeMarkerProvider extends MarkerProvider {
+declare class SnapcodeMarkerProvider extends MarkerProvider {
     
     protected constructor()
     
@@ -13663,7 +14025,7 @@ declare abstract class SnapcodeMarkerProvider extends MarkerProvider {
 /**
 * Called when the user taps on the capture button to record an image.
 */
-declare abstract class SnapImageCaptureEvent extends SceneEvent {
+declare class SnapImageCaptureEvent extends SceneEvent {
     
     protected constructor()
     
@@ -13672,7 +14034,7 @@ declare abstract class SnapImageCaptureEvent extends SceneEvent {
 /**
 * Gets called when the user starts long pressing the capture button to record a Snap.
 */
-declare abstract class SnapRecordStartEvent extends SceneEvent {
+declare class SnapRecordStartEvent extends SceneEvent {
     
     protected constructor()
     
@@ -13681,7 +14043,7 @@ declare abstract class SnapRecordStartEvent extends SceneEvent {
 /**
 * Gets called when the user stops long pressing the Snap button to end recording of a Snap.
 */
-declare abstract class SnapRecordStopEvent extends SceneEvent {
+declare class SnapRecordStopEvent extends SceneEvent {
     
     protected constructor()
     
@@ -13698,7 +14060,7 @@ declare enum SortOrder {
     Descending
 }
 
-declare abstract class SpatialAudio extends ScriptObject {
+declare class SpatialAudio extends ScriptObject {
     
     protected constructor()
     
@@ -13733,7 +14095,7 @@ declare abstract class SpatialAudio extends ScriptObject {
 /**
 * @wearableOnly
 */
-declare abstract class SpectaclesHandSpecificData extends ObjectSpecificData {
+declare class SpectaclesHandSpecificData extends ObjectSpecificData {
     
     protected constructor()
     
@@ -13742,7 +14104,7 @@ declare abstract class SpectaclesHandSpecificData extends ObjectSpecificData {
 /**
 * Representation the signal strength over time at various frequencies present in a particular waveform. Created by applying Fast Fourier Transform (FFT) on the overlapping segments of the audio data.
 */
-declare abstract class Spectrogram extends ScriptObject {
+declare class Spectrogram extends ScriptObject {
     
     protected constructor()
     
@@ -13763,7 +14125,7 @@ declare abstract class Spectrogram extends ScriptObject {
 /**
 * The builder class for Spectrogram.
 */
-declare abstract class SpectrogramBuilder extends ScriptObject {
+declare class SpectrogramBuilder extends ScriptObject {
     
     protected constructor()
     
@@ -13792,7 +14154,7 @@ declare abstract class SpectrogramBuilder extends ScriptObject {
 /**
 * A sphere collision shape.
 */
-declare abstract class SphereShape extends Shape {
+declare class SphereShape extends Shape {
     
     protected constructor()
     
@@ -13803,7 +14165,7 @@ declare abstract class SphereShape extends Shape {
     
 }
 
-declare abstract class SplineComponent extends Component {
+declare class SplineComponent extends Component {
     
     protected constructor()
     
@@ -13811,9 +14173,9 @@ declare abstract class SplineComponent extends Component {
 
 /**
 * Represents transform data for screen-aligned 2D sprites. Use on SceneObjects with a SpriteVisual Component.
-* See also: [SpriteVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#deprecated-spritevisual).
+* See also: {@link SpriteVisual}.
 */
-declare abstract class SpriteAligner extends Component {
+declare class SpriteAligner extends Component {
     
     protected constructor()
     
@@ -13826,6 +14188,22 @@ declare abstract class SpriteAligner extends Component {
     * The width and height of the SpriteVisual.
     */
     size: vec2
+    
+}
+
+declare class StateInfo {
+    
+    protected constructor()
+    
+    /**
+    * @readonly
+    */
+    description: string
+    
+    /**
+    * @readonly
+    */
+    name: string
     
 }
 
@@ -13944,7 +14322,7 @@ declare enum StencilOperation {
 /**
 * The stencil test state for Pass.
 */
-declare abstract class StencilState extends ScriptObject {
+declare class StencilState extends ScriptObject {
     
     protected constructor()
     
@@ -13998,7 +14376,7 @@ declare abstract class StencilState extends ScriptObject {
 /**
 * Settings for saving values in a MultiplayerSession.
 */
-declare abstract class StorageOptions extends ScriptObject {
+declare class StorageOptions extends ScriptObject {
     
     protected constructor()
     
@@ -14007,14 +14385,11 @@ declare abstract class StorageOptions extends ScriptObject {
     */
     scope: StorageScope
     
-}
-declare namespace StorageOptions {
     /**
     * Create a new StorageOptions object.
     */
-    export function create(): StorageOptions
+    static create(): StorageOptions
     
-
 }
 
 /**
@@ -14032,11 +14407,13 @@ declare enum StorageScope {
 }
 
 /**
-* Options for stretching a mesh to fit a [ScreenTransform's](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ScreenTransform) bounding box.
-* Used in [MeshVisual's](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#MeshVisual) `stretchMode` property, as long as the SceneObject has a [ScreenTransform](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ScreenTransform) attached.
-* Also used in [TextFill's](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#TextFill) `textureStretch` property to control texture stretching when drawing text.
+* Options for stretching a mesh to fit a {@link ScreenTransform}
 
-* See the [Image guide](https://lensstudio.snapchat.com/lens-studio/references/guides/adding-content/2d/image) for more information about stretch modes.
+* Used in {@link RenderMeshVisual} `stretchMode` property, as long as the SceneObject has a {@link ScreenTransform} attached.
+
+* Also used in {@link TextFill}
+
+* See the [Image guide](https://developers.snap.com/lens-studio/assets-pipeline/2d/image) for more information about stretch modes.
 */
 declare enum StretchMode {
     /**
@@ -14060,29 +14437,26 @@ declare enum StretchMode {
     */
     FitWidth,
     /**
-    * Same as `Fill`, but when used with the [Image component](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Image) any area outside of the bounds is cropped out.
+    * Same as `Fill`, but when used with the {@link Image} any area outside of the bounds is cropped out.
     */
     FillAndCut
 }
 
-declare abstract class Studio {
+declare class Studio {
     
     protected constructor()
     
-}
-declare namespace Studio {
     /**
     * Prints out a message to the Logger window in Studio. When running on a device paired to Lens Studio, it will send the message directly to the Logger window in Studio to help with debugging.
     */
-    export function log(message: any): void
+    static log(message: any): void
     
-
 }
 
 /**
-* Used with [DeviceTracking.surfaceOptions](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#DeviceTracking) to change settings for Surface tracking mode.
+* Used with {@link DeviceTracking#surfaceOptions} to change settings for Surface tracking mode.
 */
-declare abstract class SurfaceOptions extends ScriptObject {
+declare class SurfaceOptions extends ScriptObject {
     
     protected constructor()
     
@@ -14094,10 +14468,10 @@ declare abstract class SurfaceOptions extends ScriptObject {
 }
 
 /**
-* If a [DeviceTracking](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#DeviceTracking) component is present in the scene, this event is triggered when
+* If a {@link DeviceTracking} component is present in the scene, this event is triggered when
 * the tracking is restarted (typically when the Lens starts, or if the user taps the ground).
 */
-declare abstract class SurfaceTrackingResetEvent extends SceneEvent {
+declare class SurfaceTrackingResetEvent extends SceneEvent {
     
     protected constructor()
     
@@ -14132,7 +14506,7 @@ declare enum TangentType {
 /**
 * This event is triggered when the user taps on the screen.
 */
-declare abstract class TapEvent extends SceneObjectEvent {
+declare class TapEvent extends SceneObjectEvent {
     
     protected constructor()
     
@@ -14141,7 +14515,7 @@ declare abstract class TapEvent extends SceneObjectEvent {
 /**
 * Arguments used with the `InteractionComponent.onTap` event.
 */
-declare abstract class TapEventArgs extends ScriptObject {
+declare class TapEventArgs extends ScriptObject {
     
     protected constructor()
     
@@ -14157,7 +14531,7 @@ declare abstract class TapEventArgs extends ScriptObject {
 /**
 * @wearableOnly
 */
-declare abstract class TargetingDataArgs extends ScriptObject {
+declare class TargetingDataArgs extends ScriptObject {
     
     protected constructor()
     
@@ -14194,55 +14568,53 @@ declare abstract class TargetingDataArgs extends ScriptObject {
 
 * Tensor (channels, width, height) op Tensor (channels, 1, 1)  =  the same as applying op per channel
 */
-declare abstract class TensorMath {
+declare class TensorMath {
     
     protected constructor()
     
-}
-declare namespace TensorMath {
     /**
     * Adds a scalar value to each element of `inTensor` and puts the result into `outTensor`.
     */
-    export function addScalar(inTensor: Float32Array, scalar: number, outTensor: Float32Array): void
+    static addScalar(inTensor: Float32Array, scalar: number, outTensor: Float32Array): void
     
     /**
     * Adds `inTensorA` to `inTensorB` and puts the result into `outTensor`. See the broadcasting rules for elementwise operations.
     */
-    export function addTensors(inTensorA: Float32Array, inShapeA: vec3, inTensorB: Float32Array, inShapeB: vec3, outTensor: Float32Array): void
+    static addTensors(inTensorA: Float32Array, inShapeA: vec3, inTensorB: Float32Array, inShapeB: vec3, outTensor: Float32Array): void
     
     /**
     * Converts inTensor from the amplitude scale to the decibel scale.
     */
-    export function amplitudeToDb(inTensor: Float32Array, outTensor: Float32Array): void
+    static amplitudeToDb(inTensor: Float32Array, outTensor: Float32Array): void
     
     /**
     * Blurs an image tensor using the box filter.
     */
-    export function applyBoxFilter(inTensor: Float32Array, inShape: vec3, kernelSize: vec2, anchor: vec2, normalize: boolean, borderType: TensorMath.BorderType, outTensor: Float32Array): void
+    static applyBoxFilter(inTensor: Float32Array, inShape: vec3, kernelSize: vec2, anchor: vec2, normalize: boolean, borderType: TensorMath.BorderType, outTensor: Float32Array): void
     
-    export function applyNMS(inTensor: Float32Array, inShape: vec3, scores: Float32Array, scoreThreshold: number, iouThreshold: number, outTensor: Uint32Array): number
+    static applyNMS(inTensor: Float32Array, inShape: vec3, scores: Float32Array, scoreThreshold: number, iouThreshold: number, outTensor: Uint32Array): number
     
     /**
     * Applies a fixed-level threshold to each array element.
     */
-    export function applyThreshold(inTensor: Float32Array, threshold: number, maxValue: number, type: TensorMath.ThresholdMethod, outTensor: Float32Array): void
+    static applyThreshold(inTensor: Float32Array, threshold: number, maxValue: number, type: TensorMath.ThresholdMethod, outTensor: Float32Array): void
     
     /**
     * Approximates a polygonal curve with the specified precision.
     */
-    export function approximatePolygonalCurve(inTensor: Float32Array, inShape: vec3, epsilon: number, closed: boolean, outTensor: Float32Array): number
+    static approximatePolygonalCurve(inTensor: Float32Array, inShape: vec3, epsilon: number, closed: boolean, outTensor: Float32Array): number
     
     /**
     * Returns the indices of the maximum values along an the channels of `inTensor`, with the specified `inShape`. The result is put into `outTensor`.
     
     * If `inShape` = {width, height, channels}, then the shape of `outTensor` should be {1, 2, channels}.
     */
-    export function argMax(inTensor: Float32Array, inShape: vec3, outTensor: Uint32Array): void
+    static argMax(inTensor: Float32Array, inShape: vec3, outTensor: Uint32Array): void
     
     /**
     * Similar to `numpy.argsort()`, but in TensorMath, we have no kind and order parameters. Also, tensor is always 3D, and axis can be equal to 0(x), 1(y) or 2(z).
     */
-    export function argSort(inTensor: Float32Array, shape: vec3, axis: number, outTensor: Uint32Array): void
+    static argSort(inTensor: Float32Array, shape: vec3, axis: number, outTensor: Uint32Array): void
     
     /**
     * Applies a list of indices of a tensor in sorted order of their corresponding values in the tensor to the given outTensor. Only indices whose corresponding values are not equal to 0 in the provided mask will be returned. Indices from the original tensor, before applying the mask, will be returned in the provided array. Returns the size of the list of indices applied to the outTensor (note: this will be equal to the number of non-zero values provided in the mask). eg:
@@ -14257,54 +14629,54 @@ declare namespace TensorMath {
     * ```
     
     */
-    export function argSortMasked(inTensor: Float32Array, mask: Float32Array, outTensor: Uint32Array, order: SortOrder): number
+    static argSortMasked(inTensor: Float32Array, mask: Float32Array, outTensor: Uint32Array, order: SortOrder): number
     
     /**
     * Clamps all values of `inTensor` between `minVal` and `maxVal`, and puts the result into `outTensor`.
     */
-    export function clamp(inTensor: Float32Array, minVal: number, maxVal: number, outTensor: Float32Array): void
+    static clamp(inTensor: Float32Array, minVal: number, maxVal: number, outTensor: Float32Array): void
     
     /**
     * Concatenates inTensorA and inTensorB along the specified axis and puts the result to the outTensor. Input arrays have to have same dimension along other 2 axes.
     */
-    export function concat(inTensorA: Float32Array, inShapeA: vec3, inTensorB: Float32Array, inShapeB: vec3, axis: number, outTensor: Float32Array): void
+    static concat(inTensorA: Float32Array, inShapeA: vec3, inTensorB: Float32Array, inShapeB: vec3, axis: number, outTensor: Float32Array): void
     
     /**
     * Dilates an image by using a specific structuring element.
     */
-    export function dilate(inTensor: Float32Array, inShape: vec3, kernelTensor: Float32Array, kernelShape: vec3, anchor: vec2, iterations: number, borderType: TensorMath.BorderType, borderValue: vec4, outTensor: Float32Array): void
+    static dilate(inTensor: Float32Array, inShape: vec3, kernelTensor: Float32Array, kernelShape: vec3, anchor: vec2, iterations: number, borderType: TensorMath.BorderType, borderValue: vec4, outTensor: Float32Array): void
     
     /**
     * Divides `inTensorA` by `inTensorB` and puts the result into `outTensor`. See broadcasting rules for elementwise operations.
     */
-    export function divTensors(inTensorA: Float32Array, inShapeA: vec3, inTensorB: Float32Array, inShapeB: vec3, outTensor: Float32Array): void
+    static divTensors(inTensorA: Float32Array, inShapeA: vec3, inTensorB: Float32Array, inShapeB: vec3, outTensor: Float32Array): void
     
     /**
     * Draws a line segment connecting two points.
     */
-    export function drawLine(imgTensor: Float32Array, imgShape: vec3, point1: vec2, point2: vec2, color: vec4, thickness: number, lineType: number, shift: number): void
+    static drawLine(imgTensor: Float32Array, imgShape: vec3, point1: vec2, point2: vec2, color: vec4, thickness: number, lineType: number, shift: number): void
     
     /**
     * Erodes an image by using a specific structuring element.
     */
-    export function erode(inTensor: Float32Array, inShape: vec3, kernelTensor: Float32Array, kernelShape: vec3, anchor: vec2, iterations: number, borderType: TensorMath.BorderType, borderValue: vec4, outTensor: Float32Array): void
+    static erode(inTensor: Float32Array, inShape: vec3, kernelTensor: Float32Array, kernelShape: vec3, anchor: vec2, iterations: number, borderType: TensorMath.BorderType, borderValue: vec4, outTensor: Float32Array): void
     
     /**
     * Fills a convex polygon.
     */
-    export function fillConvexPoly(imgTensor: Float32Array, imgShape: vec3, pointsTensor: any, pointsShape: vec3, color: vec4, lineType: number, shift: number): void
+    static fillConvexPoly(imgTensor: Float32Array, imgShape: vec3, pointsTensor: any, pointsShape: vec3, color: vec4, lineType: number, shift: number): void
     
     /**
     * Fills a polygon. Note that you should pass an Array of Int32Array-s (polygonsTensors).
     
     */
-    export function fillPoly(imgTensor: Float32Array, imgShape: vec3, polygonsTensors: any[], color: vec4, lineType: number, shift: number, offset: vec2): void
+    static fillPoly(imgTensor: Float32Array, imgShape: vec3, polygonsTensors: any[], color: vec4, lineType: number, shift: number, offset: vec2): void
     
     /**
     * Returns contours. Note that: contours are sorted from the largest to the smallest; 2) We cannot return Array of TypedArray-s, so all contours data is stored in single outTensor and Array with sizes of each contour is returned.
     
     */
-    export function findContours(inTensor: Uint8Array, inShape: vec3, mode: number, method: number, offset: vec2, outTensor: any): number[]
+    static findContours(inTensor: Uint8Array, inShape: vec3, mode: number, method: number, offset: vec2, outTensor: any): number[]
     
     /**
     * Finds minimum distances between each 2D point from one array, to 2D points in another array.
@@ -14319,7 +14691,7 @@ declare namespace TensorMath {
     
     * `output` - Float32Array of size ("from" point count). For each point in the `from` array, the minimum distance to points from the `to` array will be written to this array.
     */
-    export function findMinDistancesBetween(from: Float32Array, fromShape: vec3, to: Float32Array, toShape: vec3, output: Float32Array): void
+    static findMinDistancesBetween(from: Float32Array, fromShape: vec3, to: Float32Array, toShape: vec3, output: Float32Array): void
     
     /**
     * Looks for contour points in a grayscale texture, or any one-channel tensor.
@@ -14339,9 +14711,9 @@ declare namespace TensorMath {
     * `outTensor` - Float32Array where results are written. Found contour points are written in the format: x0, y0, x1, y1, etc.
     * The number of points found will not exceed outTensor's size / 2.
     */
-    export function getContour(grayscaledTexture: Float32Array, textureShape: vec3, threshold: number, winSize: number, maxNearCount: number, outTensor: Float32Array): number
+    static getContour(grayscaledTexture: Float32Array, textureShape: vec3, threshold: number, winSize: number, maxNearCount: number, outTensor: Float32Array): number
     
-    export function getRotatedRectPoints(rotatedRect: RotatedRect, outTensor: Float32Array): void
+    static getRotatedRectPoints(rotatedRect: RotatedRect, outTensor: Float32Array): void
     
     /**
     * Calculates the length of all vectors in an array. Vectors can be of any dimension count.
@@ -14352,7 +14724,7 @@ declare namespace TensorMath {
     
     * `output` - Float32Array of size (vector count). For each vector in `vectors`, its length will be written to this array
     */
-    export function getVectorsLength(vectors: Float32Array, vectorsShape: vec3, output: Float32Array): void
+    static getVectorsLength(vectors: Float32Array, vectorsShape: vec3, output: Float32Array): void
     
     /**
     * Checks for each 2D point whether it is inside of a rectangle.
@@ -14365,14 +14737,14 @@ declare namespace TensorMath {
     
     * `output` - Uint8Array of size (point count). For each point, this will be filled with 1 if the point is inside the rectangle, or 0 otherwise.
     */
-    export function isInRectangle(points: Float32Array, pointsShape: vec3, rect: Rect, output: Uint8Array): void
+    static isInRectangle(points: Float32Array, pointsShape: vec3, rect: Rect, output: Uint8Array): void
     
     /**
     * Places the maximum values of `inTensor` into `outTensor`.
     
     * `outTensor` should have the shape {1, 1, channels}.
     */
-    export function max(inTensor: Float32Array, inShape: vec3, outTensor: Float32Array): void
+    static max(inTensor: Float32Array, inShape: vec3, outTensor: Float32Array): void
     
     /**
     * From the input points, finds the two points with the maximum distance between them and returns this distance. Works with points of any dimension count.
@@ -14381,7 +14753,7 @@ declare namespace TensorMath {
     
     * `pointsShape` - Should be {point dimension count, point count, 1}
     */
-    export function maxDistanceBetweenPoints(points: Float32Array, pointsShape: vec3): number
+    static maxDistanceBetweenPoints(points: Float32Array, pointsShape: vec3): number
     
     /**
     * If we consider the tensor as a 3D array, this function finds the indexes of the maximum element in each subarray of size `window`.
@@ -14394,20 +14766,20 @@ declare namespace TensorMath {
     
     * `output` - Float32Array of size (width * height * depth). The index of the max value will be written into this array for each subarray.
     */
-    export function maxInSlideWindow(tensor: Float32Array, tensorShape: vec3, window: vec3, output: Uint32Array): void
+    static maxInSlideWindow(tensor: Float32Array, tensorShape: vec3, window: vec3, output: Uint32Array): void
     
     /**
     * Places the minimum values of `inTensor` into `outTensor`.
     
     * `outTensor` should have the shape {1, 1, channels}.
     */
-    export function min(inTensor: Float32Array, inShape: vec3, outTensor: Float32Array): void
+    static min(inTensor: Float32Array, inShape: vec3, outTensor: Float32Array): void
     
     /**
     * Return TensorMath's format of RotatedRect.
     
     */
-    export function minAreaRect(inTensor: Float32Array, inShape: vec3): RotatedRect
+    static minAreaRect(inTensor: Float32Array, inShape: vec3): RotatedRect
     
     /**
     * If we consider the tensor as a 3D array, this function finds the indexes of the minimum element in each subarray of size `window`.
@@ -14420,22 +14792,22 @@ declare namespace TensorMath {
     
     * `output` - Float32Array of size (width * height * depth). The index of the min value will be written into this array for each subarray.
     */
-    export function minInSlideWindow(tensor: Float32Array, tensorShape: vec3, window: vec3, output: Uint32Array): void
+    static minInSlideWindow(tensor: Float32Array, tensorShape: vec3, window: vec3, output: Uint32Array): void
     
     /**
     * Multiply a matrix by a set of points through an efficient batch operation.
     */
-    export function mulMatToPoints(pointsTensor: Float32Array, pointsShape: vec3, matrix: mat4, outTensor: Float32Array): void
+    static mulMatToPoints(pointsTensor: Float32Array, pointsShape: vec3, matrix: mat4, outTensor: Float32Array): void
     
     /**
     * Multiplies each element of `inTensor` by a scalar value and puts the result into `outTensor`.
     */
-    export function mulScalar(inTensor: Float32Array, scalar: number, outTensor: Float32Array): void
+    static mulScalar(inTensor: Float32Array, scalar: number, outTensor: Float32Array): void
     
     /**
     * Multiplies `inTensorA` and `inTensorB` and puts the result into `outTensor`. See broadcasting rules for elementwise operations.
     */
-    export function mulTensors(inTensorA: Float32Array, inShapeA: vec3, inTensorB: Float32Array, inShapeB: vec3, outTensor: Float32Array): void
+    static mulTensors(inTensorA: Float32Array, inShapeA: vec3, inTensorB: Float32Array, inShapeB: vec3, outTensor: Float32Array): void
     
     /**
     * Stabilizes image objects between two consecutive frames caused by camera or object movement.
@@ -14461,12 +14833,12 @@ declare namespace TensorMath {
     
     * `epsilon` - Terminate if window movement is less than epsilon
     */
-    export function opticalFlow(prevGrayscale: Uint8Array, grayscale: Uint8Array, textureShape: vec3, prevPoints: Float32Array, points: Float32Array, pointsShape: vec3, winSize: vec2, maxLevel: number, maxCount: number, epsilon: number): void
+    static opticalFlow(prevGrayscale: Uint8Array, grayscale: Uint8Array, textureShape: vec3, prevPoints: Float32Array, points: Float32Array, pointsShape: vec3, winSize: vec2, maxLevel: number, maxCount: number, epsilon: number): void
     
     /**
     * Rearranges the inTensor of inShape according to the desired ordering and puts the result into outTensor.
     */
-    export function permute(inTensor: Float32Array, inShape: vec3, permuteAxis: vec3, outTensor: Float32Array): void
+    static permute(inTensor: Float32Array, inShape: vec3, permuteAxis: vec3, outTensor: Float32Array): void
     
     /**
     * Sorts 2D points by polar angle relative to the `center` point.
@@ -14477,22 +14849,22 @@ declare namespace TensorMath {
     
     * `center` - Center point to use for polar angle sorting
     */
-    export function polarSort2d(inTensor: Float32Array, tensorShape: vec3, center: vec2): void
+    static polarSort2d(inTensor: Float32Array, tensorShape: vec3, center: vec2): void
     
     /**
     * Raises elements of `inTensor` to the power of `val`, and puts the results into `outTensor`.
     */
-    export function power(inTensor: Float32Array, val: number, outTensor: Float32Array): void
+    static power(inTensor: Float32Array, val: number, outTensor: Float32Array): void
     
     /**
     * Converts inTensor from the power scale to the decibel scale.
     */
-    export function powerToDb(inTensor: Float32Array, topDb: number, outTensor: Float32Array): void
+    static powerToDb(inTensor: Float32Array, topDb: number, outTensor: Float32Array): void
     
     /**
     * Project 3D points into 2D space using an efficient batch operation.
     */
-    export function projectPoints(pointsTensor: Float32Array, pointsShape: vec3, projectionMatrix: mat4, outTensor: Float32Array): void
+    static projectPoints(pointsTensor: Float32Array, pointsShape: vec3, projectionMatrix: mat4, outTensor: Float32Array): void
     
     /**
     * Duplicates inTensor elements and store result in the outTensor.
@@ -14505,7 +14877,7 @@ declare namespace TensorMath {
     
     * outTensor = [[1 1 2 2 3 3 | 4 4 5 5 6 6] [1 1 2 2 3 3 | 4 4 5 5 6 6]] outShape = [6 2 2]
     */
-    export function repeat(inTensor: Float32Array, inShape: vec3, axis: vec3, outTensor: Float32Array): void
+    static repeat(inTensor: Float32Array, inShape: vec3, axis: vec3, outTensor: Float32Array): void
     
     /**
     * Applies a rotation to each point in a set of 3D points, and places the results in `outPoints`.
@@ -14518,7 +14890,7 @@ declare namespace TensorMath {
     
     * `outPoints` - Float32Array of size (point count * 3). Resulting rotated points are placed here
     */
-    export function rotatePoints3d(points: Float32Array, pointsShape: vec3, rotation: quat, outPoints: Float32Array): void
+    static rotatePoints3d(points: Float32Array, pointsShape: vec3, rotation: quat, outPoints: Float32Array): void
     
     /**
     * Smooths a polygon formed by input points. Works with points of any dimension count, for example `2` for 2D points or `3` for 3D points.
@@ -14532,21 +14904,21 @@ declare namespace TensorMath {
     
     * `outTensor` - Float32Array of size (point dimension count * point count). Smoothed points are written to this array
     */
-    export function smoothPoints(inTensor: Float32Array, tensorShape: vec3, step: number, outTensor: Float32Array): void
+    static smoothPoints(inTensor: Float32Array, tensorShape: vec3, step: number, outTensor: Float32Array): void
     
     /**
     * Applies softArgMax function to the `inTensor`, with the specified `inShape`. The result is put into `outTensor`.
     
     * If `inShape` = {width, height, channels}, then the shape of `outTensor` should be {1, 2, channels}.
     */
-    export function softArgMax(inTensor: Float32Array, inShape: vec3, outTensor: Float32Array, normalized: boolean): void
+    static softArgMax(inTensor: Float32Array, inShape: vec3, outTensor: Float32Array, normalized: boolean): void
     
     /**
     * Applies softMax function to `inTensor`, with the specified `inShape`. The result is put into `outTensor`.
     
     * If `inShape` = {width, height, channels}, then the shape of `outTensor` should be {1, 1, channels}.
     */
-    export function softMax(inTensor: Float32Array, inShape: vec3, outTensor: Float32Array): void
+    static softMax(inTensor: Float32Array, inShape: vec3, outTensor: Float32Array): void
     
     /**
     * Estimates the object pose given a set of object points (`inObjectPoints`), their corresponding image projections (`inImagePoints`), and the intrinsic camera matrix (`transform`).
@@ -14567,7 +14939,7 @@ declare namespace TensorMath {
     
     **vec3(outRotTrans[3], outRotTrans[4], outRotTrans[5])** - object position in 3D space
     */
-    export function solvePnP(inObjectPoints: Float32Array, inImagePoints: Float32Array, imagePointsShape: vec3, transform: mat3, flags: number, outRotTrans: Float32Array): boolean
+    static solvePnP(inObjectPoints: Float32Array, inImagePoints: Float32Array, imagePointsShape: vec3, transform: mat3, flags: number, outRotTrans: Float32Array): boolean
     
     /**
     * Estimates the object pose given a set of object points (inObjectPoints), their corresponding image projections (inImagePoints), and the intrinsic camera matrix (cameraIntrinsicsMatrix). Similar to solvePnP but has additional camera distortion coefficient settings.
@@ -14579,7 +14951,7 @@ declare namespace TensorMath {
     * `useExtrinsicGuess` - The function uses the provided outRotTrans values as initial approximations of the rotation and translation vectors and further optimizes them.
     
     */
-    export function solvePnPExtended(inObjectPoints: Float32Array, inImagePoints: Float32Array, imagePointsShape: vec3, cameraIntrinsicsMatrix: mat3, distortionCoeff: Float32Array, distortionCoeffShape: vec3, useExtrinsicGuess: boolean, flags: number, outRotTrans: Float32Array): boolean
+    static solvePnPExtended(inObjectPoints: Float32Array, inImagePoints: Float32Array, imagePointsShape: vec3, cameraIntrinsicsMatrix: mat3, distortionCoeff: Float32Array, distortionCoeffShape: vec3, useExtrinsicGuess: boolean, flags: number, outRotTrans: Float32Array): boolean
     
     /**
     * `solvePnPRansac` is very similar to `solvePnPExtended` except that it uses Random Sample Consensus ( RANSAC ) for robustly estimating the pose.
@@ -14592,19 +14964,19 @@ declare namespace TensorMath {
     * `outInliers` - Output array that contains indices of inliers in objectPoints and imagePoints .
     * outRotTrans
     */
-    export function solvePnPRansac(inObjectPoints: Float32Array, inImagePoints: Float32Array, imagePointsShape: vec3, cameraIntrinsicsMatrix: mat3, distortionCoeff: Float32Array, distortionCoeffShape: vec3, useExtrinsicGuess: boolean, iterationsCount: number, reprojectionError: number, confidence: number, flags: number, outInliers: Uint8Array, outRotTrans: Float32Array): boolean
+    static solvePnPRansac(inObjectPoints: Float32Array, inImagePoints: Float32Array, imagePointsShape: vec3, cameraIntrinsicsMatrix: mat3, distortionCoeff: Float32Array, distortionCoeffShape: vec3, useExtrinsicGuess: boolean, iterationsCount: number, reprojectionError: number, confidence: number, flags: number, outInliers: Uint8Array, outRotTrans: Float32Array): boolean
     
     /**
     * Subtracts `inTensorB` from `inTensorA` and puts the result into `outTensor`. See the broadcasting rules for elementwise operations.
     */
-    export function subTensors(inTensorA: Float32Array, inShapeA: vec3, inTensorB: Float32Array, inShapeB: vec3, outTensor: Float32Array): void
+    static subTensors(inTensorA: Float32Array, inShapeA: vec3, inTensorB: Float32Array, inShapeB: vec3, outTensor: Float32Array): void
     
     /**
     * Applies subpixelArgMax function to the `inTensor`, with the specified `inShape` and kernel size. The result is put into `outTensor`.
     
     * If `inShape` = {width, height, channels}, then the shape of `outTensor` should be {1, 2, channels}.
     */
-    export function subpixelArgMax(inTensor: Float32Array, inShape: vec3, outTensor: Float32Array, kernelSize: number): void
+    static subpixelArgMax(inTensor: Float32Array, inShape: vec3, outTensor: Float32Array, kernelSize: number): void
     
     /**
     * Calculate the sum of the inTensor elements and store result in the outTensor.
@@ -14619,7 +14991,7 @@ declare namespace TensorMath {
     
     * inShape.x * inShape.y values, where outTensor[y][x] is the sum of all inTensor[0..inShape.z-1][y][x] values
     */
-    export function sum(inTensor: Float32Array, inShape: vec3, axis: vec3, outTensor: Float32Array): void
+    static sum(inTensor: Float32Array, inShape: vec3, axis: vec3, outTensor: Float32Array): void
     
     /**
     * Converts the texture to a set of 0-255 grayscale values, and outputs the result into `outTensor`.
@@ -14628,9 +15000,8 @@ declare namespace TensorMath {
     
     * @exposesUserData
     */
-    export function textureToGrayscale(texture: Texture, grayscaleBuffer: Uint8Array, grayscaleBufferShape: vec3): void
+    static textureToGrayscale(texture: Texture, grayscaleBuffer: Uint8Array, grayscaleBufferShape: vec3): void
     
-
 }
 
 declare namespace TensorMath {
@@ -14656,9 +15027,9 @@ declare namespace TensorMath {
 
 /**
 * Visual component that renders dynamic text.
-* See the [Text guide](https://lensstudio.snapchat.com/lens-studio/references/guides/adding-content/text/2d-text) for more information.
+* See the [Text guide](https://developers.snap.com/lens-studio/features/text/2d-text) for more information.
 */
-declare abstract class Text extends BaseMeshVisual {
+declare class Text extends BaseMeshVisual {
     
     protected constructor()
     
@@ -14793,7 +15164,7 @@ declare abstract class Text extends BaseMeshVisual {
 /**
 * Renders a given text with a 3D mesh.
 */
-declare abstract class Text3D extends MaterialMeshVisual {
+declare class Text3D extends MaterialMeshVisual {
     
     protected constructor()
     
@@ -14906,9 +15277,12 @@ declare abstract class Text3D extends MaterialMeshVisual {
 
 /**
 * Fill settings used by several text related classes.
-* Used in [Text's](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Text) `textFill` property, [DropshadowSettings'](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#DropshadowSettings) `fill` property, and [OutlineSettings'](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#OutlineSettings) `fill` property.
+
+* Used in {@link Text}'s `textFill` property, 
+* {@link DropshadowSettings}' `fill` property, and 
+* {@link OutlineSettings}' `fill` property.
 */
-declare abstract class TextFill extends ScriptObject {
+declare class TextFill extends ScriptObject {
     
     protected constructor()
     
@@ -14946,7 +15320,7 @@ declare abstract class TextFill extends ScriptObject {
 }
 
 /**
-* Used in [TextFill's](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#TextFill) `mode` property. Controls which drawing method is used for the TextFill.
+* Used in {@link TextFill}'s `mode` property. Controls which drawing method is used for the TextFill.
 */
 declare enum TextFillMode {
     /**
@@ -14959,7 +15333,7 @@ declare enum TextFillMode {
     Texture
 }
 
-declare abstract class TextInputModule extends Asset {
+declare class TextInputModule extends Asset {
     
     protected constructor()
     
@@ -14968,7 +15342,7 @@ declare abstract class TextInputModule extends Asset {
 /**
 * Provides access to the device's input system. Accessible through `global.textInputSystem`. 
 */
-declare abstract class TextInputSystem extends ScriptObject {
+declare class TextInputSystem extends ScriptObject {
     
     protected constructor()
     
@@ -15112,10 +15486,10 @@ declare namespace TextInputSystem {
 }
 
 /**
-* Controls a text rendering texture. Can be accessed through the main rendering pass on a [Label](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#deprecated-label) component.
-* The properties here mirror those on Label.
+* Controls a text rendering texture. Can be accessed through the main rendering pass on a {@link Text} component.
+* The properties here mirror those on Text.
 */
-declare abstract class TextProvider extends TextureProvider {
+declare class TextProvider extends TextureProvider {
     
     protected constructor()
     
@@ -15171,7 +15545,7 @@ declare abstract class TextProvider extends TextureProvider {
     
 }
 
-declare abstract class TextToSpeech {
+declare class TextToSpeech {
     
     protected constructor()
     
@@ -15179,23 +15553,17 @@ declare abstract class TextToSpeech {
 
 declare namespace TextToSpeech {
     /**
-    * Provides the configuration for the [Text to Speech Module](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#TextToSpeechModule).   It is used to control the language of the generated voice, the voice’s style and pace.
+    * Provides the configuration for the {@link TextToSpeechModule}.   It is used to control the language of the generated voice, the voice’s style and pace.
     */
-    abstract class Options extends ScriptObject {
+    class Options extends ScriptObject {
         
         protected constructor()
         
-    }
-
-}
-declare namespace TextToSpeech {
-    namespace Options {
         /**
-        * Creates options for the [Text to Speech Module](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#TextToSpeechModule).
+        * Creates options for the {@link TextToSpeechModule}.
         */
-        export function create(): TextToSpeech.Options
+        static create(): TextToSpeech.Options
         
-    
     }
 
 }
@@ -15204,7 +15572,7 @@ declare namespace TextToSpeech {
     /**
     * Provides a map of what phoneme is said at what time in the synthesized speech.
     */
-    abstract class PhonemeInfo extends ScriptObject {
+    class PhonemeInfo extends ScriptObject {
         
         protected constructor()
         
@@ -15244,7 +15612,7 @@ declare namespace TextToSpeech {
     /**
     * The voice style on which the TextToSpeech will be synthesized, Varying from neutral style, to a more elaborated styles depending on the voice. Note that Sam’s voice still doesn’t have more than the neutral style, this will be added throughout the coming releases.
     */
-    abstract class VoiceNames {
+    class VoiceNames {
         
         protected constructor()
         
@@ -15256,7 +15624,7 @@ declare namespace TextToSpeech {
     /**
     * Parameter returned in the `onTTSCompleteHandler` callback providing timing details for word pronunciation. 
     */
-    abstract class WordInfo extends ScriptObject {
+    class WordInfo extends ScriptObject {
         
         protected constructor()
         
@@ -15288,12 +15656,20 @@ declare namespace TextToSpeech {
 /**
 * Allows generation of speech from a given text. You can use only one `TextToSpeechModule` in a Lens. However, its methods can be called multiple times in parallel if needed. 
 */
-declare abstract class TextToSpeechModule extends Asset {
+declare class TextToSpeechModule extends Asset {
     
     protected constructor()
     
     /**
-    * Generates speech ([AudioTrackAsset](https://lensstudio.snapchat.com/api/lens-studio/Classes/Assets#AudioTrackAsset)) of a given text. `Input` should be the text to synthesize (Currently supports text in English only. Non English characters will be stripped). `Options` should be a [TextToSpeechOptions](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#TextToSpeechOptions). `onTTsComplete` should be a callback function which will be called once the audio generation is completed. The callback will receive two parameters: the generated audio file ([AudioTrackAsset](https://lensstudio.snapchat.com/api/lens-studio/Classes/Assets#AudioTrackAsset)) and maps of word/timing ([WordInfos](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#TextToSpeechWordInfo)). `onTTSError` should be a callback function which will be called if there is an error. This callback will receive a message of the error code and its description. 
+    * Generates speech {@link AudioTrackAsset} of a given text. 
+    
+    * `Input` should be the text to synthesize (Currently supports text in English only. Non English characters will be stripped). 
+    * `Options` should be a {@link TextToSpeech.Options}. 
+    * `onTTsComplete` should be a callback function which will be called once the audio generation is completed. 
+    
+    * The callback will receive two parameters: the generated audio file ({@link AudioTrackAsset}) and maps of word/timing ({@link TextToSpeech.WordInfo}). 
+    
+    * `onTTSError` should be a callback function which will be called if there is an error. This callback will receive a message of the error code and its description. 
     */
     synthesize(input: string, options: TextToSpeech.Options, onTTSComplete: (audioTrackAsset: AudioTrackAsset, wordInfo: TextToSpeech.WordInfo[], phonemeInfo: TextToSpeech.PhonemeInfo[], voiceStyle: any) => void, onTTSError: (error: number, description: string) => void): void
     
@@ -15302,7 +15678,7 @@ declare abstract class TextToSpeechModule extends Asset {
 /**
 * Represents a texture file asset.
 */
-declare abstract class Texture extends Asset {
+declare class Texture extends Asset {
     
     protected constructor()
     
@@ -15333,22 +15709,22 @@ declare abstract class Texture extends Asset {
     
     /**
     * The TextureProvider for the texture, which may control things like animation depending on the texture type.
-    * See also: [AnimatedTextureFileProvider](https://lensstudio.snapchat.com/api/lens-studio/Classes/Providers#AnimatedTextureFileProvider).
+    * See also: {@link AnimatedTextureFileProvider}.
     */
     control: TextureProvider
     
 }
 
-declare abstract class TextureFormat {
+declare class TextureFormat {
     
     protected constructor()
     
 }
 
 /**
-* The base class for specialized Texture providers. Can be accessed through [Texture.control](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Texture#control-textureprovider).
+* The base class for specialized Texture providers. Can be accessed through {@link Texture.control}.
 */
-declare abstract class TextureProvider extends Provider {
+declare class TextureProvider extends Provider {
     
     protected constructor()
     
@@ -15370,11 +15746,11 @@ declare abstract class TextureProvider extends Provider {
 }
 
 /**
-* Defines the bounding area used for texture tiling with [TextFill's](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#TextFill) `tileZone` property.
+* Defines the bounding area used for texture tiling with {@link TextFill}'s `tileZone` property.
 */
 declare enum TileZone {
     /**
-    * The attached [ScreenTransform's](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ScreenTransform) bounding rectangle is used for texture tiling
+    * The attached {@link ScreenTransform} bounding rectangle is used for texture tiling
     */
     Rect,
     /**
@@ -15404,7 +15780,7 @@ declare enum TileZone {
 * "TouchTypePan"
 * "TouchTypeSwipe"
 */
-declare abstract class TouchDataProvider extends ScriptObject {
+declare class TouchDataProvider extends ScriptObject {
     
     protected constructor()
     
@@ -15433,7 +15809,7 @@ declare abstract class TouchDataProvider extends ScriptObject {
 /**
 * Triggered when a touch event ends.
 */
-declare abstract class TouchEndEvent extends SceneObjectEvent {
+declare class TouchEndEvent extends SceneObjectEvent {
     
     protected constructor()
     
@@ -15450,7 +15826,7 @@ declare abstract class TouchEndEvent extends SceneObjectEvent {
     
 }
 
-declare abstract class TouchEndEventArgs extends ScriptObject {
+declare class TouchEndEventArgs extends ScriptObject {
     
     protected constructor()
     
@@ -15473,7 +15849,7 @@ declare abstract class TouchEndEventArgs extends ScriptObject {
 /**
 * Triggered when a touch position on the screen is moved.
 */
-declare abstract class TouchMoveEvent extends SceneObjectEvent {
+declare class TouchMoveEvent extends SceneObjectEvent {
     
     protected constructor()
     
@@ -15493,7 +15869,7 @@ declare abstract class TouchMoveEvent extends SceneObjectEvent {
 /**
 * Arguments used with the `InteractionComponent.onTouchMove` event.
 */
-declare abstract class TouchMoveEventArgs extends ScriptObject {
+declare class TouchMoveEventArgs extends ScriptObject {
     
     protected constructor()
     
@@ -15516,7 +15892,7 @@ declare abstract class TouchMoveEventArgs extends ScriptObject {
 /**
 * Triggered when a touch event starts.
 */
-declare abstract class TouchStartEvent extends SceneObjectEvent {
+declare class TouchStartEvent extends SceneObjectEvent {
     
     protected constructor()
     
@@ -15536,7 +15912,7 @@ declare abstract class TouchStartEvent extends SceneObjectEvent {
 /**
 * Arguments used with the `InteractionComponent.onTouchStart` event.
 */
-declare abstract class TouchStartEventArgs extends ScriptObject {
+declare class TouchStartEventArgs extends ScriptObject {
     
     protected constructor()
     
@@ -15566,7 +15942,7 @@ declare enum TouchState {
 /**
 * Represents a mesh generated by world tracking. Only available when world mesh tracking is supported and enabled.
 */
-declare abstract class TrackedMesh extends ScriptObject {
+declare class TrackedMesh extends ScriptObject {
     
     protected constructor()
     
@@ -15587,7 +15963,7 @@ declare abstract class TrackedMesh extends ScriptObject {
 }
 
 /**
-* Classifications of mesh face. See [TrackedMeshHitTestResult](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#TrackedMeshHitTestResult).
+* Classifications of mesh face. See {@link TrackedMeshHitTestResult}.
 */
 declare enum TrackedMeshFaceClassification {
     /**
@@ -15627,7 +16003,7 @@ declare enum TrackedMeshFaceClassification {
 /**
 * Provides histogram information about tracked world mesh faces in a given area. Returned by `DeviceTracking.calculateWorldMeshHistogram()`.
 */
-declare abstract class TrackedMeshHistogramResult extends ScriptObject {
+declare class TrackedMeshHistogramResult extends ScriptObject {
     
     protected constructor()
     
@@ -15660,7 +16036,7 @@ declare abstract class TrackedMeshHistogramResult extends ScriptObject {
 /**
 * Provides information about a TrackedMesh surface hit during a raycast. Is returned in an array when calling `DeviceTracking.hitTestWorldMesh()` or `DeviceTracking.raycastWorldMesh()`.
 */
-declare abstract class TrackedMeshHitTestResult extends ScriptObject {
+declare class TrackedMeshHitTestResult extends ScriptObject {
     
     protected constructor()
     
@@ -15697,7 +16073,7 @@ declare abstract class TrackedMeshHitTestResult extends ScriptObject {
 /**
 * A representation for plane detected by native tracking. Can be used with TrackedPoint.
 */
-declare abstract class TrackedPlane extends ScriptObject {
+declare class TrackedPlane extends ScriptObject {
     
     protected constructor()
     
@@ -15754,7 +16130,7 @@ declare enum TrackedPlaneOrientation {
 /**
 * A point on the real world not attached to any detected plane.
 */
-declare abstract class TrackedPoint extends ScriptObject {
+declare class TrackedPoint extends ScriptObject {
     
     protected constructor()
     
@@ -15775,9 +16151,9 @@ declare abstract class TrackedPoint extends ScriptObject {
 }
 
 /**
-* Allows you to bind the position and rotation of an object with this component to a [TrackedPoint](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#TrackedPoint).
+* Allows you to bind the position and rotation of an object with this component to a {@link TrackedPoint}.
 */
-declare abstract class TrackedPointComponent extends Component {
+declare class TrackedPointComponent extends Component {
     
     protected constructor()
     
@@ -15789,16 +16165,16 @@ declare abstract class TrackedPointComponent extends Component {
     isValid: boolean
     
     /**
-    * The [TrackedPoint](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#TrackedPoint/) which this component will copy the position and rotation from.
+    * The {@link TrackedPoint} which this component will copy the position and rotation from.
     */
     trackedPoint: TrackedPoint
     
 }
 
 /**
-* Controls the position, rotation, and scale of a [SceneObject](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#SceneObject).  Every SceneObject automatically has a Transform attached.
+* Controls the position, rotation, and scale of a {@link SceneObject}.  Every SceneObject automatically has a Transform attached.
 */
-declare abstract class Transform extends ScriptObject {
+declare class Transform extends ScriptObject {
     
     protected constructor()
     
@@ -15939,9 +16315,9 @@ declare abstract class Transform extends ScriptObject {
 
 /**
 * Applies additional transform processing on data for InputPlaceholders and OutputPlaceholders used with MLComponent.
-* For more information, see the [MLComponent Overview](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/machine-learning/ml-component/ml-component-overview).
+* For more information, see the [MLComponent Overview](https://developers.snap.com/lens-studio/features/snap-ml/ml-component/ml-component-overview).
 */
-declare abstract class Transformer extends ScriptObject {
+declare class Transformer extends ScriptObject {
     
     protected constructor()
     
@@ -15964,7 +16340,7 @@ declare abstract class Transformer extends ScriptObject {
 /**
 * Builds Transformer objects for MLComponent.
 */
-declare abstract class TransformerBuilder extends ScriptObject {
+declare class TransformerBuilder extends ScriptObject {
     
     protected constructor()
     
@@ -16035,7 +16411,7 @@ declare enum TransformerRotation {
 /**
 * Triangle hit information, available when a ray cast intersects a collision mesh.
 */
-declare abstract class TriangleHit extends ScriptObject {
+declare class TriangleHit extends ScriptObject {
     
     protected constructor()
     
@@ -16080,7 +16456,7 @@ declare abstract class TriangleHit extends ScriptObject {
 /**
 * Gets called when the user triggers the primary input on their device. For example touch on touch screens.
 */
-declare abstract class TriggerPrimaryEvent extends SceneObjectEvent {
+declare class TriggerPrimaryEvent extends SceneObjectEvent {
     
     protected constructor()
     
@@ -16094,7 +16470,7 @@ declare abstract class TriggerPrimaryEvent extends SceneObjectEvent {
 /**
 * Arguments used with the `InteractionComponent.onTriggerPrimary` event.
 */
-declare abstract class TriggerPrimaryEventArgs extends ScriptObject {
+declare class TriggerPrimaryEventArgs extends ScriptObject {
     
     protected constructor()
     
@@ -16103,7 +16479,7 @@ declare abstract class TriggerPrimaryEventArgs extends ScriptObject {
 /**
 * Triggered when the lens turns off.
 */
-declare abstract class TurnOffEvent extends SceneEvent {
+declare class TurnOffEvent extends SceneEvent {
     
     protected constructor()
     
@@ -16112,7 +16488,7 @@ declare abstract class TurnOffEvent extends SceneEvent {
 /**
 * Triggered every frame.
 */
-declare abstract class UpdateEvent extends SceneEvent {
+declare class UpdateEvent extends SceneEvent {
     
     protected constructor()
     
@@ -16126,7 +16502,7 @@ declare abstract class UpdateEvent extends SceneEvent {
 /**
 * Provides a render object of the upper body, without the head. Unlike `BodyMesh` which handles the whole body, this model is optimized to work better with `FaceMesh` and selfie use cases.
 */
-declare abstract class UpperBodyRenderObjectProvider extends RenderObjectProvider {
+declare class UpperBodyRenderObjectProvider extends RenderObjectProvider {
     
     protected constructor()
     
@@ -16140,7 +16516,7 @@ declare abstract class UpperBodyRenderObjectProvider extends RenderObjectProvide
 /**
 * An asset containing the upper body tracker. It is optimized to track with the face and in selfie use cases.
 */
-declare abstract class UpperBodyTrackingAsset extends Object3DAsset {
+declare class UpperBodyTrackingAsset extends Object3DAsset {
     
     protected constructor()
     
@@ -16153,7 +16529,7 @@ declare abstract class UpperBodyTrackingAsset extends Object3DAsset {
 
 * Note that formatted or localized strings may appear differently to users depending on their region.
 */
-declare abstract class UserContextSystem extends ScriptObject {
+declare class UserContextSystem extends ScriptObject {
     
     protected constructor()
     
@@ -16393,59 +16769,56 @@ declare class vec2 {
     */
     y: number
     
-}
-declare namespace vec2 {
     /**
     * Returns the vector (0, -1).
     */
-    export function down(): vec2
+    static down(): vec2
     
     /**
     * Returns the vector (-1, 0).
     */
-    export function left(): vec2
+    static left(): vec2
     
     /**
     * Linearly interpolates between the two vectors `vecA` and `vecB` by the factor `t`.
     */
-    export function lerp(vecA: vec2, vecB: vec2, t: number): vec2
+    static lerp(vecA: vec2, vecB: vec2, t: number): vec2
     
     /**
     * Returns a new vector containing the largest value of each component in the two vectors.
     */
-    export function max(vecA: vec2, vecB: vec2): vec2
+    static max(vecA: vec2, vecB: vec2): vec2
     
     /**
     * Returns a new vector containing the smallest value of each component in the two vectors.
     */
-    export function min(vecA: vec2, vecB: vec2): vec2
+    static min(vecA: vec2, vecB: vec2): vec2
     
     /**
     * Returns the vector (1, 1).
     */
-    export function one(): vec2
+    static one(): vec2
     
     /**
     * Generate a random 2D direction vector. This is equivalent to a random point on a unit-radius circle.
     */
-    export function randomDirection(): vec2
+    static randomDirection(): vec2
     
     /**
     * Returns the vector (1, 0).
     */
-    export function right(): vec2
+    static right(): vec2
     
     /**
     * Returns the vector (0, 1).
     */
-    export function up(): vec2
+    static up(): vec2
     
     /**
     * Returns the vector (0, 0).
     */
-    export function zero(): vec2
+    static zero(): vec2
     
-
 }
 
 /**
@@ -16606,79 +16979,76 @@ declare class vec3 {
     */
     z: number
     
-}
-declare namespace vec3 {
     /**
     * Returns the vector (0, 0, -1).
     */
-    export function back(): vec3
+    static back(): vec3
     
     /**
     * Returns the vector (0, -1, 0).
     */
-    export function down(): vec3
+    static down(): vec3
     
     /**
     * Returns the vector (0, 0, 1).
     */
-    export function forward(): vec3
+    static forward(): vec3
     
     /**
     * Returns the vector (-1, 0, 0).
     */
-    export function left(): vec3
+    static left(): vec3
     
     /**
     * Linearly interpolates between the two vectors `vecA` and `vecB` by the factor `t`.
     */
-    export function lerp(vecA: vec3, vecB: vec3, t: number): vec3
+    static lerp(vecA: vec3, vecB: vec3, t: number): vec3
     
     /**
     * Returns a new vector containing the largest value of each component in the two vectors.
     */
-    export function max(vecA: vec3, vecB: vec3): vec3
+    static max(vecA: vec3, vecB: vec3): vec3
     
     /**
     * Returns a new vector containing the smallest value of each component in the two vectors.
     */
-    export function min(vecA: vec3, vecB: vec3): vec3
+    static min(vecA: vec3, vecB: vec3): vec3
     
     /**
     * Returns the vector (1, 1, 1).
     */
-    export function one(): vec3
+    static one(): vec3
     
     /**
     * Makes the vectors `vecA` and `vecB` normalized and orthogonal to each other.
     */
-    export function orthonormalize(vecA: vec3, vecB: vec3): void
+    static orthonormalize(vecA: vec3, vecB: vec3): void
     
     /**
     * Generate random 3D direction vector. This is equivalent to a random point on a unit-radius sphere.
     */
-    export function randomDirection(): vec3
+    static randomDirection(): vec3
     
     /**
     * Returns the vector (1, 0, 0).
     */
-    export function right(): vec3
+    static right(): vec3
     
     /**
     * Spherically interpolates between the two vectors `vecA` and `vecB` by the factor `t`.
     */
-    export function slerp(vecA: vec3, vecB: vec3, t: number): vec3
+    static slerp(vecA: vec3, vecB: vec3, t: number): vec3
     
     /**
     * Returns the vector (0, 1, 0).
     */
-    export function up(): vec3
+    static up(): vec3
     
     /**
     * Returns the vector (0, 0, 0).
     */
-    export function zero(): vec3
+    static zero(): vec3
     
-
 }
 
 /**
@@ -16832,34 +17202,31 @@ declare class vec4 {
     */
     z: number
     
-}
-declare namespace vec4 {
     /**
     * Linearly interpolates between the two vectors `vecA` and `vecB` by the factor `t`.
     */
-    export function lerp(vecA: vec4, vecB: vec4, t: number): vec4
+    static lerp(vecA: vec4, vecB: vec4, t: number): vec4
     
     /**
     * Returns a new vector containing the largest value of each component in the two vectors.
     */
-    export function max(vecA: vec4, vecB: vec4): vec4
+    static max(vecA: vec4, vecB: vec4): vec4
     
     /**
     * Returns a new vector containing the smallest value of each component in the two vectors.
     */
-    export function min(vecA: vec4, vecB: vec4): vec4
+    static min(vecA: vec4, vecB: vec4): vec4
     
     /**
     * Returns the vector (1, 1, 1, 1).
     */
-    export function one(): vec4
+    static one(): vec4
     
     /**
     * Returns the vector (0, 0, 0, 0).
     */
-    export function zero(): vec4
+    static zero(): vec4
     
-
 }
 
 /**
@@ -16921,7 +17288,7 @@ declare class vec4b {
 /**
 * Used to help control vertex animations on the SceneObject.
 */
-declare abstract class VertexCache extends Component {
+declare class VertexCache extends Component {
     
     protected constructor()
     
@@ -16940,7 +17307,7 @@ declare abstract class VertexCache extends Component {
 /**
 * Provides settings for vertex physics in the ClothVisual component.
 */
-declare abstract class VertexSimulationSettings extends ScriptObject {
+declare class VertexSimulationSettings extends ScriptObject {
     
     protected constructor()
     
@@ -16987,8 +17354,8 @@ declare abstract class VertexSimulationSettings extends ScriptObject {
 }
 
 /**
-* Used by the `verticalAlignment` property in [MeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#MeshVisual).
-* When a [ScreenTransform](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ScreenTransform) is attached to the same SceneObject, this determines how the mesh will be positioned vertically.
+* Used by the `verticalAlignment` property in {@link MeshVisual}.
+* When a {@link ScreenTransform} is attached to the same SceneObject, this determines how the mesh will be positioned vertically.
 */
 declare enum VerticalAlignment {
     /**
@@ -17006,7 +17373,7 @@ declare enum VerticalAlignment {
 }
 
 /**
-* Options for handling vertical text overflow. Used by [Text component's](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Text) `verticalOverflow` property.
+* Options for handling vertical text overflow. Used by {@link Text}'s `verticalOverflow` property.
 */
 declare enum VerticalOverflow {
     /**
@@ -17024,9 +17391,10 @@ declare enum VerticalOverflow {
 }
 
 /**
-* Defines a VFX to use with [VFX Component](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#VFXComponent). For more information, see the [VFX Guide](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/graphics/particles/vfx-editor/introduction-and-concepts).
+* Defines a VFX to use with {@link VFXComponent}. 
+* For more information, see the [VFX Guide](https://developers.snap.com/lens-studio/learning-lens-studio/graphics/particles/vfx-editor/introduction-and-concepts).
 */
-declare abstract class VFXAsset extends Asset {
+declare class VFXAsset extends Asset {
     
     protected constructor()
     
@@ -17071,9 +17439,9 @@ declare abstract class VFXAsset extends Asset {
 }
 
 /**
-* A VFX visual used to show a [VFX Asset](https://lensstudio.snapchat.com/api/lens-studio/Classes/Assets#VFXAsset).
+* A VFX visual used to show a {@link VFXAsset}.
 */
-declare abstract class VFXComponent extends BaseMeshVisual {
+declare class VFXComponent extends BaseMeshVisual {
     
     protected constructor()
     
@@ -17088,14 +17456,20 @@ declare abstract class VFXComponent extends BaseMeshVisual {
     restart(): void
     
     /**
-    * The [VFX Asset](https://lensstudio.snapchat.com/api/lens-studio/Classes/Assets#VFXAsset) that describes the VFX simulation.
+    * The {@link VFXAsset} that describes the VFX simulation.
     */
     asset: VFXAsset
+    
+    /**
+    * Enables or disables emission logic for emitters on this component.
+    
+    */
+    emitting: boolean
     
 }
 
 /**
-* Describes the current status of a [VideoTextureProvider](https://lensstudio.snapchat.com/api/lens-studio/Classes/Providers#VideoTextureProvider).
+* Describes the current status of a {@link VideoTextureProvider}.
 */
 declare enum VideoStatus {
     /**
@@ -17117,9 +17491,9 @@ declare enum VideoStatus {
 }
 
 /**
-* Controls a video texture resource. Can be accessed through [Texture.control](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Texture#control-textureprovider).
+* Controls a video texture resource. Can be accessed through {@link Texture.control}.
 */
-declare abstract class VideoTextureProvider extends TextureProvider {
+declare class VideoTextureProvider extends TextureProvider {
     
     protected constructor()
     
@@ -17237,7 +17611,7 @@ declare abstract class VideoTextureProvider extends TextureProvider {
 /**
 * Base class for all visual Components (e.g. MeshVisual).
 */
-declare abstract class Visual extends Component {
+declare class Visual extends Component {
     
     protected constructor()
     
@@ -17253,7 +17627,7 @@ declare abstract class Visual extends Component {
     
 }
 
-declare abstract class VoiceML {
+declare class VoiceML {
     
     protected constructor()
     
@@ -17263,7 +17637,7 @@ declare namespace VoiceML {
     /**
     * Additional parameters are used to provide additional data for NlpModels and NlpResponses. 
     */
-    abstract class AdditionalParam extends ScriptObject {
+    class AdditionalParam extends ScriptObject {
         
         protected constructor()
         
@@ -17287,11 +17661,11 @@ declare namespace VoiceML {
 
 declare namespace VoiceML {
     /**
-    * NlpModels are used to provide the VoiceML NLP engine information about how the transcript of the input audio should be processed. BaseNlpModels is the abstract base class all NlpModels ([NlpKeywordModel](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#VoiceMLNlpKeywordModel), [NlpIntentModel](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#VoiceMLNlpIntentModel)) inherit from.
+    * NlpModels are used to provide the VoiceML NLP engine information about how the transcript of the input audio should be processed. BaseNlpModels is the abstract base class all NlpModels ({@link NlpKeywordModel}, {@link NlpIntentModel}) inherit from.
     
-    * You can specify multiple NlpModels to process the same audio, all of their results will be returned in [ListeningUpdateEventArgs](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#VoiceMLListeningUpdateEventArgs)
+    * You can specify multiple NlpModels to process the same audio, all of their results will be returned in {@link VoiceML.ListeningUpdateEventArgs}.
     */
-    abstract class BaseNlpModel extends ScriptObject {
+    class BaseNlpModel extends ScriptObject {
         
         protected constructor()
         
@@ -17308,7 +17682,7 @@ declare namespace VoiceML {
     /**
     * The abstract base class all NlpResponses inherit from. NlpResponses are used as the result from the VoiceML NLP engine with information after processing the transcript of the input audio.
     */
-    abstract class BaseNlpResponse extends ScriptObject {
+    class BaseNlpResponse extends ScriptObject {
         
         protected constructor()
         
@@ -17320,7 +17694,7 @@ declare namespace VoiceML {
         additionalParams: VoiceML.AdditionalParam[]
         
         /**
-        * Name of the model that sent the response.  In current studio release, you can expect the result to contain either  `VOICE_ENABLED_UI` like described in [NlpModel](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#VoiceMLNlpIntentModel).  If using `enableSystemCommands()`, `SYSTEM_COMMANDS` will be returned as well. 
+        * Name of the model that sent the response.  In current studio release, you can expect the result to contain either  `VOICE_ENABLED_UI` like described in {@link VoiceML.NlpIntentModel}.  If using `enableSystemCommands()`, `SYSTEM_COMMANDS` will be returned as well. 
         
         * @readonly
         */
@@ -17341,7 +17715,7 @@ declare namespace VoiceML {
     /**
     * An NLP model used to detect keywords in the transcript of the input audio.  For example, you can have keyword detection which will trigger every time the word "red" is said, and another trigger for the word "yellow". 
     */
-    abstract class KeywordModelGroup extends ScriptObject {
+    class KeywordModelGroup extends ScriptObject {
         
         protected constructor()
         
@@ -17367,7 +17741,7 @@ declare namespace VoiceML {
     /**
     * ListeningErrorEventArgs object returns in onListeningError callback. It contains the error code and description of the error. 
     */
-    abstract class ListeningErrorEventArgs extends ScriptObject {
+    class ListeningErrorEventArgs extends ScriptObject {
         
         protected constructor()
         
@@ -17391,9 +17765,9 @@ declare namespace VoiceML {
 
 declare namespace VoiceML {
     /**
-    * Provides the configuration for the audio input processing output. This can either include NLP processing using the ([nlpModels](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#VoiceMLBaseNlpModel)) or directly retrieving the transcription.  `speechContext` provides the ability to further improve the transcription accuracy given an assumed context. 
+    * Provides the configuration for the audio input processing output. This can either include NLP processing using the {@link VoiceML.BaseNlpModel} or directly retrieving the transcription.  `speechContext` provides the ability to further improve the transcription accuracy given an assumed context. 
     */
-    abstract class ListeningOptions extends ScriptObject {
+    class ListeningOptions extends ScriptObject {
         
         protected constructor()
         
@@ -17437,17 +17811,11 @@ declare namespace VoiceML {
         */
         speechRecognizer: string
         
-    }
-
-}
-declare namespace VoiceML {
-    namespace ListeningOptions {
         /**
         * Creates voice command options. 
         */
-        export function create(): VoiceML.ListeningOptions
+        static create(): VoiceML.ListeningOptions
         
-    
     }
 
 }
@@ -17456,7 +17824,7 @@ declare namespace VoiceML {
     /**
     * The parameter when the callback registered on from `VoiceMLModule.onListeningUpdate` is called. This is to mark the input audio transcription (and possibly NlpModels as a result) was updated.
     */
-    abstract class ListeningUpdateEventArgs extends ScriptObject {
+    class ListeningUpdateEventArgs extends ScriptObject {
         
         protected constructor()
         
@@ -17500,7 +17868,7 @@ declare namespace VoiceML {
 
 declare namespace VoiceML {
     /**
-    * May be returned when [enableSystemCommands()](https://lensstudio.snapchat.com/api/classes/VoiceMLModule#enableSystemCommands) API is used.
+    * May be returned when [enableSystemCommands()](https://developers.snap.com/api/classes/VoiceMLModule#enableSystemCommands) API is used.
     * The NlpCommandResponse contains the results of the servers' NLP command model classification on the last sentence and indicates that a predetermined system command was detected.
     * Current supported commands:
     
@@ -17509,17 +17877,17 @@ declare namespace VoiceML {
     * "Stop Recording”: stops an ongoing video recording, if applicable.
     
     */
-    abstract class NlpCommandResponse extends VoiceML.BaseNlpResponse {
+    class NlpCommandResponse extends VoiceML.BaseNlpResponse {
         
         protected constructor()
         
         /**
-        * The classification result of the NLP command model for the sentence. For example, for the sentence "Take a snap!" with the [enableSystemCommands()](https://lensstudio.snapchat.com/api/classes/VoiceMLModule#enableSystemCommands) API enabled, the result will be a [NlpCommandResponse](https://lensstudio.snapchat.com/api/classes/VoiceMLModule/NlpCommandResponse) holding a `take a snap` [Command](https://lensstudio.snapchat.com/api/classes/VoiceMLModule/NlpCommandRespons#command). In addition, the following values could be returned: 
+        * The classification result of the NLP command model for the sentence. For example, for the sentence "Take a snap!" with the {@link VoiceMLModule.enableSystemCommands} API enabled, the result will be a {@link VoiceML.NlpCommandResponse} holding a `take a snap` {@link VoiceML.NlpCommandResponse#command}. In addition, the following values could be returned: 
         
-        * `#SNAP_ERROR_INCONCLUSIVE`: two or more commands detected.
-        * `#SNAP_ERROR_INDECISIVE`: no command detected.
-        * `#SNAP_ERROR_NONVERBAL`: no transcribable human voice was detected.
-        * `#SNAP_ERROR_SILENCE`: silence was detected. 
+        * - `#SNAP_ERROR_INCONCLUSIVE`: two or more commands detected.
+        * - `#SNAP_ERROR_INDECISIVE`: no command detected.
+        * - `#SNAP_ERROR_NONVERBAL`: no transcribable human voice was detected.
+        * - `#SNAP_ERROR_SILENCE`: silence was detected. 
         
         * Anything starting with `#SNAP_ERROR_`: Errors that are not currently defined in this documentation and should be ignored.
         
@@ -17536,7 +17904,7 @@ declare namespace VoiceML {
     /**
     * Specifies which NLP Intent model should run to classify the transcription of the input audio. NLP Intent classification meant to extract the meaning of a sentence rather than detecting certain keywords. Multiple intent models can be used on the same transcription, and will run only on complete sentences (`isFinalTranscription = True`). Supported intent models: `VOICE_ENABLED_UI`. 
     */
-    abstract class NlpIntentModel extends VoiceML.BaseNlpModel {
+    class NlpIntentModel extends VoiceML.BaseNlpModel {
         
         protected constructor()
         
@@ -17553,10 +17921,10 @@ declare namespace VoiceML {
 
 declare namespace VoiceML {
     /**
-    * Returned when [NlpIntentModel](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#VoiceMLNlpIntentModel) was specificed in the ListeningOptions, it contains the results of the NLP Intent model classification on the last sentence. `NlpIntentResponse` will only run on complete sentences (`isFinalTranscription = true`).  
+    * Returned when {@link NlpIntentModel} was specificed in the ListeningOptions, it contains the results of the NLP Intent model classification on the last sentence. `NlpIntentResponse` will only run on complete sentences (`isFinalTranscription = true`).  
     
     */
-    abstract class NlpIntentResponse extends VoiceML.BaseNlpResponse {
+    class NlpIntentResponse extends VoiceML.BaseNlpResponse {
         
         protected constructor()
         
@@ -17582,21 +17950,15 @@ declare namespace VoiceML {
     /**
     * Contains helper functions for NlpIntentModel.
     */
-    abstract class NlpIntentsModelOptions {
+    class NlpIntentsModelOptions {
         
         protected constructor()
         
-    }
-
-}
-declare namespace VoiceML {
-    namespace NlpIntentsModelOptions {
         /**
         * Creates a new NlpIntentModel.
         */
-        export function create(intentModelName: string): VoiceML.NlpIntentModel
+        static create(intentModelName: string): VoiceML.NlpIntentModel
         
-    
     }
 
 }
@@ -17605,9 +17967,9 @@ declare namespace VoiceML {
     /**
     * Used to detect usage of certain keywords from the input audio.
     
-    * Keyword detection (whose results will be returned in [NlpKeywordResponse](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#VoiceMLNlpKeywordResponse) in the [ListeningUpdateEventArgs](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#VoiceMLListeningUpdateEventArgs)) can happen in the mid input sentence (and in such case the the isFinalTranscription=false) or can happen at the end of the sentence (isFinalTranscription=true). Mid sentence detection have closer proximity to the time the word was spoken, but might be less accurate. 
+    * Keyword detection (whose results will be returned in {@link VoiceML.NlpKeywordResponse}) in the {@link VoiceML.ListeningUpdateEventArgs} can happen in the mid input sentence (and in such case the the isFinalTranscription=`false`) or can happen at the end of the sentence (isFinalTranscription=`true`). Mid sentence detection have closer proximity to the time the word was spoken, but might be less accurate. 
     */
-    abstract class NlpKeywordModel extends VoiceML.BaseNlpModel {
+    class NlpKeywordModel extends VoiceML.BaseNlpModel {
         
         protected constructor()
         
@@ -17631,21 +17993,15 @@ declare namespace VoiceML {
     /**
     * Contains helper functions for NlpKeywordModel.
     */
-    abstract class NlpKeywordModelOptions {
+    class NlpKeywordModelOptions {
         
         protected constructor()
         
-    }
-
-}
-declare namespace VoiceML {
-    namespace NlpKeywordModelOptions {
         /**
         * Creates a new NlpKeywordModel.
         */
-        export function create(): VoiceML.NlpKeywordModel
+        static create(): VoiceML.NlpKeywordModel
         
-    
     }
 
 }
@@ -17654,7 +18010,7 @@ declare namespace VoiceML {
     /**
     * NlpKeywordResponse will be returned if KeywordModel has been supplied as an input model in the ListeningOptions.  The keyword model allows detection of keywords (or short phrases) in an input audio. 
     */
-    abstract class NlpKeywordResponse extends VoiceML.BaseNlpResponse {
+    class NlpKeywordResponse extends VoiceML.BaseNlpResponse {
         
         protected constructor()
         
@@ -17680,7 +18036,7 @@ declare namespace VoiceML {
     /**
     * The NLP Response Status indicates wether the NLP was successful in parsing the sentence. 
     */
-    abstract class NlpResponseStatus extends ScriptObject {
+    class NlpResponseStatus extends ScriptObject {
         
         protected constructor()
         
@@ -17706,7 +18062,7 @@ declare namespace VoiceML {
     /**
     * The `PostProcessingAction` is the base class for `QnaAction` and other post processing actions that need to processed after the transcription phase.
     */
-    abstract class PostProcessingAction extends ScriptObject {
+    class PostProcessingAction extends ScriptObject {
         
         protected constructor()
         
@@ -17718,7 +18074,7 @@ declare namespace VoiceML {
     /**
     * The `PostProcessingActionResponse` is the base class for `QnaActionRespose` and other post processing actions responses. It holds the id and status properties for all deriving objects.
     */
-    abstract class PostProcessingActionResponse extends ScriptObject {
+    class PostProcessingActionResponse extends ScriptObject {
         
         protected constructor()
         
@@ -17741,7 +18097,7 @@ declare namespace VoiceML {
 }
 
 declare namespace VoiceML {
-    abstract class PostProcessingActionResponseStatus extends ScriptObject {
+    class PostProcessingActionResponseStatus extends ScriptObject {
         
         protected constructor()
         
@@ -17760,7 +18116,7 @@ declare namespace VoiceML {
 }
 
 declare namespace VoiceML {
-    abstract class QnaAction extends VoiceML.PostProcessingAction {
+    class QnaAction extends VoiceML.PostProcessingAction {
         
         protected constructor()
         
@@ -17769,23 +18125,17 @@ declare namespace VoiceML {
         */
         context: string
         
-    }
-
-}
-declare namespace VoiceML {
-    namespace QnaAction {
         /**
         * Parameter: string context. Creates a QnaAction object with a given context i.e. source text for the Dialog ML. 
         */
-        export function create(context: string): VoiceML.QnaAction
+        static create(context: string): VoiceML.QnaAction
         
-    
     }
 
 }
 
 declare namespace VoiceML {
-    abstract class QnaResponse extends VoiceML.PostProcessingActionResponse {
+    class QnaResponse extends VoiceML.PostProcessingActionResponse {
         
         protected constructor()
         
@@ -17811,7 +18161,7 @@ declare namespace VoiceML {
     /**
     * Speech context is used in cases where specific words are expected from the users, the transcription accuracy of these words can be improved, by straightening their likelihood in context. The strength is scaled 1-10 (10 being the strongest increase) the default value is 5.
     */
-    abstract class SpeechContext extends ScriptObject {
+    class SpeechContext extends ScriptObject {
         
         protected constructor()
         
@@ -17836,12 +18186,12 @@ declare namespace VoiceML {
 /**
 * VoiceML Module allows voice input and commands. It enables transciption of the speech, detecting keywords within the transcription, intents as well as system commands (such as "Take a Snap"). You can use one VoiceML Module per Lens. 
 */
-declare abstract class VoiceMLModule extends Asset {
+declare class VoiceMLModule extends Asset {
     
     protected constructor()
     
     /**
-    * Allows the user to provide voice commands for the VoiceML to execute on behalf of the users.  Current supported commands: "Take a Snap", "Start Recording", "Stop Recording". In case a command was detected, it will be automtically executed by the system and returned as part of the [NlpCommandResponse](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#VoiceMLNlpCommandResponse) in the `onListeningUpdate` callback. You can retrieve the command that was executed using the following snippet: 
+    * Allows the user to provide voice commands for the VoiceML to execute on behalf of the users.  Current supported commands: "Take a Snap", "Start Recording", "Stop Recording". In case a command was detected, it will be automtically executed by the system and returned as part of the {@link VoiceML.NlpCommandResponse} in the `onListeningUpdate` callback. You can retrieve the command that was executed using the following snippet: 
     
     * ```js
     * var onUpdateListeningEventHandler = function(eventArgs) {
@@ -17948,24 +18298,18 @@ declare namespace VoiceMLModule {
 }
 
 declare namespace VoiceMLModule {
-    abstract class SpeechRecognizer {
+    class SpeechRecognizer {
         
         protected constructor()
         
-    }
-
-}
-declare namespace VoiceMLModule {
-    namespace SpeechRecognizer {
-        let Default: string
+        static Default: string
         
-    
     }
 
 }
 
 /**
-* Types of weather returned by [UserContextSystem's](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#UserContextSystem) `requestWeatherCondition()` callback.
+* Types of weather returned by {@link UserContextSystem}'s callback.
 */
 declare enum WeatherCondition {
     /**
@@ -18019,13 +18363,13 @@ declare enum WeatherCondition {
 
 * _Note: Most functionality will require the `onReady` event to have been called. Any calls before this event may cause an exception._
 
-* @see {@link RemoteServiceModule.createWebView}
+* @see {@link RemoteServiceModule#createWebView}
 
 * @experimental
 
 * @wearableOnly
 */
-declare abstract class WebPageTextureProvider extends TextureProvider {
+declare class WebPageTextureProvider extends TextureProvider {
     
     protected constructor()
     
@@ -18108,34 +18452,156 @@ declare abstract class WebPageTextureProvider extends TextureProvider {
 }
 
 /**
+* WebSocket provides an API for managing a WebSocket connection to a server, as well as for sending and receiving data on the connection.
+
 * @wearableOnly
 */
-declare abstract class WebSocket extends ScriptObject {
+declare class WebSocket extends ScriptObject {
     
     protected constructor()
     
+    /**
+    * Adds a listener for a WebSocket event. Supported event types are:
+    
+    * `close`
+    * Fired when a connection with a WebSocket is closed. Also available via the onclose property.
+    
+    * `error`
+    * Fired when a connection with a WebSocket has been closed because of an error, such as when some data couldn't be sent. Also available via the onerror property.
+    
+    * `message`
+    * Fired when data is received through a WebSocket. Also available via the onmessage property.
+    
+    * `open`
+    * Fired when a connection with a WebSocket is opened. Also available via the onopen property.
+    */
     addEventListener(type: string, listener: (event: WebSocketEvent) => void): void
     
+    /**
+    * Closes the WebSocket connection or connection attempt, if any. If the connection is already CLOSED, this method does nothing.
+    */
     close(): void
     
+    /**
+    * Enqueues the given data to be transmitted to the server over the WebSocket connection. If the data can't be sent (for example, because it needs to be buffered but the buffer is full), the socket is closed automatically.
+    
+    * Text or binary data can be sent via this method. To send text data pass a `string` into the send function. To send binary, pass a `Uint8Array`.
+    
+    * Text example:
+    * ```
+    * webSocket.send("Hello World");
+    * ```
+    
+    * Binary example:
+    * ```
+    * // This sequence is `Hello World` in Uint8
+    * const uint8Array = new Uint8Array([
+    * 72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100
+    * ]);
+    * webSocket.send(uint8Array);
+    * ```
+    */
     send(data: (Uint8Array|string)): void
     
+    /**
+    * Controls how binary data is received over the connection. Currently only `blob` is supported. The `arraybuffer` type is not yet supported. 
+    
+    * ```
+    * // Create WebSocket connection.
+    * webSocket = script.remoteServiceModule.createWebSocket("wss://<some-url>");
+    * socket.binaryType = "blob";
+    
+    * // Listen for messages
+    * socket.addEventListener("message", (event) => {
+    *     if (event.data instanceof Blob) {
+    *         // Binary frame, can be retrieved as either Uint8Array or string
+    *         let bytes = await event.data.bytes();
+    *         let text = await event.data.text();            
+    *     } else {
+    *         // Text frame
+    *         let text = event.data;
+    *     }
+    * });
+    * ```
+    */
     binaryType: string
     
+    /**
+    * Set a listener for the `close` event. The event passed is {@link WebSocketCloseEvent}. Equivalent to `addEventListener("close", ...)`. This listener will be run in addition to any listeners added via `addEventListener`.
+    
+    * ```
+    * websocket.onclose = (event) => {
+    *   print("The connection has been closed.");
+    * };
+    * ```
+    */
     onclose: (event: WebSocketEvent) => void
     
+    /**
+    * Set a listener for the `error` event. The event passed is {@link WebSocketErrorEvent}. Equivalent to `addEventListener("error", ...)`. This listener will be run in addition to any listeners added via `addEventListener`.
+    
+    * ```
+    * websocket.onerror = (event) => {
+    *   print("The connection has been closed due to an error: " + error);
+    * };
+    * ```
+    */
     onerror: (event: WebSocketEvent) => void
     
+    /**
+    * Set a listener for the `message` event. The event passed is {@link WebSocketMessageEvent}. Equivalent to `addEventListener("message", ...)`. This listener will be run in addition to any listeners added via `addEventListener`.
+    
+    * ```
+    * websocket.onmessage = async (event) => {
+    *     if (event.data instanceof Blob) {
+    *         // Binary frame, can be retrieved as either Uint8Array or string
+    *         let bytes = await event.data.bytes();
+    *         let text = await event.data.text();    
+    *         
+    *         print("Received binary message, printing as text: " + text);        
+    *     } else {
+    *         // Text frame
+    *         let text = event.data;
+    *         print("Received text message: " + text);
+    *     }
+    * };
+    * ```
+    */
     onmessage: (event: WebSocketEvent) => void
     
+    /**
+    * Set a listener for the `open` event. The event passed is {@link WebSocketEvent}. Equivalent to `addEventListener("open", ...)`. This listener will be run in addition to any listeners added via `addEventListener`.
+    
+    * ```
+    * websocket.onopen = (event) => {
+    *   print("The connection has been opened successfully.");
+    * };
+    * ```
+    */
     onopen: (event: WebSocketEvent) => void
     
     /**
+    * Returns the current state of the WebSocket connection.
+    
+    * `CONNECTING (0)`
+    * Socket has been created. The connection is not yet open.
+    
+    * `OPEN (1)`
+    * The connection is open and ready to communicate.
+    
+    * `CLOSING (2)`
+    * The connection is in the process of closing.
+    
+    * `CLOSED (3)`
+    * The connection is closed or couldn't be opened.
+    
     * @readonly
     */
     readyState: number
     
     /**
+    * Returns the url to which the WebSocket is connecting/connected.
+    
     * @readonly
     */
     url: string
@@ -18143,23 +18609,54 @@ declare abstract class WebSocket extends ScriptObject {
 }
 
 /**
+* Event type for WebSocket close events. This event indicates when the WebSocket connection has been closed. Listen for this event by using `addEventListener` with `close`, or by setting the `onclose` property.
+
 * @wearableOnly
 */
-declare abstract class WebSocketCloseEvent extends ScriptObject {
+declare class WebSocketCloseEvent extends ScriptObject {
     
     protected constructor()
     
     /**
+    * Returns an `unsigned short` indicating the close code sent by the server.
+    
+    * | Status Code | Meaning                          | Description                                                                                                                                                       |
+    * |-------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    * | 0999       |                                  | Not used.                                                                                                                                                         |
+    * | 1000        | Normal Closure                   | The connection successfully completed the purpose for which it was created.                                                                                       |
+    * | 1001        | Going Away                       | The endpoint is going away, either because of a server failure or because the browser is navigating away from the page that opened the connection.                |
+    * | 1002        | Protocol error                   | The endpoint is terminating the connection due to a protocol error.                                                                                               |
+    * | 1003        | Unsupported Data                 | The connection is being terminated because the endpoint received data of a type it cannot accept. (For example, a text-only endpoint received binary data.)       |
+    * | 1004        | Reserved                         | Reserved. A meaning might be defined in the future.                                                                                                               |
+    * | 1005        | No Status Rcvd                   | Reserved. Indicates that no status code was provided even though one was expected.                                                                                |
+    * | 1006        | Abnormal Closure                 | Reserved. Indicates that a connection was closed abnormally (that is, with no close frame being sent) when a status code is expected.                             |
+    * | 1007        | Invalid frame payload data       | The endpoint is terminating the connection because a message was received that contained inconsistent data (e.g., non-UTF-8 data within a text message).          |
+    * | 1008        | Policy Violation                 | The endpoint is terminating the connection because it received a message that violates its policy. This is a generic status code, used when codes 1003 and 1009 are not suitable. |
+    * | 1009        | Message Too Big                  | The endpoint is terminating the connection because a data frame was received that is too large.                                                                   |
+    * | 1010        | Mandatory Ext.                   | The client is terminating the connection because it expected the server to negotiate one or more extensions, but the server didn't.                               |
+    * | 1011        | Internal Error                   | The server is terminating the connection because it encountered an unexpected condition that prevented it from fulfilling the request.                            |
+    * | 1012        | Service Restart                  | The server is terminating the connection because it is restarting.                                                                                                |
+    * | 1013        | Try Again Later                  | The server is terminating the connection due to a temporary condition, e.g., it is overloaded and is casting off some of its clients.                             |
+    * | 1014        | Bad Gateway                      | The server was acting as a gateway or proxy and received an invalid response from the upstream server. This is similar to 502 HTTP Status Code.                   |
+    * | 1015        | TLS handshake                    | Reserved. Indicates that the connection was closed due to a failure to perform a TLS handshake (e.g., the server certificate can't be verified).                   |
+    * | 10162999   |                                  | For definition by future revisions of the WebSocket Protocol specification, and for definition by extension specifications.                                       |
+    * | 30003999   |                                  | For use by libraries, frameworks, and applications. These status codes are registered directly with IANA. The interpretation of these codes is undefined by the WebSocket protocol. |
+    * | 40004999   |                                  | For private use, and thus can't be registered. |
+    
     * @readonly
     */
     code: number
     
     /**
+    * The reason the WebSocket connection was closed.
+    
     * @readonly
     */
     reason: string
     
     /**
+    * True if the socket connection was closed without error.
+    
     * @readonly
     */
     wasClean: boolean
@@ -18167,36 +18664,46 @@ declare abstract class WebSocketCloseEvent extends ScriptObject {
 }
 
 /**
+* Event type for WebSocket error events. This event indicates when a server-side error has occurred resulting in closure of the WebSocket connection. Listen for this event by using `addEventListener` with `error`, or by setting the `onerror` property.
+
 * @wearableOnly
 */
-declare abstract class WebSocketErrorEvent extends ScriptObject {
+declare class WebSocketErrorEvent extends ScriptObject {
     
     protected constructor()
     
 }
 
 /**
+* Generic event type for WebSocket.
+
 * @wearableOnly
 */
-declare abstract class WebSocketEvent extends ScriptObject {
+declare class WebSocketEvent extends ScriptObject {
     
     protected constructor()
     
 }
 
 /**
+* Event type for WebSocket message events. This event fires when a message has been received from the server. Listen for this event by using `addEventListener` with `message`, or by setting the `onmessage` property.
+
 * @wearableOnly
 */
-declare abstract class WebSocketMessageEvent extends ScriptObject {
+declare class WebSocketMessageEvent extends ScriptObject {
     
     protected constructor()
     
     /**
+    * The data received from the server. For binary messages, this is of type {@link Blob}. For text messages, this is a string.
+    
     * @readonly
     */
     data: (Blob|string)
     
     /**
+    * The type of the data received, `text` or `binary`, returned as a string.
+    
     * @readonly
     */
     type: string
@@ -18206,11 +18713,11 @@ declare abstract class WebSocketMessageEvent extends ScriptObject {
 /**
 * WebViewOptions allow you to specify various aspects of the WebView that will be created. These are only used at creation time.
 
-* @see {@link RemoteServiceModule.createWebViewOptions}
+* @see {@link RemoteServiceModule#createWebViewOptions}
 
 * @experimental
 */
-declare abstract class WebViewOptions extends ScriptObject {
+declare class WebViewOptions extends ScriptObject {
     
     protected constructor()
     
@@ -18252,7 +18759,7 @@ declare abstract class WebViewOptions extends ScriptObject {
 
 * @experimental
 */
-declare abstract class WebViewPolicy extends ScriptObject {
+declare class WebViewPolicy extends ScriptObject {
     
     protected constructor()
     
@@ -18289,7 +18796,7 @@ declare enum WeightedMode {
 /**
 * Groups physics objects in its subtree into an independent world simulation.
 */
-declare abstract class WorldComponent extends Component {
+declare class WorldComponent extends Component {
     
     protected constructor()
     
@@ -18313,7 +18820,7 @@ declare abstract class WorldComponent extends Component {
 /**
 * Holds settings for world mesh tracking in DeviceTracking component. Accessible through DeviceTracking.worldOptions.
 */
-declare abstract class WorldOptions extends ScriptObject {
+declare class WorldOptions extends ScriptObject {
     
     protected constructor()
     
@@ -18338,7 +18845,7 @@ declare abstract class WorldOptions extends ScriptObject {
 
 * @wearableOnly
 */
-declare abstract class WorldQueryHitTestResult extends ScriptObject {
+declare class WorldQueryHitTestResult extends ScriptObject {
     
     protected constructor()
     
@@ -18367,7 +18874,7 @@ declare abstract class WorldQueryHitTestResult extends ScriptObject {
 
 * @wearableOnly
 */
-declare abstract class WorldQueryModule extends Asset {
+declare class WorldQueryModule extends Asset {
     
     protected constructor()
     
@@ -18390,7 +18897,7 @@ declare abstract class WorldQueryModule extends Asset {
 /**
 * Provider for RenderMesh data representing the estimated shape of real world objects generated from depth information. Only available when world mesh tracking is supported and enabled.
 */
-declare abstract class WorldRenderObjectProvider extends RenderObjectProvider {
+declare class WorldRenderObjectProvider extends RenderObjectProvider {
     
     protected constructor()
     
@@ -18428,7 +18935,7 @@ declare abstract class WorldRenderObjectProvider extends RenderObjectProvider {
 /**
 * Provides information about whether certain world tracking features are supported by the device.
 */
-declare abstract class WorldTrackingCapabilities extends ScriptObject {
+declare class WorldTrackingCapabilities extends ScriptObject {
     
     protected constructor()
     
@@ -18454,7 +18961,7 @@ declare abstract class WorldTrackingCapabilities extends ScriptObject {
 /**
 * Triggered when new world tracking meshes are detected. Only available when a Device Tracking component is in the scene, and world mesh tracking is supported and enabled.
 */
-declare abstract class WorldTrackingMeshesAddedEvent extends SceneEvent {
+declare class WorldTrackingMeshesAddedEvent extends SceneEvent {
     
     protected constructor()
     
@@ -18468,7 +18975,7 @@ declare abstract class WorldTrackingMeshesAddedEvent extends SceneEvent {
 /**
 * Triggered when some world tracking meshes are no longer detected. Only available when a Device Tracking component is in the scene, and world mesh tracking is supported and enabled.
 */
-declare abstract class WorldTrackingMeshesRemovedEvent extends SceneEvent {
+declare class WorldTrackingMeshesRemovedEvent extends SceneEvent {
     
     protected constructor()
     
@@ -18482,7 +18989,7 @@ declare abstract class WorldTrackingMeshesRemovedEvent extends SceneEvent {
 /**
 * Triggered when world tracking meshes are updated. Only available when a Device Tracking component is in the scene, and world mesh tracking is supported and enabled.
 */
-declare abstract class WorldTrackingMeshesUpdatedEvent extends SceneEvent {
+declare class WorldTrackingMeshesUpdatedEvent extends SceneEvent {
     
     protected constructor()
     
@@ -18494,51 +19001,51 @@ declare abstract class WorldTrackingMeshesUpdatedEvent extends SceneEvent {
 }
 
 /**
-* Triggered when plane(s) are newly detected. The `worldOptions.nativePlaneTrackingType` must be set to anything other than `NativePlaneTrackingType.None`. In addition, [Device Tracking](https://lensstudio.snapchat.com/api/classes/devicetracking) component must be set to `World` mode to orient the Camera relative to the planes correctly.
+* Triggered when plane(s) are newly detected. The `worldOptions.nativePlaneTrackingType` must be set to anything other than `NativePlaneTrackingType.None`. In addition, {@link DeviceTracking} component must be set to `World` mode to orient the Camera relative to the planes correctly.
 
 */
-declare abstract class WorldTrackingPlanesAddedEvent extends SceneEvent {
+declare class WorldTrackingPlanesAddedEvent extends SceneEvent {
     
     protected constructor()
     
     /**
-    * Returns an array of newly added [TrackedPlanes](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#trackedplane).
+    * Returns an array of newly added {@link TrackedPlane}.
     */
     getPlanes(): TrackedPlane[]
     
 }
 
 /**
-* Triggered when plane(s) are no longer detected.  This usually happens when two planes merge into one.  Planes persist when no longer seen by camera(s) and when previously detected objects move (e.g. a door is opened) to create a static scene. [Device Tracking](https://lensstudio.snapchat.com/api/classes/devicetracking) component must be set to `World` mode to orient the Camera relative to the planes correctly.
+* Triggered when plane(s) are no longer detected.  This usually happens when two planes merge into one.  Planes persist when no longer seen by camera(s) and when previously detected objects move (e.g. a door is opened) to create a static scene. {@link DeviceTracking} component must be set to `World` mode to orient the Camera relative to the planes correctly.
 
 */
-declare abstract class WorldTrackingPlanesRemovedEvent extends SceneEvent {
+declare class WorldTrackingPlanesRemovedEvent extends SceneEvent {
     
     protected constructor()
     
     /**
-    * Returns an array of [TrackedPlanes](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#trackedplane) that are no longer detected. 
+    * Returns an array of {@link TrackedPlane} that are no longer detected. 
     */
     getPlanes(): TrackedPlane[]
     
 }
 
 /**
-* Triggered when currently detected plane(s) are updated.  This usually happens when a plane grows in size. The `worldOptions.nativePlaneTrackingType` must be set to anything other than `NativePlaneTrackingType.None`. In addition, [Device Tracking](https://lensstudio.snapchat.com/api/classes/devicetracking) component must be set to `World` mode to orient the Camera relative to the planes correctly.
+* Triggered when currently detected plane(s) are updated.  This usually happens when a plane grows in size. The `worldOptions.nativePlaneTrackingType` must be set to anything other than `NativePlaneTrackingType.None`. In addition, {@link DeviceTracking} component must be set to `World` mode to orient the Camera relative to the planes correctly.
 
 */
-declare abstract class WorldTrackingPlanesUpdatedEvent extends SceneEvent {
+declare class WorldTrackingPlanesUpdatedEvent extends SceneEvent {
     
     protected constructor()
     
     /**
-    * Returns an array of [TrackedPlanes](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#trackedplane) that were updated.
+    * Returns an array of {@link TrackedPlane} that were updated.
     */
     getPlanes(): TrackedPlane[]
     
 }
 
-declare abstract class WorldUnderstandingModule extends Asset {
+declare class WorldUnderstandingModule extends Asset {
     
     protected constructor()
     
@@ -18609,6 +19116,14 @@ interface event5<T0,T1,T2,T3,T4,R> {
     add(callback: (arg0:T0, arg1:T1, arg2:T2, arg3:T3, arg4:T4) => R) : EventRegistration
     remove(eventRegistration: EventRegistration) : void
 }
+interface event6<T0,T1,T2,T3,T4,T5,R> {
+    add(callback: (arg0:T0, arg1:T1, arg2:T2, arg3:T3, arg4:T4, arg5:T5) => R) : EventRegistration
+    remove(eventRegistration: EventRegistration) : void
+}
+interface event7<T0,T1,T2,T3,T4,T5,T6,R> {
+    add(callback: (arg0:T0, arg1:T1, arg2:T2, arg3:T3, arg4:T4, arg5:T5, arg6:T6) => R) : EventRegistration
+    remove(eventRegistration: EventRegistration) : void
+}
 
 /**
 * Not for real use. Contains a fake instance of every class. Helpful for checking the API of a class.
@@ -18619,320 +19134,329 @@ declare namespace _palette {
     /**
     * An object containing the position of an object relative to a LocationAsset. 
     */
-    let Anchor: Anchor
+    static Anchor: Anchor
     
     /**
-    * Controls an animated texture resource. Can be accessed from [Texture.control](https://lensstudio.snapchat.com/api/lens-studio/Classes/Assets#texture--control) on an animated texture.
-    * See also: [2D Animation Guide](https://lensstudio.snapchat.com/lens-studio/references/guides/adding-content/2d/2d-animation).
+    * Controls an animated texture resource. Can be accessed from {@link Asset | Texture.Control} on an animated texture.
+    * See also: [2D Animation Guide](https://developers.snap.com/lens-studio/assets-pipeline/2d/2d-animation).
     */
-    let AnimatedTextureFileProvider: AnimatedTextureFileProvider
+    static AnimatedTextureFileProvider: AnimatedTextureFileProvider
     
     /**
     * Asset that contains multiple animation layers. Animation assets themselves do not handle playing or orchestrating animations. This is left to the animation player component to handle.
     */
-    let AnimationAsset: AnimationAsset
+    static AnimationAsset: AnimationAsset
     
     /**
     * Animation Clip is what an Animation Player uses to manage playback for a specific animation. It defines that animation by referencing an Animation Asset and providing start and end points, playback speed and direction, and blending information. 
     */
-    let AnimationClip: AnimationClip
+    static AnimationClip: AnimationClip
     
     /**
     * A curve that contains a set of keyframes and can evaluate values at specific timestamps.
     */
-    let AnimationCurve: AnimationCurve
+    static AnimationCurve: AnimationCurve
     
     /**
     * An asset that contains one or more animation curves. When evaluating multiple values, the values are selected from left to right in order. For example, for a vec3 containing x,y,z , it will correspond to track index 0, 1, 2 from left to right. 
     */
-    let AnimationCurveTrack: AnimationCurveTrack
+    static AnimationCurveTrack: AnimationCurveTrack
     
     /**
     * A keyframe with time and respective value. Could be added to Animation Curve.
     */
-    let AnimationKeyFrame: AnimationKeyFrame
+    static AnimationKeyFrame: AnimationKeyFrame
     
     /**
     * How animation layers are blended.
     */
-    let AnimationLayerBlendMode: AnimationLayerBlendMode
+    static AnimationLayerBlendMode: AnimationLayerBlendMode
     
     /**
     * The method in which an Animation Layer should be scaled to other layers in an `AnimationClip`.
     */
-    let AnimationLayerScaleMode: AnimationLayerScaleMode
+    static AnimationLayerScaleMode: AnimationLayerScaleMode
     
     /**
     * Component that handles playing animation clips as well as binding callbacks to user defined events.
     */
-    let AnimationPlayer: AnimationPlayer
+    static AnimationPlayer: AnimationPlayer
     
     /**
     * Args used for AnimationPlayer's event, which is triggered every time the animation playback passes the given time in the event.
     */
-    let AnimationPlayerOnEventArgs: AnimationPlayerOnEventArgs
+    static AnimationPlayerOnEventArgs: AnimationPlayerOnEventArgs
     
     /**
     * The event registration returned by `AnimationAsset`'s `createEvent`.
     */
-    let AnimationPropertyEventRegistration: AnimationPropertyEventRegistration
+    static AnimationPropertyEventRegistration: AnimationPropertyEventRegistration
     
     /**
     * A layer containing different properties. Examples include position, rotation, scale or any other arbitrary properties a user would like to add and sample from.
     */
-    let AnimationPropertyLayer: AnimationPropertyLayer
+    static AnimationPropertyLayer: AnimationPropertyLayer
     
     /**
     * The base class for animation tracks.
     */
-    let AnimationTrack: AnimationTrack
+    static AnimationTrack: AnimationTrack
     
     /**
     * Base class for all assets used in the engine.
     */
-    let Asset: Asset
+    static Asset: Asset
     
     /**
-    * Used by [Head.setAttachmentPointType()](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Head) to specify the type of attachment used with a Head binding.
+    * Used by {@link Head.setAttachmentPointType} to specify the type of attachment used with a Head binding.
     */
-    let AttachmentPointType: AttachmentPointType
+    static AttachmentPointType: AttachmentPointType
     
     /**
     * The curve that specifies how sound fades with the distance from Audio Component to the Audio Listener.****
     */
-    let Audio_DistanceCurveType: Audio.DistanceCurveType
+    static Audio_DistanceCurveType: Audio.DistanceCurveType
     
     /**
     * The Playback Mode property of the `AudioComponent` used in Lenses targeting Spectacles. Spectacles default all Playback Modes to Low Power.
     
     * @wearableOnly
     */
-    let Audio_PlaybackMode: Audio.PlaybackMode
+    static Audio_PlaybackMode: Audio.PlaybackMode
     
     /**
     * Used to play audio in a Lens.
-    * You can assign an [AudioTrackAsset](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#AudioTrackAsset) to play through script or through the AudioComponent's inspector in Lens Studio.
-    * See the [Playing Audio](https://lensstudio.snapchat.com/guides/audio) guide for more information.
+    * You can assign an {@link AudioTrackAsset} to play through script, or through the Audio Component in the Inspector panel of Lens Studio.
+    
+    * @see [Playing Audio](https://developers.snap.com/lens-studio/features/audio/playing-audio) guide for more information.
+    
     */
-    let AudioComponent: AudioComponent
+    static AudioComponent: AudioComponent
     
     /**
-    * Configures an audio effect for [AudioEffectComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#AudioEffectComponent).
+    * Configures an audio effect for {@link AudioEffectComponent}.
     */
-    let AudioEffectAsset: AudioEffectAsset
+    static AudioEffectAsset: AudioEffectAsset
     
     /**
     * Used to add an audio effect to a Lens.
     * When present in the scene, it will automatically apply the selected audio effect to recordings made with the Lens.
-    * See the [Audio Effect](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/audio/audio-effect) guide for more information.
+    * See the [Audio Effect](https://developers.snap.com/lens-studio/features/audio/audio-effect) guide for more information.
     
     */
-    let AudioEffectComponent: AudioEffectComponent
+    static AudioEffectComponent: AudioEffectComponent
     
     /**
-    * Provider for [AudioEffectAsset](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#AudioEffectAsset).
+    * Provider for {@link AudioEffectAsset}.
     */
-    let AudioEffectProvider: AudioEffectProvider
+    static AudioEffectProvider: AudioEffectProvider
     
     /**
     * A component that receives input from Audio Components that have Spatial Audio enabled. Calculates their positions relative to the scene object it is attached to,and properly mixes them.
     */
-    let AudioListenerComponent: AudioListenerComponent
+    static AudioListenerComponent: AudioListenerComponent
     
     /**
     * Provider of the Audio Output Audio Track asset. 
     */
-    let AudioOutputProvider: AudioOutputProvider
+    static AudioOutputProvider: AudioOutputProvider
     
     /**
     * Represents an audio file asset.
-    * See also: [AudioComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#AudioComponent).
+    * See also: {@link AudioComponent}.
     */
-    let AudioTrackAsset: AudioTrackAsset
+    static AudioTrackAsset: AudioTrackAsset
     
     /**
     * Base class for Audio Track providers.
     */
-    let AudioTrackProvider: AudioTrackProvider
+    static AudioTrackProvider: AudioTrackProvider
     
     /**
     * Cardinal axis enumeration.
     */
-    let Axis: Axis
+    static Axis: Axis
     
     /**
-    * Settings for rendering the background on a [Text](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Text) component.
-    * Accessible through the [Text](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Text) component's `backgroundSettings` property.
+    * Settings for rendering the background on a {@link Text} component.
+    * Accessible through the {@link Text} component's `backgroundSettings` property.
     */
-    let BackgroundSettings: BackgroundSettings
+    static BackgroundSettings: BackgroundSettings
     
     /**
     * Handles encoding and decoding images and textures into Base64 format, commonly used to embed images in JSON or other text-based formats.
     */
-    let Base64: Base64
+    static Base64: Base64
     
     /**
     * The base class for all mesh rendering components.
     * Comparable to the former class "MeshVisual", which was split into the classes:
-    * [BaseMeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#BaseMeshVisual),
-    * [MaterialMeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#MaterialMeshVisual),
-    * and [RenderMeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#RenderMeshVisual).
+    * - {@link BaseMeshVisual}
+    * - {@link MaterialMeshVisual}
+    * - {@link RenderMeshVisual}
     */
-    let BaseMeshVisual: BaseMeshVisual
+    static BaseMeshVisual: BaseMeshVisual
     
     /**
     * Base class for MultiplayerSession options. This class is not used directly - use ConnectedLensSessionOptions instead.
     */
-    let BaseMultiplayerSessionOptions: BaseMultiplayerSessionOptions
+    static BaseMultiplayerSessionOptions: BaseMultiplayerSessionOptions
     
     /**
     * Base class for Input and Output Placeholders used by MLComponent.
     */
-    let BasePlaceholder: BasePlaceholder
+    static BasePlaceholder: BasePlaceholder
     
     /**
     * Provides basic information about a transformation.
-    * See also: [DeviceTracking](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#DeviceTracking)
+    * See also: {@link DeviceTracking}
     */
-    let BasicTransform: BasicTransform
+    static BasicTransform: BasicTransform
     
     /**
     * File based asset.
     */
-    let BinAsset: BinAsset
+    static BinAsset: BinAsset
     
     /**
     * The options used with `requestBitmoji2DResource`.
     */
-    let Bitmoji2DOptions: Bitmoji2DOptions
+    static Bitmoji2DOptions: Bitmoji2DOptions
     
     /**
     * The `DynamicResource` of a 2D Bitmoji which can be loaded with `RemoteMediaModule`.
     */
-    let Bitmoji2DResource: Bitmoji2DResource
+    static Bitmoji2DResource: Bitmoji2DResource
     
     /**
     * The options used with `requestBitmoji3DResource`
     */
-    let Bitmoji3DOptions: Bitmoji3DOptions
+    static Bitmoji3DOptions: Bitmoji3DOptions
     
     /**
     * Provides information about the current user's 3D Bitmoji avatar to be downloaded via the RemoteMediaModule.
     */
-    let Bitmoji3DResource: Bitmoji3DResource
+    static Bitmoji3DResource: Bitmoji3DResource
     
     /**
     * Provides access to getting information about the current user's Bitmoji.
     */
-    let BitmojiModule: BitmojiModule
+    static BitmojiModule: BitmojiModule
     
-    let BlendMode: BlendMode
+    static BlendMode: BlendMode
     
     /**
+    * Represents a blob, which is a file-like object of immutable, raw data. Can be read as text or binary data. Currently the binary data is only supported as `Uint8Array`.
+    
     * @wearableOnly
     */
-    let Blob: Blob
+    static Blob: Blob
     
     /**
     * Used to analyze the camera input and apply similar image artifacts to your AR objects in order to allow it to blend and match the real world better.
     */
-    let BlurNoiseEstimation: BlurNoiseEstimation
+    static BlurNoiseEstimation: BlurNoiseEstimation
     
     /**
     * Derived from ColliderComponent, attaching this to a SceneObject turns it into a dynamic rigid-body that is automatically moved by the physics simulation in response to gravity, collisions, and other forces.
     */
-    let BodyComponent: BodyComponent
+    static BodyComponent: BodyComponent
     
     /**
     * Provides depth values of the tracked body encoded as D24_UNORM_S8_UINT in screen resolution. Depth is normalized between 0-1, and the stencil component is ignored. The values may be remapped from normalized units (0 to 1) to negative centimeters from the camera (-near in cm to -far in cm) using the `Depth Map` mode of the `Texture 2D Sample` node in Material Editor.
     
     */
-    let BodyDepthTextureProvider: BodyDepthTextureProvider
+    static BodyDepthTextureProvider: BodyDepthTextureProvider
+    
+    /**
+    * Provides segmentation confidence values encoded in the `R` channel. The texture has the {@link Colorspace#RGBA} format in screen resolution, but `G`, `B`, `A` channels should be ignored. 
+    */
+    static BodyInstanceSegmentationTextureProvider: BodyInstanceSegmentationTextureProvider
     
     /**
     * Provides surface normal values of the tracked body encoded as RGBA (x, y, z, confidence) in `R8G8B8A8_UNORM` format in screen resolution. The XYZ values may need to be remapped from [0 -> 1] to [-1 -> 1] using the "Normal Map" mode of the `Texture 2D Sample` node in Material Editor.
     */
-    let BodyNormalsTextureProvider: BodyNormalsTextureProvider
+    static BodyNormalsTextureProvider: BodyNormalsTextureProvider
     
     /**
     * Provider for full Body Mesh render object.
     */
-    let BodyRenderObjectProvider: BodyRenderObjectProvider
+    static BodyRenderObjectProvider: BodyRenderObjectProvider
     
     /**
-    * Asset used to configure Body Tracking for the [ObjectTracking3D](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ObjectTracking3D) component.
+    * Asset used to configure Body Tracking for the {@link ObjectTracking3D} component.
     */
-    let BodyTrackingAsset: BodyTrackingAsset
+    static BodyTrackingAsset: BodyTrackingAsset
     
     /**
     * A box collision shape.
     */
-    let BoxShape: BoxShape
+    static BoxShape: BoxShape
     
     /**
     * Triggered when eyebrows are lowered on the tracked face.
     */
-    let BrowsLoweredEvent: BrowsLoweredEvent
+    static BrowsLoweredEvent: BrowsLoweredEvent
     
     /**
     * Triggered when eyebrows are raised on the tracked face.
     */
-    let BrowsRaisedEvent: BrowsRaisedEvent
+    static BrowsRaisedEvent: BrowsRaisedEvent
     
     /**
     * Triggered when eyebrows are returned to normal on the tracked face.
     */
-    let BrowsReturnedToNormalEvent: BrowsReturnedToNormalEvent
+    static BrowsReturnedToNormalEvent: BrowsReturnedToNormalEvent
     
     /**
     * Renders the scene to a Render Target texture.
     * A Camera will only render a SceneObject if the SceneObject's render layer is enabled on the Camera.
-    * For more information, see the [Camera and Layers](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/scene-set-up/camera) guide.
+    * For more information, see the [Camera and Layers](https://developers.snap.com/lens-studio/lens-studio-workflow/scene-set-up/camera) guide.
     */
-    let Camera: Camera
+    static Camera: Camera
     
     /**
     * The base class from which ColorRenderTarget and DepthStencilRenderTarget are derived from
     */
-    let Camera_BaseRenderTarget: Camera.BaseRenderTarget
+    static Camera_BaseRenderTarget: Camera.BaseRenderTarget
     
     /**
     * Color based RenderTarget.
     */
-    let Camera_ColorRenderTarget: Camera.ColorRenderTarget
+    static Camera_ColorRenderTarget: Camera.ColorRenderTarget
     
     /**
     * Different faces of the cubemap that a camera can render into.
     */
-    let Camera_CubemapFace: Camera.CubemapFace
+    static Camera_CubemapFace: Camera.CubemapFace
     
     /**
-    * Used in [Camera's](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Camera) `depthBufferMode` property.
+    * Used in {@link Camera}'s `depthBufferMode` property.
     * Each mode is suited for handling objects at a certain distance range.
-    * For more information on depth modes, see the [Camera and Layers](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/scene-set-up/camera) guide.
+    * For more information on depth modes, see the [Camera and Layers](https://developers.snap.com/lens-studio/lens-studio-workflow/scene-set-up/camera) guide.
     */
-    let Camera_DepthBufferMode: Camera.DepthBufferMode
+    static Camera_DepthBufferMode: Camera.DepthBufferMode
     
     /**
     * This class inherits from the BaseRenderTarget class. BaseRenderTarget class is not available for creation and is used like the base class for DepthStencilRenderTarget class to provide access to targetTexture, inputTexture and maskTexture properties.
     */
-    let Camera_DepthStencilRenderTarget: Camera.DepthStencilRenderTarget
+    static Camera_DepthStencilRenderTarget: Camera.DepthStencilRenderTarget
     
     /**
-    * Used in [Camera's](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Camera) `devicePropertyUsage` property.
+    * Used in {@link Camera}'s `devicePropertyUsage` property.
     * Specifies which camera properties should be overridden by device properties.
     */
-    let Camera_DeviceProperty: Camera.DeviceProperty
+    static Camera_DeviceProperty: Camera.DeviceProperty
     
     /**
-    * Returned from [Camera's](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Camera) `type` property.
+    * Returned from {@link Camera}'s `type` property.
     */
-    let Camera_Type: Camera.Type
+    static Camera_Type: Camera.Type
     
     /**
     * Triggered when the device's back facing camera becomes active.
     */
-    let CameraBackEvent: CameraBackEvent
+    static CameraBackEvent: CameraBackEvent
     
     /**
     * An entity which provided metadata about the current camera image provided by CameraTextureProvider. Modeled after VideoFrame web API
@@ -18943,12 +19467,12 @@ declare namespace _palette {
     
     * @wearableOnly
     */
-    let CameraFrame: CameraFrame
+    static CameraFrame: CameraFrame
     
     /**
     * Triggered when the device's front facing camera becomes active.
     */
-    let CameraFrontEvent: CameraFrontEvent
+    static CameraFrontEvent: CameraFrontEvent
     
     /**
     * Provides access to the requested camera. Useful for requesting a specific camera on spectacles or requesting images from both cameras simultaneously. 
@@ -18959,7 +19483,7 @@ declare namespace _palette {
     
     * @wearableOnly
     */
-    let CameraModule: CameraModule
+    static CameraModule: CameraModule
     
     /**
     * A handle to specify which camera on the Spectacles to request from. Used with `CameraModule.createCameraRequest`.
@@ -18970,7 +19494,7 @@ declare namespace _palette {
     
     * @wearableOnly
     */
-    let CameraModule_CameraId: CameraModule.CameraId
+    static CameraModule_CameraId: CameraModule.CameraId
     
     /**
     * An object that is used to request the desired camera ID. It should be passed to the CameraModule to get back a camera texture.
@@ -18981,313 +19505,315 @@ declare namespace _palette {
     
     * @wearableOnly
     */
-    let CameraModule_CameraRequest: CameraModule.CameraRequest
+    static CameraModule_CameraRequest: CameraModule.CameraRequest
     
-    let CameraTextureProvider: CameraTextureProvider
+    static CameraTextureProvider: CameraTextureProvider
     
     /**
     * A 2D canvas anchored in 3D space that acts as the root of the ScreenTransform hierarchy. ScreenTransform SceneObjects can be placed on the Canvas, and the Canvas can be sized and placed anywhere in 3D space. It is like a painter’s canvas for ScreenTransforms.
     */
-    let Canvas: Canvas
+    static Canvas: Canvas
     
     /**
     * Used by Canvas to set how an object is sorted during rendering.
     */
-    let Canvas_SortingType: Canvas.SortingType
+    static Canvas_SortingType: Canvas.SortingType
     
     /**
     * Used by Canvas to set how an object is positioned.
     */
-    let Canvas_UnitType: Canvas.UnitType
+    static Canvas_UnitType: Canvas.UnitType
     
     /**
     * Changes the capitalization of the text component. Useful when using dynamic texts.
     */
-    let CapitilizationOverride: CapitilizationOverride
+    static CapitilizationOverride: CapitilizationOverride
     
     /**
     * A capsule collision shape. Also known as a capped cylinder.
     */
-    let CapsuleShape: CapsuleShape
+    static CapsuleShape: CapsuleShape
     
     /**
     * Settings for how color will be cleared before rendering.
     */
-    let ClearColorOption: ClearColorOption
+    static ClearColorOption: ClearColorOption
     
     /**
     * Clears depth in the drawing order.
     */
-    let ClearDepth: ClearDepth
+    static ClearDepth: ClearDepth
     
     /**
     * Handles the mesh data of cloth and prepares it for cloth simulation. Also controls all the parameters of the cloth simulator and colliders.
     */
-    let ClothVisual: ClothVisual
+    static ClothVisual: ClothVisual
     
     /**
     * Cloth bend mode to use for cloth simulation.
     */
-    let ClothVisual_BendMode: ClothVisual.BendMode
+    static ClothVisual_BendMode: ClothVisual.BendMode
     
     /**
     * Options associated with the listValues method call.
     */
-    let CloudStorageListOptions: CloudStorageListOptions
+    static CloudStorageListOptions: CloudStorageListOptions
     
     /**
     * Provides access to Cloud Storage.
     */
-    let CloudStorageModule: CloudStorageModule
+    static CloudStorageModule: CloudStorageModule
     
     /**
     * Used to configure `Cloud Storage Module` with various options. Note: if `session` scoped storage is required, this option must be provided.
     
     */
-    let CloudStorageOptions: CloudStorageOptions
+    static CloudStorageOptions: CloudStorageOptions
     
     /**
     * Options associated with the getValue/deleteValue methods for Cloud Storage.
     */
-    let CloudStorageReadOptions: CloudStorageReadOptions
+    static CloudStorageReadOptions: CloudStorageReadOptions
     
     /**
     * Options associated with the setValue method for Cloud Storage.
     */
-    let CloudStorageWriteOptions: CloudStorageWriteOptions
+    static CloudStorageWriteOptions: CloudStorageWriteOptions
     
     /**
     * An instance of Cloud Storage that can store data in a multiplayer experience.
     */
-    let CloudStore: CloudStore
+    static CloudStore: CloudStore
     
     /**
-    * Collider used by the [Hair Visual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#HairVisual) for its simulation.
+    * Collider used by the {@link HairVisual} for its simulation.
     */
-    let ColliderComponent: ColliderComponent
+    static ColliderComponent: ColliderComponent
     
     /**
     * A state generated for ColliderComponent collision events.
     */
-    let Collision: Collision
+    static Collision: Collision
     
     /**
-    * Args used for [ColliderComponent.onCollisionEnter](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ColliderComponent), which is triggered when a collision begins.
+    * Args used for {@link ColliderComponent.onCollisionEnter}, which is triggered when a collision begins.
     */
-    let CollisionEnterEventArgs: CollisionEnterEventArgs
+    static CollisionEnterEventArgs: CollisionEnterEventArgs
     
     /**
-    * Args used for [ColliderComponent.onCollisionExit](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ColliderComponent), which is triggered when a collision ends.
+    * Args used for {@link ColliderComponent.onCollisionExit}, which is triggered when a collision ends.
     */
-    let CollisionExitEventArgs: CollisionExitEventArgs
+    static CollisionExitEventArgs: CollisionExitEventArgs
     
-    let CollisionMesh: CollisionMesh
+    static CollisionMesh: CollisionMesh
     
     /**
-    * Args used for [ColliderComponent.onCollisionStay](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ColliderComponent), which is triggered every frame while a collision continues.
+    * Args used for {@link ColliderComponent.onCollisionStay}, which is triggered every frame while a collision continues.
     */
-    let CollisionStayEventArgs: CollisionStayEventArgs
+    static CollisionStayEventArgs: CollisionStayEventArgs
     
     /**
     * Not usable from JS. Accessed via the Colocated Landmarks 2D Mesh resource. Contains the 2D keypoints when creating a Colocated map. Expanded by the material provided with template.
     */
-    let ColocatedLandmarks2DRenderObjectProvider: ColocatedLandmarks2DRenderObjectProvider
+    static ColocatedLandmarks2DRenderObjectProvider: ColocatedLandmarks2DRenderObjectProvider
     
     /**
     * Not usable from JS. Accessed via the Colocated Landmarks 3D Mesh resource. Contains the 3D landmarks when creating a Colocated map. Expanded by the material provided with template.
     */
-    let ColocatedLandmarks3DRenderObjectProvider: ColocatedLandmarks3DRenderObjectProvider
+    static ColocatedLandmarks3DRenderObjectProvider: ColocatedLandmarks3DRenderObjectProvider
     
-    let ColocatedLandmarksRenderObjectProviderBase: ColocatedLandmarksRenderObjectProviderBase
+    static ColocatedLandmarksRenderObjectProviderBase: ColocatedLandmarksRenderObjectProviderBase
     
     /**
     * Creates Colocated Connected Lenses experiences by enabling the creation and tracking of a shared space which can be used to place several users in the same coordinate frame. This shared space will be made available and can be tracked by any friend you invite to join your session via Snapcode. Users are expected to be located in the same room when using the colocated feature. This component needs to be attached to the camera. 
     */
-    let ColocatedTrackingComponent: ColocatedTrackingComponent
+    static ColocatedTrackingComponent: ColocatedTrackingComponent
     
     /**
     * Data type used for color values.
     */
-    let Colorspace: Colorspace
+    static Colorspace: Colorspace
     
     /**
-    * The base class for all components.  Components are attached to [SceneObjects](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#SceneObject).
+    * The base class for all components.  Components are attached to {@link SceneObject}.
     */
-    let Component: Component
+    static Component: Component
     
     /**
     * Enum used to define the quality of image or texture compression. Higher quality typically results in larger file sizes. Used with Base64.
     */
-    let CompressionQuality: CompressionQuality
+    static CompressionQuality: CompressionQuality
     
     /**
     * A cone collision shape.
     */
-    let ConeShape: ConeShape
+    static ConeShape: ConeShape
     
     /**
     * Event fired when the "Launch connected lens" button was pressed. Wait for this event to be triggered before creating a session, as having this event gaurantees the user has accepted the necessary disclosures to use a connected lens experience.
     */
-    let ConnectedLensEnteredEvent: ConnectedLensEnteredEvent
+    static ConnectedLensEnteredEvent: ConnectedLensEnteredEvent
     
     /**
     * Connected Lenses Module allows use of networked Lens communication capabilities (real-time communication, co-located session creation and joining, and shared persistent storage). It's recommended to only use one ConnectedLensModule per Lens.
     */
-    let ConnectedLensModule: ConnectedLensModule
+    static ConnectedLensModule: ConnectedLensModule
     
     /**
     * Information that is bootstrapped to the user who just connected to the session.
     */
-    let ConnectedLensModule_ConnectionInfo: ConnectedLensModule.ConnectionInfo
+    static ConnectedLensModule_ConnectionInfo: ConnectedLensModule.ConnectionInfo
     
     /**
     * Information about the host update.
     */
-    let ConnectedLensModule_HostUpdateInfo: ConnectedLensModule.HostUpdateInfo
+    static ConnectedLensModule_HostUpdateInfo: ConnectedLensModule.HostUpdateInfo
     
     /**
     * Provides extra context about a RealtimeStore's creation.
     */
-    let ConnectedLensModule_RealtimeStoreCreationInfo: ConnectedLensModule.RealtimeStoreCreationInfo
+    static ConnectedLensModule_RealtimeStoreCreationInfo: ConnectedLensModule.RealtimeStoreCreationInfo
     
     /**
     * Gives information about the Realtime Store delete operation. 
     */
-    let ConnectedLensModule_RealtimeStoreDeleteInfo: ConnectedLensModule.RealtimeStoreDeleteInfo
+    static ConnectedLensModule_RealtimeStoreDeleteInfo: ConnectedLensModule.RealtimeStoreDeleteInfo
     
     /**
     * Provides information about a key being removed from a RealtimeStore.
     */
-    let ConnectedLensModule_RealtimeStoreKeyRemovalInfo: ConnectedLensModule.RealtimeStoreKeyRemovalInfo
+    static ConnectedLensModule_RealtimeStoreKeyRemovalInfo: ConnectedLensModule.RealtimeStoreKeyRemovalInfo
     
     /**
     * Provides information about a RealtimeStore's ownership being updated.
     */
-    let ConnectedLensModule_RealtimeStoreOwnershipUpdateInfo: ConnectedLensModule.RealtimeStoreOwnershipUpdateInfo
+    static ConnectedLensModule_RealtimeStoreOwnershipUpdateInfo: ConnectedLensModule.RealtimeStoreOwnershipUpdateInfo
     
     /**
     * Gives information about the Realtime Store update operation.
     */
-    let ConnectedLensModule_RealtimeStoreUpdateInfo: ConnectedLensModule.RealtimeStoreUpdateInfo
+    static ConnectedLensModule_RealtimeStoreUpdateInfo: ConnectedLensModule.RealtimeStoreUpdateInfo
     
     /**
-    * Used by ConnectedLensesModule to specify the session share type.
+    * Used by ConnectedLensModule to specify the session share type.
     */
-    let ConnectedLensModule_SessionShareType: ConnectedLensModule.SessionShareType
+    static ConnectedLensModule_SessionShareType: ConnectedLensModule.SessionShareType
     
     /**
     * Provides information about a user in a Connected Lens session.
     */
-    let ConnectedLensModule_UserInfo: ConnectedLensModule.UserInfo
+    static ConnectedLensModule_UserInfo: ConnectedLensModule.UserInfo
     
     /**
     * Settings for configuring a Connected Lens session.
     */
-    let ConnectedLensSessionOptions: ConnectedLensSessionOptions
+    static ConnectedLensSessionOptions: ConnectedLensSessionOptions
     
     /**
     * Type of the created Connected Lens session.
     */
-    let ConnectedLensSessionOptions_SessionCreationType: ConnectedLensSessionOptions.SessionCreationType
+    static ConnectedLensSessionOptions_SessionCreationType: ConnectedLensSessionOptions.SessionCreationType
     
     /**
     * Constraints body motion in configurable ways, for simulating physical objects such as joints and hinges.
     */
-    let Constraint: Constraint
+    static Constraint: Constraint
     
     /**
     * Used to apply a constraint to an object.
     */
-    let ConstraintComponent: ConstraintComponent
+    static ConstraintComponent: ConstraintComponent
     
     /**
-    * Contact point between two colliding objects.  See also: [ColliderComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ColliderComponent), [CollisionEnterEventArgs](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#CollisionEnterEventArgs), [CollisionExitEventArgs](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#CollisionExitEventArgs), [CollisionStayEventArgs](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#CollisionStayEventArgs).
+    * Contact point between two colliding objects.  
+    
+    * @see {@link ColliderComponent}
+    * @see {@link CollisionEnterEventArgs}
+    * @see {@link CollisionExitEventArgs}
+    
     */
-    let Contact: Contact
+    static Contact: Contact
     
     /**
     * Base class for Texture Providers that crop an input texture.
     */
-    let CropTextureProvider: CropTextureProvider
+    static CropTextureProvider: CropTextureProvider
     
     /**
-    * Used with [Pass's](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#Pass) `cullMode` property.
+    * Used with {@link Pass}'s `cullMode` property.
     * Determines which faces of a surface are culled (not rendered).
     */
-    let CullMode: CullMode
+    static CullMode: CullMode
     
     /**
     * A cylinder collision shape.
     */
-    let CylinderShape: CylinderShape
+    static CylinderShape: CylinderShape
     
-    let DeformingCollisionMesh: DeformingCollisionMesh
+    static DeformingCollisionMesh: DeformingCollisionMesh
     
     /**
     * Creates a buffer for the audio data.
     */
-    let Delay: Delay
+    static Delay: Delay
     
     /**
     * Builder class for the Delay.
     */
-    let DelayBuilder: DelayBuilder
+    static DelayBuilder: DelayBuilder
     
     /**
     * An event that gets triggered after a delay.
     */
-    let DelayedCallbackEvent: DelayedCallbackEvent
+    static DelayedCallbackEvent: DelayedCallbackEvent
     
     /**
     * Local estimate of the derivative of the input data along the selected axis. Outputs the derivative of the input features along the window.
     */
-    let Delta: Delta
+    static Delta: Delta
     
     /**
     * Builder class for Delta.
     */
-    let DeltaBuilder: DeltaBuilder
+    static DeltaBuilder: DeltaBuilder
     
     /**
     * Settings for the depth clear option modes on a DepthStencilRenderTargetProvider.
     */
-    let DepthClearOption: DepthClearOption
+    static DepthClearOption: DepthClearOption
     
     /**
     * Writes video feed depth information to the depth buffer, which automatically sets up depth occlusion for 3D visuals.
-    * Only works in some cases, such as in Lenses for Spectacles 3.
-    * See the [Lenses for Spectacles guide](https://lensstudio.snapchat.com/lens-studio/references/guides/distributing/spectacles/spectacles-3/lenses-for-spectacles-3) for more information.
+    * Only works in some cases where depth information is supplied by the device.
     */
-    let DepthSetter: DepthSetter
+    static DepthSetter: DepthSetter
     
     /**
     * Access to a Depth Stencil Render Target that can output depth and stencil values from a Camera in Depth24/Stencil8 format.
     */
-    let DepthStencilRenderTargetProvider: DepthStencilRenderTargetProvider
+    static DepthStencilRenderTargetProvider: DepthStencilRenderTargetProvider
     
     /**
-    * Provides depth information of the video feed that the Lens is being applied to when available, such as in Lenses for Spectacles 3.
+    * Provides depth information of the video feed that the Lens is being applied to when available.
     * Can be accessed from `mainPass.baseTex.control` of a Spectacles Depth material.
-    
-    * See the [Lenses for Spectacles guide](https://lensstudio.snapchat.com/lens-studio/references/guides/distributing/spectacles/spectacles-2021/lenses-for-spectacles) for more information.
     */
-    let DepthTextureProvider: DepthTextureProvider
+    static DepthTextureProvider: DepthTextureProvider
     
     /**
     * Provides information about the device's camera.
     */
-    let DeviceCamera: DeviceCamera
+    static DeviceCamera: DeviceCamera
     
     /**
     * Provides information about the device running the Lens. Accessible through `global.deviceInfoSystem`.
     */
-    let DeviceInfoSystem: DeviceInfoSystem
+    static DeviceInfoSystem: DeviceInfoSystem
     
     /**
     * Used to track a landmarker in the camera. Moves the SceneObject's transform to match the detected landmarker scene.
-    * See the [Landmarker guide](https://lensstudio.snapchat.com/templates/landmarker) for more information.
+    * See the [Landmarker guide](https://developers.snap.com/lens-studio/features/location-ar/guide) for more information.
     */
-    let DeviceLocationTrackingComponent: DeviceLocationTrackingComponent
+    static DeviceLocationTrackingComponent: DeviceLocationTrackingComponent
     
     /**
     * Moves or rotates the SceneObject to match device orientation.
@@ -19295,278 +19821,314 @@ declare namespace _palette {
     * If using "Surface" tracking mode, adding this to a SceneObject enables surface tracking for the scene, and moves the
     * object to a position and rotation that matches the physical camera's pose in the world. Surface tracking can also be enhanced
     * with native AR by enabling the "Use Native AR" option in the Inspector panel, or through script by setting the
-    * component's [`surfaceOptions.enhanceWithNativeAR`](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#SurfaceOptions) property.
+    * component's {@link SurfaceOptions.enhanceWithNativeAR} property.
     
     * If using "Rotation" tracking mode, adding this to a SceneObject will apply the device's real world rotation to the object.
     
     * If using "World" tracking mode, adding this to a SceneObject enables native AR tracking for the scene, and moves the
     * object to a position and rotation that matches the physical camera's pose in the world.
     
-    * See the [Tracking Modes](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/tracking/world/tracking-modes) guide for more information.
+    * See the [Tracking Modes](https://developers.snap.com/lens-studio/features/ar-tracking/world/tracking-modes) guide for more information.
     
     **Note:** This component was named "WorldTracking" in previous versions of Lens Studio.
     */
-    let DeviceTracking: DeviceTracking
+    static DeviceTracking: DeviceTracking
     
     /**
-    * Tracking modes used by the [DeviceTracking](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#DeviceTracking) component to specify what type of tracking to use.
+    * Tracking modes used by the {@link DeviceTracking} component to specify what type of tracking to use.
     */
-    let DeviceTrackingMode: DeviceTrackingMode
+    static DeviceTrackingMode: DeviceTrackingMode
     
     /**
     * The module that provides `DeviceTracking` component.
     */
-    let DeviceTrackingModule: DeviceTrackingModule
+    static DeviceTrackingModule: DeviceTrackingModule
     
     /**
     * Provides answer information in response to `DialogModule.askQuestions()`.
     */
-    let Dialog_Answer: Dialog.Answer
+    static Dialog_Answer: Dialog.Answer
     
-    let DialogModule: DialogModule
+    static DialogModule: DialogModule
     
     /**
-    * An Audio Component effect that simulates sound attenuation based on the orientation of the transform relative to the [AudioListenerComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#AudioListenerComponent). 
+    * An Audio Component effect that simulates sound attenuation based on the orientation of the transform relative to the {@link AudioListenerComponent}. 
     */
-    let DirectivityEffect: DirectivityEffect
+    static DirectivityEffect: DirectivityEffect
     
-    let DirectMultiplayerSessionOptions: DirectMultiplayerSessionOptions
+    static DirectMultiplayerSessionOptions: DirectMultiplayerSessionOptions
     
     /**
-    * An audio effect that simulates sound attenuation based on the distance between the Audio and the [AudioListenerComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#AudioListenerComponent). 
+    * An audio effect that simulates sound attenuation based on the distance between the Audio and the {@link AudioListenerComponent}. 
     */
-    let DistanceEffect: DistanceEffect
+    static DistanceEffect: DistanceEffect
+    
+    static DomainInfo: DomainInfo
     
     /**
-    * Used in [Text's](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Text) `dropShadowSettings` property.
+    * Used in {@link Text}'s `dropShadowSettings` property.
     * Configures how dropshadow will appear on a Text component.
     */
-    let DropshadowSettings: DropshadowSettings
+    static DropshadowSettings: DropshadowSettings
     
     /**
     * A resource that is resolved at runtime.
     */
-    let DynamicResource: DynamicResource
+    static DynamicResource: DynamicResource
     
     /**
     * Specifies the format for encoding textures, used with Base64.
     */
-    let EncodingType: EncodingType
+    static EncodingType: EncodingType
     
-    let EventRegistration: EventRegistration
+    static EventRegistration: EventRegistration
     
     /**
     * Expression names used with `FaceRenderObjectProvider.getExpressionWeightByName()`
     * and returned by `FaceRenderObjectProvider.getExpressionNames()`.
     */
-    let Expressions: Expressions
+    static Expressions: Expressions
+    
+    /**
+    * Information about an external music track. Accessible through {@link ExternalMusicModule#getExternalMusicInfo | ExternalMusicModule.getExternalMusicInfo()}.
+    */
+    static ExternalMusicInfo: ExternalMusicInfo
+    
+    /**
+    * Provides an interface to the `ExternalMusic` feature, and opts the Lens into using the feature when present in the scene.
+    
+    * When this module is present in a scene, an unbundled and licensed AudioTrack asset must be present in the scene as well. This means the Lens developer should:
+    
+    * 1. Import a licensed music track from the Asset Library
+    * 2. On the imported audio asset, make sure `Bundled` is disabled
+    * 3. Reference the audio asset somewhere in the scene (for example, `@input audioAsset: AudioTrackAsset`)
+    
+    * When this module is present in a Lens, the client running the Lens (either Snapchat or Lens Studio) will automatically fetch and auto-play the licensed music track included in the Lens. 
+    
+    * This provides the benefits of:
+    * - The music file is not included in the lens, leading to smaller lens size
+    * - Special features like {@link LyricsTracker | Lyrics} may be available to the Lens, depending on the audio track
+    * - On Snapchat, a user can use the built-in music tool to adjust the music the Lens is using, and the Lens can react to that change
+    
+    * This also adds the following limitations, some of which are due to the inclusion of Licensed Audio Tracks:
+    * - The Lens cannot control or affect music playback, since it's controlled externally by the user.
+    * - The Lens must contain a single, unbundled Licensed Audio track. The Lens is not able to play it or any other audio through local methods, such as AudioComponent.
+    * - If device location is not available, or the track is not available in the user’s country, the sound in the Lens will be muted. The user will have an ability to remove or replace unavailable tracks.
+    * - The final audio will be mixed directly into the Lens.
+    */
+    static ExternalMusicModule: ExternalMusicModule
     
     /**
     * Applies an eye color effect to a face.
     */
-    let EyeColorVisual: EyeColorVisual
+    static EyeColorVisual: EyeColorVisual
     
     /**
     * Texture Provider giving a cropped region of the input texture, calculated based on face position.
     * Can be accessed using `Texture.control` on a FaceCropTexture asset.
-    * For more information, see the [Crop Textures](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/machine-learning/ml-component/crop-textures#crop-textures) guide.
+    * For more information, see the [Crop Textures](https://developers.snap.com/lens-studio/features/snap-ml/ml-component/crop-textures) guide.
     */
-    let FaceCropTextureProvider: FaceCropTextureProvider
+    static FaceCropTextureProvider: FaceCropTextureProvider
     
     /**
     * Triggered when a new face is detected and starts being tracked.
     */
-    let FaceFoundEvent: FaceFoundEvent
+    static FaceFoundEvent: FaceFoundEvent
     
     /**
-    * Used with [FaceInsetVisual.faceRegion](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#FaceInsetVisual) for setting the face region to draw.
+    * Used with {@link FaceInsetVisual.faceRegion} for setting the face region to draw.
     */
-    let FaceInsetRegion: FaceInsetRegion
+    static FaceInsetRegion: FaceInsetRegion
     
     /**
     * Draws a section of a tracked face.
     */
-    let FaceInsetVisual: FaceInsetVisual
+    static FaceInsetVisual: FaceInsetVisual
     
     /**
     * Triggered when a face can no longer be tracked.  For example, if a face gets blocked from the camera's view, or gets too far away.
     */
-    let FaceLostEvent: FaceLostEvent
+    static FaceLostEvent: FaceLostEvent
     
     /**
-    * Applies a face mask effect. See the [Face Mask Guide](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/tracking/face/face-effects/face-mask) for more information.
+    * Applies a face mask effect. See the [Face Mask Guide](https://developers.snap.com/lens-studio/features/ar-tracking/face/face-mask) for more information.
     */
-    let FaceMaskVisual: FaceMaskVisual
+    static FaceMaskVisual: FaceMaskVisual
     
     /**
     * Mesh provider for a Face Mesh. Accessible through the `control` property on a Face Mesh `RenderMesh`.
     */
-    let FaceRenderObjectProvider: FaceRenderObjectProvider
+    static FaceRenderObjectProvider: FaceRenderObjectProvider
     
     /**
     * Applies a face stretch effect.
     * Face stretch features can be added to a FaceStretchVisual through the Inspector panel in Lens Studio.
-    * See the [Face Stretch Guide](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/tracking/face/face-effects/face-stretch) for more information.
+    * See the [Face Stretch Guide](https://developers.snap.com/lens-studio/features/ar-tracking/face/face-stretch) for more information.
     */
-    let FaceStretchVisual: FaceStretchVisual
+    static FaceStretchVisual: FaceStretchVisual
     
     /**
     * TextureProvider for face textures.
-    * See the [Face Texture Guide](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/tracking/face/face-effects/face-texture) for more information.
-    * Can be accessed using [Texture.control](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Texture#control-textureprovider) on a face texture asset.
+    * See the [Face Texture Guide](https://developers.snap.com/lens-studio/features/ar-tracking/face/face-texture) for more information.
+    * Can be accessed using {@link Texture | Texture.control} on a face texture asset.
     */
-    let FaceTextureProvider: FaceTextureProvider
+    static FaceTextureProvider: FaceTextureProvider
     
     /**
     * This is the base class for all face tracking events. This event won't actually get triggered itself, so use one of the child classes instead.
     */
-    let FaceTrackingEvent: FaceTrackingEvent
+    static FaceTrackingEvent: FaceTrackingEvent
     
     /**
     * Provider for file based Audio Tracks.
     */
-    let FileAudioTrackProvider: FileAudioTrackProvider
+    static FileAudioTrackProvider: FileAudioTrackProvider
     
     /**
     * A file track provider of the Licensed Sounds from Asset LIbrary.
     */
-    let FileLicensedSoundProvider: FileLicensedSoundProvider
+    static FileLicensedSoundProvider: FileLicensedSoundProvider
     
     /**
-    * A [TextureProvider](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#TextureProvider) for textures originating from files.
+    * A {@link TextureProvider} for textures originating from files.
     */
-    let FileTextureProvider: FileTextureProvider
+    static FileTextureProvider: FileTextureProvider
     
     /**
-    * Intersection filter settings. Unifies settings for world probes and collider overlap tests.   See also: [ColliderComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ColliderComponent), [Physics](https://lensstudio.snapchat.com/api/lens-studio/Classes/OtherClasses#Physics).
+    * Intersection filter settings. Unifies settings for world probes and collider overlap tests. 
+    
+    * @see {@link ColliderComponent}
+    * @see {@link Physics}
     */
-    let Filter: Filter
+    static Filter: Filter
     
-    let FilteringMode: FilteringMode
+    static FilteringMode: FilteringMode
     
-    let FixedCollisionMesh: FixedCollisionMesh
+    static FixedCollisionMesh: FixedCollisionMesh
     
     /**
-    * Fully constrain rotation and translation.  See also: [ConstraintComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ConstraintComponent).
+    * Fully constrain rotation and translation.  
+    
+    * @see {@link ConstraintComponent}.
     */
-    let FixedConstraint: FixedConstraint
+    static FixedConstraint: FixedConstraint
     
     /**
     * Arguments used with the `InteractionComponent.onFocusEnd` event.
     */
-    let FocusEndEventArgs: FocusEndEventArgs
+    static FocusEndEventArgs: FocusEndEventArgs
     
     /**
     * Arguments used with the `InteractionComponent.onFocusStart` event.
     */
-    let FocusStartEventArgs: FocusStartEventArgs
+    static FocusStartEventArgs: FocusStartEventArgs
     
     /**
     * A font asset used for rendering text.
-    * Used by [Text](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Text).
-    * For more information, see the [Text guide](https://lensstudio.snapchat.com/lens-studio/references/guides/adding-content/text/2d-text).
+    * Used by {@link Text}.
+    * For more information, see the [Text guide](https://developers.snap.com/lens-studio/features/text/2d-text).
     */
-    let Font: Font
+    static Font: Font
     
     /**
     * Mode for setting frustum culling on Pass
     */
-    let FrustumCullMode: FrustumCullMode
+    static FrustumCullMode: FrustumCullMode
     
     /**
     * Asset that contains Gaussian Splats. Used with `GaussianSplattingVisual`.
     */
-    let GaussianSplattingAsset: GaussianSplattingAsset
+    static GaussianSplattingAsset: GaussianSplattingAsset
     
     /**
     * Renders Gaussian Splats.
     */
-    let GaussianSplattingVisual: GaussianSplattingVisual
+    static GaussianSplattingVisual: GaussianSplattingVisual
     
     /**
     * Class for storing and retrieving data based on keys.
-    * Used by [PersistentStorageSystem](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#PersistentStorageSystem).
-    * For more information, see the [Persistent Storage guide](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/adding-interactivity/persistent-storage).
+    * Used by {@link PersistentStorageSystem}.
+    * For more information, see the [Persistent Storage guide](https://developers.snap.com/lens-studio/features/persistent-cloud-storage/persistent-storage).
     */
-    let GeneralDataStore: GeneralDataStore
+    static GeneralDataStore: GeneralDataStore
     
     /**
     * Namespace for location functionality.
     */
-    let GeoLocation: GeoLocation
+    static GeoLocation: GeoLocation
     
     /**
     * Enumeration of supported GPS location accuracy.
     */
-    let GeoLocationAccuracy: GeoLocationAccuracy
+    static GeoLocationAccuracy: GeoLocationAccuracy
     
     /**
     * The location of the device.
     */
-    let GeoPosition: GeoPosition
+    static GeoPosition: GeoPosition
     
     /**
     * Detects gestures made by the hand using an ML algorithm.
     
     * @wearableOnly
     */
-    let GestureModule: GestureModule
+    static GestureModule: GestureModule
     
     /**
     * The hand used in gesture detection with `GestureModule`.
     
     * @wearableOnly
     */
-    let GestureModule_HandType: GestureModule.HandType
+    static GestureModule_HandType: GestureModule.HandType
     
     /**
     * Represents a GLTF 3D Model.
     */
-    let GltfAsset: GltfAsset
+    static GltfAsset: GltfAsset
     
     /**
     * Settings for importing a glTF Asset.
-    * Use this with [GltfAsset](https://lensstudio.snapchat.com/api/classes/GltfAsset) component's `tryInstantiateWithSetting` method.
+    * Use this with {@link GltfAsset} component's `tryInstantiateWithSetting` method.
     */
-    let GltfSettings: GltfSettings
+    static GltfSettings: GltfSettings
     
     /**
-    * Hair asset converted from an FBX containing splines to be used with [Hair Visual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#HairVisual).
+    * Hair asset converted from an FBX containing splines to be used with {@link HairVisual}.
     */
-    let HairDataAsset: HairDataAsset
+    static HairDataAsset: HairDataAsset
     
     /**
     * Component that renders hair simulation.
     */
-    let HairVisual: HairVisual
+    static HairVisual: HairVisual
     
     /**
     * Provides additional data for the tracked hand. You can figure out whether the tracked hand is the left hand by accessing the *isLeft* property [true/false], as well as the probability of this data through the  *isLeftProbability*  property [0-1].
     
     */
-    let HandSpecificData: HandSpecificData
+    static HandSpecificData: HandSpecificData
     
     /**
-    *     
+    * Asset used to configure Body Tracking for the {@link ObjectTracking3D} component.
     */
-    let HandTracking3DAsset: HandTracking3DAsset
+    static HandTracking3DAsset: HandTracking3DAsset
     
     /**
     * Triggers haptic feedback on the device. (iOS Devices only)
     
     */
-    let HapticFeedbackSystem: HapticFeedbackSystem
+    static HapticFeedbackSystem: HapticFeedbackSystem
     
     /**
     * The method in which haptic feedback is provided. Use with the `HapticFeedbackSystem`.
     */
-    let HapticFeedbackType: HapticFeedbackType
+    static HapticFeedbackType: HapticFeedbackType
     
     /**
     * Binds the SceneObject to a tracked face.
-    * See the [Head Attached 3D Objects Guide](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/tracking/face/face-effects/head-attached-3d-objects) for more information.
+    * See the [Head Attached 3D Objects Guide](https://developers.snap.com/lens-studio/features/ar-tracking/face/head-attached-3d-objects) for more information.
     */
-    let Head: Head
+    static Head: Head
     
     /**
     * Headers for the Fetch API in {@link RemoteServiceModule}. Allows you to perform actions on HTTP request and response headers, like retrieving, setting, adding to, and removing headers.
@@ -19575,90 +20137,92 @@ declare namespace _palette {
     
     * @wearableOnly
     */
-    let Headers: Headers
+    static Headers: Headers
     
     /**
-    * Constraints translation and a single axis of rotation.  See also: [ConstraintComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ConstraintComponent).
+    * Constraints translation and a single axis of rotation.  See also: {@link ConstraintComponent}.
     */
-    let HingeConstraint: HingeConstraint
+    static HingeConstraint: HingeConstraint
     
     /**
     * Settings that describe how the position of the object should be limited in respect to the applied forces.
     */
-    let HingeLimitSettings: HingeLimitSettings
+    static HingeLimitSettings: HingeLimitSettings
     
     /**
     * Settings describing the independent force (motor) applied to the constraint. Motor within a hinge constraint is used to create controlled, powered movement along the hinge's axis, allowing objects to rotate automatically or maintain a particular speed or position.
     */
-    let HingeMotorSettings: HingeMotorSettings
+    static HingeMotorSettings: HingeMotorSettings
     
     /**
     * Enum that defines motor type.
     */
-    let HingeMotorType: HingeMotorType
+    static HingeMotorType: HingeMotorType
     
     /**
     * Used to show and hide hints to the user.
-    * For more information and useful helper scripts, see the [Scripting Hints Guide](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/adding-interactivity/additional-examples/scripting-hints).
+    * For more information and useful helper scripts, see the [Scripting Hints Guide](https://developers.snap.com/lens-studio/essential-skills/adding-interactivity/additional-examples/scripting-hints).
+    
+    * Tip: If you only need to show one hint on Lens start up, you can [configure your project](https://developers.snap.com/lens-studio/publishing/configuring/lens-hints) to display the hint without scripting it.
     
     * <table cellspacing=0 cellpadding=0><thead><tr><th>Hint ID</th><th>Hint Message</th></tr></thead><tbody><tr><td>&#8220;lens_hint_blow_a_kiss&#8221;</td><td>&#8220;Blow A Kiss&#8221;</td></tr><tr><td>&#8220;lens_hint_come_closer&#8221;</td><td>&#8220;Come Closer&#8221;</td></tr><tr><td>&#8220;lens_hint_do_not_smile&#8221;</td><td>&#8220;Do Not Smile&#8221;</td></tr><tr><td>&#8220;lens_hint_do_not_try_with_a_friend&#8221;</td><td>&#8220;Do Not Try With A Friend&#8221;</td></tr><tr><td>&#8220;lens_hint_find_face&#8221;</td><td>&#8220;Find Face&#8221;</td></tr><tr><td>&#8220;lens_hint_keep_raising_your_eyebrows&#8221;</td><td>&#8220;Keep Raising Your Eyebrows&#8221;</td></tr><tr><td>&#8220;lens_hint_kiss&#8221;</td><td>&#8220;Kiss&#8221;</td></tr><tr><td>&#8220;lens_hint_kiss_again&#8221;</td><td>&#8220;Kiss Again&#8221;</td></tr><tr><td>&#8220;lens_hint_look_around&#8221;</td><td>&#8220;Look Around&#8221;</td></tr><tr><td>&#8220;lens_hint_look_down&#8221;</td><td>&#8220;Look Down&#8221;</td></tr><tr><td>&#8220;lens_hint_look_left&#8221;</td><td>&#8220;Look Left&#8221;</td></tr><tr><td>&#8220;lens_hint_look_right&#8221;</td><td>&#8220;Look Right&#8221;</td></tr><tr><td>&#8220;lens_hint_look_up&#8221;</td><td>&#8220;Look Up&#8221;</td></tr><tr><td>&#8220;lens_hint_make_some_noise&#8221;</td><td>&#8220;Make Some Noise!&#8221;</td></tr><tr><td>&#8220;lens_hint_nod_your_head&#8221;</td><td>&#8220;Nod Your Head&#8221;</td></tr><tr><td>&#8220;lens_hint_now_kiss&#8221;</td><td>&#8220;Now Kiss&#8221;</td></tr><tr><td>&#8220;lens_hint_now_open_your_mouth&#8221;</td><td>&#8220;Now Open Your Mouth&#8221;</td></tr><tr><td>&#8220;lens_hint_now_raise_your_eyebrows&#8221;</td><td>&#8220;Now Raise Your Eyebrows&#8221;</td></tr><tr><td>&#8220;lens_hint_now_smile&#8221;</td><td>&#8220;Now Smile&#8221;</td></tr><tr><td>&#8220;lens_hint_open_your_mouth&#8221;</td><td>&#8220;Open Your Mouth&#8221;</td></tr><tr><td>&#8220;lens_hint_open_your_mouth_again&#8221;</td><td>&#8220;Open Your Mouth Again&#8221;</td></tr><tr><td>&#8220;lens_hint_raise_eyebrows_or_open_mouth&#8221;</td><td>&#8220;Raise Your Eyebrows / Or / Open Your Mouth&#8221;</td></tr><tr><td>&#8220;lens_hint_raise_your_eyebrows&#8221;</td><td>&#8220;Raise Your Eyebrows&#8221;</td></tr><tr><td>&#8220;lens_hint_raise_your_eyebrows_again&#8221;</td><td>&#8220;Raise Your Eyebrows Again&#8221;</td></tr><tr><td>&#8220;lens_hint_smile&#8221;</td><td>&#8220;Smile&#8221;</td></tr><tr><td>&#8220;lens_hint_smile_again&#8221;</td><td>&#8220;Smile Again&#8221;</td></tr><tr><td>&#8220;lens_hint_swap_camera&#8221;</td><td>&#8220;Swap Camera&#8221;</td></tr><tr><td>&#8220;lens_hint_tap&#8221;</td><td>&#8220;Tap!&#8221;</td></tr><tr><td>&#8220;lens_hint_tap_a_surface&#8221;</td><td>&#8220;Tap A Surface&#8221;</td></tr><tr><td>&#8220;lens_hint_tap_ground&#8221;</td><td>&#8220;Tap The Ground&#8221;</td></tr><tr><td>&#8220;lens_hint_tap_ground_to_place&#8221;</td><td>&#8220;Tap Ground To Place&#8221;</td></tr><tr><td>&#8220;lens_hint_tap_surface_to_place&#8221;</td><td>&#8220;Tap Surface To Place&#8221;</td></tr><tr><td>&#8220;lens_hint_try_friend&#8221;</td><td>&#8220;Try It With A Friend&#8221;</td></tr><tr><td>&#8220;lens_hint_try_rear_camera&#8221;</td><td>&#8220;Try It With Your Rear Camera&#8221;</td></tr><tr><td>&#8220;lens_hint_turn_around&#8221;</td><td>&#8220;Turn Around&#8221;</td></tr><tr><td>&#8220;lens_hint_walk_through_the_door&#8221;</td><td>&#8220;Walk Through The Door&#8221;</td></tr></tbody></table>
     */
-    let HintsComponent: HintsComponent
+    static HintsComponent: HintsComponent
     
     /**
     * Class responsible for detecting intersections between a virtual ray and real-world surfaces.
     
     * @wearableOnly
     */
-    let HitTestSession: HitTestSession
+    static HitTestSession: HitTestSession
     
     /**
     * Options for configuring a HitTestSession.
     
     * @wearableOnly
     */
-    let HitTestSessionOptions: HitTestSessionOptions
+    static HitTestSessionOptions: HitTestSessionOptions
     
     /**
-    * Used by the `horizontalAlignment` property in [MeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#MeshVisual).
-    * When a [ScreenTransform](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ScreenTransform) is attached to the same SceneObject, this determines how the mesh will be positioned horizontally.
+    * Used by the `horizontalAlignment` property in {@link MeshVisual}.
+    * When a {@link ScreenTransform} is attached to the same SceneObject, this determines how the mesh will be positioned horizontally.
     */
-    let HorizontalAlignment: HorizontalAlignment
+    static HorizontalAlignment: HorizontalAlignment
     
     /**
     * Options for wrapping text horizontally.
-    * Used by [Text component's](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Text) `horizontalOverflow` property.
+    * Used by {@link Text}'s component's `horizontalOverflow` property.
     */
-    let HorizontalOverflow: HorizontalOverflow
+    static HorizontalOverflow: HorizontalOverflow
     
     /**
     * Triggered when a mouse hover event occurs. Only triggered in the `Preview` panel of Lens studio. Useful when working with Spectacles, where you can simulate the use of your hand to hover over an object. Does not get triggered on mobile.
     */
-    let HoverEvent: HoverEvent
+    static HoverEvent: HoverEvent
     
     /**
     * The base class for parameter objects passed into event callbacks.
     */
-    let IEventParameters: IEventParameters
+    static IEventParameters: IEventParameters
     
     /**
     * A 2D visual used for drawing texture assets.
-    * Commonly used with [ScreenTransform](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ScreenTransform) for drawing images on the screen.
+    * Commonly used with {@link ScreenTransform} for drawing images on the screen.
     
-    * See the [Image guide](https://lensstudio.snapchat.com/lens-studio/references/guides/adding-content/2d/image) for more information.
+    * See the [Image guide](https://developers.snap.com/lens-studio/assets-pipeline/2d/image) for more information.
     */
-    let Image: Image
+    static Image: Image
     
     /**
     * Builds InputPlaceHolders for MLComponent.
     */
-    let InputBuilder: InputBuilder
+    static InputBuilder: InputBuilder
     
     /**
     * Controls input data for a neural network used by an MLComponent.
-    * For more information, see the [MLComponent Scripting](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/machine-learning/ml-component/scripting-ml-component) guide.
+    * For more information, see the [MLComponent Scripting](https://developers.snap.com/lens-studio/features/snap-ml/ml-component/scripting-ml-component) guide.
     */
-    let InputPlaceholder: InputPlaceholder
+    static InputPlaceholder: InputPlaceholder
     
     /**
     * Allows the `MeshVisual` provided to this component to handle touches on the screen (blocking Snapchat from receiving the touches), and optionally let certain touch types to pass through (let Snapchat handle the touch).
@@ -19673,93 +20237,97 @@ declare namespace _palette {
     * "TouchTypePan"
     * "TouchTypeSwipe"
     */
-    let InteractionComponent: InteractionComponent
+    static InteractionComponent: InteractionComponent
     
     /**
     * Triggered when the tracked face ends a kiss.
     */
-    let KissFinishedEvent: KissFinishedEvent
+    static KissFinishedEvent: KissFinishedEvent
     
     /**
     * Triggered when the tracked face starts a kiss.
     */
-    let KissStartedEvent: KissStartedEvent
+    static KissStartedEvent: KissStartedEvent
     
     /**
-    * This event is triggered at the end of every frame, after normal [UpdateEvents](https://lensstudio.snapchat.com/api/lens-studio/Classes/Events#UpdateEvent) trigger
+    * This event is triggered at the end of every frame, after normal {@link UpdateEvent} trigger
     * but before rendering occurs.
     */
-    let LateUpdateEvent: LateUpdateEvent
+    static LateUpdateEvent: LateUpdateEvent
     
     /**
     * Used to describe a set of layers that an object belongs to or interacts with.
     
-    * See [SceneObject's](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#SceneObject) `layer` property, [Camera's](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Camera) `renderLayer` property, and [LightSource's](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#LightSource) `renderLayer` property.
+    * @see {@link SceneObject} `layer` property
+    * @see {@link Camera} `renderLayer` property
+    * @see {@link LightSource} `renderLayer` property.
     */
-    let LayerSet: LayerSet
+    static LayerSet: LayerSet
     
     /**
     * A leaderboard which can contain scores and information about participating users. Accessible through the `LeaderboardModule` asset. 
     */
-    let Leaderboard: Leaderboard
+    static Leaderboard: Leaderboard
     
     /**
     * The options for the leaderboard to be made.
     */
-    let Leaderboard_CreateOptions: Leaderboard.CreateOptions
+    static Leaderboard_CreateOptions: Leaderboard.CreateOptions
     
     /**
     * Describes how the leaderboard should be ordered.
     */
-    let Leaderboard_OrderingType: Leaderboard.OrderingType
+    static Leaderboard_OrderingType: Leaderboard.OrderingType
     
     /**
     * Describes the context for the leaderboard to be requested.
     */
-    let Leaderboard_RetrievalOptions: Leaderboard.RetrievalOptions
+    static Leaderboard_RetrievalOptions: Leaderboard.RetrievalOptions
     
     /**
     * Information for a user who submitted a score to the leaderboard.
     */
-    let Leaderboard_UserRecord: Leaderboard.UserRecord
+    static Leaderboard_UserRecord: Leaderboard.UserRecord
     
     /**
     * The type of user to be retrieved.
     */
-    let Leaderboard_UsersType: Leaderboard.UsersType
+    static Leaderboard_UsersType: Leaderboard.UsersType
     
     /**
     * A module which provides the `Leaderboard` api.
     */
-    let LeaderboardModule: LeaderboardModule
+    static LeaderboardModule: LeaderboardModule
     
     /**
-    * Collider asset generated from a mesh to be used with the [Hair Visual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#HairVisual) as part of the hair simulation.
+    * Collider asset generated from a mesh to be used with the {@link HairVisual} as part of the hair simulation.
     */
-    let LevelsetColliderAsset: LevelsetColliderAsset
+    static LevelsetColliderAsset: LevelsetColliderAsset
     
     /**
     * A levelset collision shape. A levelset is an asset that is generated to approximate a mesh.
     */
-    let LevelsetShape: LevelsetShape
+    static LevelsetShape: LevelsetShape
+    
+    static LicensedAudioTrackAsset: LicensedAudioTrackAsset
     
     /**
     * Acts as a source of light in the scene.
-    * See the [Light and Shadows](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/graphics/light-and-shadow) guide for more information about lighting.
+    * See the [Light and Shadows](https://developers.snap.com/lens-studio/features/graphics/light-and-shadow) guide for more information about lighting.
     */
-    let LightSource: LightSource
+    static LightSource: LightSource
     
     /**
     * Applies a liquify effect to anything rendered behind it.
     */
-    let LiquifyVisual: LiquifyVisual
+    static LiquifyVisual: LiquifyVisual
     
-    let LoadStatus: LoadStatus
+    static LoadStatus: LoadStatus
     
     /**
     * Asset used with the Localizations system to support custom localization strings.
     */
-    let LocalizationsAsset: LocalizationsAsset
+    static LocalizationsAsset: LocalizationsAsset
     
     /**
     * Helps convert data types to localized string representations. Accessible through `global.localizationSystem`.
@@ -19767,44 +20335,45 @@ declare namespace _palette {
     * Note that formatted or localized strings may appear differently to users depending on their region.
     * The example results given here are representative of a user in the United States, but may appear differently for users in other regions.
     */
-    let LocalizationSystem: LocalizationSystem
+    static LocalizationSystem: LocalizationSystem
     
     /**
-    * A component which modifies the [Transform](https://lensstudio.snapchat.com/api/classes/Transform) of the object it is on to a position in the real world, based on a `LocationAsset` and a `position`.
+    * A component which modifies the {@link Transform} of the object it is on to a position in the real world, based on a `LocationAsset` and a `position`.
     
     */
-    let LocatedAtComponent: LocatedAtComponent
+    static LocatedAtComponent: LocatedAtComponent
     
     /**
-    * Provides a frame of reference in which to localize objects to the real world. Use with [LocatedAtComponent](https://lensstudio.snapchat.com/api/classes/LocatedAtComponent).
+    * Provides a frame of reference in which to localize objects to the real world. Use with {@link LocatedAtComponent}.
     */
-    let LocationAsset: LocationAsset
+    static LocationAsset: LocationAsset
     
     /**
     * Provides access to location cloud storage depending upon the LocationCloudStorageOptions.
     */
-    let LocationCloudStorageModule: LocationCloudStorageModule
+    static LocationCloudStorageModule: LocationCloudStorageModule
     
     /**
     * Used to configure LocationCloudStorage module with various options. 
     */
-    let LocationCloudStorageOptions: LocationCloudStorageOptions
+    static LocationCloudStorageOptions: LocationCloudStorageOptions
     
     /**
     * Instance of location cloud store which has a similar interface as cloud store.
     */
-    let LocationCloudStore: LocationCloudStore
+    static LocationCloudStore: LocationCloudStore
     
     /**
-    * Used by [DeviceLocationTrackingComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#DeviceLocationTrackingComponent) to indicate the user's distance from the landmarker location.
-    * See the [Landmarker guide](https://lensstudio.snapchat.com/templates/landmarker) for more information.
+    * Used by {@link DeviceLocationTrackingComponent} to indicate the user's distance from the landmarker location.
+    * See the [Landmarker guide](https://developers.snap.com/lens-studio/features/location-ar/guide) for more information.
+    
     */
-    let LocationProximityStatus: LocationProximityStatus
+    static LocationProximityStatus: LocationProximityStatus
     
     /**
     * Provides access to a location's Mesh--such as when working with City Scale AR. Usually used in conjunction with `LocationTextureProvider`.
     */
-    let LocationRenderObjectProvider: LocationRenderObjectProvider
+    static LocationRenderObjectProvider: LocationRenderObjectProvider
     
     /**
     * The LocationService allows the user to provide their location to Lens applications if they so desire. For privacy reasons, the user is asked for permission to report location information.
@@ -19812,269 +20381,304 @@ declare namespace _palette {
     * Spectacles: Users should be logged in and paired with Snapchat account and also location permission should be enabled. Users are expected to be connected to the internet to make use of aided information for indoor locations and challenging scenarios.
     
     */
-    let LocationService: LocationService
+    static LocationService: LocationService
     
     /**
     * Provides access to a location's texture--such as when working with City Scale AR.
     */
-    let LocationTextureProvider: LocationTextureProvider
+    static LocationTextureProvider: LocationTextureProvider
     
     /**
     * Every frame, LookAtComponent rotates its SceneObject to face towards a target SceneObject.
     */
-    let LookAtComponent: LookAtComponent
+    static LookAtComponent: LookAtComponent
     
     /**
-    * The "aim" and "up" vectors used with [LookAtComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#LookAtComponent) when determining rotation.
+    * The "aim" and "up" vectors used with {@link LookAtComponent} when determining rotation.
     * LookAtComponent will try to point the `Aim` axis of the SceneObject towards the target,
     * while keeping the `Up` axis of the SceneObject pointing towards `worldUpVector`.
     */
-    let LookAtComponent_AimVectors: LookAtComponent.AimVectors
+    static LookAtComponent_AimVectors: LookAtComponent.AimVectors
     
     /**
     * Modes used in `LookAtComponent.lookAtMode` to determine the rotation method being used.
     */
-    let LookAtComponent_LookAtMode: LookAtComponent.LookAtMode
+    static LookAtComponent_LookAtMode: LookAtComponent.LookAtMode
     
     /**
-    * Used with [LookAtComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#LookAtComponent) to set the "up" vector when determining rotation.
+    * Used with {@link LookAtComponent} to set the "up" vector when determining rotation.
     */
-    let LookAtComponent_WorldUpVector: LookAtComponent.WorldUpVector
+    static LookAtComponent_WorldUpVector: LookAtComponent.WorldUpVector
+    
+    /**
+    * Represents the full set of Lyrics data for tracked music. Can be accessed through {@link LyricsTracker#fullLyrics | LyricsTracker.fullLyrics} when lyrics are available.
+    
+    */
+    static Lyrics: Lyrics
+    
+    /**
+    * Represents a single line of Lyrics.
+    
+    */
+    static LyricsLine: LyricsLine
+    
+    /**
+    * Represents a single sync/word of a {@link LyricsLine}.
+    
+    */
+    static LyricsSync: LyricsSync
+    
+    /**
+    * Provides information about lyrics data for a currently playing track. Can be accessed through {@link ExternalMusicModule#getLyricsTracker | getLyricsTracker()} on {@link ExternalMusicModule}.
+    
+    * Note that lyrics data may not be available immediately when this class is accessed. Subscribe to {@link LyricsTracker#onLyricsAvailable | onLyricsAvailable} to be notified when lyrics data becomes available.
+    
+    * Also note that some music tracks may not support lyrics. In this case, {@link LyricsTracker#onLyricsAvailable | onLyricsAvailable} will not be triggered.
+    
+    
+    */
+    static LyricsTracker: LyricsTracker
+    
+    /**
+    * Types of granularity for lyric data. Accessible through {@link Lyrics#type | Lyrics.type}.
+    */
+    static LyricsType: LyricsType
     
     /**
     * Namespace for Machine Learning related classes and methods.
-    * For more information, see the [Machine Learning Overview](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/machine-learning/ml-overview).
+    * For more information, see the [Machine Learning Overview](https://developers.snap.com/lens-studio/features/snap-ml/ml-overview).
     */
-    let MachineLearning: MachineLearning
+    static MachineLearning: MachineLearning
     
     /**
     * Timing options for when MLComponent should start or stop running. Used with `MLComponent.runScheduled()`.
-    * For more information, see the [MLComponent Scripting](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/machine-learning/ml-component/scripting-ml-component) guide.
+    * For more information, see the [MLComponent Scripting](https://developers.snap.com/lens-studio/features/snap-ml/ml-component/scripting-ml-component) guide.
     */
-    let MachineLearning_FrameTiming: MachineLearning.FrameTiming
+    static MachineLearning_FrameTiming: MachineLearning.FrameTiming
     
     /**
     * Inference modes used by `MLComponent.inferenceMode`. Each mode describes how the neural network will be run.
     */
-    let MachineLearning_InferenceMode: MachineLearning.InferenceMode
+    static MachineLearning_InferenceMode: MachineLearning.InferenceMode
     
     /**
     * Describes the current state of the MLComponent model.
-    * For more information, see the [MLComponent Scripting](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/machine-learning/ml-component/scripting-ml-component) guide.
+    * For more information, see the [MLComponent Scripting](https://developers.snap.com/lens-studio/features/snap-ml/ml-component/scripting-ml-component) guide.
     */
-    let MachineLearning_ModelState: MachineLearning.ModelState
+    static MachineLearning_ModelState: MachineLearning.ModelState
     
     /**
     * Types of output used by OutputPlaceholder.
     */
-    let MachineLearning_OutputMode: MachineLearning.OutputMode
+    static MachineLearning_OutputMode: MachineLearning.OutputMode
     
     /**
-    * Handles input information from user touch input via the [TouchComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#TouchComponent) to control Scale, Rotation, and Translation of objects.
+    * Handles input information from user touch input via the {@link InteractionComponent} to control Scale, Rotation, and Translation of objects.
     */
-    let ManipulateComponent: ManipulateComponent
+    static ManipulateComponent: ManipulateComponent
     
     /**
     * This event is triggered when manipulation on the object ends.
     */
-    let ManipulateEndEvent: ManipulateEndEvent
+    static ManipulateEndEvent: ManipulateEndEvent
     
     /**
     * Arguments used with the `ManipulateComponent.onManipulateEnd` event.
     */
-    let ManipulateEndEventArgs: ManipulateEndEventArgs
+    static ManipulateEndEventArgs: ManipulateEndEventArgs
     
     /**
-    * Result object returned from [ManipulateComponent.intersectManipulateFrame()](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ManipulateComponent).
+    * Result object returned from {@link ManipulateComponent.intersectManipulateFrame}.
     */
-    let ManipulateFrameIntersectResult: ManipulateFrameIntersectResult
+    static ManipulateFrameIntersectResult: ManipulateFrameIntersectResult
     
     /**
     * This event is triggered when manipulation on the object begins.
     */
-    let ManipulateStartEvent: ManipulateStartEvent
+    static ManipulateStartEvent: ManipulateStartEvent
     
     /**
     * Arguments used with the `ManipulateComponent.onManipulateStart` event.
     */
-    let ManipulateStartEventArgs: ManipulateStartEventArgs
+    static ManipulateStartEventArgs: ManipulateStartEventArgs
     
     /**
-    * Enum values specifying each type of manipulation. See [ManipulateComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ManipulateComponent).
+    * Enum values specifying each type of manipulation. See {@link ManipulateComponent}.
     */
-    let ManipulateType: ManipulateType
+    static ManipulateType: ManipulateType
     
     /**
     * Module for providing Map utils. 
     */
-    let MapModule: MapModule
+    static MapModule: MapModule
     
     /**
     * Used with `MappingSession` to describe the session to be created.
     */
-    let MappingOptions: MappingOptions
+    static MappingOptions: MappingOptions
     
     /**
     * Used with the `LocatedAtComponent` to map the current physical location.
     */
-    let MappingSession: MappingSession
+    static MappingSession: MappingSession
     
-    let MappingSession_MappingThrottling: MappingSession.MappingThrottling
+    static MappingSession_MappingThrottling: MappingSession.MappingThrottling
     
     /**
     * A texture of the map at the given location of a `LocationAsset`.
     */
-    let MapTextureProvider: MapTextureProvider
+    static MapTextureProvider: MapTextureProvider
     
     /**
-    * Defines a marker to use for Marker Tracking with [MarkerTrackingComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#MarkerTrackingComponent).
-    * For more information, see the [Marker Tracking](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/tracking/world/marker-tracking) guide.
+    * Defines a marker to use for Marker Tracking with {@link MarkerTrackingComponent}.
+    * For more information, see the [Marker Tracking](https://developers.snap.com/lens-studio/features/ar-tracking/world/marker-tracking) guide.
     */
-    let MarkerAsset: MarkerAsset
+    static MarkerAsset: MarkerAsset
     
     /**
     * Base class for marker providers.
-    * For more information, see the [Marker Tracking](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/tracking/world/marker-tracking) guide.
+    * For more information, see the [Marker Tracking](https://developers.snap.com/lens-studio/features/ar-tracking/world/marker-tracking) guide.
     */
-    let MarkerProvider: MarkerProvider
+    static MarkerProvider: MarkerProvider
     
     /**
     * Used to track images in the camera. Moves the containing object's transform to match the detected image.
-    * For more information, see the [Marker Tracking](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/tracking/world/marker-tracking) guide.
+    * For more information, see the [Marker Tracking](https://developers.snap.com/lens-studio/features/ar-tracking/world/marker-tracking) guide.
     */
-    let MarkerTrackingComponent: MarkerTrackingComponent
+    static MarkerTrackingComponent: MarkerTrackingComponent
     
     /**
     * Clips visuals and Interaction Component events within a tree hierarchy. Any Visual or Interaction Components will be clipped user defined 2D bounds. These 2D bounds are defined by a Screen Transform. Useful for clipping some screen transforms--for example a scroll view. 
     */
-    let MaskingComponent: MaskingComponent
+    static MaskingComponent: MaskingComponent
     
     /**
     * A 2x2 matrix.
     */
-    let mat2: mat2
+    static mat2: mat2
     
     /**
     * A 3x3 matrix.
     */
-    let mat3: mat3
+    static mat3: mat3
     
     /**
     * A 4x4 matrix.
     */
-    let mat4: mat4
+    static mat4: mat4
     
     /**
     * An asset that describes how visual objects should appear.
-    * Each Material is a collection of [Passes](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#Pass) which define the actual rendering passes.
-    * Materials are used by [MeshVisuals](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#MeshVisual) for drawing meshes in the scene.
+    * Each Material is a collection of {@link Pass} which define the actual rendering passes.
+    * Materials are used by {@link MeshVisual} for drawing meshes in the scene.
     */
-    let Material: Material
+    static Material: Material
     
     /**
-    * Base class for all MeshVisual components using [Materials](https://lensstudio.snapchat.com/api/lens-studio/Classes/Assets#Material) to render.
+    * Base class for all MeshVisual components using {@link Material} to render.
     * Comparable to the former class "MeshVisual", which was split into the classes:
-    * [BaseMeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#BaseMeshVisual),
-    * [MaterialMeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Assets#MaterialMeshVisual),
-    * and [RenderMeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#RenderMeshVisual).
+    
+    * - {@link BaseMeshVisual},
+    * - {@link MaterialMeshVisual},
+    * - and {@link RenderMeshVisual}.
     */
-    let MaterialMeshVisual: MaterialMeshVisual
+    static MaterialMeshVisual: MaterialMeshVisual
     
     /**
     * Provides useful math utility functions.
     */
-    let MathUtils: MathUtils
+    static MathUtils: MathUtils
     
     /**
     * Settings for the physical substance, such as friction and bounciness, of a collider. If unset, uses the default matter from the world settings.
     */
-    let Matter: Matter
+    static Matter: Matter
     
     /**
     * Base class for Texture Providers based on selectable media.
     */
-    let MediaPickerTextureProvider: MediaPickerTextureProvider
+    static MediaPickerTextureProvider: MediaPickerTextureProvider
     
     /**
     * Computes a mel scale spectrogram - a spectrogram where the frequencies are converted to the mel scale.
     */
-    let MelSpectrogram: MelSpectrogram
+    static MelSpectrogram: MelSpectrogram
     
     /**
     * A builder class for MelSpectrogram.
     */
-    let MelSpectrogramBuilder: MelSpectrogramBuilder
+    static MelSpectrogramBuilder: MelSpectrogramBuilder
     
     /**
     * A class for generating meshes at runtime.
     */
-    let MeshBuilder: MeshBuilder
+    static MeshBuilder: MeshBuilder
     
     /**
     * Formats of mesh classification used by WorldRenderObjectProvider.
     */
-    let MeshClassificationFormat: MeshClassificationFormat
+    static MeshClassificationFormat: MeshClassificationFormat
     
     /**
-    * Possible index data types used by [MeshBuilder](https://lensstudio.snapchat.com/api/lens-studio/Classes/OtherClasses#MeshBuilder). `MeshIndexType.UInt16` is the value normally used.
+    * Possible index data types used by {@link MeshBuilder}. `MeshIndexType.UInt16` is the value normally used.
     */
-    let MeshIndexType: MeshIndexType
+    static MeshIndexType: MeshIndexType
     
-    let MeshRenderObjectProvider: MeshRenderObjectProvider
+    static MeshRenderObjectProvider: MeshRenderObjectProvider
     
-    let MeshShadowMode: MeshShadowMode
+    static MeshShadowMode: MeshShadowMode
     
     /**
     * Allows meshes to be used as collision shapes, for ColliderComponent and BodyComponent.
     */
-    let MeshShape: MeshShape
+    static MeshShape: MeshShape
     
     /**
-    * Mesh topology types used by [MeshBuilder](https://lensstudio.snapchat.com/api/lens-studio/Classes/OtherClasses#MeshBuilder).
+    * Mesh topology types used by {@link MeshBuilder}.
     */
-    let MeshTopology: MeshTopology
+    static MeshTopology: MeshTopology
     
     /**
     * This class has been DEPRECATED starting in Lens Studio 2.3.
-    * The `Component.MeshVisual` typename is now an alias for [BaseMeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#BaseMeshVisual).
-    * When upgrading a project to Lens Studio 2.3 or higher, any instances of the MeshVisual component will be upgraded to [RenderMeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#RenderMeshVisual).
+    * The `Component.MeshVisual` typename is now an alias for {@link BaseMeshVisual}.
+    * When upgrading a project to Lens Studio 2.3 or higher, any instances of the MeshVisual component will be upgraded to {@link RenderMeshVisual}.
     
     * This class was split into the following three classes, to better distinguish the behaviors of child classes.
     
-    * [BaseMeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#BaseMeshVisual): Base class for all visual classes using meshes to render
+    * {@link BaseMeshVisual}: Base class for all visual classes using meshes to render
     
-    * [MaterialMeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Assets#MaterialMeshVisual): Child class of BaseMeshVisual, gives access to the [Materials](https://lensstudio.snapchat.com/api/lens-studio/Classes/Assets#Material) used to render
+    * {@link MaterialMeshVisual}: Child class of BaseMeshVisual, gives access to the {@link Material} used to render
     
-    * [RenderMeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#RenderMeshVisual): Child class of MaterialMeshVisual, gives access to the [RenderMesh](https://lensstudio.snapchat.com/api/lens-studio/Classes/Assets#RenderMesh) used to render
+    * {@link RenderMeshVisual}: Child class of MaterialMeshVisual, gives access to the {@link RenderMesh} used to render
     */
-    let MeshVisual: MeshVisual
+    static MeshVisual: MeshVisual
     
     /**
     * Mel-frequency cepstral coefficients.
     */
-    let MFCC: MFCC
+    static MFCC: MFCC
     
     /**
     * Builder class for the MFCC (Mel Frequency Cepstral Co-efficients).
     */
-    let MFCCBuilder: MFCCBuilder
+    static MFCCBuilder: MFCCBuilder
     
     /**
     * The Audio Track Provider of the audio from microphone.
     */
-    let MicrophoneAudioProvider: MicrophoneAudioProvider
+    static MicrophoneAudioProvider: MicrophoneAudioProvider
     
     /**
     * Binary ML model supplied by the user.
     */
-    let MLAsset: MLAsset
+    static MLAsset: MLAsset
     
     /**
     * Transforms inputs (Textures or Float32Array) into outputs (Textures or Float32Array) using a neural network.
     * The neural network is represented by an MLAsset, which is set as the `model` property.
-    * For more information, see the [MLComponent Overview](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/machine-learning/ml-component/ml-component-overview).
+    * For more information, see the [MLComponent Overview](https://developers.snap.com/lens-studio/features/snap-ml/ml-component/ml-component-overview).
     */
-    let MLComponent: MLComponent
+    static MLComponent: MLComponent
     
     /**
     * A Motion Controller allows to communicate motion data and touch events from an external device to Spectacles, as well as haptic feedback requests from Spectacles to an external device. Currently, the API supports Mobile Controller only, allowing one motion controller to be connected at a time. Developers use the Motion Controller API through the `Asset.MotionControllerModule` in Lens Studio.
@@ -20082,7 +20686,7 @@ declare namespace _palette {
     
     * @wearableOnly
     */
-    let MotionController: MotionController
+    static MotionController: MotionController
     
     /**
     * Defines a set of haptic feedback patterns that can be requested.
@@ -20090,14 +20694,14 @@ declare namespace _palette {
     
     * @wearableOnly
     */
-    let MotionController_HapticFeedback: MotionController.HapticFeedback
+    static MotionController_HapticFeedback: MotionController.HapticFeedback
     
     /**
     * Describes a request for haptic feedback.
     
     * @wearableOnly
     */
-    let MotionController_HapticRequest: MotionController.HapticRequest
+    static MotionController_HapticRequest: MotionController.HapticRequest
     
     /**
     * Settings for configuring a motion controller.
@@ -20105,26 +20709,26 @@ declare namespace _palette {
     
     * @wearableOnly
     */
-    let MotionController_MotionControllerOptions: MotionController.MotionControllerOptions
+    static MotionController_MotionControllerOptions: MotionController.MotionControllerOptions
     
     /**
     * Enum for describing the motion type.
     
     * @wearableOnly
     */
-    let MotionController_MotionType: MotionController.MotionType
+    static MotionController_MotionType: MotionController.MotionType
     
     /**
     * Settings for configuring a motion controller.
     */
-    let MotionController_Options: MotionController.Options
+    static MotionController_Options: MotionController.Options
     
     /**
     * Enum that defines a current state of a touch interaction with the touchpad of the motion controller.
     
     * @wearableOnly
     */
-    let MotionController_TouchPhase: MotionController.TouchPhase
+    static MotionController_TouchPhase: MotionController.TouchPhase
     
     /**
     * Describes Motion Controller tracking quality state, whether the data received from the Motion Controller is accurate or not.
@@ -20132,371 +20736,379 @@ declare namespace _palette {
     
     * @wearableOnly
     */
-    let MotionController_TrackingQuality: MotionController.TrackingQuality
+    static MotionController_TrackingQuality: MotionController.TrackingQuality
     
     /**
     * A Lens Studio module that provides access to Motion Controller.
     
     * @wearableOnly
     */
-    let MotionControllerModule: MotionControllerModule
+    static MotionControllerModule: MotionControllerModule
     
     /**
     * Triggered when the tracked face's mouth closes.
     */
-    let MouthClosedEvent: MouthClosedEvent
+    static MouthClosedEvent: MouthClosedEvent
     
     /**
     * Triggered when the tracked face's mouth opens.
     */
-    let MouthOpenedEvent: MouthOpenedEvent
+    static MouthOpenedEvent: MouthOpenedEvent
     
     /**
     * An instance of a Connected Lens session among a group of participants who were successfully invited into the experience. 
     */
-    let MultiplayerSession: MultiplayerSession
+    static MultiplayerSession: MultiplayerSession
     
     /**
-    * Tracking type used by the [Device Tracking](https://lensstudio.snapchat.com/api/classes/devicetracking) component to specify what type of plane to detect. 
+    * Tracking type used by the {@link DeviceTracking} component to specify what type of plane to detect. 
     */
-    let NativePlaneTrackingType: NativePlaneTrackingType
+    static NativePlaneTrackingType: NativePlaneTrackingType
     
-    let NoiseReduction: NoiseReduction
+    static NoiseReduction: NoiseReduction
     
-    let NoiseReductionBuilder: NoiseReductionBuilder
+    static NoiseReductionBuilder: NoiseReductionBuilder
     
     /**
-    * Base class for configuring object tracking in the [ObjectTracking3D](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ObjectTracking3D) component.
+    * Base class for configuring object tracking in the {@link ObjectTracking3D} component.
     */
-    let Object3DAsset: Object3DAsset
+    static Object3DAsset: Object3DAsset
     
     /**
     * A reusable object hierarchy stored as a resource.
     * Can be instantiated through script or brought into the scene through Lens Studio.
-    * For more information, see the [Prefabs](https://lensstudio.snapchat.com/lens-studio/references/guides/general/prefabs) guide.
+    * For more information, see the [Prefabs](https://developers.snap.com/lens-studio/lens-studio-workflow/prefabs) guide.
     */
-    let ObjectPrefab: ObjectPrefab
+    static ObjectPrefab: ObjectPrefab
     
     /**
     * Provides additional data for the tracked object. For example, with hand tracking, you can figure out whether the tracked hand is the left hand by accessing the `isLeft` property [true/false], as well as the probability of this data through the `isLeftProbability` property [0-1]. 
     */
-    let ObjectSpecificData: ObjectSpecificData
+    static ObjectSpecificData: ObjectSpecificData
     
     /**
-    * Used to track objects in the camera. Moves the local [ScreenTransform](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ScreenTransform) to match the detected image.
+    * Used to track objects in the camera. Moves the local {@link ScreenTransform} to match the detected image.
     
-    * See the [Object Tracking guide](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/tracking/world/object-tracking) and the [Hand Gestures Guide](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/tracking/body/hand-gestures) for more information.
+    * See the [Object Tracking guide](https://developers.snap.com/lens-studio/features/ar-tracking/world/object-tracking) and the [Hand Gestures Guide](https://developers.snap.com/lens-studio/features/ar-tracking/hand/hand-gestures) for more information.
     */
-    let ObjectTracking: ObjectTracking
+    static ObjectTracking: ObjectTracking
     
     /**
     * Component used for tracking objects in 3D space.
     */
-    let ObjectTracking3D: ObjectTracking3D
+    static ObjectTracking3D: ObjectTracking3D
     
     /**
-    * Strategies for updating attached objects. Used by the [ObjectTracking3D](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ObjectTracking3D) component.
+    * Strategies for updating attached objects. Used by the {@link ObjectTracking3D} component.
     */
-    let ObjectTracking3D_TrackingMode: ObjectTracking3D.TrackingMode
+    static ObjectTracking3D_TrackingMode: ObjectTracking3D.TrackingMode
     
-    let ObjectTrackingMaskedTextureProvider: ObjectTrackingMaskedTextureProvider
+    static ObjectTrackingMaskedTextureProvider: ObjectTrackingMaskedTextureProvider
     
-    let ObjectTrackingNormalsTextureProvider: ObjectTrackingNormalsTextureProvider
+    static ObjectTrackingNormalsTextureProvider: ObjectTrackingNormalsTextureProvider
     
     /**
     * Controls a segmentation texture and its placement using information provided by Object tracking.
     */
-    let ObjectTrackingTextureProvider: ObjectTrackingTextureProvider
+    static ObjectTrackingTextureProvider: ObjectTrackingTextureProvider
     
     /**
     * Triggered when the Lens starts, earlier than all OnStart events. Also fires immediately on a newly instantiated or copied object.
     */
-    let OnAwakeEvent: OnAwakeEvent
+    static OnAwakeEvent: OnAwakeEvent
     
     /**
     * Triggered when the associated ScriptComponent is destroyed while the lens is running.
     */
-    let OnDestroyEvent: OnDestroyEvent
+    static OnDestroyEvent: OnDestroyEvent
     
     /**
     * Triggered when the `ScriptComponent` this event is bound to is disabled.
     
     */
-    let OnDisableEvent: OnDisableEvent
+    static OnDisableEvent: OnDisableEvent
     
     /**
     * Triggered when the `ScriptComponent` this event is bound to is enabled.
     
     */
-    let OnEnableEvent: OnEnableEvent
+    static OnEnableEvent: OnEnableEvent
     
     /**
     * Triggered when the Lens starts, after all OnAwakeEvents have triggered. Also triggers later on newly instantiated or copied objects.
     */
-    let OnStartEvent: OnStartEvent
+    static OnStartEvent: OnStartEvent
     
     /**
     * Types of operating system that may be running on the device.
     */
-    let OS: OS
+    static OS: OS
     
     /**
-    * Used in [Text's](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Text) `outlineSettings` property.
+    * Used in {@link Text}'s `outlineSettings` property.
     * Configures how text outlining will appear on a Text component.
     */
-    let OutlineSettings: OutlineSettings
+    static OutlineSettings: OutlineSettings
     
     /**
     * Builds OutputPlaceholders for MLComponent.
     */
-    let OutputBuilder: OutputBuilder
+    static OutputBuilder: OutputBuilder
     
     /**
     * Provides output data from the neural network used by an MLComponent.
-    * For more information, see the [MLComponent Scripting](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/machine-learning/ml-component/scripting-ml-component) guide.
+    * For more information, see the [MLComponent Scripting](https://developers.snap.com/lens-studio/features/snap-ml/ml-component/scripting-ml-component) guide.
     */
-    let OutputPlaceholder: OutputPlaceholder
+    static OutputPlaceholder: OutputPlaceholder
     
     /**
-    * Exposes state generated for ColliderComponent overlap events.  See also: [ColliderComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ColliderComponent), [OverlapEnterEventArgs](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#OverlapEnterEventArgs), [OverlapExitEventArgs](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#OverlapExitEventArgs), [OverlapStayEventArgs](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#OverlapStayEventArgs).
+    * Exposes state generated for ColliderComponent overlap events. 
+    
+    * @see {@link ColliderComponent}
+    * @see {@link OverlapEnterEventArgs}
+    * @see {@link OverlapExitEventArgs}
+    * @see {@link OverlapStayEventArgs}
     */
-    let Overlap: Overlap
+    static Overlap: Overlap
     
     /**
-    * Args used for [ColliderComponent.onOverlapEnter](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ColliderComponent), which is triggered when the collider begins overlapping another object. Typically used for volume triggers.
+    * Args used for {@link ColliderComponent.onOverlapEnter}, which is triggered when the collider begins overlapping another object. Typically used for volume triggers.
     */
-    let OverlapEnterEventArgs: OverlapEnterEventArgs
+    static OverlapEnterEventArgs: OverlapEnterEventArgs
     
     /**
-    * Args used for [ColliderComponent.onOverlapEnd](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ColliderComponent), which is triggered when the collider stops overlapping another object. Typically used for volume triggers.
+    * Args used for {@link ColliderComponent.onOverlapExit}, which is triggered when the collider stops overlapping another object. Typically used for volume triggers.
     */
-    let OverlapExitEventArgs: OverlapExitEventArgs
+    static OverlapExitEventArgs: OverlapExitEventArgs
     
     /**
-    * Args used for [ColliderComponent.onOverlapStay](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ColliderComponent), which is triggered every frame while the collider continues overlapping another object. Typically used for volume triggers.
+    * Args used for {@link ColliderComponent.onOverlapStay}, which is triggered every frame while the collider continues overlapping another object. Typically used for volume triggers.
     */
-    let OverlapStayEventArgs: OverlapStayEventArgs
+    static OverlapStayEventArgs: OverlapStayEventArgs
     
     /**
     * The arguments of the PalmTapDown event on `GestureModule`
     
     * @wearableOnly
     */
-    let PalmTapDownArgs: PalmTapDownArgs
+    static PalmTapDownArgs: PalmTapDownArgs
     
     /**
     * The arguments of the PalmTapUp event on `GestureModule`
     
     * @wearableOnly
     */
-    let PalmTapUpArgs: PalmTapUpArgs
+    static PalmTapUpArgs: PalmTapUpArgs
     
     /**
     * Controls how a mesh will get rendered. Each Pass acts as an interface for the shader it's associated with.
     * Any properties on a Pass's shader will automatically become properties on that Pass.
     * For example, if the shader defines a variable named `baseColor`, a script would be able to access that property as `material.mainPass.baseColor`.
     */
-    let Pass: Pass
+    static Pass: Pass
     
     /**
-    * Similar to [Pass](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#Pass), except used by [VFX Assets](https://lensstudio.snapchat.com/api/lens-studio/Classes/Assets#VFXAsset).
+    * Similar to {@link Pass}, except used by {@link VFXAsset}.
     */
-    let PassWrapper: PassWrapper
+    static PassWrapper: PassWrapper
     
     /**
     * Allows for retrieval of a collection of Pass objects used by VFXAsset
     */
-    let PassWrappers: PassWrappers
+    static PassWrappers: PassWrappers
     
     /**
     * Allows data to be stored and retrieved between Lens sessions.
     * In other words, data can be saved on device and loaded back in the next time the Lens is opened.
     * Can be accessed with `global.persistentStorageSystem`.
     
-    * See the [Persistent Storage guide](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/adding-interactivity/persistent-storage) for more information.
+    * See the [Persistent Storage guide](https://developers.snap.com/lens-studio/features/persistent-cloud-storage/persistent-storage) for more information.
     */
-    let PersistentStorageSystem: PersistentStorageSystem
+    static PersistentStorageSystem: PersistentStorageSystem
     
     /**
     * Namespace containing physics classes and static physics methods.
     */
-    let Physics: Physics
+    static Physics: Physics
     
     /**
-    * Namespace containing static helper methods for [Constraints](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#Constraint).
+    * Namespace containing static helper methods for {@link Constraint}.
     */
-    let Physics_Constraint: Physics.Constraint
+    static Physics_Constraint: Physics.Constraint
     
     /**
-    * Constraint type used by a [Constraint](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#Contraint).   See also: [Physics.Constraint.create()](https://lensstudio.snapchat.com/api/lens-studio/Classes/OtherClasses#PhysicsConstraint), [ConstraintComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ConstraintComponent).
+    * Constraint type used by a {@link Constraint}.   See also: {@link Constraint}, {@link ConstraintComponent}.
     */
-    let Physics_ConstraintType: Physics.ConstraintType
+    static Physics_ConstraintType: Physics.ConstraintType
     
     /**
     * Script interface for applying collision filtering to colliders and ray/shape-casts.
     */
-    let Physics_Filter: Physics.Filter
+    static Physics_Filter: Physics.Filter
     
     /**
-    * Type of force to use when applying force or torque to a [BodyComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#BodyComponent).
+    * Type of force to use when applying force or torque to a {@link BodyComponent}.
     */
-    let Physics_ForceMode: Physics.ForceMode
+    static Physics_ForceMode: Physics.ForceMode
     
     /**
-    * Stores reusable settings uniform for a world (such as gravity magnitude and direction). See also: [WorldComponent.worldSettings](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#WorldComponent).
+    * Stores reusable settings uniform for a world (such as gravity magnitude and direction). See also: {@link WorldComponent.worldSettings}.
     */
-    let Physics_WorldSettingsAsset: Physics.WorldSettingsAsset
+    static Physics_WorldSettingsAsset: Physics.WorldSettingsAsset
     
     /**
     * The arguments of the PinchDown event on `GestureModule`
     
     * @wearableOnly
     */
-    let PinchDownArgs: PinchDownArgs
+    static PinchDownArgs: PinchDownArgs
     
     /**
     * The arguments of the PinchStrength event on `GestureModule`
     
     * @wearableOnly
     */
-    let PinchStrengthArgs: PinchStrengthArgs
+    static PinchStrengthArgs: PinchStrengthArgs
     
     /**
     * The arguments of the PinchUp event on `GestureModule`
     
     * @wearableOnly
     */
-    let PinchUpArgs: PinchUpArgs
+    static PinchUpArgs: PinchUpArgs
     
     /**
     * Attaches the SceneObject to the mesh surface of a different SceneObject.
-    * See the [Pin To Mesh](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/scene-set-up/3d/pin-to-mesh#adding-a-pin-to-mesh-component) guide for more information.
+    * See the [Pin To Mesh](https://developers.snap.com/lens-studio/lens-studio-workflow/scene-set-up/3d/pin-to-mesh#adding-a-pin-to-mesh-component) guide for more information.
     */
-    let PinToMeshComponent: PinToMeshComponent
+    static PinToMeshComponent: PinToMeshComponent
     
     /**
-    * Used with [PinToMeshComponent.orientation](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#PinToMeshComponent).
+    * Used with {@link PinToMeshComponent.orientation}.
     */
-    let PinToMeshComponent_Orientation: PinToMeshComponent.Orientation
+    static PinToMeshComponent_Orientation: PinToMeshComponent.Orientation
     
-    let PitchShifter: PitchShifter
+    static PitchShifter: PitchShifter
     
-    let PitchShifterBuilder: PitchShifterBuilder
+    static PitchShifterBuilder: PitchShifterBuilder
     
     /**
     * Used with `AnimationClip` to describe how the clip should be played.
     */
-    let PlaybackMode: PlaybackMode
+    static PlaybackMode: PlaybackMode
     
     /**
     * Represents 3D locations of stationary features in the environment. The resulting cloud of points provides a sparse description of the 3D environment.
     
     */
-    let PointCloud: PointCloud
+    static PointCloud: PointCloud
     
     /**
-    * A type of constraint that only allows rotation.  See also: [ConstraintComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ConstraintComponent).
+    * A type of constraint that only allows rotation.  See also: {@link ConstraintComponent}.
     */
-    let PointConstraint: PointConstraint
+    static PointConstraint: PointConstraint
     
     /**
     * An Audio Component effect that allows the Lens to simulate sound based on the direction of the Audio Listener relative to the Audio Component.
     */
-    let PositionEffect: PositionEffect
+    static PositionEffect: PositionEffect
     
     /**
     * Uses an input color lookup table image to adjust the coloring of the Lens.
-    * See the [Color Correction Post Effect guide](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/graphics/materials/post-effects#color-correction) for more information.
+    * See the [Color Correction Post Effect guide](https://developers.snap.com/lens-studio/features/graphics/materials/post-effects#color-correction) for more information.
     */
-    let PostEffectVisual: PostEffectVisual
+    static PostEffectVisual: PostEffectVisual
     
     /**
-    * Performs collision tests (such as ray casts) in one or more world. See [Physics.createGlobalProbe()](https://lensstudio.snapchat.com/api/lens-studio/Classes/OtherClasses#Physics), [Physics.createRootProbe()](https://lensstudio.snapchat.com/api/lens-studio/Classes/OtherClasses#Physics), [WorldComponent.createProbe()](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#WorldComponent).
+    * Performs collision tests (such as ray casts) in one or more world. 
+    * @see {@link Physics.createGlobalProbe}
+    * @see {@link Physics.createRootProbe}
+    * @see {@link WorldComponent.createProbe}
     */
-    let Probe: Probe
+    static Probe: Probe
     
     /**
     * RenderObjectProvider for mesh objects generated procedurally.
     */
-    let ProceduralMeshRenderObjectProvider: ProceduralMeshRenderObjectProvider
+    static ProceduralMeshRenderObjectProvider: ProceduralMeshRenderObjectProvider
     
     /**
     * Provides a texture that can be written to or read from. Can be accessed using Texture.control on a Procedural Texture.
     */
-    let ProceduralTextureProvider: ProceduralTextureProvider
+    static ProceduralTextureProvider: ProceduralTextureProvider
     
-    let ProcessedLocationModule: ProcessedLocationModule
+    static ProcessedLocationModule: ProcessedLocationModule
     
-    let Properties: Properties
+    static Properties: Properties
     
-    let PropertyOnEventArgs: PropertyOnEventArgs
+    static PropertyOnEventArgs: PropertyOnEventArgs
     
     /**
     * Base class for all resource providers.
     */
-    let Provider: Provider
+    static Provider: Provider
     
     /**
     * A quaternion, used to represent rotation.
     */
-    let quat: quat
+    static quat: quat
     
-    let RawLocationModule: RawLocationModule
+    static RawLocationModule: RawLocationModule
     
     /**
-    * Hit results of a ray-cast provided to script. See [Probe](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#Probe).
+    * Hit results of a ray-cast provided to script. See {@link Probe}.
     */
-    let RayCastHit: RayCastHit
+    static RayCastHit: RayCastHit
     
     /**
     * The options for the realtime store.
     */
-    let RealtimeStoreCreateOptions: RealtimeStoreCreateOptions
+    static RealtimeStoreCreateOptions: RealtimeStoreCreateOptions
     
     /**
     * The ownership model of a realtime store.
     */
-    let RealtimeStoreCreateOptions_Ownership: RealtimeStoreCreateOptions.Ownership
+    static RealtimeStoreCreateOptions_Ownership: RealtimeStoreCreateOptions.Ownership
     
     /**
     * The persistence model for a realtime store.
     */
-    let RealtimeStoreCreateOptions_Persistence: RealtimeStoreCreateOptions.Persistence
+    static RealtimeStoreCreateOptions_Persistence: RealtimeStoreCreateOptions.Persistence
     
     /**
     * An axis aligned rectangle.
-    * Used by `anchors` and `offsets` in [ScreenTransform](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ScreenTransform) to represent screen boundaries.
+    * Used by `anchors` and `offsets` in {@link ScreenTransform} to represent screen boundaries.
     * Rect can only store finite numbers in the range Number.MIN_VALUE to Number.MAX_VALUE.
     
     */
-    let Rect: Rect
+    static Rect: Rect
     
     /**
     * Applies ScreenTransform positioning to match the cropped region of a texture.
-    * For more information, see the [Crop Textures](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/machine-learning/ml-component/crop-textures) guide.
+    * For more information, see the [Crop Textures](https://developers.snap.com/lens-studio/features/snap-ml/ml-component/crop-textures) guide.
     */
-    let RectangleSetter: RectangleSetter
+    static RectangleSetter: RectangleSetter
     
     /**
     * Texture Provider providing a cropped region of the input texture. The region is specified by the cropRect in local space and rotation.
     * Can be accessed using Texture.control on a RectCropTexture asset, such as a Screen Crop Texture.
-    * For more information, see the [Crop Textures](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/machine-learning/ml-component/crop-textures) guide.
+    * For more information, see the [Crop Textures](https://developers.snap.com/lens-studio/features/snap-ml/ml-component/crop-textures) guide.
     */
-    let RectCropTextureProvider: RectCropTextureProvider
+    static RectCropTextureProvider: RectCropTextureProvider
     
-    let RemoteApiRequest: RemoteApiRequest
+    static RemoteApiRequest: RemoteApiRequest
     
-    let RemoteApiResponse: RemoteApiResponse
+    static RemoteApiResponse: RemoteApiResponse
     
     /**
     * Provides access to a remote media.
     */
-    let RemoteMediaModule: RemoteMediaModule
+    static RemoteMediaModule: RemoteMediaModule
     
     /**
     * Provides a reference to a remote asset (i.e. assets outside of the Lens size limit) that can be downloaded at runtime using script.
     */
-    let RemoteReferenceAsset: RemoteReferenceAsset
+    static RemoteReferenceAsset: RemoteReferenceAsset
     
     /**
     * A http request which can be sent using the `RemoteServiceModule`.
@@ -20505,7 +21117,7 @@ declare namespace _palette {
     
     * @CameraKit
     */
-    let RemoteServiceHttpRequest: RemoteServiceHttpRequest
+    static RemoteServiceHttpRequest: RemoteServiceHttpRequest
     
     /**
     * The http method which should be used to send this http request.
@@ -20514,7 +21126,7 @@ declare namespace _palette {
     
     * @CameraKit
     */
-    let RemoteServiceHttpRequest_HttpRequestMethod: RemoteServiceHttpRequest.HttpRequestMethod
+    static RemoteServiceHttpRequest_HttpRequestMethod: RemoteServiceHttpRequest.HttpRequestMethod
     
     /**
     * The response returned by a `RemoteServiceHttpRequest` call.
@@ -20523,353 +21135,375 @@ declare namespace _palette {
     
     * @CameraKit
     */
-    let RemoteServiceHttpResponse: RemoteServiceHttpResponse
+    static RemoteServiceHttpResponse: RemoteServiceHttpResponse
     
     /**
     * Provides access to the remote services. For Spectacles, this module process access to the open internet.
     
     */
-    let RemoteServiceModule: RemoteServiceModule
+    static RemoteServiceModule: RemoteServiceModule
     
     /**
     * Represents a mesh asset.
-    * See also: [RenderMeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#RenderMeshVisual).
+    * See also: {@link RenderMeshVisual}.
     */
-    let RenderMesh: RenderMesh
+    static RenderMesh: RenderMesh
     
     /**
-    * Renders a [RenderMesh](https://lensstudio.snapchat.com/api/lens-studio/Classes/Assets#RenderMesh) asset in the scene.
+    * Renders a {@link RenderMesh} asset in the scene.
     * Comparable to the former class "MeshVisual", which was split into the classes:
-    * [BaseMeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#BaseMeshVisual),
-    * [MaterialMeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Assets#MaterialMeshVisual),
-    * and [RenderMeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#RenderMeshVisual).
+    * {@link BaseMeshVisual},
+    * {@link MaterialMeshVisual},
+    * and {@link RenderMeshVisual}.
     */
-    let RenderMeshVisual: RenderMeshVisual
+    static RenderMeshVisual: RenderMeshVisual
     
     /**
     * Provider for RenderMesh data.
     */
-    let RenderObjectProvider: RenderObjectProvider
+    static RenderObjectProvider: RenderObjectProvider
     
     /**
     * Controls a camera texture resource.
-    * Can be accessed through [Texture.control](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Texture#control-textureprovider) on a Camera texture.
-    * For more information, see the [Camera and Layers](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/scene-set-up/camera) guide.
+    * Can be accessed through {@link Texture.control} on a Camera texture.
+    * For more information, see the [Camera and Layers](https://developers.snap.com/lens-studio/lens-studio-workflow/scene-set-up/camera) guide.
     */
-    let RenderTargetProvider: RenderTargetProvider
+    static RenderTargetProvider: RenderTargetProvider
     
     /**
     * Specifies what kind of render target it is. Some texture types, for example TextureCubemap, need additional properties set on the rendering camera to work correctly.
     */
-    let RenderTargetProvider_TextureType: RenderTargetProvider.TextureType
+    static RenderTargetProvider_TextureType: RenderTargetProvider.TextureType
     
     /**
     * Represents an HTTP request used by the Fetch API in {@link RemoteServiceModule}.
     
     * @wearableOnly
     */
-    let Request: Request
+    static Request: Request
     
     /**
     * Represents an HTTP response used by the Fetch API in {@link RemoteServiceModule}.
     
     * @wearableOnly
     */
-    let Response: Response
+    static Response: Response
     
     /**
     * Visual effect used to add subtle retouching effects to detected faces (soft skin, teeth whitening, etc.).
-    * To learn more, visit the [Retouch Guide](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/tracking/face/face-effects/face-retouch).
+    * To learn more, visit the [Retouch Guide](https://developers.snap.com/lens-studio/features/ar-tracking/face/face-retouch).
     */
-    let RetouchVisual: RetouchVisual
-    
-    let RotatedRect: RotatedRect
+    static RetouchVisual: RetouchVisual
     
     /**
-    * Used with [DeviceTracking.rotationOptions](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#DeviceTracking) to change settings for Rotation tracking mode.
-    */
-    let RotationOptions: RotationOptions
+    * Texture Provider giving the camera texture that is the opposite of {@link CameraTextureProvider}. The provider will have {@link LoadStatus.Loading} until the camera feed is available. On some devices it will never be available. Use {@link DeviceInfoSystem#supportsDualCamera} to check the current device.
     
-    let Sampler: Sampler
+    * For example, if the `CameraTextureProvider` is providing the rear camera feed, `ReverseCameraTextureProvider` would provide the front camera feed. 
+    */
+    static ReverseCameraTextureProvider: ReverseCameraTextureProvider
+    
+    static RotatedRect: RotatedRect
+    
+    /**
+    * Used with {@link DeviceTracking#rotationOptions} to change settings for Rotation tracking mode.
+    */
+    static RotationOptions: RotationOptions
+    
+    static Sampler: Sampler
     
     /**
     * Class for building Sampler.
     */
-    let SamplerBuilder: SamplerBuilder
+    static SamplerBuilder: SamplerBuilder
     
     /**
     * An accessor for Pass.samplers when using PassWrappers
     */
-    let SamplerWrapper: SamplerWrapper
+    static SamplerWrapper: SamplerWrapper
     
-    let SamplerWrappers: SamplerWrappers
+    /**
+    * A proxy class that provides the access to the properties of the sampler under the hood of the passes contained in the {@link Material} asset and {@link VFXAsset} via either VFXAsset's `PassWrapper.samplers` or Material's `Pass.samplers`. Each property returns a corresponding {@link SamplerWrapper}.
+    
+    * This class uses dynamic properties, meaning that its properties depend on the referenced material or vfx asset and thus not shown below. 
+    
+    * In the example below, the material that is referenced in the material asset contains the `baseTex` property, which this class then provides access to. 
+    
+    */
+    static SamplerWrappers: SamplerWrappers
     
     /**
     * Asset for detecting an object through the Scan system.
     
     * @exposesUserData
     */
-    let ScanModule: ScanModule
+    static ScanModule: ScanModule
     
     /**
     * Contexts used in `ScanModule.scan()`.
     */
-    let ScanModule_Contexts: ScanModule.Contexts
+    static ScanModule_Contexts: ScanModule.Contexts
     
     /**
-    * The base class for scenewide events.  SceneEvents can be created using [ScriptComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ScriptComponent)'s [createEvent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#scriptcomponent--createEvent) method.
+    * The base class for scenewide events.  SceneEvents can be created using {@link ScriptComponent}'s {@link ScriptComponent#createEvent} method.
+    
     */
-    let SceneEvent: SceneEvent
+    static SceneEvent: SceneEvent
     
     /**
-    * An object in the scene hierarchy, containing a [Transform](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#Transform) and possibly [Components](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components).
+    * An object in the scene hierarchy, containing a {@link Transform} and possibly {@link Component}.
     * A script can access the SceneObject holding it through the method `script.getSceneObject()`.
     */
-    let SceneObject: SceneObject
+    static SceneObject: SceneObject
     
     /**
     * Base class for all object-based Event types in Lens Studio (ManipulateStartEvent, TapEvent, etc.).
     */
-    let SceneObjectEvent: SceneObjectEvent
+    static SceneObjectEvent: SceneObjectEvent
     
     /**
-    * Overrides the settings on a local [ScreenTransform](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ScreenTransform) to fit a screen region on the device.
-    * See the [Screen Transform guide](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/scene-set-up/2d/screen-transform-overview) for more information.
+    * Overrides the settings on a local {@link ScreenTransform} to fit a screen region on the device.
+    * See the [Screen Transform guide](https://developers.snap.com/lens-studio/lens-studio-workflow/scene-set-up/2d/screen-transform-overview) for more information.
     */
-    let ScreenRegionComponent: ScreenRegionComponent
+    static ScreenRegionComponent: ScreenRegionComponent
     
     /**
-    * Types of screen regions that can be used with [ScreenRegionComponent](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ScreenRegionComponent).
+    * Types of screen regions that can be used with {@link ScreenRegionComponent}.
     */
-    let ScreenRegionType: ScreenRegionType
+    static ScreenRegionType: ScreenRegionType
     
     /**
     * Texture providing the current Render Target being rendered.
     */
-    let ScreenTextureProvider: ScreenTextureProvider
+    static ScreenTextureProvider: ScreenTextureProvider
     
     /**
-    * Used for positioning objects in 2d screen space. It overrides the regular [Transform](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#Transform) component on the SceneObject it's attached to.
+    * Used for positioning objects in 2d screen space. It overrides the regular {@link Transform} component on the SceneObject it's attached to.
     
-    * See the [Screen Transform guide](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/scene-set-up/2d/screen-transform-overview) for more information.
+    * See the [Screen Transform guide](https://developers.snap.com/lens-studio/lens-studio-workflow/scene-set-up/2d/screen-transform-overview) for more information.
     */
-    let ScreenTransform: ScreenTransform
+    static ScreenTransform: ScreenTransform
     
     /**
     * Represents a JavaScript script which can be used to add logic in your Lens.
     */
-    let ScriptAsset: ScriptAsset
+    static ScriptAsset: ScriptAsset
     
     /**
     * Binds scripts to Events and executes them when triggered. Any script can access the ScriptComponent executing them through the variable `script`.
-    * See also: [Scripting Overview](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/adding-interactivity/scripting-overview#script-components), [Script Events Guide](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/adding-interactivity/script-events#introduction).
+    * See also: [Scripting Overview](https://developers.snap.com/lens-studio/essential-skills/scripting/script-overview), [Script Events Guide](https://developers.snap.com/lens-studio/features/scripting/script-events).
     */
-    let ScriptComponent: ScriptComponent
+    static ScriptComponent: ScriptComponent
     
     /**
     * Base class for objects representing Script data.
     */
-    let ScriptObject: ScriptObject
+    static ScriptObject: ScriptObject
     
     /**
     * Represents the Lens scene. Accessible through `global.scene`.
     */
-    let ScriptScene: ScriptScene
+    static ScriptScene: ScriptScene
     
     /**
-    * Segmentation model used for [SegmentationTextureProvider](https://lensstudio.snapchat.com/api/lens-studio/Classes/Providers#SegmentationTextureProvider).
+    * Segmentation model used for {@link SegmentationTextureProvider}.
     */
-    let SegmentationModel: SegmentationModel
+    static SegmentationModel: SegmentationModel
     
     /**
     * Controls a segmentation texture resource.
-    * Can be accessed through [Texture.control](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Texture#control-textureprovider) on a Segmentation texture.
-    * For more information, see the [Segmentation](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/segmentation/fullscreen-segmentation) guide.
+    * Can be accessed through {@link Texture.control} on a Segmentation texture.
+    * For more information, see the [Segmentation](https://developers.snap.com/lens-studio/features/ar-tracking/body/segmentation/fullscreen-segmentation) guide.
     */
-    let SegmentationTextureProvider: SegmentationTextureProvider
+    static SegmentationTextureProvider: SegmentationTextureProvider
     
     /**
     * Arguments used with the `InteractionComponent.onSelectEnd` event.
     */
-    let SelectEndEventArgs: SelectEndEventArgs
+    static SelectEndEventArgs: SelectEndEventArgs
     
     /**
     * Arguments used with the `InteractionComponent.onSelectStart` event.
     */
-    let SelectStartEventArgs: SelectStartEventArgs
+    static SelectStartEventArgs: SelectStartEventArgs
     
     /**
     * Low-level data class.
     */
-    let SerializableWithUID: SerializableWithUID
+    static SerializableWithUID: SerializableWithUID
     
     /**
     * Base type for collision shapes.
     */
-    let Shape: Shape
+    static Shape: Shape
+    
+    static ShoppingModule: ShoppingModule
     
     /**
-    * Represents skinning data for rigged meshes. See also: [MeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#MeshVisual).
+    * Represents skinning data for rigged meshes. See also: {@link MeshVisual}.
     */
-    let Skin: Skin
+    static Skin: Skin
     
     /**
     * Triggered when a smile ends on the tracked face.
     */
-    let SmileFinishedEvent: SmileFinishedEvent
+    static SmileFinishedEvent: SmileFinishedEvent
     
     /**
     * Triggered when a smile begins on the tracked face.
     */
-    let SmileStartedEvent: SmileStartedEvent
+    static SmileStartedEvent: SmileStartedEvent
     
     /**
     * Details about friendship between the active user and another user.
     */
-    let SnapchatFriendUserInfo: SnapchatFriendUserInfo
+    static SnapchatFriendUserInfo: SnapchatFriendUserInfo
     
     /**
     * Represents a Snapchat user in order to pass to other APIs or to retrieve certain details about the user like display name. 
     */
-    let SnapchatUser: SnapchatUser
+    static SnapchatUser: SnapchatUser
     
     /**
     * Set the bone on the skin.
     */
-    let SnapchatUserBirthday: SnapchatUserBirthday
+    static SnapchatUserBirthday: SnapchatUserBirthday
     
     /**
     * Provides a marker for tracking Snapcodes.
-    * For more information, see the [Marker Tracking](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/tracking/world/marker-tracking) guide.
+    * For more information, see the [Marker Tracking](https://developers.snap.com/lens-studio/features/ar-tracking/world/marker-tracking) guide.
     */
-    let SnapcodeMarkerProvider: SnapcodeMarkerProvider
+    static SnapcodeMarkerProvider: SnapcodeMarkerProvider
     
     /**
     * Called when the user taps on the capture button to record an image.
     */
-    let SnapImageCaptureEvent: SnapImageCaptureEvent
+    static SnapImageCaptureEvent: SnapImageCaptureEvent
     
     /**
     * Gets called when the user starts long pressing the capture button to record a Snap.
     */
-    let SnapRecordStartEvent: SnapRecordStartEvent
+    static SnapRecordStartEvent: SnapRecordStartEvent
     
     /**
     * Gets called when the user stops long pressing the Snap button to end recording of a Snap.
     */
-    let SnapRecordStopEvent: SnapRecordStopEvent
+    static SnapRecordStopEvent: SnapRecordStopEvent
     
     /**
     * Order that inTensor will be sorted when applying `TensorMath.argSortMasked()`.
     */
-    let SortOrder: SortOrder
+    static SortOrder: SortOrder
     
-    let SpatialAudio: SpatialAudio
+    static SpatialAudio: SpatialAudio
     
     /**
     * @wearableOnly
     */
-    let SpectaclesHandSpecificData: SpectaclesHandSpecificData
+    static SpectaclesHandSpecificData: SpectaclesHandSpecificData
     
     /**
     * Representation the signal strength over time at various frequencies present in a particular waveform. Created by applying Fast Fourier Transform (FFT) on the overlapping segments of the audio data.
     */
-    let Spectrogram: Spectrogram
+    static Spectrogram: Spectrogram
     
     /**
     * The builder class for Spectrogram.
     */
-    let SpectrogramBuilder: SpectrogramBuilder
+    static SpectrogramBuilder: SpectrogramBuilder
     
     /**
     * A sphere collision shape.
     */
-    let SphereShape: SphereShape
+    static SphereShape: SphereShape
     
-    let SplineComponent: SplineComponent
+    static SplineComponent: SplineComponent
     
     /**
     * Represents transform data for screen-aligned 2D sprites. Use on SceneObjects with a SpriteVisual Component.
-    * See also: [SpriteVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#deprecated-spritevisual).
+    * See also: {@link SpriteVisual}.
     */
-    let SpriteAligner: SpriteAligner
+    static SpriteAligner: SpriteAligner
+    
+    static StateInfo: StateInfo
     
     /**
     * Stencil buffer clear option.
     */
-    let StencilClearOption: StencilClearOption
+    static StencilClearOption: StencilClearOption
     
     /**
     * Specifies whether the front and/or back face stencil test will be applied. The initial value is "FrontAndBack"
     */
-    let StencilFace: StencilFace
+    static StencilFace: StencilFace
     
     /**
     * Specifies the stencil test function. The initial value is "Always".
     */
-    let StencilFunction: StencilFunction
+    static StencilFunction: StencilFunction
     
     /**
     * Options for specifying the action to take when stencil and depth tests resolve.
     */
-    let StencilOperation: StencilOperation
+    static StencilOperation: StencilOperation
     
     /**
     * The stencil test state for Pass.
     */
-    let StencilState: StencilState
+    static StencilState: StencilState
     
     /**
     * Settings for saving values in a MultiplayerSession.
     */
-    let StorageOptions: StorageOptions
+    static StorageOptions: StorageOptions
     
     /**
     * Specifies a scope for storing or retrieving values from a MultiplayerSession.
     */
-    let StorageScope: StorageScope
+    static StorageScope: StorageScope
     
     /**
-    * Options for stretching a mesh to fit a [ScreenTransform's](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ScreenTransform) bounding box.
-    * Used in [MeshVisual's](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#MeshVisual) `stretchMode` property, as long as the SceneObject has a [ScreenTransform](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ScreenTransform) attached.
-    * Also used in [TextFill's](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#TextFill) `textureStretch` property to control texture stretching when drawing text.
+    * Options for stretching a mesh to fit a {@link ScreenTransform}
     
-    * See the [Image guide](https://lensstudio.snapchat.com/lens-studio/references/guides/adding-content/2d/image) for more information about stretch modes.
+    * Used in {@link RenderMeshVisual} `stretchMode` property, as long as the SceneObject has a {@link ScreenTransform} attached.
+    
+    * Also used in {@link TextFill}
+    
+    * See the [Image guide](https://developers.snap.com/lens-studio/assets-pipeline/2d/image) for more information about stretch modes.
     */
-    let StretchMode: StretchMode
+    static StretchMode: StretchMode
     
-    let Studio: Studio
+    static Studio: Studio
     
     /**
-    * Used with [DeviceTracking.surfaceOptions](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#DeviceTracking) to change settings for Surface tracking mode.
+    * Used with {@link DeviceTracking#surfaceOptions} to change settings for Surface tracking mode.
     */
-    let SurfaceOptions: SurfaceOptions
+    static SurfaceOptions: SurfaceOptions
     
     /**
-    * If a [DeviceTracking](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#DeviceTracking) component is present in the scene, this event is triggered when
+    * If a {@link DeviceTracking} component is present in the scene, this event is triggered when
     * the tracking is restarted (typically when the Lens starts, or if the user taps the ground).
     */
-    let SurfaceTrackingResetEvent: SurfaceTrackingResetEvent
+    static SurfaceTrackingResetEvent: SurfaceTrackingResetEvent
     
     /**
     * Used with `AnimationKeyFrame`.
     */
-    let TangentType: TangentType
+    static TangentType: TangentType
     
     /**
     * This event is triggered when the user taps on the screen.
     */
-    let TapEvent: TapEvent
+    static TapEvent: TapEvent
     
     /**
     * Arguments used with the `InteractionComponent.onTap` event.
     */
-    let TapEventArgs: TapEventArgs
+    static TapEventArgs: TapEventArgs
     
     /**
     * @wearableOnly
     */
-    let TargetingDataArgs: TargetingDataArgs
+    static TargetingDataArgs: TargetingDataArgs
     
     /**
     * Namespace for mathematical operations on tensors. Useful with MLComponent.
@@ -20880,105 +21514,108 @@ declare namespace _palette {
     
     * Tensor (channels, width, height) op Tensor (channels, 1, 1)  =  the same as applying op per channel
     */
-    let TensorMath: TensorMath
+    static TensorMath: TensorMath
     
-    let TensorMath_BorderType: TensorMath.BorderType
+    static TensorMath_BorderType: TensorMath.BorderType
     
-    let TensorMath_ThresholdMethod: TensorMath.ThresholdMethod
+    static TensorMath_ThresholdMethod: TensorMath.ThresholdMethod
     
     /**
     * Visual component that renders dynamic text.
-    * See the [Text guide](https://lensstudio.snapchat.com/lens-studio/references/guides/adding-content/text/2d-text) for more information.
+    * See the [Text guide](https://developers.snap.com/lens-studio/features/text/2d-text) for more information.
     */
-    let Text: Text
+    static Text: Text
     
     /**
     * Renders a given text with a 3D mesh.
     */
-    let Text3D: Text3D
+    static Text3D: Text3D
     
     /**
     * Fill settings used by several text related classes.
-    * Used in [Text's](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Text) `textFill` property, [DropshadowSettings'](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#DropshadowSettings) `fill` property, and [OutlineSettings'](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#OutlineSettings) `fill` property.
+    
+    * Used in {@link Text}'s `textFill` property, 
+    * {@link DropshadowSettings}' `fill` property, and 
+    * {@link OutlineSettings}' `fill` property.
     */
-    let TextFill: TextFill
+    static TextFill: TextFill
     
     /**
-    * Used in [TextFill's](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#TextFill) `mode` property. Controls which drawing method is used for the TextFill.
+    * Used in {@link TextFill}'s `mode` property. Controls which drawing method is used for the TextFill.
     */
-    let TextFillMode: TextFillMode
+    static TextFillMode: TextFillMode
     
-    let TextInputModule: TextInputModule
+    static TextInputModule: TextInputModule
     
     /**
     * Provides access to the device's input system. Accessible through `global.textInputSystem`. 
     */
-    let TextInputSystem: TextInputSystem
+    static TextInputSystem: TextInputSystem
     
     /**
     * The settings used for how the input keyboard should work.
     */
-    let TextInputSystem_KeyboardOptions: TextInputSystem.KeyboardOptions
+    static TextInputSystem_KeyboardOptions: TextInputSystem.KeyboardOptions
     
     /**
     * The different input style of keyboard input.
     */
-    let TextInputSystem_KeyboardType: TextInputSystem.KeyboardType
+    static TextInputSystem_KeyboardType: TextInputSystem.KeyboardType
     
     /**
     * The return key style of keyboard input.
     */
-    let TextInputSystem_ReturnKeyType: TextInputSystem.ReturnKeyType
+    static TextInputSystem_ReturnKeyType: TextInputSystem.ReturnKeyType
     
     /**
-    * Controls a text rendering texture. Can be accessed through the main rendering pass on a [Label](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#deprecated-label) component.
-    * The properties here mirror those on Label.
+    * Controls a text rendering texture. Can be accessed through the main rendering pass on a {@link Text} component.
+    * The properties here mirror those on Text.
     */
-    let TextProvider: TextProvider
+    static TextProvider: TextProvider
     
-    let TextToSpeech: TextToSpeech
+    static TextToSpeech: TextToSpeech
     
     /**
-    * Provides the configuration for the [Text to Speech Module](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#TextToSpeechModule).   It is used to control the language of the generated voice, the voice’s style and pace.
+    * Provides the configuration for the {@link TextToSpeechModule}.   It is used to control the language of the generated voice, the voice’s style and pace.
     */
-    let TextToSpeech_Options: TextToSpeech.Options
+    static TextToSpeech_Options: TextToSpeech.Options
     
     /**
     * Provides a map of what phoneme is said at what time in the synthesized speech.
     */
-    let TextToSpeech_PhonemeInfo: TextToSpeech.PhonemeInfo
+    static TextToSpeech_PhonemeInfo: TextToSpeech.PhonemeInfo
     
     /**
     * The voice style on which the TextToSpeech will be synthesized, Varying from neutral style, to a more elaborated styles depending on the voice. Note that Sam’s voice still doesn’t have more than the neutral style, this will be added throughout the coming releases.
     */
-    let TextToSpeech_VoiceNames: TextToSpeech.VoiceNames
+    static TextToSpeech_VoiceNames: TextToSpeech.VoiceNames
     
     /**
     * Parameter returned in the `onTTSCompleteHandler` callback providing timing details for word pronunciation. 
     */
-    let TextToSpeech_WordInfo: TextToSpeech.WordInfo
+    static TextToSpeech_WordInfo: TextToSpeech.WordInfo
     
     /**
     * Allows generation of speech from a given text. You can use only one `TextToSpeechModule` in a Lens. However, its methods can be called multiple times in parallel if needed. 
     */
-    let TextToSpeechModule: TextToSpeechModule
+    static TextToSpeechModule: TextToSpeechModule
     
     /**
     * Represents a texture file asset.
     */
-    let Texture: Texture
+    static Texture: Texture
     
-    let TextureFormat: TextureFormat
-    
-    /**
-    * The base class for specialized Texture providers. Can be accessed through [Texture.control](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Texture#control-textureprovider).
-    */
-    let TextureProvider: TextureProvider
+    static TextureFormat: TextureFormat
     
     /**
-    * Defines the bounding area used for texture tiling with [TextFill's](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#TextFill) `tileZone` property.
+    * The base class for specialized Texture providers. Can be accessed through {@link Texture.control}.
     */
-    let TileZone: TileZone
+    static TextureProvider: TextureProvider
+    
+    /**
+    * Defines the bounding area used for texture tiling with {@link TextFill}'s `tileZone` property.
+    */
+    static TileZone: TileZone
     
     /**
     * This provider is returned by `global.touchSystem` and allows your lens to handle any touches on the screen, and optionally let certain touch types to pass through (let Snapchat handle the touch).
@@ -20993,129 +21630,129 @@ declare namespace _palette {
     * "TouchTypePan"
     * "TouchTypeSwipe"
     */
-    let TouchDataProvider: TouchDataProvider
+    static TouchDataProvider: TouchDataProvider
     
     /**
     * Triggered when a touch event ends.
     */
-    let TouchEndEvent: TouchEndEvent
+    static TouchEndEvent: TouchEndEvent
     
-    let TouchEndEventArgs: TouchEndEventArgs
+    static TouchEndEventArgs: TouchEndEventArgs
     
     /**
     * Triggered when a touch position on the screen is moved.
     */
-    let TouchMoveEvent: TouchMoveEvent
+    static TouchMoveEvent: TouchMoveEvent
     
     /**
     * Arguments used with the `InteractionComponent.onTouchMove` event.
     */
-    let TouchMoveEventArgs: TouchMoveEventArgs
+    static TouchMoveEventArgs: TouchMoveEventArgs
     
     /**
     * Triggered when a touch event starts.
     */
-    let TouchStartEvent: TouchStartEvent
+    static TouchStartEvent: TouchStartEvent
     
     /**
     * Arguments used with the `InteractionComponent.onTouchStart` event.
     */
-    let TouchStartEventArgs: TouchStartEventArgs
+    static TouchStartEventArgs: TouchStartEventArgs
     
-    let TouchState: TouchState
+    static TouchState: TouchState
     
     /**
     * Represents a mesh generated by world tracking. Only available when world mesh tracking is supported and enabled.
     */
-    let TrackedMesh: TrackedMesh
+    static TrackedMesh: TrackedMesh
     
     /**
-    * Classifications of mesh face. See [TrackedMeshHitTestResult](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#TrackedMeshHitTestResult).
+    * Classifications of mesh face. See {@link TrackedMeshHitTestResult}.
     */
-    let TrackedMeshFaceClassification: TrackedMeshFaceClassification
+    static TrackedMeshFaceClassification: TrackedMeshFaceClassification
     
     /**
     * Provides histogram information about tracked world mesh faces in a given area. Returned by `DeviceTracking.calculateWorldMeshHistogram()`.
     */
-    let TrackedMeshHistogramResult: TrackedMeshHistogramResult
+    static TrackedMeshHistogramResult: TrackedMeshHistogramResult
     
     /**
     * Provides information about a TrackedMesh surface hit during a raycast. Is returned in an array when calling `DeviceTracking.hitTestWorldMesh()` or `DeviceTracking.raycastWorldMesh()`.
     */
-    let TrackedMeshHitTestResult: TrackedMeshHitTestResult
+    static TrackedMeshHitTestResult: TrackedMeshHitTestResult
     
     /**
     * A representation for plane detected by native tracking. Can be used with TrackedPoint.
     */
-    let TrackedPlane: TrackedPlane
+    static TrackedPlane: TrackedPlane
     
-    let TrackedPlaneOrientation: TrackedPlaneOrientation
+    static TrackedPlaneOrientation: TrackedPlaneOrientation
     
     /**
     * A point on the real world not attached to any detected plane.
     */
-    let TrackedPoint: TrackedPoint
+    static TrackedPoint: TrackedPoint
     
     /**
-    * Allows you to bind the position and rotation of an object with this component to a [TrackedPoint](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#TrackedPoint).
+    * Allows you to bind the position and rotation of an object with this component to a {@link TrackedPoint}.
     */
-    let TrackedPointComponent: TrackedPointComponent
+    static TrackedPointComponent: TrackedPointComponent
     
     /**
-    * Controls the position, rotation, and scale of a [SceneObject](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#SceneObject).  Every SceneObject automatically has a Transform attached.
+    * Controls the position, rotation, and scale of a {@link SceneObject}.  Every SceneObject automatically has a Transform attached.
     */
-    let Transform: Transform
+    static Transform: Transform
     
     /**
     * Applies additional transform processing on data for InputPlaceholders and OutputPlaceholders used with MLComponent.
-    * For more information, see the [MLComponent Overview](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/machine-learning/ml-component/ml-component-overview).
+    * For more information, see the [MLComponent Overview](https://developers.snap.com/lens-studio/features/snap-ml/ml-component/ml-component-overview).
     */
-    let Transformer: Transformer
+    static Transformer: Transformer
     
     /**
     * Builds Transformer objects for MLComponent.
     */
-    let TransformerBuilder: TransformerBuilder
+    static TransformerBuilder: TransformerBuilder
     
     /**
     * Rotation types used by TransformBuilder.
     */
-    let TransformerRotation: TransformerRotation
+    static TransformerRotation: TransformerRotation
     
     /**
     * Triangle hit information, available when a ray cast intersects a collision mesh.
     */
-    let TriangleHit: TriangleHit
+    static TriangleHit: TriangleHit
     
     /**
     * Gets called when the user triggers the primary input on their device. For example touch on touch screens.
     */
-    let TriggerPrimaryEvent: TriggerPrimaryEvent
+    static TriggerPrimaryEvent: TriggerPrimaryEvent
     
     /**
     * Arguments used with the `InteractionComponent.onTriggerPrimary` event.
     */
-    let TriggerPrimaryEventArgs: TriggerPrimaryEventArgs
+    static TriggerPrimaryEventArgs: TriggerPrimaryEventArgs
     
     /**
     * Triggered when the lens turns off.
     */
-    let TurnOffEvent: TurnOffEvent
+    static TurnOffEvent: TurnOffEvent
     
     /**
     * Triggered every frame.
     */
-    let UpdateEvent: UpdateEvent
+    static UpdateEvent: UpdateEvent
     
     /**
     * Provides a render object of the upper body, without the head. Unlike `BodyMesh` which handles the whole body, this model is optimized to work better with `FaceMesh` and selfie use cases.
     */
-    let UpperBodyRenderObjectProvider: UpperBodyRenderObjectProvider
+    static UpperBodyRenderObjectProvider: UpperBodyRenderObjectProvider
     
     /**
     * An asset containing the upper body tracker. It is optimized to track with the face and in selfie use cases.
     */
-    let UpperBodyTrackingAsset: UpperBodyTrackingAsset
+    static UpperBodyTrackingAsset: UpperBodyTrackingAsset
     
     /**
     * Provides information about the user such as display name, birthday, and current weather. Accessible through `global.userContextSystem`.
@@ -21124,121 +21761,122 @@ declare namespace _palette {
     
     * Note that formatted or localized strings may appear differently to users depending on their region.
     */
-    let UserContextSystem: UserContextSystem
+    static UserContextSystem: UserContextSystem
     
     /**
     * A two dimensional vector.
     * Vectors can only store finite numbers in the range Number.MIN_VALUE to Number.MAX_VALUE.
     
     */
-    let vec2: vec2
+    static vec2: vec2
     
     /**
     * A three dimensional vector. 
     * Vectors can only store finite numbers in the range Number.MIN_VALUE to Number.MAX_VALUE.
     
     */
-    let vec3: vec3
+    static vec3: vec3
     
     /**
     * A four dimensional vector.
     * Vectors can only store finite numbers in the range Number.MIN_VALUE to Number.MAX_VALUE.
     
     */
-    let vec4: vec4
+    static vec4: vec4
     
     /**
     * A vector containing 4 boolean values.
     */
-    let vec4b: vec4b
+    static vec4b: vec4b
     
     /**
     * Used to help control vertex animations on the SceneObject.
     */
-    let VertexCache: VertexCache
+    static VertexCache: VertexCache
     
     /**
     * Provides settings for vertex physics in the ClothVisual component.
     */
-    let VertexSimulationSettings: VertexSimulationSettings
+    static VertexSimulationSettings: VertexSimulationSettings
     
     /**
-    * Used by the `verticalAlignment` property in [MeshVisual](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#MeshVisual).
-    * When a [ScreenTransform](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#ScreenTransform) is attached to the same SceneObject, this determines how the mesh will be positioned vertically.
+    * Used by the `verticalAlignment` property in {@link MeshVisual}.
+    * When a {@link ScreenTransform} is attached to the same SceneObject, this determines how the mesh will be positioned vertically.
     */
-    let VerticalAlignment: VerticalAlignment
+    static VerticalAlignment: VerticalAlignment
     
     /**
-    * Options for handling vertical text overflow. Used by [Text component's](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Text) `verticalOverflow` property.
+    * Options for handling vertical text overflow. Used by {@link Text}'s `verticalOverflow` property.
     */
-    let VerticalOverflow: VerticalOverflow
+    static VerticalOverflow: VerticalOverflow
     
     /**
-    * Defines a VFX to use with [VFX Component](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#VFXComponent). For more information, see the [VFX Guide](https://lensstudio.snapchat.com/lens-studio/references/guides/lens-features/graphics/particles/vfx-editor/introduction-and-concepts).
+    * Defines a VFX to use with {@link VFXComponent}. 
+    * For more information, see the [VFX Guide](https://developers.snap.com/lens-studio/learning-lens-studio/graphics/particles/vfx-editor/introduction-and-concepts).
     */
-    let VFXAsset: VFXAsset
+    static VFXAsset: VFXAsset
     
     /**
-    * A VFX visual used to show a [VFX Asset](https://lensstudio.snapchat.com/api/lens-studio/Classes/Assets#VFXAsset).
+    * A VFX visual used to show a {@link VFXAsset}.
     */
-    let VFXComponent: VFXComponent
+    static VFXComponent: VFXComponent
     
     /**
-    * Describes the current status of a [VideoTextureProvider](https://lensstudio.snapchat.com/api/lens-studio/Classes/Providers#VideoTextureProvider).
+    * Describes the current status of a {@link VideoTextureProvider}.
     */
-    let VideoStatus: VideoStatus
+    static VideoStatus: VideoStatus
     
     /**
-    * Controls a video texture resource. Can be accessed through [Texture.control](https://lensstudio.snapchat.com/api/lens-studio/Classes/Components#Texture#control-textureprovider).
+    * Controls a video texture resource. Can be accessed through {@link Texture.control}.
     */
-    let VideoTextureProvider: VideoTextureProvider
+    static VideoTextureProvider: VideoTextureProvider
     
     /**
     * Base class for all visual Components (e.g. MeshVisual).
     */
-    let Visual: Visual
+    static Visual: Visual
     
-    let VoiceML: VoiceML
+    static VoiceML: VoiceML
     
     /**
     * Additional parameters are used to provide additional data for NlpModels and NlpResponses. 
     */
-    let VoiceML_AdditionalParam: VoiceML.AdditionalParam
+    static VoiceML_AdditionalParam: VoiceML.AdditionalParam
     
     /**
-    * NlpModels are used to provide the VoiceML NLP engine information about how the transcript of the input audio should be processed. BaseNlpModels is the abstract base class all NlpModels ([NlpKeywordModel](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#VoiceMLNlpKeywordModel), [NlpIntentModel](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#VoiceMLNlpIntentModel)) inherit from.
+    * NlpModels are used to provide the VoiceML NLP engine information about how the transcript of the input audio should be processed. BaseNlpModels is the abstract base class all NlpModels ({@link NlpKeywordModel}, {@link NlpIntentModel}) inherit from.
     
-    * You can specify multiple NlpModels to process the same audio, all of their results will be returned in [ListeningUpdateEventArgs](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#VoiceMLListeningUpdateEventArgs)
+    * You can specify multiple NlpModels to process the same audio, all of their results will be returned in {@link VoiceML.ListeningUpdateEventArgs}.
     */
-    let VoiceML_BaseNlpModel: VoiceML.BaseNlpModel
+    static VoiceML_BaseNlpModel: VoiceML.BaseNlpModel
     
     /**
     * The abstract base class all NlpResponses inherit from. NlpResponses are used as the result from the VoiceML NLP engine with information after processing the transcript of the input audio.
     */
-    let VoiceML_BaseNlpResponse: VoiceML.BaseNlpResponse
+    static VoiceML_BaseNlpResponse: VoiceML.BaseNlpResponse
     
     /**
     * An NLP model used to detect keywords in the transcript of the input audio.  For example, you can have keyword detection which will trigger every time the word "red" is said, and another trigger for the word "yellow". 
     */
-    let VoiceML_KeywordModelGroup: VoiceML.KeywordModelGroup
+    static VoiceML_KeywordModelGroup: VoiceML.KeywordModelGroup
     
     /**
     * ListeningErrorEventArgs object returns in onListeningError callback. It contains the error code and description of the error. 
     */
-    let VoiceML_ListeningErrorEventArgs: VoiceML.ListeningErrorEventArgs
+    static VoiceML_ListeningErrorEventArgs: VoiceML.ListeningErrorEventArgs
     
     /**
-    * Provides the configuration for the audio input processing output. This can either include NLP processing using the ([nlpModels](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#VoiceMLBaseNlpModel)) or directly retrieving the transcription.  `speechContext` provides the ability to further improve the transcription accuracy given an assumed context. 
+    * Provides the configuration for the audio input processing output. This can either include NLP processing using the {@link VoiceML.BaseNlpModel} or directly retrieving the transcription.  `speechContext` provides the ability to further improve the transcription accuracy given an assumed context. 
     */
-    let VoiceML_ListeningOptions: VoiceML.ListeningOptions
+    static VoiceML_ListeningOptions: VoiceML.ListeningOptions
     
     /**
     * The parameter when the callback registered on from `VoiceMLModule.onListeningUpdate` is called. This is to mark the input audio transcription (and possibly NlpModels as a result) was updated.
     */
-    let VoiceML_ListeningUpdateEventArgs: VoiceML.ListeningUpdateEventArgs
+    static VoiceML_ListeningUpdateEventArgs: VoiceML.ListeningUpdateEventArgs
     
     /**
-    * May be returned when [enableSystemCommands()](https://lensstudio.snapchat.com/api/classes/VoiceMLModule#enableSystemCommands) API is used.
+    * May be returned when [enableSystemCommands()](https://developers.snap.com/api/classes/VoiceMLModule#enableSystemCommands) API is used.
     * The NlpCommandResponse contains the results of the servers' NLP command model classification on the last sentence and indicates that a predetermined system command was detected.
     * Current supported commands:
     
@@ -21247,132 +21885,142 @@ declare namespace _palette {
     * "Stop Recording”: stops an ongoing video recording, if applicable.
     
     */
-    let VoiceML_NlpCommandResponse: VoiceML.NlpCommandResponse
+    static VoiceML_NlpCommandResponse: VoiceML.NlpCommandResponse
     
     /**
     * Specifies which NLP Intent model should run to classify the transcription of the input audio. NLP Intent classification meant to extract the meaning of a sentence rather than detecting certain keywords. Multiple intent models can be used on the same transcription, and will run only on complete sentences (`isFinalTranscription = True`). Supported intent models: `VOICE_ENABLED_UI`. 
     */
-    let VoiceML_NlpIntentModel: VoiceML.NlpIntentModel
+    static VoiceML_NlpIntentModel: VoiceML.NlpIntentModel
     
     /**
-    * Returned when [NlpIntentModel](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#VoiceMLNlpIntentModel) was specificed in the ListeningOptions, it contains the results of the NLP Intent model classification on the last sentence. `NlpIntentResponse` will only run on complete sentences (`isFinalTranscription = true`).  
+    * Returned when {@link NlpIntentModel} was specificed in the ListeningOptions, it contains the results of the NLP Intent model classification on the last sentence. `NlpIntentResponse` will only run on complete sentences (`isFinalTranscription = true`).  
     
     */
-    let VoiceML_NlpIntentResponse: VoiceML.NlpIntentResponse
+    static VoiceML_NlpIntentResponse: VoiceML.NlpIntentResponse
     
     /**
     * Contains helper functions for NlpIntentModel.
     */
-    let VoiceML_NlpIntentsModelOptions: VoiceML.NlpIntentsModelOptions
+    static VoiceML_NlpIntentsModelOptions: VoiceML.NlpIntentsModelOptions
     
     /**
     * Used to detect usage of certain keywords from the input audio.
     
-    * Keyword detection (whose results will be returned in [NlpKeywordResponse](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#VoiceMLNlpKeywordResponse) in the [ListeningUpdateEventArgs](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#VoiceMLListeningUpdateEventArgs)) can happen in the mid input sentence (and in such case the the isFinalTranscription=false) or can happen at the end of the sentence (isFinalTranscription=true). Mid sentence detection have closer proximity to the time the word was spoken, but might be less accurate. 
+    * Keyword detection (whose results will be returned in {@link VoiceML.NlpKeywordResponse}) in the {@link VoiceML.ListeningUpdateEventArgs} can happen in the mid input sentence (and in such case the the isFinalTranscription=`false`) or can happen at the end of the sentence (isFinalTranscription=`true`). Mid sentence detection have closer proximity to the time the word was spoken, but might be less accurate. 
     */
-    let VoiceML_NlpKeywordModel: VoiceML.NlpKeywordModel
+    static VoiceML_NlpKeywordModel: VoiceML.NlpKeywordModel
     
     /**
     * Contains helper functions for NlpKeywordModel.
     */
-    let VoiceML_NlpKeywordModelOptions: VoiceML.NlpKeywordModelOptions
+    static VoiceML_NlpKeywordModelOptions: VoiceML.NlpKeywordModelOptions
     
     /**
     * NlpKeywordResponse will be returned if KeywordModel has been supplied as an input model in the ListeningOptions.  The keyword model allows detection of keywords (or short phrases) in an input audio. 
     */
-    let VoiceML_NlpKeywordResponse: VoiceML.NlpKeywordResponse
+    static VoiceML_NlpKeywordResponse: VoiceML.NlpKeywordResponse
     
     /**
     * The NLP Response Status indicates wether the NLP was successful in parsing the sentence. 
     */
-    let VoiceML_NlpResponseStatus: VoiceML.NlpResponseStatus
+    static VoiceML_NlpResponseStatus: VoiceML.NlpResponseStatus
     
     /**
     * The `PostProcessingAction` is the base class for `QnaAction` and other post processing actions that need to processed after the transcription phase.
     */
-    let VoiceML_PostProcessingAction: VoiceML.PostProcessingAction
+    static VoiceML_PostProcessingAction: VoiceML.PostProcessingAction
     
     /**
     * The `PostProcessingActionResponse` is the base class for `QnaActionRespose` and other post processing actions responses. It holds the id and status properties for all deriving objects.
     */
-    let VoiceML_PostProcessingActionResponse: VoiceML.PostProcessingActionResponse
+    static VoiceML_PostProcessingActionResponse: VoiceML.PostProcessingActionResponse
     
-    let VoiceML_PostProcessingActionResponseStatus: VoiceML.PostProcessingActionResponseStatus
+    static VoiceML_PostProcessingActionResponseStatus: VoiceML.PostProcessingActionResponseStatus
     
-    let VoiceML_QnaAction: VoiceML.QnaAction
+    static VoiceML_QnaAction: VoiceML.QnaAction
     
-    let VoiceML_QnaResponse: VoiceML.QnaResponse
+    static VoiceML_QnaResponse: VoiceML.QnaResponse
     
     /**
     * Speech context is used in cases where specific words are expected from the users, the transcription accuracy of these words can be improved, by straightening their likelihood in context. The strength is scaled 1-10 (10 being the strongest increase) the default value is 5.
     */
-    let VoiceML_SpeechContext: VoiceML.SpeechContext
+    static VoiceML_SpeechContext: VoiceML.SpeechContext
     
     /**
     * VoiceML Module allows voice input and commands. It enables transciption of the speech, detecting keywords within the transcription, intents as well as system commands (such as "Take a Snap"). You can use one VoiceML Module per Lens. 
     */
-    let VoiceMLModule: VoiceMLModule
+    static VoiceMLModule: VoiceMLModule
     
-    let VoiceMLModule_AnswerStatusCodes: VoiceMLModule.AnswerStatusCodes
+    static VoiceMLModule_AnswerStatusCodes: VoiceMLModule.AnswerStatusCodes
     
     /**
     * Status Codes for NLP Responses. 
     */
-    let VoiceMLModule_NlpResponsesStatusCodes: VoiceMLModule.NlpResponsesStatusCodes
+    static VoiceMLModule_NlpResponsesStatusCodes: VoiceMLModule.NlpResponsesStatusCodes
     
-    let VoiceMLModule_SpeechRecognizer: VoiceMLModule.SpeechRecognizer
+    static VoiceMLModule_SpeechRecognizer: VoiceMLModule.SpeechRecognizer
     
     /**
-    * Types of weather returned by [UserContextSystem's](https://lensstudio.snapchat.com/api/lens-studio/Classes/ScriptObjects#UserContextSystem) `requestWeatherCondition()` callback.
+    * Types of weather returned by {@link UserContextSystem}'s callback.
     */
-    let WeatherCondition: WeatherCondition
+    static WeatherCondition: WeatherCondition
     
     /**
     * WebPageTextureProvider is the associated texture control that can be accessed from the `texture.control` property. This allows you to call functions such as `loadUrl(“https://snap.com”)` or to pass input events to. 
     
     * _Note: Most functionality will require the `onReady` event to have been called. Any calls before this event may cause an exception._
     
-    * @see {@link RemoteServiceModule.createWebView}
+    * @see {@link RemoteServiceModule#createWebView}
     
     * @experimental
     
     * @wearableOnly
     */
-    let WebPageTextureProvider: WebPageTextureProvider
+    static WebPageTextureProvider: WebPageTextureProvider
     
     /**
+    * WebSocket provides an API for managing a WebSocket connection to a server, as well as for sending and receiving data on the connection.
+    
     * @wearableOnly
     */
-    let WebSocket: WebSocket
+    static WebSocket: WebSocket
     
     /**
+    * Event type for WebSocket close events. This event indicates when the WebSocket connection has been closed. Listen for this event by using `addEventListener` with `close`, or by setting the `onclose` property.
+    
     * @wearableOnly
     */
-    let WebSocketCloseEvent: WebSocketCloseEvent
+    static WebSocketCloseEvent: WebSocketCloseEvent
     
     /**
+    * Event type for WebSocket error events. This event indicates when a server-side error has occurred resulting in closure of the WebSocket connection. Listen for this event by using `addEventListener` with `error`, or by setting the `onerror` property.
+    
     * @wearableOnly
     */
-    let WebSocketErrorEvent: WebSocketErrorEvent
+    static WebSocketErrorEvent: WebSocketErrorEvent
     
     /**
+    * Generic event type for WebSocket.
+    
     * @wearableOnly
     */
-    let WebSocketEvent: WebSocketEvent
+    static WebSocketEvent: WebSocketEvent
     
     /**
+    * Event type for WebSocket message events. This event fires when a message has been received from the server. Listen for this event by using `addEventListener` with `message`, or by setting the `onmessage` property.
+    
     * @wearableOnly
     */
-    let WebSocketMessageEvent: WebSocketMessageEvent
+    static WebSocketMessageEvent: WebSocketMessageEvent
     
     /**
     * WebViewOptions allow you to specify various aspects of the WebView that will be created. These are only used at creation time.
     
-    * @see {@link RemoteServiceModule.createWebViewOptions}
+    * @see {@link RemoteServiceModule#createWebViewOptions}
     
     * @experimental
     */
-    let WebViewOptions: WebViewOptions
+    static WebViewOptions: WebViewOptions
     
     /**
     * WebViewPolicy allows creators to control what websites are allowed to be loaded in the WebView. This can be helpful to prevent users from navigating away from your desired webpage through external links.
@@ -21391,85 +22039,85 @@ declare namespace _palette {
     
     * @experimental
     */
-    let WebViewPolicy: WebViewPolicy
+    static WebViewPolicy: WebViewPolicy
     
-    let WeightedMode: WeightedMode
+    static WeightedMode: WeightedMode
     
     /**
     * Groups physics objects in its subtree into an independent world simulation.
     */
-    let WorldComponent: WorldComponent
+    static WorldComponent: WorldComponent
     
     /**
     * Holds settings for world mesh tracking in DeviceTracking component. Accessible through DeviceTracking.worldOptions.
     */
-    let WorldOptions: WorldOptions
+    static WorldOptions: WorldOptions
     
     /**
     * The result of the hitTest method call. This includes the world position of the hit, the world normal of the hit. Returns `null` if no intersection with environment was detected.
     
     * @wearableOnly
     */
-    let WorldQueryHitTestResult: WorldQueryHitTestResult
+    static WorldQueryHitTestResult: WorldQueryHitTestResult
     
     /**
     * Provides access to WorldQuery api which performs hit test for real surfaces to sample the depth and normal at a certain location.
     
     * @wearableOnly
     */
-    let WorldQueryModule: WorldQueryModule
+    static WorldQueryModule: WorldQueryModule
     
     /**
     * Provider for RenderMesh data representing the estimated shape of real world objects generated from depth information. Only available when world mesh tracking is supported and enabled.
     */
-    let WorldRenderObjectProvider: WorldRenderObjectProvider
+    static WorldRenderObjectProvider: WorldRenderObjectProvider
     
     /**
     * Provides information about whether certain world tracking features are supported by the device.
     */
-    let WorldTrackingCapabilities: WorldTrackingCapabilities
+    static WorldTrackingCapabilities: WorldTrackingCapabilities
     
     /**
     * Triggered when new world tracking meshes are detected. Only available when a Device Tracking component is in the scene, and world mesh tracking is supported and enabled.
     */
-    let WorldTrackingMeshesAddedEvent: WorldTrackingMeshesAddedEvent
+    static WorldTrackingMeshesAddedEvent: WorldTrackingMeshesAddedEvent
     
     /**
     * Triggered when some world tracking meshes are no longer detected. Only available when a Device Tracking component is in the scene, and world mesh tracking is supported and enabled.
     */
-    let WorldTrackingMeshesRemovedEvent: WorldTrackingMeshesRemovedEvent
+    static WorldTrackingMeshesRemovedEvent: WorldTrackingMeshesRemovedEvent
     
     /**
     * Triggered when world tracking meshes are updated. Only available when a Device Tracking component is in the scene, and world mesh tracking is supported and enabled.
     */
-    let WorldTrackingMeshesUpdatedEvent: WorldTrackingMeshesUpdatedEvent
+    static WorldTrackingMeshesUpdatedEvent: WorldTrackingMeshesUpdatedEvent
     
     /**
-    * Triggered when plane(s) are newly detected. The `worldOptions.nativePlaneTrackingType` must be set to anything other than `NativePlaneTrackingType.None`. In addition, [Device Tracking](https://lensstudio.snapchat.com/api/classes/devicetracking) component must be set to `World` mode to orient the Camera relative to the planes correctly.
+    * Triggered when plane(s) are newly detected. The `worldOptions.nativePlaneTrackingType` must be set to anything other than `NativePlaneTrackingType.None`. In addition, {@link DeviceTracking} component must be set to `World` mode to orient the Camera relative to the planes correctly.
     
     */
-    let WorldTrackingPlanesAddedEvent: WorldTrackingPlanesAddedEvent
+    static WorldTrackingPlanesAddedEvent: WorldTrackingPlanesAddedEvent
     
     /**
-    * Triggered when plane(s) are no longer detected.  This usually happens when two planes merge into one.  Planes persist when no longer seen by camera(s) and when previously detected objects move (e.g. a door is opened) to create a static scene. [Device Tracking](https://lensstudio.snapchat.com/api/classes/devicetracking) component must be set to `World` mode to orient the Camera relative to the planes correctly.
+    * Triggered when plane(s) are no longer detected.  This usually happens when two planes merge into one.  Planes persist when no longer seen by camera(s) and when previously detected objects move (e.g. a door is opened) to create a static scene. {@link DeviceTracking} component must be set to `World` mode to orient the Camera relative to the planes correctly.
     
     */
-    let WorldTrackingPlanesRemovedEvent: WorldTrackingPlanesRemovedEvent
+    static WorldTrackingPlanesRemovedEvent: WorldTrackingPlanesRemovedEvent
     
     /**
-    * Triggered when currently detected plane(s) are updated.  This usually happens when a plane grows in size. The `worldOptions.nativePlaneTrackingType` must be set to anything other than `NativePlaneTrackingType.None`. In addition, [Device Tracking](https://lensstudio.snapchat.com/api/classes/devicetracking) component must be set to `World` mode to orient the Camera relative to the planes correctly.
+    * Triggered when currently detected plane(s) are updated.  This usually happens when a plane grows in size. The `worldOptions.nativePlaneTrackingType` must be set to anything other than `NativePlaneTrackingType.None`. In addition, {@link DeviceTracking} component must be set to `World` mode to orient the Camera relative to the planes correctly.
     
     */
-    let WorldTrackingPlanesUpdatedEvent: WorldTrackingPlanesUpdatedEvent
+    static WorldTrackingPlanesUpdatedEvent: WorldTrackingPlanesUpdatedEvent
     
-    let WorldUnderstandingModule: WorldUnderstandingModule
+    static WorldUnderstandingModule: WorldUnderstandingModule
     
     /**
     * Describes how a texture should be sampled when using coordinates outside of the normal range.
     */
-    let WrapMode: WrapMode
+    static WrapMode: WrapMode
     
-    let Zodiac: Zodiac
+    static Zodiac: Zodiac
     
 }
 

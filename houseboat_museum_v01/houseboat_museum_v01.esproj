@@ -1,16 +1,17 @@
 studioVersion:
   major: 5
-  minor: 4
+  minor: 6
   patch: 1
-  build: 24123021
+  build: 25021020
   type: Public
-updateCheckpoint: 52
+updateCheckpoint: 55
 sceneId: 0a1ccb1a-fe88-4fbb-9883-e3af3c75fd99
 viewConfig:
   simulation:
     device: No Simulation
     cameraFov: 66.519997
     fullFrameAspect: nan
+    resolutionScale: 1.000000
     viewport: Maximized
     output: Live
     stereoOutputEye: Center

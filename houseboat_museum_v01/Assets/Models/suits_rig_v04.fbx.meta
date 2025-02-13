@@ -2,24 +2,27 @@
   ImportedAssetIds:
     .hidden/Costume_Female: !<reference> fa829a2d-2df8-4e54-9886-3a4e60f03457
     .hidden/white: !<reference> 664a4ee0-9b14-4e51-83a7-17fa882e0ad6
-    0aee20569297ed14: !<reference> 4999d10f-1b90-4a24-9c2d-232357538e8d
-    0be43048a70de611: !<reference> f5baebbd-14b0-416e-830a-d5e21cd06ce7
-    17d5f2d9270dc148: !<reference> 29a1ef81-c557-4f6f-b202-640d9f337439
-    1cc771db434cafca: !<reference> 94069abe-a8d6-446e-bdb0-4303c9f62783
-    228cf7b8bdb36b39: !<reference> 5f194851-3e2e-42a0-b0b1-4594e6faf240
-    25a17c8f94e2f14f: !<reference> b6051db4-de20-4f55-871a-4c88684e4bff
-    310175791c33d0ac: !<reference> 0b24bf97-be1a-44d6-869d-fbfe6aa71482
-    31d95527ae235112: !<reference> c43d989c-048b-4ad0-8a32-829e90d51766
-    3aba26863e14f451: !<reference> b9a6afcc-1e6e-4786-9fd5-091a6abfc7a2
-    41b55eafbec4bd54: !<reference> 39dc8b5c-5e29-4ad1-a125-fd23cdb2eb28
-    44ed882a539d964f: !<reference> 0fd686b7-eced-4d42-831c-22c49894f8ca
-    51b677ef0cc604c7: !<reference> 1eb9e571-8b88-4091-9772-4c58bf11eca2
-    57c953b359678cd9: !<reference> 101d6307-01a0-4fb2-a970-67347ce42c69
-    59357115d7d61653: !<reference> e6696cc3-16b1-4840-8d82-14bf1f03e8bb
-    5f4fd860625bbc7c: !<reference> b08729db-bc1f-4282-86ab-b7cbafea56eb
-    7a0dd5cd69df73fa: !<reference> 9f2a84d1-e28b-4c16-a716-6e045e5549ca
-    7d382a17f0e1d6bf: !<reference> 99b6af0d-9863-4c34-84d5-5a1db58a8f5c
-    94c992990815437b: !<reference> eb43e434-052c-48d1-a1c6-b85a1df228b1
+    06b9cefaede4c295: !<reference> e2eabef4-2adc-44c8-b9ca-9ee49304a04d
+    0c912e252ea77c73: !<reference> b09a25f5-a332-49b6-8d8b-b012b30ca9ac
+    16733c12a6291cc2: !<reference> 09529c46-548a-46eb-8902-bac90bf12f40
+    1aef75c968f0503e: !<reference> e6144d1b-53a1-435a-878a-d59152fa24da
+    366f65fce29ef406: !<reference> 30d243c4-4d01-467f-87f9-8d4b4648cbee
+    3903a9da0d8a40ce: !<reference> 47fa845b-1b40-408e-8c0f-d4156ebe84be
+    399686ac0f9a3a55: !<reference> cba3aef7-8b2f-4ced-ab5a-8bb93e5952f9
+    4ae86d93e34f61e9: !<reference> 27ebe303-373d-44ea-922b-1f23e47099d3
+    4c5a6a424d0b8caa: !<reference> 9f96a729-dcb2-4ca7-b260-4c015d297cac
+    51d635da7298fb87: !<reference> 181578b9-5340-491e-b4f3-bd03fc6c6890
+    56310427da5dd62a: !<reference> 1ee842cd-b28b-4508-ad6c-d00abdc1a390
+    5934ed30cb702c7f: !<reference> 7f92b932-2636-49f1-ac4f-c72a5ebd4fee
+    5ab70839fb997d3c: !<reference> f61c8913-e9cf-478f-8d82-a74486755a21
+    5fd9666db3287bdc: !<reference> 781a6553-2cc5-457e-bb1e-7c670c537157
+    63a504df8f8620e4: !<reference> aaf8f5f0-9384-45c3-8218-8401aabdbe9f
+    66780cf3a4dcb2b8: !<reference> f02effdf-71ee-488e-9f3d-4272e2d733d8
+    787e945d2c346170: !<reference> 3c6ad2dd-88fb-4100-8da6-622f3b8152ba
+    83b4d33d6cfb9e32: !<reference> ef5e475c-6051-446f-bae8-b5f299b82612
+    86be9a9f287501df: !<reference> 79e01a45-5130-4862-bc33-a612d5d0aa8c
+    8d27db300685d201: !<reference> 3747c0a1-509d-4ee3-afe3-d2301727cc2c
+    94b4057865f8d89e: !<reference> d16ee7ef-c509-4400-a4a7-cd23b0b856d4
     BaseLayer: !<reference> 3d39933d-daab-4cd5-a1d3-bd3d134fcc57
     Materials/Costume_Female: !<reference> db07b4c9-bbb5-448a-a597-0e4ca318132a
     Materials/Costume_Female|Costume_Female|GraphPassInfo: !<reference> 7718939c-a98f-421c-b094-5b30cf17573f
@@ -29,20 +32,17 @@
     Meshes/costume_female_front_plane: !<reference> defa0470-b338-4e8f-95bf-12de854163a0
     Meshes/costume_men: !<reference> dd381ee2-c8d9-4a67-b082-9987fe789f2a
     Scene: !<reference> e8dcdacc-f002-447d-90e7-d0c6b63a4f2e
-    b24654860ed4dd6d: !<reference> 38697766-bd55-4592-823f-50c24a6bb994
-    b458bf6c2f0f7bb8: !<reference> 99763003-8ea4-4209-aac2-6c6895a68bc0
-    bd2b9baead5e9e64: !<reference> 5166a0ef-e6be-416b-a46b-563cc717150d
-    be1e37c863c9e192: !<reference> 30b3f32a-7882-4fd8-9357-87ead4833c4f
-    c4dc6131c0d4ecc1: !<reference> c9c2789e-bf01-4e2e-b320-2d6f32721278
-    c7bde50bfc29173c: !<reference> 46393934-403b-4fa9-b560-7a92ca11a41a
-    d7768830b7744787: !<reference> 104fd0ac-d9b9-47b3-b6ae-c15b8ddb22c4
-    da67bd992dcb7a9e: !<reference> 2934055a-69f9-4dc7-b56e-1dacfe212fe8
-    ddf2d047abdd8a0b: !<reference> 47fd4d65-4a7b-42f8-bd86-149b4789f3bc
-    e1ddde9b3070fbc6: !<reference> ab025e0b-6b02-474b-b0db-cef7c3c1de6b
-    e9918917d5891536: !<reference> 57346161-9fc0-4aaf-8427-33e01ea550e3
-    ef1d07568b42d36a: !<reference> 9351602f-4fb7-44f0-be3e-e9739f56f855
-    f6d5b5ed764c506e: !<reference> b17b3c23-0abb-42cc-b167-522bb2762ed9
-    fe503f10ba2eeed5: !<reference> 953393c3-ef5a-47e1-ba91-4c0e49fbdb45
+    b26e3903126bc7c7: !<reference> 92ba0602-46c2-46d2-a47c-b59436e7e310
+    d0a5087fd5d2afdd: !<reference> 3cef089c-1562-49a1-9fec-8a9c1facfb81
+    d56449042852e538: !<reference> 9bb672a6-a768-48be-a49d-1d849466506f
+    d592e2a92fcd8ef4: !<reference> 3013a8b8-24c9-4a58-8174-df98a03f5d86
+    df33ea54d4bab274: !<reference> 6c8d8c33-b812-4393-b98f-566190a497c5
+    e66f25ad2366abfa: !<reference> 8b364465-1a3a-4545-8c49-9c30c785220d
+    e94ec2c1f0d9ab89: !<reference> e2dcd2ea-4722-4c9f-bc0c-fe0139d02ed3
+    f7a79a1ea9f42444: !<reference> daeed846-819f-4d09-8fc8-a4560504258e
+    faaa8b95f0bcabc3: !<reference> 98ee50af-d53f-491a-8c0c-f5232ab4a7e9
+    fd34ee877925649c: !<reference> 2d5196f1-0363-4394-9473-d96c640a13d8
+    feb6e3cbaa2884fe: !<reference> 6352a830-6a9e-4e55-9fcb-d0a4b3e714b0
   ImporterName: FbxImporter
   PrimaryAsset: !<reference> e8dcdacc-f002-447d-90e7-d0c6b63a4f2e
   PackageType: LegacyPackage
@@ -53,7 +53,7 @@
     Scene: !<own> 085abcec-ed42-4038-818f-a886b2562cb0
   DependentFiles:
     []
-  ImporterSettings: !<FbxImporterSettings/09d893c0-778c-4e65-a8ef-3ad11d18365c>
+  ImporterSettings: !<FbxImporterSettings>
     UseLegacyImporter: false
     WithMaterials: true
     NamingConvention: ByCategorySanitize
@@ -69,14 +69,14 @@
     GeneratePivots: true
     TriangulateNURBS: true
     UseLegacyFbxLoader: false
-  CompressionSettings: !<ComplexCompressionSettings/1f6634e7-e53a-4eca-a814-cb21b4e2b6c7>
+  CompressionSettings: !<ComplexCompressionSettings>
     Presets:
-      None Compression: !<SingleCompressionSettings/14324461-6973-469e-991a-50a1391b2c19>
+      None Compression: !<SingleCompressionSettings>
         CompressorName: None
         CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-      Performance Compression: !<SingleCompressionSettings/7d94f978-606a-4a66-b8b9-92dcdfef8706>
+      Performance Compression: !<SingleCompressionSettings>
         CompressorName: Performance
-        CompressionSettings: !<TextureCompressionSettings/ffc39672-f16d-4499-9dec-63da66b33e20>
+        CompressionSettings: !<TextureCompressionSettings>
           Level: Medium
     ExtensionMappings:
       mesh: None Compression

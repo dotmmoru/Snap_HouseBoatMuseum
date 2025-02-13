@@ -11,8 +11,8 @@
     {}
   DependentFiles:
     []
-  ImporterSettings: !<AssetImporterSettings/8d96cbd0-c286-4ea0-8c05-dd44e1ca0722>
+  ImporterSettings: !<AssetImporterSettings>
     {}
-  CompressionSettings: !<SingleCompressionSettings/fa262515-39c9-499f-9543-5e18072b0bbd>
+  CompressionSettings: !<SingleCompressionSettings>
     CompressorName: None
     CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
