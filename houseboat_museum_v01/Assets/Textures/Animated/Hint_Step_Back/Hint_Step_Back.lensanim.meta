@@ -12,13 +12,13 @@
     AnimatedTexture: !<own> 8b389ca0-57c1-4910-9663-f1d86f2f4759
   DependentFiles:
     - Hint_Step_Back.png
-  ImporterSettings: !<AssetImporterSettings>
+  ImporterSettings: !<AssetImporterSettings/f189960b-4c77-411b-9110-63ca8035b77e>
     {}
-  CompressionSettings: !<SingleCompressionSettings>
+  CompressionSettings: !<SingleCompressionSettings/55dbf62e-55d5-49e7-b7a7-4a89a270e260>
     CompressorName: Atlas Compressor
-    CompressionSettings: !<AnimatedCompressionSettings>
+    CompressionSettings: !<AnimatedCompressionSettings/1c28be10-e9cc-4a43-bc1f-26aa754e6409>
       CompressorName: Performance
-      CompressionSettings: !<TextureCompressionSettings>
+      CompressionSettings: !<TextureCompressionSettings/e168e63d-ac8f-4505-b6e7-a3bf9cc7c5a4>
         Level: Medium
 - !<AnimatedTextureData/8b389ca0-57c1-4910-9663-f1d86f2f4759>
   AutoPlay: true

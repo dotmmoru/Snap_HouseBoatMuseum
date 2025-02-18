@@ -11,7 +11,7 @@
     ObjectPrefab: !<own> 442adca3-1694-4cf6-bd3f-f818d05cdea7
   DependentFiles:
     []
-  ImporterSettings: !<AssetImporterSettings>
+  ImporterSettings: !<AssetImporterSettings/45602af0-1a87-42d6-b204-45f5adfa2261>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
 - !<SceneObject/040e19c7-72af-4f78-acf6-0d6d98435a1b>
@@ -606,16 +606,16 @@
     top: 0.000000
   OverflowVertical: Overflow
   OverflowHorizontal: Overflow
-  Fill: !<TextFill>
+  Fill: !<TextFill/00000000-0000-0000-0000-000000000000>
     Mode: Solid
     Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     Texture: !<reference> 00000000-0000-0000-0000-000000000000
     TileCount: 5.000000
     TileZone: Rect
     TextureStretch: FitWidth
-  Outline: !<OutlineSettings>
+  Outline: !<OutlineSettings/00000000-0000-0000-0000-000000000000>
     Enabled: true
-    Fill: !<TextFill>
+    Fill: !<TextFill/00000000-0000-0000-0000-000000000000>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
@@ -623,9 +623,9 @@
       TileZone: Rect
       TextureStretch: FitWidth
     Size: 0.780000
-  Dropshadow: !<DropshadowSettings>
+  Dropshadow: !<DropshadowSettings/00000000-0000-0000-0000-000000000000>
     Enabled: true
-    Fill: !<TextFill>
+    Fill: !<TextFill/00000000-0000-0000-0000-000000000000>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.500008}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
@@ -634,9 +634,9 @@
       TextureStretch: FitWidth
     OffsetX: 0.250000
     OffsetY: 0.250000
-  Background: !<BackgroundSettings>
+  Background: !<BackgroundSettings/00000000-0000-0000-0000-000000000000>
     Enabled: false
-    Fill: !<TextFill>
+    Fill: !<TextFill/00000000-0000-0000-0000-000000000000>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
@@ -649,7 +649,7 @@
       right: 0.000000
       top: 0.000000
     CornerRadius: 0.000000
-  AdvancedLayout: !<TextAdvancedLayout>
+  AdvancedLayout: !<TextAdvancedLayout/00000000-0000-0000-0000-000000000000>
     ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
     LetterSpacing: 0.000000
     LineSpacing: 1.000000
@@ -937,16 +937,16 @@
     top: 0.000000
   OverflowVertical: Overflow
   OverflowHorizontal: Overflow
-  Fill: !<TextFill>
+  Fill: !<TextFill/00000000-0000-0000-0000-000000000000>
     Mode: Solid
     Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     Texture: !<reference> 00000000-0000-0000-0000-000000000000
     TileCount: 5.000000
     TileZone: Rect
     TextureStretch: FitWidth
-  Outline: !<OutlineSettings>
+  Outline: !<OutlineSettings/00000000-0000-0000-0000-000000000000>
     Enabled: true
-    Fill: !<TextFill>
+    Fill: !<TextFill/00000000-0000-0000-0000-000000000000>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
@@ -954,9 +954,9 @@
       TileZone: Rect
       TextureStretch: FitWidth
     Size: 0.250000
-  Dropshadow: !<DropshadowSettings>
+  Dropshadow: !<DropshadowSettings/00000000-0000-0000-0000-000000000000>
     Enabled: true
-    Fill: !<TextFill>
+    Fill: !<TextFill/00000000-0000-0000-0000-000000000000>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
@@ -965,9 +965,9 @@
       TextureStretch: FitWidth
     OffsetX: 0.250000
     OffsetY: 0.250000
-  Background: !<BackgroundSettings>
+  Background: !<BackgroundSettings/00000000-0000-0000-0000-000000000000>
     Enabled: false
-    Fill: !<TextFill>
+    Fill: !<TextFill/00000000-0000-0000-0000-000000000000>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
@@ -980,7 +980,7 @@
       right: 0.000000
       top: 0.000000
     CornerRadius: 0.000000
-  AdvancedLayout: !<TextAdvancedLayout>
+  AdvancedLayout: !<TextAdvancedLayout/00000000-0000-0000-0000-000000000000>
     ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
     LetterSpacing: 0.000000
     LineSpacing: 1.000000

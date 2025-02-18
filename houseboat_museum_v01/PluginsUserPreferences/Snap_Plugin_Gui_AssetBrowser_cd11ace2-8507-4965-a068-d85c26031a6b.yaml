@@ -1,11 +1,15 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 98
+    size: 131
     values:
       - 3D Body Tracking.bodyTracking3D
       - API
+      - API/HouseBoatMuseum API Module.js
       - API/HouseBoatMuseum API.js
+      - API/HouseBoatMuseum.remoteServiceModule
+      - Connected Lens Module.connectedLensModule
+      - Device Camera Texture.deviceCameraTexture
       - Font
       - Font/jellee_roman.ttf
       - Image.mat
@@ -18,11 +22,14 @@ CollapsedEntities:
       - Materials/Man Hat.mat
       - Materials/Man Suit Mask.mat
       - Materials/Man Suit.mat
+      - Materials/Mat Hat segmented.mat
       - Materials/Matte Shadow.mat
       - Materials/Occluder.mat
       - Materials/Phone Frame.mat
+      - Materials/Stand.mat
       - Materials/Step back hint.mat
       - Materials/Water Splash.mat
+      - Materials/Wheel.mat
       - Materials/Woman Hat Shadow.mat
       - Materials/Woman Hat.mat
       - Materials/Woman Suit Mask.mat
@@ -34,6 +41,7 @@ CollapsedEntities:
       - Models/Costume_Men_rig_v07.fbx/Meshes/costume_men
       - Models/Full Body Mesh.bodyMesh
       - Models/Head Mesh.facemesh
+      - Models/Seering wheel.prefab
       - Models/man_cap_v02.fbx
       - Models/man_cap_v02.fbx/Meshes
       - Models/man_cap_v02.fbx/Meshes/man_cap_v02
@@ -59,13 +67,25 @@ CollapsedEntities:
       - RTs/RT Suits Masks.renderTarget
       - RTs/Render Target Live.renderTarget
       - RTs/Render Target Splash Source.renderTarget
+      - RTs/Render Target.renderTarget
+      - Scene.scene
       - Scripts
       - Scripts/AccessoriesController.js
       - Scripts/CountdownController.js
       - Scripts/DistanceController.js
       - Scripts/HatController.js
+      - Scripts/TweenManager/Tween/Tween.js
+      - Scripts/TweenManager/Tween/TweenManager.js
+      - Scripts/TweenManager/Tween/TweenTypes/TweenAlpha.js
+      - Scripts/TweenManager/Tween/TweenTypes/TweenChain.js
+      - Scripts/TweenManager/Tween/TweenTypes/TweenColor.js
+      - Scripts/TweenManager/Tween/TweenTypes/TweenScreenTransform.js
+      - Scripts/TweenManager/Tween/TweenTypes/TweenTransform.js
+      - Scripts/TweenManager/Tween/TweenTypes/TweenValue.js
+      - Scripts/TweenManager/TweenManager.prefab
       - Scripts/splashesController.js
       - Shaders
+      - Shaders/Stand.ss_graph
       - Shaders/Water Splash.ss_graph
       - Shaders/body mask.ss_graph
       - Shaders/body occluder.ss_graph
@@ -75,30 +95,43 @@ CollapsedEntities:
       - Shaders/matte_shadow.ss_graph
       - Shaders/occluder.ss_graph
       - Shaders/pbr.ss_graph
+      - Shaders/segmented_hat.ss_graph
       - Shaders/suits.ss_graph
       - Textures/Animated
       - Textures/Animated/Hint_Step_Back/Hint_Step_Back.lensanim
       - Textures/Animated/Hint_Step_Back/Hint_Step_Back.lensanim/Hint_Step_Back
       - Textures/Animated/Hint_Step_Back/Hint_Step_Back.lensanim/Hint_Step_Back.png
+      - Textures/BG_01_00000.jpg
       - Textures/Costume_Female_base_v02.png
       - Textures/Costume_Female_nrm_v02.jpg
       - Textures/Costume_Female_parapms_v01.jpg
       - Textures/Echopark.hdr
+      - Textures/Echopark.hdr/Diffuse
+      - Textures/Echopark.hdr/Specular
+      - Textures/Garment Segmentation.segmentationTexture
       - Textures/Hints_Phone_Frame2.png
       - Textures/HouseboatMuseum Logo.png
+      - Textures/Noise_Puffy.jpg
+      - Textures/Particles Texture.png
       - Textures/Screen Texture.screenTexture
       - Textures/Segmentation Body.segmentationTexture
+      - Textures/Stand.jpg
+      - Textures/Stand_mask.jpg
       - Textures/back_v02.jpg
       - Textures/body_mask_v02.png
       - Textures/canoe_02.png
+      - Textures/flow_noise_3D.png
       - Textures/hat_man_base_v01.jpg
       - Textures/hat_man_nrm_v01.jpg
       - Textures/hat_man_params_v01.jpg
       - Textures/main_suit_base_v01.jpg
       - Textures/main_suit_nrm_v01.jpg
       - Textures/main_suit_params_v01.jpg
+      - Textures/seering wheel.jpg
+      - Textures/seering-wheel_mask.jpg
       - Textures/woman_cap_base_v01.png
       - Textures/woman_cap_nrm_v01.jpg
       - Textures/woman_cap_params_v01.jpg
       - VFX
+      - VFX/Splash VFX.vfxgraph
   options: 4

@@ -69,11 +69,11 @@
   Near: 1.000000
   Far: 1000.000000
   Fov: 63.541019
-  ClearColor: !<CameraClearColor>
+  ClearColor: !<CameraClearColor/00000000-0000-0000-0000-000000000000>
     Mode: None
     Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
     InputTexture: !<reference> 00000000-0000-0000-0000-000000000000
-  ClearDepth: !<CameraClearDepth>
+  ClearDepth: !<CameraClearDepth/00000000-0000-0000-0000-000000000000>
     Mode: Value
     Value: 1.000000
     InputTexture: !<reference> 00000000-0000-0000-0000-000000000000
@@ -138,6 +138,8 @@
   ShadowFrustumFarClipPlane: 1000.000000
   UseEnvMapFromCamera: false
   EnvMapFromCameraMode: Auto
+  UseEstimation: false
+  EstimationIntensity: 1.000000
   EstimationSharpness: 1.000000
   EnvMapExposure: 1.000000
   EnvMapRotation: 0.000000
@@ -151,8 +153,6 @@
   DecayType: None
   DecayLimit: false
   DecayRange: 40.000000
-  UseEstimation: false
-  EstimationIntensity: !<float> 1.000000
 - !<SceneObject/00056e79-b066-62ca-0000-000000001406>
   PrefabRemaps:
     []
@@ -188,6 +188,8 @@
   ShadowFrustumFarClipPlane: 1000.000000
   UseEnvMapFromCamera: false
   EnvMapFromCameraMode: Auto
+  UseEstimation: false
+  EstimationIntensity: 1.000000
   EstimationSharpness: 1.000000
   EnvMapExposure: 1.000000
   EnvMapRotation: 0.000000
@@ -201,8 +203,6 @@
   DecayType: None
   DecayLimit: false
   DecayRange: 40.000000
-  UseEstimation: false
-  EstimationIntensity: !<float> 1.000000
 - !<SceneObject/0073cdc4-2b72-44e4-a77f-3cb148758030>
   PrefabRemaps:
     []
@@ -277,11 +277,11 @@
   Near: -1.000000
   Far: 200.000000
   Fov: 63.541019
-  ClearColor: !<CameraClearColor>
+  ClearColor: !<CameraClearColor/00000000-0000-0000-0000-000000000000>
     Mode: None
     Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
     InputTexture: !<reference> 00000000-0000-0000-0000-000000000000
-  ClearDepth: !<CameraClearDepth>
+  ClearDepth: !<CameraClearDepth/00000000-0000-0000-0000-000000000000>
     Mode: Value
     Value: 1.000000
     InputTexture: !<reference> 00000000-0000-0000-0000-000000000000
@@ -1003,9 +1003,9 @@
     - !<reference> 3886c9cf-7126-45ee-ad9d-a086fa02f540
   FlipX: false
   FlipY: false
-  RotationAngle: 0
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+  RotationAngle: 0
 - !<Skin/2feb3731-b912-491d-bc40-b0718fa2a20f>
   PrefabRemaps:
     []
@@ -1051,11 +1051,11 @@
   Near: -1.000000
   Far: 200.000000
   Fov: 63.541019
-  ClearColor: !<CameraClearColor>
+  ClearColor: !<CameraClearColor/00000000-0000-0000-0000-000000000000>
     Mode: None
     Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
     InputTexture: !<reference> 00000000-0000-0000-0000-000000000000
-  ClearDepth: !<CameraClearDepth>
+  ClearDepth: !<CameraClearDepth/00000000-0000-0000-0000-000000000000>
     Mode: Value
     Value: 1.000000
     InputTexture: !<reference> 00000000-0000-0000-0000-000000000000
@@ -1970,11 +1970,11 @@
   Near: 1.000000
   Far: 1000.000000
   Fov: 63.541019
-  ClearColor: !<CameraClearColor>
+  ClearColor: !<CameraClearColor/00000000-0000-0000-0000-000000000000>
     Mode: Color
     Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
     InputTexture: !<reference> 00000000-0000-0000-0000-000000000000
-  ClearDepth: !<CameraClearDepth>
+  ClearDepth: !<CameraClearDepth/00000000-0000-0000-0000-000000000000>
     Mode: Value
     Value: 1.000000
     InputTexture: !<reference> 00000000-0000-0000-0000-000000000000
@@ -2224,14 +2224,6 @@
   Name: Face Retouch
   Enabled: true
   RenderOrder: 0
-  StretchMode: Stretch
-  VerticalAlignment: Center
-  HorizontalAlignment: Center
-  MeshShadowMode: None
-  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-  ShadowDensity: 1.000000
-  Materials:
-    []
   FaceIndex: 1
   AutoMode: false
   AutoType: Default
@@ -2319,6 +2311,18 @@
     - {x: 0.662180, y: 0.029672}
     - {x: 0.797056, y: 0.072717}
     - {x: 0.951792, y: 0.171655}
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor:
+    x: !<float> 1.000000
+    y: !<float> 1.000000
+    z: !<float> 1.000000
+    w: !<float> 1.000000
+  ShadowDensity: !<float> 1.000000
+  Materials:
+    []
 - !<SceneObject/80e9484b-41d7-46f5-b269-6bf4893663c6>
   PrefabRemaps:
     []
@@ -2414,9 +2418,9 @@
     - !<reference> f4820db7-28b0-4986-a31e-12caad808434
   FlipX: false
   FlipY: false
-  RotationAngle: 0
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+  RotationAngle: 0
 - !<SceneObject/85159499-d1e9-41e0-8172-675df9992d54>
   PrefabRemaps:
     []
@@ -2448,9 +2452,9 @@
     - !<reference> 342d33eb-ec82-41d0-95cf-bb60d33ee193
   FlipX: false
   FlipY: false
-  RotationAngle: 0
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+  RotationAngle: 0
 - !<SceneObject/87db937f-5f22-4c27-81c6-e9fd8904ec43>
   PrefabRemaps:
     []
@@ -2890,16 +2894,16 @@
     top: 2.250000
   OverflowVertical: Overflow
   OverflowHorizontal: Wrap
-  Fill: !<TextFill>
+  Fill: !<TextFill/00000000-0000-0000-0000-000000000000>
     Mode: Solid
     Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     Texture: !<reference> 00000000-0000-0000-0000-000000000000
     TileCount: 5.000000
     TileZone: Rect
     TextureStretch: FitWidth
-  Outline: !<OutlineSettings>
+  Outline: !<OutlineSettings/00000000-0000-0000-0000-000000000000>
     Enabled: false
-    Fill: !<TextFill>
+    Fill: !<TextFill/00000000-0000-0000-0000-000000000000>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
@@ -2907,9 +2911,9 @@
       TileZone: Rect
       TextureStretch: FitWidth
     Size: 0.250000
-  Dropshadow: !<DropshadowSettings>
+  Dropshadow: !<DropshadowSettings/00000000-0000-0000-0000-000000000000>
     Enabled: false
-    Fill: !<TextFill>
+    Fill: !<TextFill/00000000-0000-0000-0000-000000000000>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
@@ -2918,9 +2922,9 @@
       TextureStretch: FitWidth
     OffsetX: 0.250000
     OffsetY: 0.250000
-  Background: !<BackgroundSettings>
+  Background: !<BackgroundSettings/00000000-0000-0000-0000-000000000000>
     Enabled: false
-    Fill: !<TextFill>
+    Fill: !<TextFill/00000000-0000-0000-0000-000000000000>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
@@ -2933,7 +2937,7 @@
       right: 0.000000
       top: 0.000000
     CornerRadius: 0.000000
-  AdvancedLayout: !<TextAdvancedLayout>
+  AdvancedLayout: !<TextAdvancedLayout/00000000-0000-0000-0000-000000000000>
     ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
     LetterSpacing: 0.000000
     LineSpacing: 1.000000
@@ -3069,9 +3073,9 @@
     - !<reference> 4492a699-724c-4510-8d88-9da07abfe1e7
   FlipX: false
   FlipY: false
-  RotationAngle: 0
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+  RotationAngle: 0
 - !<SceneObject/adf9fa57-fd56-4e88-95f0-896ff4f904a0>
   PrefabRemaps:
     []
@@ -3099,11 +3103,11 @@
   Near: -1.000000
   Far: 200.000000
   Fov: 63.541019
-  ClearColor: !<CameraClearColor>
+  ClearColor: !<CameraClearColor/00000000-0000-0000-0000-000000000000>
     Mode: None
     Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
     InputTexture: !<reference> 00000000-0000-0000-0000-000000000000
-  ClearDepth: !<CameraClearDepth>
+  ClearDepth: !<CameraClearDepth/00000000-0000-0000-0000-000000000000>
     Mode: Value
     Value: 1.000000
     InputTexture: !<reference> 00000000-0000-0000-0000-000000000000
@@ -3815,9 +3819,9 @@
     - !<reference> cb765406-1dbb-4701-abf9-4b65c51e2b90
   FlipX: false
   FlipY: false
-  RotationAngle: 0
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+  RotationAngle: 0
 - !<ScreenTransform/c8c94da5-79ac-412b-b774-bfb04f5fc3d6>
   PrefabRemaps:
     []
@@ -4211,9 +4215,9 @@
     - !<reference> eb912839-5c1e-4297-921c-a3efe2b0c4cb
   FlipX: false
   FlipY: false
-  RotationAngle: 0
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+  RotationAngle: 0
 - !<VFXComponent/d9094617-6d1a-459c-834f-65fcc5493051>
   PrefabRemaps:
     []
@@ -4337,9 +4341,9 @@
     - !<reference> 97878eee-3b4c-4948-9205-54715a640333
   FlipX: false
   FlipY: false
-  RotationAngle: 0
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+  RotationAngle: 0
 - !<ScreenTransform/e1d5dcd4-4ff5-41a5-ac05-1212885bd907>
   PrefabRemaps:
     []
@@ -4622,11 +4626,11 @@
   Near: 1.000000
   Far: 1000.000000
   Fov: 63.541019
-  ClearColor: !<CameraClearColor>
+  ClearColor: !<CameraClearColor/00000000-0000-0000-0000-000000000000>
     Mode: Color
     Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
     InputTexture: !<reference> 00000000-0000-0000-0000-000000000000
-  ClearDepth: !<CameraClearDepth>
+  ClearDepth: !<CameraClearDepth/00000000-0000-0000-0000-000000000000>
     Mode: Value
     Value: 1.000000
     InputTexture: !<reference> 00000000-0000-0000-0000-000000000000
@@ -4708,9 +4712,9 @@
     - !<reference> f0816179-13b3-4074-90bb-2f2159fb8c35
   FlipX: false
   FlipY: false
-  RotationAngle: 0
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+  RotationAngle: 0
 - !<ScreenTransform/f0cc0332-fc2f-40cf-926d-650fc45fa4ac>
   PrefabRemaps:
     []
@@ -4765,14 +4769,6 @@
   Name: Face Retouch
   Enabled: true
   RenderOrder: 0
-  StretchMode: Stretch
-  VerticalAlignment: Center
-  HorizontalAlignment: Center
-  MeshShadowMode: None
-  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-  ShadowDensity: 1.000000
-  Materials:
-    []
   FaceIndex: 0
   AutoMode: false
   AutoType: Default
@@ -4860,6 +4856,18 @@
     - {x: 0.662180, y: 0.029672}
     - {x: 0.797056, y: 0.072717}
     - {x: 0.951792, y: 0.171655}
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor:
+    x: !<float> 1.000000
+    y: !<float> 1.000000
+    z: !<float> 1.000000
+    w: !<float> 1.000000
+  ShadowDensity: !<float> 1.000000
+  Materials:
+    []
 - !<SceneObject/f66cfa29-1746-4848-b55e-a6dfff116f50>
   PrefabRemaps:
     []

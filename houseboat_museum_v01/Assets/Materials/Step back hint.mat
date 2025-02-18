@@ -3,10 +3,6 @@
   PassesInfo:
     - !<own> e3e5b6b9-8c84-4045-b4a1-7733c59fff78
 - !<PassInfo/e3e5b6b9-8c84-4045-b4a1-7733c59fff78>
-  CachedProperties:
-    - Port_Default_N369:
-        typeIdx: 5
-        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   DepthWrite: false
   DepthTest: false
   DepthFunction: LessEqual

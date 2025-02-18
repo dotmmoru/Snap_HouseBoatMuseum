@@ -11,7 +11,7 @@
     JavaScriptAsset: !<own> 0e8eb41e-8ca0-4718-ba59-80afa58ca037
   DependentFiles:
     []
-  ImporterSettings: !<AssetImporterSettings>
+  ImporterSettings: !<AssetImporterSettings/b7b1e835-9f8a-4954-82e7-8aae318ab6b5>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
 - !<ScriptAssetData/0e8eb41e-8ca0-4718-ba59-80afa58ca037>
