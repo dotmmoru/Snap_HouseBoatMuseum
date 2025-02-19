@@ -1,10 +1,10 @@
 - !<AssetImportMetadata/6faa05e1-f847-4f52-aafc-be270e61569a>
   ImportedAssetIds:
-    0da0c887e6987b6b: !<reference> ff176478-f298-4407-bed7-a26ffa4c62b3
-    66780cf3a4dcb2b8: !<reference> d37a4c3c-d882-48a1-8dde-825eed23d6fc
-    92e28cf66401e83b: !<reference> 43c56179-a5f5-4e40-94f5-033c4560dc38
+    5246aa5a2bdcc35f: !<reference> 4f27d4d8-0fd4-4dcf-9415-e68d2acfcbde
+    7a0dd5cd69df73fa: !<reference> 6cf4f811-969e-4f74-ab23-e6741c4c77e6
     Meshes/woman_cap_v01: !<reference> 104c94cd-ae97-40c9-bdb6-4b47512e278c
     Scene: !<reference> 5e7dd398-06b1-48cc-ac77-4582ae5ad4ec
+    ba5f01f7ee792f1c: !<reference> ba245301-0c88-4f2f-95ff-909098727937
   ImporterName: FbxImporter
   PrimaryAsset: !<reference> 5e7dd398-06b1-48cc-ac77-4582ae5ad4ec
   PackageType: LegacyPackage

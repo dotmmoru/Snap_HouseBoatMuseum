@@ -14,7 +14,6 @@ CollapsedEntities:
       - Font/jellee_roman.ttf
       - Image.mat
       - Image.png
-      - Materials
       - Materials/Back.mat
       - Materials/Body Occluder.mat
       - Materials/Canoe.mat
@@ -34,12 +33,13 @@ CollapsedEntities:
       - Materials/Woman Hat.mat
       - Materials/Woman Suit Mask.mat
       - Materials/Woman Suit.mat
-      - Models
       - Models/Costume_Men_rig_v07.fbx
       - Models/Costume_Men_rig_v07.fbx/Costume_Men_rig_v07
       - Models/Costume_Men_rig_v07.fbx/Meshes
       - Models/Costume_Men_rig_v07.fbx/Meshes/costume_men
+      - Models/Full Body Mesh 1.bodyMesh
       - Models/Full Body Mesh.bodyMesh
+      - Models/Head Mesh 1.facemesh
       - Models/Head Mesh.facemesh
       - Models/Seering wheel.prefab
       - Models/man_cap_v02.fbx

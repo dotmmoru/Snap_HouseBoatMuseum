@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 60
+    size: 62
     values:
       - 00000000-0000-0065-0000-000000000064
       - 0005641c-028d-459a-0000-000000014b4d
@@ -11,7 +11,6 @@ CollapsedEntities:
       - 07815b42-d05f-4616-82c2-83f9dd4f107d
       - 09bfcab3-158d-42e4-895e-da830a910832
       - 118db6d7-7395-4231-8238-8f3ee6e4e7d9
-      - 1865d532-e079-4b7e-98d4-2cd44aa3feab
       - 1c118058-e494-4fb0-9d1b-3b9804bd36ab
       - 1ca750f6-d6cc-4cd4-a9a6-df95b9c1e7db
       - 23ed871f-8fa4-4d55-a314-ae864a0691e4
@@ -22,11 +21,13 @@ CollapsedEntities:
       - 3b89b201-3de3-432e-ad0a-22c5fc83e49e
       - 3f85cfaf-5b18-4884-a498-ce902a96c6e7
       - 465ff2a5-0120-41b9-88fe-f9a50e6a7111
+      - 49a3c48c-e7f7-400b-a925-2194f3757f45
       - 4a647ab7-6d22-4195-a800-825d4defd95c
       - 4e3561ff-fef7-4e89-a00e-36a89481cb98
       - 4f2251ef-878b-4948-addf-e4627e62c1d5
       - 50d8d932-92b8-409e-9d94-4ac711cdde21
       - 5a191e4a-0047-4b8e-9ec2-1af0f036cb76
+      - 5b3a8343-6d77-4388-86b6-13c8772737bc
       - 5bf19cb8-0a03-4152-a75b-e87731a58eb9
       - 62584c4f-2aef-4a15-b1aa-1bb16a30bc9b
       - 6685e168-a703-4d49-b7cc-e266aa2d5130
@@ -39,7 +40,6 @@ CollapsedEntities:
       - 8c62a6d6-2231-4577-89ee-b75288635edd
       - 90b5c0cb-675d-4f90-9dcb-334b7c4e5eed
       - 91598829-f8d8-4a46-994b-6b55475410e3
-      - 963d056b-0369-4854-b709-ce96cfa9e318
       - 963e801a-bc2c-4741-9ea3-6edbd7eadc94
       - 9a712f0e-58c9-49de-ac2d-cc31f749bf60
       - a3c0c39c-980e-41c6-90f5-3b3a404b1159
@@ -56,6 +56,8 @@ CollapsedEntities:
       - ca9073b8-2846-4ae1-896e-8c562bab4cbd
       - d0269ff5-40d3-4d64-9787-015d6adf5c1f
       - d0a70b8b-24bb-4eac-9c63-a1b0f99f1ea6
+      - d12c659f-fdb4-4604-b0d6-6ddbd338ce83
+      - d1e9a080-455a-4b15-a92d-3bf520861f6f
       - d9f30309-3f7b-4687-9d72-b2215afbd253
       - e08179e1-6a52-4604-bbcb-b05ef868304a
       - e4e50906-bc42-4a67-ac92-fc8b26167f8a
@@ -63,4 +65,9 @@ CollapsedEntities:
       - ed739bad-3e86-48d6-861d-047de51f4190
       - f14c6896-05ca-4167-a918-6ff7708291dc
       - f66cfa29-1746-4848-b55e-a6dfff116f50
+  options: 4
+PinnedEntities:
+  type: "std::vector<class Es::Uuid,class std::allocator<class Es::Uuid> >"
+  value:
+    size: 0
   options: 4
