@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 131
+    size: 133
     values:
       - 3D Body Tracking.bodyTracking3D
       - API
@@ -14,6 +14,7 @@ CollapsedEntities:
       - Font/jellee_roman.ttf
       - Image.mat
       - Image.png
+      - Materials
       - Materials/Back.mat
       - Materials/Body Occluder.mat
       - Materials/Canoe.mat
@@ -111,6 +112,7 @@ CollapsedEntities:
       - Textures/Garment Segmentation.segmentationTexture
       - Textures/Hints_Phone_Frame2.png
       - Textures/HouseboatMuseum Logo.png
+      - Textures/HouseboatMuseum Logo_TRANSPARENT_00000.png
       - Textures/Noise_Puffy.jpg
       - Textures/Particles Texture.png
       - Textures/Screen Texture.screenTexture

@@ -818,7 +818,7 @@
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    scale: {x: 0.970000, y: 0.970000, z: 0.970000}
     hasSegmentScaleCompensation: false
   Children:
     []
@@ -2092,7 +2092,7 @@
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    scale: {x: 0.970000, y: 0.970000, z: 0.970000}
     hasSegmentScaleCompensation: false
   Children:
     []
@@ -2177,7 +2177,7 @@
   Enabled: true
   IsAdvanced: false
   Constraints:
-    pinToLeft: true
+    pinToLeft: false
     pinToTop: false
     pinToRight: false
     pinToBottom: true
@@ -2194,15 +2194,15 @@
   RawMode: true
   ForceBasic: true
   Anchor:
-    left: -1.000000
+    left: 0.000000
     bottom: -1.000000
-    right: -1.000000
+    right: 0.000000
     top: -1.000000
   Offset:
-    left: 0.000000
-    bottom: 0.000000
-    right: 300.000031
-    top: 300.000000
+    left: -143.688553
+    bottom: -1.500000
+    right: 156.311462
+    top: 298.499969
 - !<SceneObject/7c2f49a2-3add-4318-a125-e51e2e4a78e3>
   PrefabRemaps:
     []
@@ -3688,8 +3688,8 @@
     hasSegmentScaleCompensation: false
   Children:
     - !<own> 90b5c0cb-675d-4f90-9dcb-334b7c4e5eed
-    - !<own> d9f30309-3f7b-4687-9d72-b2215afbd253
     - !<own> bca58303-0702-4bf0-a01e-6e71ab5d7890
+    - !<own> d9f30309-3f7b-4687-9d72-b2215afbd253
   Components:
     - !<own> 0599a39f-a722-4ba9-98b3-6fbb188fc251
     - !<own> c3d6dff5-4bc8-44c0-8708-cd6a47b5c0f0
@@ -4376,7 +4376,7 @@
     left: -650.000000
     bottom: -340.808014
     right: 650.000000
-    top: 750.093506
+    top: 750.093445
 - !<SceneObject/e1e866c4-c7dc-45c9-8a29-d3b41d6adeae>
   PrefabRemaps:
     []
