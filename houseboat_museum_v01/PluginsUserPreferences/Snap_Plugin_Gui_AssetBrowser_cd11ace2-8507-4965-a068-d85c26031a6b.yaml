@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 130
+    size: 131
     values:
       - 3D Body Tracking.bodyTracking3D
       - API
@@ -14,6 +14,7 @@ CollapsedEntities:
       - Font/jellee_roman.ttf
       - Image.mat
       - Image.png
+      - Materials
       - Materials/Back.mat
       - Materials/Body Occluder.mat
       - Materials/Man Cap Shadow.mat
