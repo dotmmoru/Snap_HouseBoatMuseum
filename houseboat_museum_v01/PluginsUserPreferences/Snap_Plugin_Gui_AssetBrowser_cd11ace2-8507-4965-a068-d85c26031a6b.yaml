@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 133
+    size: 130
     values:
       - 3D Body Tracking.bodyTracking3D
       - API
@@ -14,10 +14,8 @@ CollapsedEntities:
       - Font/jellee_roman.ttf
       - Image.mat
       - Image.png
-      - Materials
       - Materials/Back.mat
       - Materials/Body Occluder.mat
-      - Materials/Canoe.mat
       - Materials/Man Cap Shadow.mat
       - Materials/Man Hat.mat
       - Materials/Man Suit Mask.mat
@@ -34,6 +32,7 @@ CollapsedEntities:
       - Materials/Woman Hat.mat
       - Materials/Woman Suit Mask.mat
       - Materials/Woman Suit.mat
+      - Models
       - Models/Costume_Men_rig_v07.fbx
       - Models/Costume_Men_rig_v07.fbx/Costume_Men_rig_v07
       - Models/Costume_Men_rig_v07.fbx/Meshes
@@ -102,7 +101,6 @@ CollapsedEntities:
       - Textures/Animated/Hint_Step_Back/Hint_Step_Back.lensanim
       - Textures/Animated/Hint_Step_Back/Hint_Step_Back.lensanim/Hint_Step_Back
       - Textures/Animated/Hint_Step_Back/Hint_Step_Back.lensanim/Hint_Step_Back.png
-      - Textures/BG_01_00000.jpg
       - Textures/Costume_Female_base_v02.png
       - Textures/Costume_Female_nrm_v02.jpg
       - Textures/Costume_Female_parapms_v01.jpg
@@ -119,9 +117,8 @@ CollapsedEntities:
       - Textures/Segmentation Body.segmentationTexture
       - Textures/Stand.jpg
       - Textures/Stand_mask.jpg
-      - Textures/back_v02.jpg
+      - Textures/back_v03.jpg
       - Textures/body_mask_v02.png
-      - Textures/canoe_02.png
       - Textures/flow_noise_3D.png
       - Textures/hat_man_base_v01.jpg
       - Textures/hat_man_nrm_v01.jpg

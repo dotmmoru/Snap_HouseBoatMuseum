@@ -339,7 +339,6 @@
     hasSegmentScaleCompensation: false
   Children:
     - !<own> c27f3d68-3241-4e5c-8f0c-0094d18039df
-    - !<own> 3b89b201-3de3-432e-ad0a-22c5fc83e49e
   Components:
     - !<own> c95986e5-c130-4708-a603-c1f1605ee7fa
     - !<own> 1edb70f7-d24a-44c9-b26c-02f7cd04f70c
@@ -1167,22 +1166,6 @@
     - !<own> cc1a53fa-6c57-4dc1-bffa-a74f531a1ba4
   Components:
     []
-- !<SceneObject/3b89b201-3de3-432e-ad0a-22c5fc83e49e>
-  PrefabRemaps:
-    []
-  Name: Canoe
-  Enabled: false
-  Layers: 8
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> b3f60fb6-2d87-43d9-a858-736674c61b76
-    - !<own> d48010be-634a-4e22-84be-98bed1ae4f2e
 - !<SceneObject/3f85cfaf-5b18-4884-a498-ce902a96c6e7>
   PrefabRemaps:
     - 3f85cfaf-5b18-4884-a498-ce902a96c6e7: f482d511-85ed-4aa1-8752-9e7b6700be1c
@@ -3121,39 +3104,6 @@
   DepthStencilRenderTarget: !<reference> 00000000-0000-0000-0000-000000000000
   MaskTexture: !<reference> 00000000-0000-0000-0000-000000000000
   RayTracing: !<reference> 00000000-0000-0000-0000-000000000000
-- !<ScreenTransform/b3f60fb6-2d87-43d9-a858-736674c61b76>
-  PrefabRemaps:
-    []
-  Name: Screen Transform
-  Enabled: true
-  IsAdvanced: false
-  Constraints:
-    pinToLeft: false
-    pinToTop: false
-    pinToRight: false
-    pinToBottom: true
-    fixedWidth: false
-    fixedHeight: false
-    deactivatedFixedSprite: false
-    deactivatedFixedPivot: false
-  Pivot: {x: 0.000000, y: 0.000000}
-  Transform:
-    position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
-  RawMode: true
-  ForceBasic: true
-  Anchor:
-    left: -1.955759
-    bottom: -1.000000
-    right: 2.063888
-    top: 0.052082
-  Offset:
-    left: 0.000000
-    bottom: -198.127121
-    right: 0.000000
-    top: 0.000000
 - !<ScriptComponent/b5719a1b-90cd-44cd-b2e0-3417fc7dd07a>
   PrefabRemaps:
     []
@@ -3634,7 +3584,7 @@
   PrefabRemaps:
     []
   Name: Back
-  Enabled: false
+  Enabled: true
   Layers: 8
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -4199,25 +4149,6 @@
     costume_female_front_plane: !<reference> 4e3561ff-fef7-4e89-a00e-36a89481cb98
     costume_men: !<reference> bdf8dd70-e5a4-4216-bda8-c3d88cd7c6a3
     suits_rig_v04: !<reference> d12c659f-fdb4-4604-b0d6-6ddbd338ce83
-- !<Image/d48010be-634a-4e22-84be-98bed1ae4f2e>
-  PrefabRemaps:
-    []
-  Name: Image
-  Enabled: true
-  RenderOrder: 0
-  StretchMode: Fill
-  VerticalAlignment: Bottom
-  HorizontalAlignment: Center
-  MeshShadowMode: None
-  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-  ShadowDensity: 1.000000
-  Materials:
-    - !<reference> eb912839-5c1e-4297-921c-a3efe2b0c4cb
-  FlipX: false
-  FlipY: false
-  Pivot: {x: 0.000000, y: 0.000000}
-  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
-  RotationAngle: 0
 - !<VFXComponent/d9094617-6d1a-459c-834f-65fcc5493051>
   PrefabRemaps:
     []

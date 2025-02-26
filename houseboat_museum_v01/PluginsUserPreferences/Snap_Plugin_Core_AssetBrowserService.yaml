@@ -1,9 +1,7 @@
 ExternalSources:
-  type: "std::map<Es::Uuid, Es::Path>"
+  type: "std::map<class Es::Uuid,class Es::Path,struct std::less<class Es::Uuid>,class std::allocator<struct std::pair<class Es::Uuid const ,class Es::Path> > >"
   value:
     - 0756c26f-eab0-4377-a6b7-e3fbb50df98f: "D:/Projects/WhoAR/Dutch_Clothes/textures/man_hat/out/hat_man_params_v01.jpg"
-    - 091650e0-054b-492e-a676-f1c7b894dac3: /Users/pavelivasiuk/Downloads/Telegram Lite/BG_01_00000.jpg
-    - 13f1e42f-6732-4117-9ba3-1d79cb1a134d: "D:/Projects/WhoAR/Dutch_Clothes/textures/back/back_v02.jpg"
     - 14595ed9-ea8b-4475-86e6-fb4594560784: "D:/Projects/WhoAR/Dutch_Clothes/textures/woman_hat/sbs/out/woman_cap_params_v01.jpg"
     - 312a6c10-c47c-4655-a095-bca7f88dda7a: "D:/Projects/WhoAR/Dutch_Clothes/textures/woman_hat/sbs/out/woman_cap_nrm_v01.jpg"
     - 47185826-db00-48c4-a669-95d601d5c9e7: "D:/Projects/WhoAR/Dutch_Clothes/textures/man_suit/out/main_suit_base_v01.jpg"
@@ -17,7 +15,7 @@ ExternalSources:
     - bb41b7ff-df4c-4940-91d6-1bac244f22b3: "D:/Projects/WhoAR/Dutch_Clothes/textures/bodyOccluder/body_mask_v02.png"
     - bd1cf249-674f-416a-96ff-974939869847: "D:/Projects/WhoAR/Dutch_Clothes/textures/woman_suit/Costume_Female_nrm_v02.jpg"
     - cf056c40-ea49-4dba-8e12-54d80bf7bca2: "D:/Projects/WhoAR/Dutch_Clothes/textures/woman_suit/Costume_Female_parapms_v01.jpg"
+    - d335e435-bdda-46d9-8116-ddc71b7645be: "D:/Downloads/back_v03.jpg"
     - da8c3d02-9975-4dd8-a301-638aaaa3ff31: "D:/Projects/Fishermen_Labs/Disney_Woody/lenses/Woody_stable_traking_SNAP/Public/Scripts/HatController.js"
     - f3f6c5bf-5612-435f-949a-198bda7f8b4c: /Users/pavelivasiuk/Desktop/HouseboatMuseum Logo.png
-    - f4942bde-c60a-4d32-8d68-6c5b9a8658fc: "D:/Downloads/canoe_02.png"
   options: 4

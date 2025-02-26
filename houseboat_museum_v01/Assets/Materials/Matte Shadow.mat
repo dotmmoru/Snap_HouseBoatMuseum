@@ -25,13 +25,4 @@
     PreviewEnabled:
       typeIdx: 0
       value: 0
-    overrideTimeDelta:
-      typeIdx: 1
-      value: 0.000000
-    overrideTimeElapsed:
-      typeIdx: 1
-      value: 0.000000
-    overrideTimeEnabled:
-      typeIdx: 0
-      value: 0
   Pass: !<reference> 1a2d2552-82a4-47fe-816f-8951aeec0ad4
