@@ -64,3 +64,8 @@ CollapsedEntities:
       - f14c6896-05ca-4167-a918-6ff7708291dc
       - f66cfa29-1746-4848-b55e-a6dfff116f50
   options: 4
+PinnedEntities:
+  type: "std::vector<Es::Uuid>"
+  value:
+    size: 0
+  options: 4
