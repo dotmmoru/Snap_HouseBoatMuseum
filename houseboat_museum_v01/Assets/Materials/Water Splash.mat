@@ -22,7 +22,7 @@
       value: {x: 0.500000, y: 0.500000}
     Port_Color_N058:
       typeIdx: 5
-      value: {x: 0.368627, y: 0.447059, z: 0.478431, w: 1.000000}
+      value: {x: 0.427451, y: 0.462745, z: 0.478431, w: 1.000000}
     Port_Emissive_N015:
       typeIdx: 4
       value: {x: 0.011765, y: 0.011765, z: 0.015686}
@@ -52,7 +52,7 @@
       value: 0.700000
     Port_Input1_N041:
       typeIdx: 1
-      value: 0.100000
+      value: 0.060000
     Port_Input1_N045:
       typeIdx: 1
       value: 0.700000
@@ -73,7 +73,7 @@
       value: 0.700000
     Port_Input1_N088:
       typeIdx: 5
-      value: {x: 0.807843, y: 0.972549, z: 1.000000, w: 1.000000}
+      value: {x: 0.792157, y: 0.945098, z: 1.000000, w: 0.764706}
     Port_Input2_N031:
       typeIdx: 1
       value: 0.840000
@@ -220,13 +220,13 @@
       value: 1.000000
     Port_RangeMaxB_N063:
       typeIdx: 1
-      value: 0.700000
+      value: 0.400000
     Port_RangeMaxB_N094:
       typeIdx: 1
       value: 0.000000
     Port_RangeMaxB_N098:
       typeIdx: 1
-      value: 0.700000
+      value: 0.600000
     Port_RangeMinA_N005:
       typeIdx: 1
       value: 0.400000
@@ -314,22 +314,7 @@
           borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
           mipmaps: true
         type: Texture2D
-    Tweak_N0BorderColor:
-      typeIdx: 5
-      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-    Tweak_N0Dims:
-      typeIdx: 5
-      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     Tweak_N0Size:
-      typeIdx: 5
-      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-    Tweak_N0Transform:
-      typeIdx: 7
-      value:
-        0: {x: 1.000000, y: 0.000000, z: 0.000000}
-        1: {x: 0.000000, y: 1.000000, z: 0.000000}
-        2: {x: 0.000000, y: 0.000000, z: 1.000000}
-    Tweak_N0UvMinMax:
       typeIdx: 5
       value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     Tweak_N16:
@@ -344,31 +329,7 @@
           borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
           mipmaps: true
         type: Texture2D
-    Tweak_N16BorderColor:
-      typeIdx: 5
-      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-    Tweak_N16Dims:
-      typeIdx: 5
-      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     Tweak_N16Size:
       typeIdx: 5
       value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-    Tweak_N16Transform:
-      typeIdx: 7
-      value:
-        0: {x: 1.000000, y: 0.000000, z: 0.000000}
-        1: {x: 0.000000, y: 1.000000, z: 0.000000}
-        2: {x: 0.000000, y: 0.000000, z: 1.000000}
-    Tweak_N16UvMinMax:
-      typeIdx: 5
-      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-    overrideTimeDelta:
-      typeIdx: 1
-      value: 0.000000
-    overrideTimeElapsed:
-      typeIdx: 1
-      value: 0.000000
-    overrideTimeEnabled:
-      typeIdx: 0
-      value: 0
   Pass: !<reference> 5bb82cc2-c907-4cf3-b346-20814c594aac
