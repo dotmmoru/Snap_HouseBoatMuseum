@@ -653,13 +653,13 @@
     - !<reference> 376ca60a-4070-4f5c-9ebd-420ac4caf58d
     - !<reference> cc1a53fa-6c57-4dc1-bffa-a74f531a1ba4
     - !<reference> 0073cdc4-2b72-44e4-a77f-3cb148758030
-    - !<reference> 692a110f-2cbe-4c1e-bdb8-cfaeec46c069
-    - !<reference> f72cbdce-ba85-4faa-9655-c599a52c6ca9
-    - !<reference> 50d8d932-92b8-409e-9d94-4ac711cdde21
+    - !<reference> 00000000-0000-0000-0000-000000000000
+    - !<reference> 00000000-0000-0000-0000-000000000000
+    - !<reference> 00000000-0000-0000-0000-000000000000
     - !<reference> 6d5ce9ea-6153-4bda-a3fb-5f07e1e82992
-    - !<reference> adf9fa57-fd56-4e88-95f0-896ff4f904a0
-    - !<reference> a0bd7abe-2151-40bf-97b8-83e3510973ae
-    - !<reference> e92970b4-04c0-4002-9d59-afe998bfb256
+    - !<reference> 00000000-0000-0000-0000-000000000000
+    - !<reference> 00000000-0000-0000-0000-000000000000
+    - !<reference> 00000000-0000-0000-0000-000000000000
     - !<reference> c458af9c-ae4b-4951-af5d-04991f792004
     - !<reference> 597d4539-faef-4748-aaa0-12f0210d4a52
     - !<reference> 80e9484b-41d7-46f5-b269-6bf4893663c6
@@ -1864,7 +1864,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> 0c4d58d6-4354-471c-9357-f5e745d7ef73
+    - !<reference> e6583f2b-e416-43bf-8888-bee9cc0f09a1
   Mesh: !<reference> 404fcfd4-578c-4b49-bba9-bdf6696a49fb
   Skin: !<reference> 00000000-0000-0000-0000-000000000000
   BlendShapesEnabled: true
@@ -3515,13 +3515,32 @@
   ScriptInputs:
     "":
       distanceHint: !<reference.SceneObject> 0310d249-5819-4df7-ad63-98de997386c4
-      track: !<reference.ObjectTracking3D> 1d44abe4-3710-47d3-9cac-76868f4a6b94
+      bodytrack0: !<reference.ObjectTracking3D> 1d44abe4-3710-47d3-9cac-76868f4a6b94
+      bodytrack1: !<reference.ObjectTracking3D> cbc73ab3-4b59-42d3-b9b3-b215f19398c4
       head0: !<reference.SceneObject> 07362944-d5f4-4216-9af3-0b73f23e181b
       head1: !<reference.SceneObject> 87db937f-5f22-4c27-81c6-e9fd8904ec43
       manSuitTween: !<reference.SceneObject> d0269ff5-40d3-4d64-9787-015d6adf5c1f
       womanSuitTween: !<reference.SceneObject> ed739bad-3e86-48d6-861d-047de51f4190
       suitMat: !<reference.Material> a12554c5-9f26-4f48-9752-e15482fd3b86
       distThreshold: !<float> 40.000000
+      bodyBones0: !<reference.SceneObject[]>
+        - !<reference> 692a110f-2cbe-4c1e-bdb8-cfaeec46c069
+        - !<reference> f72cbdce-ba85-4faa-9655-c599a52c6ca9
+        - !<reference> 50d8d932-92b8-409e-9d94-4ac711cdde21
+        - !<reference> adf9fa57-fd56-4e88-95f0-896ff4f904a0
+        - !<reference> a0bd7abe-2151-40bf-97b8-83e3510973ae
+        - !<reference> e92970b4-04c0-4002-9d59-afe998bfb256
+      bodyOccluderMat0: !<reference.Material> 0c4d58d6-4354-471c-9357-f5e745d7ef73
+      bodyBones1: !<reference.SceneObject[]>
+        - !<reference> 1ed0f8e4-29d8-4c83-bed5-bf94a8129bac
+        - !<reference> 167c60cb-65a3-4c1e-8641-0275eff41a35
+        - !<reference> f66cfa29-1746-4848-b55e-a6dfff116f50
+        - !<reference> 51fd38fb-8193-46df-a867-ad987c8ca339
+        - !<reference> 85159499-d1e9-41e0-8172-675df9992d54
+        - !<reference> 4f2251ef-878b-4948-addf-e4627e62c1d5
+      bodyOccluderMat1: !<reference.Material> e6583f2b-e416-43bf-8888-bee9cc0f09a1
+      neckMask: !<reference.Texture> 6f5d3612-d2d8-428c-a1cd-f4818c54d5f4
+      bodyMask: !<reference.Texture> b0b92885-2680-46b7-bbe5-91a11b8a42f2
   ScriptTypes:
     "":
       {}

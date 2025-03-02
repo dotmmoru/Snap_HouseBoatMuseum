@@ -1,5 +1,6 @@
 // @input SceneObject distanceHint
-// @input Component.ObjectTracking3D track
+// @input Component.ObjectTracking3D bodytrack0
+// @input Component.ObjectTracking3D bodytrack1
 // @input SceneObject head0
 // @input SceneObject head1
 // @input SceneObject manSuitTween
@@ -7,12 +8,55 @@
 // @input Asset.Material suitMat
 // @input float distThreshold
 
+// @input SceneObject[] bodyBones0
+// @input Asset.Material bodyOccluderMat0
+
+// @input SceneObject[] bodyBones1
+// @input Asset.Material bodyOccluderMat1
+
+// @input Asset.Texture neckMask
+// @input Asset.Texture bodyMask
+
 
 var isHint = false;
 var wasStartHint = false;
 
 var isTracked = false;
 var countDownstarted = false;
+var isFullBody0 = false;
+var isFullBody1 = false;
+
+var bodyBoneNames = ["LeftArm", "LeftForeArm", "LeftHand",
+    "RightArm", "RightForeArm", "RightHand"];
+
+var LArmInitRot = script.bodyBones0[0].getTransform().getLocalRotation();
+var RArmInitRot = script.bodyBones0[3].getTransform().getLocalRotation();
+
+function initHands0(){
+    script.bodyBones0[0].getTransform().setLocalRotation(quat.fromEulerAngles(1.1, 0, 0));
+    script.bodyBones0[1].getTransform().setLocalRotation(quat.fromEulerAngles(0, 0, 0));
+    script.bodyBones0[2].getTransform().setLocalRotation(quat.fromEulerAngles(0, 0, 0));
+    script.bodyBones0[3].getTransform().setLocalRotation(quat.fromEulerAngles(1.1, 0, 0));
+    script.bodyBones0[4].getTransform().setLocalRotation(quat.fromEulerAngles(0, 0, 0));
+    script.bodyBones0[5].getTransform().setLocalRotation(quat.fromEulerAngles(0, 0, 0));
+    
+    script.bodyOccluderMat0.mainPass.bodyMask = script.neckMask;
+}
+
+function initHands1(){
+    script.bodyBones1[0].getTransform().setLocalRotation(quat.fromEulerAngles(1.1, 0, 0));
+    script.bodyBones1[1].getTransform().setLocalRotation(quat.fromEulerAngles(0, 0, 0));
+    script.bodyBones1[2].getTransform().setLocalRotation(quat.fromEulerAngles(0, 0, 0));
+    script.bodyBones1[3].getTransform().setLocalRotation(quat.fromEulerAngles(1.1, 0, 0));
+    script.bodyBones1[4].getTransform().setLocalRotation(quat.fromEulerAngles(0, 0, 0));
+    script.bodyBones1[5].getTransform().setLocalRotation(quat.fromEulerAngles(0, 0, 0));
+    
+    script.bodyOccluderMat1.mainPass.bodyMask = script.neckMask;
+}
+
+initHands0();
+initHands1();
+
 
 var isFace0 = false;
 var isFace1 = false;
@@ -95,6 +139,9 @@ function Start() {
 Start();
 
 function checkTracking() {
+    
+    print(isFullBody1);    
+    
     var camPos = new vec3(0, 0, 40);
     var headDist0 = script.head0.getTransform().getWorldPosition().distance(camPos);
     var headDist1 = script.head1.getTransform().getWorldPosition().distance(camPos);
@@ -112,8 +159,8 @@ function checkTracking() {
     var rightLegKey = "RightUpLeg";
     var leftLegKey = "LeftUpLeg";
 
-    if (!isTracked && isFace0 && areFar && (script.track.isAttachmentPointTracking(rightLegKey) ||
-        script.track.isAttachmentPointTracking(leftLegKey))) {
+    if (!isTracked && isFace0 && areFar && (script.bodytrack0.isAttachmentPointTracking(rightLegKey) ||
+        script.bodytrack0.isAttachmentPointTracking(leftLegKey))) {
         isTracked = true;
         wasStartHint = true;
         if (isHint) {
@@ -131,10 +178,63 @@ function checkTracking() {
         setCostums(true);
     }
     else {
-        if (isTracked && (!areFar || (!script.track.isAttachmentPointTracking(rightLegKey) &&
-            !script.track.isAttachmentPointTracking(leftLegKey)))) {
+        if (isTracked && (!areFar || (!script.bodytrack0.isAttachmentPointTracking(rightLegKey) &&
+            !script.bodytrack0.isAttachmentPointTracking(leftLegKey)))) {
             isTracked = false;
             setCostums(false);
+        }
+    }
+    
+    
+    if (!isFullBody0 && (script.bodytrack0.isAttachmentPointTracking("LeftLeg") ||
+        script.bodytrack0.isAttachmentPointTracking("RightLeg"))){
+        isFullBody0 = true;
+        
+        script.bodyBones0[0].getTransform().setLocalRotation(LArmInitRot);
+        script.bodyBones0[3].getTransform().setLocalRotation(RArmInitRot);
+        
+        for (var i = 0; i < bodyBoneNames.length; i++){
+            script.bodytrack0.addAttachmentPoint(bodyBoneNames[i], script.bodyBones0[i]);
+        }
+        
+        script.bodyOccluderMat0.mainPass.bodyMask = script.bodyMask;
+    }
+    else {
+        if (isFullBody0 && !script.bodytrack0.isAttachmentPointTracking("LeftLeg") &&
+            !script.bodytrack0.isAttachmentPointTracking("RightLeg")){
+            isFullBody0 = false;
+            
+            for (var i = 0; i < bodyBoneNames.length; i++){
+                script.bodytrack0.removeAttachmentPoint(script.bodyBones0[i]);
+            }
+            initHands0();
+        }
+    }
+    
+    if (isFace1){
+        if (!isFullBody1 && (script.bodytrack1.isAttachmentPointTracking("LeftLeg") ||
+            script.bodytrack1.isAttachmentPointTracking("RightLeg"))){
+            isFullBody1 = true;
+        
+            script.bodyBones1[0].getTransform().setLocalRotation(LArmInitRot);
+            script.bodyBones1[3].getTransform().setLocalRotation(RArmInitRot);
+        
+            for (var i = 0; i < bodyBoneNames.length; i++){
+                script.bodytrack1.addAttachmentPoint(bodyBoneNames[i], script.bodyBones1[i]);
+            }
+        
+            script.bodyOccluderMat1.mainPass.bodyMask = script.bodyMask;
+        }
+        else {
+            if (isFullBody1 && !script.bodytrack1.isAttachmentPointTracking("LeftLeg") &&
+                !script.bodytrack1.isAttachmentPointTracking("RightLeg")){
+                isFullBody1 = false;
+            
+                for (var i = 0; i < bodyBoneNames.length; i++){
+                    script.bodytrack1.removeAttachmentPoint(script.bodyBones1[i]);
+                }
+                initHands1();
+            }
         }
     }
 }

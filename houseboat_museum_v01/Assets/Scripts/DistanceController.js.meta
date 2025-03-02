@@ -26,13 +26,20 @@
   CurrentVisibility: Editable
   MaxVisibility: Editable
   ScriptInputsHidden:
+    bodyBones0: false
+    bodyBones1: false
+    bodyMask: false
+    bodyOccluderMat0: false
+    bodyOccluderMat1: false
+    bodytrack0: false
+    bodytrack1: false
     distThreshold: false
     distanceHint: false
     head0: false
     head1: false
     manSuitTween: false
+    neckMask: false
     suitMat: false
-    track: false
     womanSuitTween: false
   ScriptTypesHidden:
     {}
@@ -47,6 +54,16 @@
       distThreshold: !<float> 0.000000
       countDown: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
       delayNextCountdown: !<float> 0.000000
+      bodyBones0: !<reference.SceneObject[]>
+        []
+      bodyOccluderMat0: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      neckMask: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      bodyMask: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      bodytrack0: !<reference.ObjectTracking3D> 00000000-0000-0000-0000-000000000000
+      bodytrack1: !<reference.ObjectTracking3D> 00000000-0000-0000-0000-000000000000
+      bodyBones1: !<reference.SceneObject[]>
+        []
+      bodyOccluderMat1: !<reference.Material> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
