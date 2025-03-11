@@ -14,10 +14,10 @@ CollapsedEntities:
       - Font/jellee_roman.ttf
       - Image.mat
       - Image.png
-      - Materials
       - Materials/Back.mat
       - Materials/Body Occluder0.mat
       - Materials/Body Occluder1.mat
+      - Materials/Hand Mask.mat
       - Materials/Man Cap Shadow.mat
       - Materials/Man Hat.mat
       - Materials/Man Suit Mask.mat
@@ -64,8 +64,8 @@ CollapsedEntities:
       - Models/woman_cap_v01.fbx/Meshes
       - Models/woman_cap_v01.fbx/Meshes/woman_cap_v01
       - Models/woman_cap_v01.fbx/woman_cap_v01
-      - RTs
       - RTs/RT Suits Masks.renderTarget
+      - RTs/Render Target Hand.renderTarget
       - RTs/Render Target Live.renderTarget
       - RTs/Render Target Splash Source.renderTarget
       - RTs/Render Target.renderTarget
@@ -85,9 +85,9 @@ CollapsedEntities:
       - Scripts/TweenManager/Tween/TweenTypes/TweenValue.js
       - Scripts/TweenManager/TweenManager.prefab
       - Scripts/splashesController.js
-      - Shaders
       - Shaders/Stand.ss_graph
       - Shaders/Water Splash.ss_graph
+      - Shaders/back.ss_graph
       - Shaders/body mask.ss_graph
       - Shaders/body occluder.ss_graph
       - Shaders/cap_shadow.ss_graph
@@ -98,7 +98,6 @@ CollapsedEntities:
       - Shaders/pbr.ss_graph
       - Shaders/segmented_hat.ss_graph
       - Shaders/suits.ss_graph
-      - Textures
       - Textures/Animated
       - Textures/Animated/Hint_Step_Back/Hint_Step_Back.lensanim
       - Textures/Animated/Hint_Step_Back/Hint_Step_Back.lensanim/Hint_Step_Back
@@ -110,6 +109,7 @@ CollapsedEntities:
       - Textures/Echopark.hdr/Diffuse
       - Textures/Echopark.hdr/Specular
       - Textures/Garment Segmentation.segmentationTexture
+      - Textures/Hand Segmentation Texture.objectTrackingTexture
       - Textures/Hints_Phone_Frame2.png
       - Textures/HouseboatMuseum Logo.png
       - Textures/HouseboatMuseum Logo_TRANSPARENT_00000.png

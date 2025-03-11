@@ -1,0 +1,14 @@
+- !<AssetImportMetadata/f4f91239-cfe3-4388-b5e4-463db981985b>
+  ImportedAssetIds:
+    Texture: !<reference> fc915540-64dc-430d-9f0e-5906a1ec2627
+  ImporterName: ObjectTrackingTextureImporter
+  PrimaryAsset: !<reference> fc915540-64dc-430d-9f0e-5906a1ec2627
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  AssetDataMap:
+    {}
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings/87e38746-41b7-47e3-864b-ca32764e55b6>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
