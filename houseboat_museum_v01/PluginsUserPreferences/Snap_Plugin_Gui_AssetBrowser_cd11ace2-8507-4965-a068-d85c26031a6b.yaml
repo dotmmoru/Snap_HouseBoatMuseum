@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 133
+    size: 137
     values:
       - 3D Body Tracking.bodyTracking3D
       - API
@@ -12,12 +12,13 @@ CollapsedEntities:
       - Device Camera Texture.deviceCameraTexture
       - Font
       - Font/jellee_roman.ttf
-      - Image.mat
       - Image.png
+      - Materials
       - Materials/Back.mat
       - Materials/Body Occluder0.mat
       - Materials/Body Occluder1.mat
       - Materials/Hand Mask.mat
+      - Materials/Logo.mat
       - Materials/Man Cap Shadow.mat
       - Materials/Man Hat.mat
       - Materials/Man Suit Mask.mat
@@ -34,6 +35,7 @@ CollapsedEntities:
       - Materials/Woman Hat.mat
       - Materials/Woman Suit Mask.mat
       - Materials/Woman Suit.mat
+      - Models
       - Models/Costume_Men_rig_v07.fbx
       - Models/Costume_Men_rig_v07.fbx/Costume_Men_rig_v07
       - Models/Costume_Men_rig_v07.fbx/Meshes
@@ -70,7 +72,6 @@ CollapsedEntities:
       - RTs/Render Target Splash Source.renderTarget
       - RTs/Render Target.renderTarget
       - Scene.scene
-      - Scripts
       - Scripts/AccessoriesController.js
       - Scripts/CountdownController.js
       - Scripts/DistanceController.js
@@ -85,6 +86,7 @@ CollapsedEntities:
       - Scripts/TweenManager/Tween/TweenTypes/TweenValue.js
       - Scripts/TweenManager/TweenManager.prefab
       - Scripts/splashesController.js
+      - Shaders
       - Shaders/Stand.ss_graph
       - Shaders/Water Splash.ss_graph
       - Shaders/back.ss_graph
@@ -92,12 +94,14 @@ CollapsedEntities:
       - Shaders/body occluder.ss_graph
       - Shaders/cap_shadow.ss_graph
       - Shaders/flat.ss_graph
+      - Shaders/handMask.ss_graph
       - Shaders/hat_shadow.ss_graph
       - Shaders/matte_shadow.ss_graph
       - Shaders/occluder.ss_graph
       - Shaders/pbr.ss_graph
       - Shaders/segmented_hat.ss_graph
       - Shaders/suits.ss_graph
+      - Textures
       - Textures/Animated
       - Textures/Animated/Hint_Step_Back/Hint_Step_Back.lensanim
       - Textures/Animated/Hint_Step_Back/Hint_Step_Back.lensanim/Hint_Step_Back

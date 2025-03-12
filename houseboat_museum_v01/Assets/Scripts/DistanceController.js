@@ -140,7 +140,7 @@ Start();
 
 function checkTracking() {
     
-    print(isFullBody1);    
+    //print(isFullBody1);    
     
     var camPos = new vec3(0, 0, 40);
     var headDist0 = script.head0.getTransform().getWorldPosition().distance(camPos);

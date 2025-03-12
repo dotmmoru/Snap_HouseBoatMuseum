@@ -14,16 +14,25 @@
   FrustumCullPad: 0.000000
   InstanceCount: 1
   Defines:
+    - ENABLE_BASE_TEX
     - NODE_13_DROPLIST_ITEM 0
     - NODE_27_DROPLIST_ITEM 0
     - NODE_49_DROPLIST_ITEM 0
     - NODE_69_DROPLIST_ITEM 0
-    - ENABLE_BASE_TEX
   BlendMode: PremultipliedAlphaAuto
   Properties:
-    Port_Default_N204:
+    Port_RangeMaxA_N032:
+      typeIdx: 1
+      value: 0.900000
+    Port_RangeMaxB_N032:
       typeIdx: 1
       value: 1.000000
+    Port_RangeMinA_N032:
+      typeIdx: 1
+      value: 0.400000
+    Port_RangeMinB_N032:
+      typeIdx: 1
+      value: 0.000000
     PreviewEnabled:
       typeIdx: 0
       value: 0
@@ -42,4 +51,4 @@
           borderColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
           mipmaps: false
         type: Texture2D
-  Pass: !<reference> 955dea19-569a-4bde-9180-c2c74fdee9b3
+  Pass: !<reference> ee4ccffb-16f7-4c97-b33e-42ff78b28dd6
