@@ -53,4 +53,7 @@
           borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
           mipmaps: false
         type: Texture2D
+    extrude:
+      typeIdx: 1
+      value: -1.000000
   Pass: !<reference> 1ea6f7ab-15b7-4764-b469-bd5921587942

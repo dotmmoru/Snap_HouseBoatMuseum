@@ -49,29 +49,29 @@ CollapsedEntities:
       - Models/man_cap_v02.fbx/Meshes
       - Models/man_cap_v02.fbx/Meshes/man_cap_v02
       - Models/man_cap_v02.fbx/man_cap_v02
-      - Models/suits_rig_v04.fbx
-      - Models/suits_rig_v04.fbx/.hidden
-      - Models/suits_rig_v04.fbx/.hidden/Costume_Female
-      - Models/suits_rig_v04.fbx/.hidden/white
-      - Models/suits_rig_v04.fbx/BaseLayer
-      - Models/suits_rig_v04.fbx/Materials
-      - Models/suits_rig_v04.fbx/Materials/Costume_Female
-      - Models/suits_rig_v04.fbx/Materials/Costume_Men
-      - Models/suits_rig_v04.fbx/Meshes
-      - Models/suits_rig_v04.fbx/Meshes/costume_female
-      - Models/suits_rig_v04.fbx/Meshes/costume_female_front_plane
-      - Models/suits_rig_v04.fbx/Meshes/costume_men
-      - Models/suits_rig_v04.fbx/suits_rig_v04
+      - Models/suits_rig_v07.fbx/.hidden
+      - Models/suits_rig_v07.fbx/.hidden/Costume_Female
+      - Models/suits_rig_v07.fbx/.hidden/white
+      - Models/suits_rig_v07.fbx/Materials
+      - Models/suits_rig_v07.fbx/Materials/Costume_Female
+      - Models/suits_rig_v07.fbx/Materials/Costume_Men
+      - Models/suits_rig_v07.fbx/Meshes
+      - Models/suits_rig_v07.fbx/Meshes/costume_female
+      - Models/suits_rig_v07.fbx/Meshes/costume_female_front_plane
+      - Models/suits_rig_v07.fbx/Meshes/costume_men
+      - Models/suits_rig_v07.fbx/suits_rig_v07
       - Models/woman_cap_v01.fbx
       - Models/woman_cap_v01.fbx/Meshes
       - Models/woman_cap_v01.fbx/Meshes/woman_cap_v01
       - Models/woman_cap_v01.fbx/woman_cap_v01
+      - RTs
       - RTs/RT Suits Masks.renderTarget
       - RTs/Render Target Hand.renderTarget
       - RTs/Render Target Live.renderTarget
       - RTs/Render Target Splash Source.renderTarget
       - RTs/Render Target.renderTarget
       - Scene.scene
+      - Scripts
       - Scripts/AccessoriesController.js
       - Scripts/CountdownController.js
       - Scripts/DistanceController.js
