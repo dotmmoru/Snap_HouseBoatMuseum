@@ -1,10 +1,10 @@
 - !<AssetImportMetadata/6faa05e1-f847-4f52-aafc-be270e61569a>
   ImportedAssetIds:
-    5246aa5a2bdcc35f: !<reference> 4f27d4d8-0fd4-4dcf-9415-e68d2acfcbde
-    7a0dd5cd69df73fa: !<reference> 6cf4f811-969e-4f74-ab23-e6741c4c77e6
+    0da0c887e6987b6b: !<reference> 673ffd95-7c0b-4bd1-8bb4-ecf548b62f9b
+    66780cf3a4dcb2b8: !<reference> 50b79bba-b8e8-4056-aa77-1abec9cba75f
+    92e28cf66401e83b: !<reference> e38891b6-aa19-4920-93cf-29c9c607e9b5
     Meshes/woman_cap_v01: !<reference> 104c94cd-ae97-40c9-bdb6-4b47512e278c
     Scene: !<reference> 5e7dd398-06b1-48cc-ac77-4582ae5ad4ec
-    ba5f01f7ee792f1c: !<reference> ba245301-0c88-4f2f-95ff-909098727937
   ImporterName: FbxImporter
   PrimaryAsset: !<reference> 5e7dd398-06b1-48cc-ac77-4582ae5ad4ec
   PackageType: LegacyPackage
@@ -13,7 +13,7 @@
     Scene: !<own> 738e90a6-8064-4006-a724-bc9024b3c36e
   DependentFiles:
     []
-  ImporterSettings: !<FbxImporterSettings/d1fb1d2e-12f6-4fda-9c11-b4ef9e0f2aca>
+  ImporterSettings: !<FbxImporterSettings>
     UseLegacyImporter: false
     WithMaterials: true
     NamingConvention: ByCategorySanitize
@@ -29,9 +29,9 @@
     GeneratePivots: true
     TriangulateNURBS: true
     UseLegacyFbxLoader: false
-  CompressionSettings: !<ComplexCompressionSettings/893fa2d7-8efc-4fe0-9303-48e45c9b2a0d>
+  CompressionSettings: !<ComplexCompressionSettings>
     Presets:
-      None Compression: !<SingleCompressionSettings/296a69cf-874b-4c3d-89ae-368aea1aef8f>
+      None Compression: !<SingleCompressionSettings>
         CompressorName: None
         CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
     ExtensionMappings:

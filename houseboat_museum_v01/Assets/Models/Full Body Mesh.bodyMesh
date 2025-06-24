@@ -5,6 +5,7 @@
   LeftHandGeometryEnabled: true
   RightHandGeometryEnabled: true
   HeadGeometryEnabled: true
+  TrackingScope: !<reference> 00000000-0000-0000-0000-000000000000
   ExternalMesh: !<reference> 00000000-0000-0000-0000-000000000000
   ExternalMeshPose: TPose
   ExternalMeshMatchingMode: Proximity

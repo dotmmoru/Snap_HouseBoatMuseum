@@ -1,0 +1,6 @@
+- !<BodyInstanceSegmentationTexture/8144eb68-fdc7-4f9e-91ae-0b66727d3c35>
+  PackagePath: ""
+  BodyIndex: 0
+  InvertMask: false
+  RefineEdge: true
+  TrackingScope: !<reference> 00000000-0000-0000-0000-000000000000

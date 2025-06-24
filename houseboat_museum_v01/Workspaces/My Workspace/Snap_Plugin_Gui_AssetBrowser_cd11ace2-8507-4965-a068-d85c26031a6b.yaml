@@ -1,19 +1,25 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 98
+    size: 92
     values:
       - 3D Body Tracking.bodyTracking3D
       - API
       - API/HouseBoatMuseum API.js
       - Font
       - Font/jellee_roman.ttf
-      - Image.mat
+      - Hint - Tap (With Feedback)/.hidden
+      - Hint - Tap (With Feedback)/.hidden/SpriteGraphPreset.lsmat.mat
+      - Hint - Tap (With Feedback)/.hidden/SpriteGraphPreset1.lsmat.ss_graph
+      - Hint - Tap (With Feedback)/Custom Hint Resources
+      - Hint - Tap (With Feedback)/Custom Hint Resources/Resources/Textures/Animated/Hint_Tap/Hint_Tap.lensanim/Hint_Tap
+      - Hint - Tap (With Feedback)/Custom Hint Resources/Resources/Textures/Animated/Hint_Tap/Hint_Tap.lensanim/LPD_87_Hint_TAP_new.png
+      - Hint - Tap (With Feedback)/Custom Hint Resources/Scripts
+      - Hint - Tap (With Feedback)/Custom Hint Resources/Scripts/CustomHint.js
+      - Hint - Tap (With Feedback)/Hint - Tap (With Feedback).prefab
       - Image.png
       - Materials
       - Materials/Back.mat
-      - Materials/Body Occluder.mat
-      - Materials/Canoe.mat
       - Materials/Man Cap Shadow.mat
       - Materials/Man Hat.mat
       - Materials/Man Suit Mask.mat
@@ -38,19 +44,6 @@ CollapsedEntities:
       - Models/man_cap_v02.fbx/Meshes
       - Models/man_cap_v02.fbx/Meshes/man_cap_v02
       - Models/man_cap_v02.fbx/man_cap_v02
-      - Models/suits_rig_v04.fbx
-      - Models/suits_rig_v04.fbx/.hidden
-      - Models/suits_rig_v04.fbx/.hidden/Costume_Female
-      - Models/suits_rig_v04.fbx/.hidden/white
-      - Models/suits_rig_v04.fbx/BaseLayer
-      - Models/suits_rig_v04.fbx/Materials
-      - Models/suits_rig_v04.fbx/Materials/Costume_Female
-      - Models/suits_rig_v04.fbx/Materials/Costume_Men
-      - Models/suits_rig_v04.fbx/Meshes
-      - Models/suits_rig_v04.fbx/Meshes/costume_female
-      - Models/suits_rig_v04.fbx/Meshes/costume_female_front_plane
-      - Models/suits_rig_v04.fbx/Meshes/costume_men
-      - Models/suits_rig_v04.fbx/suits_rig_v04
       - Models/woman_cap_v01.fbx
       - Models/woman_cap_v01.fbx/Meshes
       - Models/woman_cap_v01.fbx/Meshes/woman_cap_v01
@@ -59,11 +52,12 @@ CollapsedEntities:
       - RTs/RT Suits Masks.renderTarget
       - RTs/Render Target Live.renderTarget
       - RTs/Render Target Splash Source.renderTarget
-      - Scripts
       - Scripts/AccessoriesController.js
       - Scripts/CountdownController.js
       - Scripts/DistanceController.js
       - Scripts/HatController.js
+      - Scripts/Tap Hint.js
+      - Scripts/TweenManager
       - Scripts/splashesController.js
       - Shaders
       - Shaders/Water Splash.ss_graph
@@ -76,10 +70,12 @@ CollapsedEntities:
       - Shaders/occluder.ss_graph
       - Shaders/pbr.ss_graph
       - Shaders/suits.ss_graph
+      - Textures
       - Textures/Animated
       - Textures/Animated/Hint_Step_Back/Hint_Step_Back.lensanim
       - Textures/Animated/Hint_Step_Back/Hint_Step_Back.lensanim/Hint_Step_Back
       - Textures/Animated/Hint_Step_Back/Hint_Step_Back.lensanim/Hint_Step_Back.png
+      - Textures/Body Instance Segmentation Texture.bodyInstanceSegmentationTexture
       - Textures/Costume_Female_base_v02.png
       - Textures/Costume_Female_nrm_v02.jpg
       - Textures/Costume_Female_parapms_v01.jpg
@@ -88,9 +84,7 @@ CollapsedEntities:
       - Textures/HouseboatMuseum Logo.png
       - Textures/Screen Texture.screenTexture
       - Textures/Segmentation Body.segmentationTexture
-      - Textures/back_v02.jpg
       - Textures/body_mask_v02.png
-      - Textures/canoe_02.png
       - Textures/hat_man_base_v01.jpg
       - Textures/hat_man_nrm_v01.jpg
       - Textures/hat_man_params_v01.jpg

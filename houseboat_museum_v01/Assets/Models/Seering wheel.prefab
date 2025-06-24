@@ -86,9 +86,9 @@
     - !<reference> cb765406-1dbb-4701-abf9-4b65c51e2b90
   FlipX: false
   FlipY: false
+  RotationAngle: 0
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
-  RotationAngle: 0
 - !<ScreenTransform/c40c289b-f3cf-43a5-ae1b-89b8fcd6dccb>
   PrefabRemaps:
     []
@@ -194,6 +194,6 @@
     - !<reference> 97878eee-3b4c-4948-9205-54715a640333
   FlipX: false
   FlipY: false
+  RotationAngle: 0
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
-  RotationAngle: 0

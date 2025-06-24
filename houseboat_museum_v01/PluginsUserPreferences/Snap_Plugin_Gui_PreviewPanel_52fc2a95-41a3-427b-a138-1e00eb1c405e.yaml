@@ -16,7 +16,7 @@ frameRate:
   options: 4
 frontCameraMultimedia:
   type: string
-  value: PreviewResources.bundle/Video/Idle/Idle.mp4
+  value: PreviewResources.bundle/Video/Idle/Idle Person 2.mp4
   options: 4
 fullscreenSpectaclesSimulation:
   type: bool
@@ -28,7 +28,7 @@ lastPosition:
   options: 4
 lastRotation:
   type: vec3
-  value: {x: 0.000000, y: 0.000000, z: 0.000000}
+  value: {x: 0.000000, y: -0.000000, z: 0.000000}
   options: 4
 mirrorHorizontally:
   type: bool
@@ -36,7 +36,11 @@ mirrorHorizontally:
   options: 4
 previewSource:
   type: string
-  value: PreviewResources.bundle/Video/Idle/Idle.mp4
+  value: PreviewResources.bundle/Video/Idle/Idle Person 2.mp4
+  options: 4
+previewTarget:
+  type: int
+  value: 0
   options: 4
 previewType:
   type: string
@@ -56,9 +60,13 @@ resolutionScale:
   options: 4
 simulatedDevice:
   type: string
-  value: iPhone 14 Pro Max
+  value: No Simulation
   options: 4
 stereoEye:
   type: string
   value: Center
+  options: 4
+uiMode:
+  type: int
+  value: 0
   options: 4

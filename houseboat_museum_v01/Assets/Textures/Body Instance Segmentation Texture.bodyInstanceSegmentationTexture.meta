@@ -1,0 +1,16 @@
+- !<AssetImportMetadata/4d01a585-a479-422b-8fb5-75ee74b72ea9>
+  ImportedAssetIds:
+    Texture: !<reference> 8144eb68-fdc7-4f9e-91ae-0b66727d3c35
+  ImporterName: BodyInstanceSegmentationTextureImporter
+  PrimaryAsset: !<reference> 8144eb68-fdc7-4f9e-91ae-0b66727d3c35
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    {}
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
