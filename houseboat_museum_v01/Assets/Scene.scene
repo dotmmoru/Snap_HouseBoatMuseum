@@ -2947,7 +2947,7 @@
   Enabled: true
   Layers: 16
   LocalTransform:
-    position: {x: -0.096771, y: -0.750613, z: -41.000000}
+    position: {x: -0.096775, y: -0.750613, z: -80.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
     scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
@@ -3554,7 +3554,7 @@
       startSize: 100
       endSize: 200
       interval: !<float> 1.000000
-      startColor: !<Vec4> {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      startColor: !<Vec4> {x: 1.000000, y: 1.000000, z: 1.000000, w: 0.000000}
       endColor: !<Vec4> {x: 1.000000, y: 1.000000, z: 1.000000, w: 0.000000}
       useBehavior: false
       onCompleteTrigger: ON_COMPLETE
@@ -3705,7 +3705,7 @@
       manSuitTween: !<reference.SceneObject> d0269ff5-40d3-4d64-9787-015d6adf5c1f
       womanSuitTween: !<reference.SceneObject> ed739bad-3e86-48d6-861d-047de51f4190
       suitMat: !<reference.Material> a12554c5-9f26-4f48-9752-e15482fd3b86
-      distThreshold: 0.500000
+      distThreshold: 0.100000
       bodyBones0: !<reference.SceneObject[]>
         - !<reference> 17f6c408-55c6-476c-a564-89b3ab603d83
         - !<reference> f7fe7aa1-a458-49d0-83bb-4da854f4caa2
