@@ -1,8 +1,8 @@
-- !<Material/296334d0-0e8a-456b-a269-20b7d9be9e78>
+- !<Material/f9cc7e44-37a4-49de-aa81-0abe96704b59>
   PackagePath: ""
   PassesInfo:
-    - !<own> fbf20394-4d09-40d8-8739-8a8c2d94fb11
-- !<PassInfo/fbf20394-4d09-40d8-8739-8a8c2d94fb11>
+    - !<own> 8af02fdb-1ae3-4caa-9050-4fb4d9cadb1e
+- !<PassInfo/8af02fdb-1ae3-4caa-9050-4fb4d9cadb1e>
   CachedProperties:
     - Port_Depth_N004:
         typeIdx: 1
@@ -35,7 +35,7 @@
   DepthTest: true
   DepthFunction: LessEqual
   TwoSided: false
-  ColorMask: {x: true, y: false, z: false, w: false}
+  ColorMask: {x: false, y: true, z: false, w: false}
   CullMode: Back
   PolygonOffset: {x: 0.000000, y: 0.000000}
   FrustumCulling: Auto
@@ -50,8 +50,8 @@
       value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     Port_Input1_N021:
       typeIdx: 1
-      value: 0.020000
+      value: 0.050000
     PreviewEnabled:
       typeIdx: 0
       value: 0
-  Pass: !<reference> 098d5220-f46b-417a-b054-662955346b42
+  Pass: !<reference> e62c820b-cc53-4285-b485-cbf8e1619989

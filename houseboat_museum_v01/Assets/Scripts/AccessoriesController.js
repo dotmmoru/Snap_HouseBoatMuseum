@@ -12,6 +12,8 @@
 // @input SceneObject[] womansuitObjs0
 // @input SceneObject[] womansuitObjs1
 
+
+
 var isFace0 = false;
 var isFace1 = false;
 
@@ -67,22 +69,6 @@ onFaceFound1.bind(function(){
     
     shadowMesh0.enabled = true;
     shadowMesh1.enabled = true;
-    
-    for (var i = 0; i < script.mansuitObjs0.length; i++){
-        script.mansuitObjs0[i].enabled = true;
-    }
-    
-    for (var i = 0; i < script.mansuitObjs1.length; i++){
-        script.mansuitObjs1[i].enabled = true;
-    }
-    
-    for (var i = 0; i < script.womansuitObjs0.length; i++){
-        script.womansuitObjs0[i].enabled = true;
-    }
-    
-    for (var i = 0; i < script.womansuitObjs1.length; i++){
-        script.womansuitObjs1[i].enabled = true;
-    }
 });
 
 var onFaceLost1 = script.createEvent("FaceLostEvent");
@@ -113,6 +99,8 @@ function hatsBind(){
     var headRot1 = script.headPin1.getTransform().getWorldRotation();
     
     if (isFace1){
+
+
         script.manCap.getTransform().setWorldPosition(state ? headPos0 : headPos1);
         script.manCap.getTransform().setWorldRotation(state ? headRot0 : headRot1);
         
@@ -141,6 +129,7 @@ function hatsBind(){
     }
     else {
         if (isFace0){
+
             script.manCap.getTransform().setWorldPosition(headPos0);
             script.manCap.getTransform().setWorldRotation(headRot0);
             
@@ -170,4 +159,5 @@ onUpdate.bind(hatsBind);
 var onTap = script.createEvent("TapEvent");
 onTap.bind(function(){
     state = !state;
+    print("TAP");
 });

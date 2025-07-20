@@ -1,0 +1,146 @@
+- !<AssetImportMetadata/044766c1-65fb-414c-99df-5944b697018c>
+  ImportedAssetIds:
+    0be43048a70de611: !<reference> 214a6bf8-faa4-4a9b-ba8b-10044c544348
+    228cf7b8bdb36b39: !<reference> 45274b8c-e83e-44cf-ba44-7951923ebb95
+    7a0dd5cd69df73fa: !<reference> f7814227-7b6c-4068-ac8d-02924c3898e5
+    Meshes/costume_female: !<reference> 7646772d-f8e6-409c-b42c-8716e9c3b230
+    Meshes/costume_men: !<reference> 54c42dff-e47c-465b-a178-70ec578a56f1
+    Scene: !<reference> e1c189fa-d642-4448-a8a4-6b452a590aa1
+    a6e77c67162e1095: !<reference> 4dbbb831-a2a1-4538-a826-4cea95b489c3
+    f6d5b5ed764c506e: !<reference> 0b19b890-f059-4139-a8d6-cbe2768ab4ac
+  ImporterName: FbxImporter
+  PrimaryAsset: !<reference> e1c189fa-d642-4448-a8a4-6b452a590aa1
+  PackageType: LegacyPackage
+  PackagePolicy: CanBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    Scene: !<own> 4ae9e076-4573-40d1-819e-9d87086ba301
+  DependentFiles:
+    []
+  ImporterSettings: !<FbxImporterSettings>
+    UseLegacyImporter: false
+    WithMaterials: true
+    NamingConvention: ByCategorySanitizeV2
+    PersistentIdGenerationAlgorithm: DescriptorBased
+    AnimationCurveOptimization: true
+    CustomAnimationSamplingRate: 30.000000
+    ImportVertexColor: true
+    ImportTangentsAndBinormals: true
+    RegenerateTangentsAndBinormals: false
+    RegenerateNormalsForSkinnedMeshes: true
+    ImportBlendShapeAnimation: true
+    ImportVertexAnimation: true
+    GeneratePivots: true
+    TriangulateNURBS: true
+    UseLegacyFbxLoader: false
+  CompressionSettings: !<ComplexCompressionSettings>
+    Presets:
+      None Compression: !<SingleCompressionSettings>
+        CompressorName: None
+        CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+    ExtensionMappings:
+      mesh: None Compression
+    Overrides:
+      {}
+- !<ObjectPrefabAssetData/4ae9e076-4573-40d1-819e-9d87086ba301>
+  SourceRemaps:
+    - 0b19b890-f059-4139-a8d6-cbe2768ab4ac: 659a96ae-4c29-45e1-b536-4e143fbcde1e
+    - 214a6bf8-faa4-4a9b-ba8b-10044c544348: 4e497a32-c0b9-496d-b022-42d6693b1d69
+    - 45274b8c-e83e-44cf-ba44-7951923ebb95: 618e617c-3ff9-48d4-b60c-4c891dd012c7
+    - 4dbbb831-a2a1-4538-a826-4cea95b489c3: e182af50-58ed-4826-94b2-a187b6f03d87
+    - e1c189fa-d642-4448-a8a4-6b452a590aa1: cebc4858-e77d-49fe-8b55-d58d99e36715
+    - f7814227-7b6c-4068-ac8d-02924c3898e5: da38d321-ed83-4d73-abc6-141f74107ac6
+  SourceState: !<own> cebc4858-e77d-49fe-8b55-d58d99e36715
+- !<SceneObject/4e497a32-c0b9-496d-b022-42d6693b1d69>
+  PrefabRemaps:
+    []
+  Name: costume_female
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 659a96ae-4c29-45e1-b536-4e143fbcde1e
+- !<RenderMeshVisual/618e617c-3ff9-48d4-b60c-4c891dd012c7>
+  PrefabRemaps:
+    []
+  Name: component_1
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    []
+  Mesh: !<reference> 54c42dff-e47c-465b-a178-70ec578a56f1
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<RenderMeshVisual/659a96ae-4c29-45e1-b536-4e143fbcde1e>
+  PrefabRemaps:
+    []
+  Name: component_0
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    []
+  Mesh: !<reference> 7646772d-f8e6-409c-b42c-8716e9c3b230
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<ObjectPrefab/cebc4858-e77d-49fe-8b55-d58d99e36715>
+  PackagePath: ""
+  objects:
+    - !<own> da38d321-ed83-4d73-abc6-141f74107ac6
+  LazyLoading: false
+  RetainAssets: true
+- !<SceneObject/da38d321-ed83-4d73-abc6-141f74107ac6>
+  PrefabRemaps:
+    []
+  Name: suits_rig_v08
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    - !<own> 4e497a32-c0b9-496d-b022-42d6693b1d69
+    - !<own> e182af50-58ed-4826-94b2-a187b6f03d87
+  Components:
+    []
+- !<SceneObject/e182af50-58ed-4826-94b2-a187b6f03d87>
+  PrefabRemaps:
+    []
+  Name: costume_men
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 618e617c-3ff9-48d4-b60c-4c891dd012c7

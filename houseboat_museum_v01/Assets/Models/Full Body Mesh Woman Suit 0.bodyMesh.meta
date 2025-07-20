@@ -1,8 +1,8 @@
-- !<AssetImportMetadata/4d01a585-a479-422b-8fb5-75ee74b72ea9>
+- !<AssetImportMetadata/c1dd8ece-8349-4ddc-8af9-846b70925c4b>
   ImportedAssetIds:
-    Texture: !<reference> 8144eb68-fdc7-4f9e-91ae-0b66727d3c35
-  ImporterName: BodyInstanceSegmentationTextureImporter
-  PrimaryAsset: !<reference> 8144eb68-fdc7-4f9e-91ae-0b66727d3c35
+    BodyMesh: !<reference> 4f0241f5-6c96-465b-a9d8-f541e8fc0e57
+  ImporterName: BodyMeshImporter
+  PrimaryAsset: !<reference> 4f0241f5-6c96-465b-a9d8-f541e8fc0e57
   PackageType: NotAPackage
   PackagePolicy: CannotBeUnpacked
   ExtraData:

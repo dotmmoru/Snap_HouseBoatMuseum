@@ -26,8 +26,6 @@
   CurrentVisibility: Editable
   MaxVisibility: Editable
   ScriptInputsHidden:
-    bodyBones0: false
-    bodyBones1: false
     bodyMask: false
     bodyOccluderMat0: false
     bodyOccluderMat1: false

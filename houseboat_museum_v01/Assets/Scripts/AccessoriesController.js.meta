@@ -57,6 +57,18 @@
         []
       womansuitObjs1: !<reference.SceneObject[]>
         []
+      manSuitBody: !<RequiredType.BodyRenderObjectProvider> 00000000-0000-0000-0000-000000000000
+      womanSuitBody: !<RequiredType.BodyRenderObjectProvider> 00000000-0000-0000-0000-000000000000
+      suitMesh0: !<reference.RenderMeshVisual> 00000000-0000-0000-0000-000000000000
+      bodySuitMan: !<reference.RenderMesh> 00000000-0000-0000-0000-000000000000
+      bodySuitWoman: !<reference.RenderMesh> 00000000-0000-0000-0000-000000000000
+      suitMaskMesh0: !<reference.RenderMeshVisual> 00000000-0000-0000-0000-000000000000
+      manSuitMat: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      womanSuitMat: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      manSuitMaskMat: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      womanSuitMaskMat: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      suitMesh1: !<reference.RenderMeshVisual> 00000000-0000-0000-0000-000000000000
+      suitMaskMesh1: !<reference.RenderMeshVisual> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
