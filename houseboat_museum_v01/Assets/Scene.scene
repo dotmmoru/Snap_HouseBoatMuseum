@@ -14,7 +14,6 @@
     - !<own> 3f85cfaf-5b18-4884-a498-ce902a96c6e7
     - !<own> 4a647ab7-6d22-4195-a800-825d4defd95c
     - !<own> c66c2438-905d-4058-b5a0-e9487892fcbb
-    - !<own> e08179e1-6a52-4604-bbcb-b05ef868304a
     - !<own> 1865d532-e079-4b7e-98d4-2cd44aa3feab
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
@@ -1104,7 +1103,7 @@
     []
   Name: phone frame
   Enabled: true
-  Layers: 16
+  Layers: 1048576
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -1195,18 +1194,6 @@
   Components:
     - !<own> 30905d62-37b2-4cfe-b823-e1a0477c9b95
     - !<own> 457646cb-a482-48ee-bdfd-0bb62fdfd852
-- !<Canvas/5429765e-48f4-4ab8-b195-a1934ca9cdea>
-  PrefabRemaps:
-    []
-  Name: Canvas
-  Enabled: true
-  UnitType: Points
-  SortingType: Hierarchy
-  WorldSpaceRect:
-    left: -15.000000
-    bottom: -20.000000
-    right: 15.000000
-    top: 20.000000
 - !<ScreenTransform/56d7aab2-370e-438c-834c-71c6d0415008>
   PrefabRemaps:
     []
@@ -2221,7 +2208,7 @@
     []
   Name: Countdown
   Enabled: true
-  Layers: 16
+  Layers: 1048576
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: -1.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -2271,7 +2258,7 @@
     []
   Name: Full Frame Region
   Enabled: true
-  Layers: 16
+  Layers: 1048576
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -2418,7 +2405,7 @@
     []
   Name: Tap
   Enabled: true
-  Layers: 16
+  Layers: 1048576
   LocalTransform:
     position: {x: -0.096775, y: -0.750613, z: -80.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
@@ -2686,36 +2673,6 @@
     bottom: 0.000000
     right: 0.000000
     top: 0.000000
-- !<Camera/b1e64cf2-e3ca-453a-8329-9443b156c355>
-  PrefabRemaps:
-    []
-  Name: Camera
-  Enabled: true
-  renderLayer: 16
-  MipmapLevel: 0
-  RenderOrder: 0
-  Size: 20.000000
-  Near: -1.000000
-  Far: 200.000000
-  Fov: 63.541019
-  ClearColor: !<CameraClearColor>
-    Mode: None
-    Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
-    InputTexture: !<reference> 00000000-0000-0000-0000-000000000000
-  ClearDepth: !<CameraClearDepth>
-    Mode: Value
-    Value: 1.000000
-    InputTexture: !<reference> 00000000-0000-0000-0000-000000000000
-  Aspect: 1.000000
-  CameraType: Orthographic
-  DepthMode: Regular
-  DeviceProperty: All
-  AspectPreset: Custom
-  OitLayers: NoOit
-  RenderTarget: !<reference> a68496e2-42bd-4eee-a40b-b2e33904672b
-  DepthStencilRenderTarget: !<reference> 00000000-0000-0000-0000-000000000000
-  MaskTexture: !<reference> 00000000-0000-0000-0000-000000000000
-  RayTracing: !<reference> 00000000-0000-0000-0000-000000000000
 - !<ScriptComponent/b5719a1b-90cd-44cd-b2e0-3417fc7dd07a>
   PrefabRemaps:
     []
@@ -3168,6 +3125,7 @@
     - !<own> 90b5c0cb-675d-4f90-9dcb-334b7c4e5eed
     - !<own> bca58303-0702-4bf0-a01e-6e71ab5d7890
     - !<own> d9f30309-3f7b-4687-9d72-b2215afbd253
+    - !<own> 900bdd2d-e11f-4f6a-ab9a-87f403856b64
   Components:
     - !<own> 0599a39f-a722-4ba9-98b3-6fbb188fc251
     - !<own> c3d6dff5-4bc8-44c0-8708-cd6a47b5c0f0
@@ -3613,22 +3571,6 @@
   Components:
     - !<own> 82cbd111-4c33-4a21-b582-9d507f3578d9
     - !<own> 62510e9c-ee15-4805-9c77-a8284f3e7096
-- !<SceneObject/e08179e1-6a52-4604-bbcb-b05ef868304a>
-  PrefabRemaps:
-    []
-  Name: Camera Live
-  Enabled: true
-  Layers: 1
-  LocalTransform:
-    position: {x: -120.000000, y: 0.000000, z: 40.000000}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
-  Children:
-    - !<own> 900bdd2d-e11f-4f6a-ab9a-87f403856b64
-  Components:
-    - !<own> b1e64cf2-e3ca-453a-8329-9443b156c355
-    - !<own> 5429765e-48f4-4ab8-b195-a1934ca9cdea
 - !<RenderMeshVisual/e097deee-c267-480c-aae1-86d9c23fd802>
   PrefabRemaps:
     []

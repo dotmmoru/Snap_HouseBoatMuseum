@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 94
+    size: 100
     values:
       - 3D Body Tracking.bodyTracking3D
       - API
@@ -17,6 +17,7 @@ CollapsedEntities:
       - Hint - Tap (With Feedback)/Custom Hint Resources/Scripts
       - Hint - Tap (With Feedback)/Custom Hint Resources/Scripts/CustomHint.js
       - Hint - Tap (With Feedback)/Hint - Tap (With Feedback).prefab
+      - Materials
       - Materials/Back.mat
       - Materials/Body Occluder 0.mat
       - Materials/Body Occluder 1.mat
@@ -35,6 +36,7 @@ CollapsedEntities:
       - Materials/Woman Hat.mat
       - Materials/Woman Suit Mask.mat
       - Materials/Woman Suit.mat
+      - Models
       - Models/Full Body Mesh 0.bodyMesh
       - Models/Full Body Mesh Man Suit 0.bodyMesh
       - Models/Full Body Mesh Man Suit 1.bodyMesh
@@ -52,9 +54,11 @@ CollapsedEntities:
       - Models/woman_cap_v01.fbx/Meshes
       - Models/woman_cap_v01.fbx/Meshes/woman_cap_v01
       - Models/woman_cap_v01.fbx/woman_cap_v01
+      - RTs
       - RTs/RT Suits Masks.renderTarget
       - RTs/Render Target Live.renderTarget
       - RTs/Render Target Splash Source.renderTarget
+      - Scripts
       - Scripts/AccessoriesController.js
       - Scripts/CountdownController.js
       - Scripts/DistanceController.js
@@ -62,6 +66,7 @@ CollapsedEntities:
       - Scripts/Tap Hint.js
       - Scripts/TweenManager
       - Scripts/splashesController.js
+      - Shaders
       - Shaders/Water Splash.ss_graph
       - Shaders/body mask.ss_graph
       - Shaders/body occluder 2.ss_graph
@@ -75,6 +80,7 @@ CollapsedEntities:
       - Shaders/pbr.ss_graph
       - Shaders/suit mask.ss_graph
       - Shaders/woman suit.ss_graph
+      - Textures
       - Textures/Animated
       - Textures/Animated/Hint_Step_Back/Hint_Step_Back.lensanim
       - Textures/Animated/Hint_Step_Back/Hint_Step_Back.lensanim/Hint_Step_Back

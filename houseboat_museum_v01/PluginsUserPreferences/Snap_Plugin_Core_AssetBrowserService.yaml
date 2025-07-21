@@ -1,5 +1,5 @@
 ExternalSources:
-  type: "std::map<class Es::Uuid,class Es::Path,struct std::less<class Es::Uuid>,class std::allocator<struct std::pair<class Es::Uuid const ,class Es::Path> > >"
+  type: "std::map<Es::Uuid, Es::Path>"
   value:
     - 044766c1-65fb-414c-99df-5944b697018c: "D:/Projects/WhoAR/HouseboatMuseum/models/suits/suits_rig_v08.fbx"
     - 0756c26f-eab0-4377-a6b7-e3fbb50df98f: "D:/Projects/WhoAR/Dutch_Clothes/textures/man_hat/out/hat_man_params_v01.jpg"

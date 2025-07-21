@@ -1,13 +1,13 @@
 - !<AssetImportMetadata/044766c1-65fb-414c-99df-5944b697018c>
   ImportedAssetIds:
-    0be43048a70de611: !<reference> 214a6bf8-faa4-4a9b-ba8b-10044c544348
-    228cf7b8bdb36b39: !<reference> 45274b8c-e83e-44cf-ba44-7951923ebb95
-    7a0dd5cd69df73fa: !<reference> f7814227-7b6c-4068-ac8d-02924c3898e5
+    1aef75c968f0503e: !<reference> f71900e5-dede-4afb-8721-85e117d1ee78
+    366f65fce29ef406: !<reference> 161272b4-132b-4fb8-93d8-433c42b537a8
+    4ae86d93e34f94d4: !<reference> 7c70091a-9c49-468b-a6eb-edabe58cf299
+    66780cf3a4dcb2b8: !<reference> be11d5cc-e830-45cb-9aa2-048f35babd8f
+    8d27db300685d201: !<reference> ae8a68e0-dab8-4102-96db-492c1d7ca4c0
     Meshes/costume_female: !<reference> 7646772d-f8e6-409c-b42c-8716e9c3b230
     Meshes/costume_men: !<reference> 54c42dff-e47c-465b-a178-70ec578a56f1
     Scene: !<reference> e1c189fa-d642-4448-a8a4-6b452a590aa1
-    a6e77c67162e1095: !<reference> 4dbbb831-a2a1-4538-a826-4cea95b489c3
-    f6d5b5ed764c506e: !<reference> 0b19b890-f059-4139-a8d6-cbe2768ab4ac
   ImporterName: FbxImporter
   PrimaryAsset: !<reference> e1c189fa-d642-4448-a8a4-6b452a590aa1
   PackageType: LegacyPackage
